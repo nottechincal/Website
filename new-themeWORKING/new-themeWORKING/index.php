@@ -456,26 +456,26 @@ if (function_exists('get_template_directory_uri')) {
                 <article class="card">
                     <h3>How to Spot Tech Support Scams</h3>
                     <p>Protect yourself from fake calls and phishing emails targeting Australians.</p>
-                    <a href="<?php echo $base_path; ?>/blog-scam-protection.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <a href="/blog-scam-protection/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="card">
                     <h3>Password Security Made Simple</h3>
                     <p>Easy steps to create strong passwords and keep your accounts safe.</p>
-                    <a href="<?php echo $base_path; ?>/blog-password-security.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <a href="/blog-password-security/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="card">
                     <h3>Monthly Computer Maintenance</h3>
                     <p>15 minutes a month to avoid costly repairs and keep your PC running fast.</p>
-                    <a href="<?php echo $base_path; ?>/blog-computer-maintenance.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <a href="/blog-computer-maintenance/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
             </div>
             <div class="container" style="text-align: center; margin-top: 1.5rem;">
                 <p style="color: var(--muted); margin-bottom: 1rem;">More helpful guides:</p>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                    <a href="<?php echo $base_path; ?>/blog-home-network.php" class="text-link">WiFi Optimisation</a>
-                    <a href="<?php echo $base_path; ?>/blog-malware-protection.php" class="text-link">Malware Protection</a>
-                    <a href="<?php echo $base_path; ?>/blog-hardware-upgrades.php" class="text-link">Hardware Upgrades</a>
-                    <a href="<?php echo $base_path; ?>/blog-cloud-services.php" class="text-link">Cloud Services</a>
+                    <a href="/blog-home-network/" class="text-link">WiFi Optimisation</a>
+                    <a href="/blog-malware-protection/" class="text-link">Malware Protection</a>
+                    <a href="/blog-hardware-upgrades/" class="text-link">Hardware Upgrades</a>
+                    <a href="/blog-cloud-services/" class="text-link">Cloud Services</a>
                 </div>
             </div>
         </section>
@@ -673,20 +673,20 @@ if (function_exists('get_template_directory_uri')) {
                 <h3>Quick links</h3>
                 <ul>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="<?php echo $base_path; ?>/blog.php">Blog & Tips</a></li>
+                    <li><a href="/blog/">Blog & Tips</a></li>
                     <li><a href="#faq">FAQ</a></li>
-                    <li><a href="<?php echo $base_path; ?>/about.php">About Us</a></li>
-                    <li><a href="<?php echo $base_path; ?>/service-areas.php">All Service Areas</a></li>
+                    <li><a href="/about/">About Us</a></li>
+                    <li><a href="/service-areas/">All Service Areas</a></li>
                 </ul>
             </div>
             <div>
                 <h3>Popular Suburbs</h3>
                 <ul>
-                    <li><a href="<?php echo $base_path; ?>/computer-repairs-cranbourne.php">Cranbourne</a></li>
-                    <li><a href="<?php echo $base_path; ?>/computer-repairs-berwick.php">Berwick</a></li>
-                    <li><a href="<?php echo $base_path; ?>/computer-repairs-narre-warren.php">Narre Warren</a></li>
-                    <li><a href="<?php echo $base_path; ?>/computer-repairs-frankston.php">Frankston</a></li>
-                    <li><a href="<?php echo $base_path; ?>/computer-repairs-patterson-lakes.php">Patterson Lakes</a></li>
+                    <li><a href="/computer-repairs-cranbourne/">Cranbourne</a></li>
+                    <li><a href="/computer-repairs-berwick/">Berwick</a></li>
+                    <li><a href="/computer-repairs-narre-warren/">Narre Warren</a></li>
+                    <li><a href="/computer-repairs-frankston/">Frankston</a></li>
+                    <li><a href="/computer-repairs-patterson-lakes/">Patterson Lakes</a></li>
                 </ul>
             </div>
             <div>
@@ -699,8 +699,8 @@ if (function_exists('get_template_directory_uri')) {
             </div>
         </div>
         <div style="text-align: center; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem;">
-            <a href="<?php echo $base_path; ?>/privacy-policy.php" style="color: var(--muted); margin: 0 1rem;">Privacy Policy</a>
-            <a href="<?php echo $base_path; ?>/terms-of-service.php" style="color: var(--muted); margin: 0 1rem;">Terms of Service</a>
+            <a href="/privacy-policy/" style="color: var(--muted); margin: 0 1rem;">Privacy Policy</a>
+            <a href="/terms-of-service/" style="color: var(--muted); margin: 0 1rem;">Terms of Service</a>
         </div>
         <p class="footer-note">© <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</p>
     </footer>
