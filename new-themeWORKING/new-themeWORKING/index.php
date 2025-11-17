@@ -153,10 +153,18 @@ if (function_exists('get_template_directory_uri')) {
                 <a href="#process">Process</a>
                 
                 <a href="#blog">Insights</a>
-                <a href="#contact" class="btn btn-outline">Book Support</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
             </nav>
         </div>
     </header>
+
+    <!-- Emergency Services Banner -->
+    <div style="background: linear-gradient(90deg, #ff5c5c 0%, #e24646 100%); color: white; padding: 0.75rem 0; text-align: center; font-weight: 500;">
+        <div class="container" style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <span><i class="fas fa-bolt"></i> Same-Day Emergency Service Available</span>
+            <a href="tel:+61423680596" style="background: white; color: #ff5c5c; padding: 0.4rem 1rem; border-radius: 20px; font-weight: 600; text-decoration: none;">Call Now: 0423 680 596</a>
+        </div>
+    </div>
 
     <a href="http://wa.me/61423680596" target="_blank" class="whatsapp-icon" aria-label="Chat with Rapid Tech Solutions on WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
@@ -235,7 +243,7 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container section-header" data-animate="fade-up">
                 <p class="eyebrow">Our Services</p>
                 <h2>What We Fix and Support</h2>
-                <p>Clear, honest pricing. No confusing technical talk. We explain everything in plain English.</p>
+                <p>Transparent service. No confusing technical talk. We explain everything in plain English.</p>
             </div>
             <div class="container cards-grid">
                 <article class="card" data-animate="fade-up">
@@ -323,20 +331,20 @@ if (function_exists('get_template_directory_uri')) {
                 <div class="solution-cards">
                     <article>
                         <h3>One-Time Fix</h3>
-                        <p>Got a problem right now? We'll come out and fix it. You only pay for what you need.</p>
+                        <p>Got a problem right now? We'll come out and fix it. Free diagnostics included.</p>
                         <ul>
-                            <li>From $80/hour</li>
-                            <li>No call-out fee nearby</li>
+                            <li>Free initial assessment</li>
+                            <li>Quote before any work begins</li>
                             <li>Same-day service available</li>
                         </ul>
                     </article>
                     <article>
                         <h3>Regular Support</h3>
-                        <p>Want someone to call whenever you need help? Monthly plans with priority service.</p>
+                        <p>Want someone to call whenever you need help? Priority service with consistent support.</p>
                         <ul>
-                            <li>Unlimited phone support</li>
-                            <li>Regular check-ups</li>
-                            <li>Discounted repairs</li>
+                            <li>Dedicated phone support</li>
+                            <li>Regular system check-ups</li>
+                            <li>Priority response times</li>
                         </ul>
                     </article>
                     <article>
@@ -344,8 +352,8 @@ if (function_exists('get_template_directory_uri')) {
                         <p>Running a business? We keep your computers and network running smoothly so you can focus on work.</p>
                         <ul>
                             <li>All staff supported</li>
-                            <li>Fast response times</li>
-                            <li>System monitoring</li>
+                            <li>Proactive monitoring</li>
+                            <li>Tailored solutions</li>
                         </ul>
                     </article>
                 </div>
@@ -381,7 +389,44 @@ if (function_exists('get_template_directory_uri')) {
             </div>
         </section>
 
-        
+        <!-- Case Studies Section -->
+        <section id="case-studies" class="section alt" aria-label="Success stories">
+            <div class="container section-header" data-animate="fade-up">
+                <p class="eyebrow">Real Results</p>
+                <h2>Recent Success Stories</h2>
+                <p>See how we've helped local homes and businesses solve their IT challenges.</p>
+            </div>
+            <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <article class="card" data-animate="fade-up" style="border-left: 4px solid #00ffcc;">
+                    <span style="background: #00ffcc; color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 1rem;">Easy Fix</span>
+                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">Slow Computer in Carrum</h3>
+                    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Family computer taking 10+ minutes to start, constantly freezing during use.</p>
+                    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Solution:</strong> Upgraded from old hard drive to SSD, removed 47 startup programs, cleaned dust from fans.</p>
+                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-clock"></i> Fixed in 2 hours • Computer now boots in 15 seconds</p>
+                </article>
+                <article class="card" data-animate="fade-up" data-delay="100" style="border-left: 4px solid #29d5ff;">
+                    <span style="background: #29d5ff; color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 1rem;">Medium</span>
+                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">WiFi Dead Zones in Frankston Home</h3>
+                    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Large 2-storey home with no signal in bedrooms and garage. Kids couldn't attend online school.</p>
+                    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Solution:</strong> Installed mesh WiFi system with 3 access points, configured QoS for video calls, secured network.</p>
+                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-wifi"></i> Full coverage • All rooms now 100+ Mbps</p>
+                </article>
+                <article class="card" data-animate="fade-up" data-delay="200" style="border-left: 4px solid #ff9500;">
+                    <span style="background: #ff9500; color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 1rem;">Challenging</span>
+                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">Ransomware Attack on Seaford Business</h3>
+                    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Small accounting firm hit by ransomware. All client files encrypted, business at standstill.</p>
+                    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Solution:</strong> Isolated infected systems, restored from backups, implemented endpoint protection, staff security training.</p>
+                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-shield"></i> Zero data loss • Back online in 6 hours</p>
+                </article>
+                <article class="card" data-animate="fade-up" data-delay="300" style="border-left: 4px solid #ff5c5c;">
+                    <span style="background: #ff5c5c; color: #fff; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 1rem;">Complex</span>
+                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">Complete IT Overhaul for Mentone Clinic</h3>
+                    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Medical practice with outdated systems, no backups, HIPAA compliance concerns, frequent crashes.</p>
+                    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Solution:</strong> Migrated to cloud infrastructure, implemented automated backups, security audit, new workstations, ongoing monitoring.</p>
+                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-hospital"></i> 99.9% uptime • Fully compliant</p>
+                </article>
+            </div>
+        </section>
 
         <section id="blog" class="section" aria-label="Latest insights">
             <div class="container section-header" data-animate="fade-up">
@@ -407,6 +452,55 @@ if (function_exists('get_template_directory_uri')) {
             </div>
         </section>
 
+        <!-- Google Reviews Section -->
+        <section id="reviews" class="section" aria-label="Customer reviews">
+            <div class="container section-header" data-animate="fade-up">
+                <p class="eyebrow">Testimonials</p>
+                <h2>What Our Customers Say</h2>
+                <p>Rated 5 stars by Melbourne families and businesses.</p>
+            </div>
+            <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <article style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07);">
+                    <div style="color: #fbbf24; margin-bottom: 0.75rem;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p style="color: var(--muted); font-style: italic; margin-bottom: 1rem;">"Fantastic service! My laptop was running incredibly slow and they fixed it same day. Very patient in explaining what was wrong. Highly recommend!"</p>
+                    <p style="color: var(--text); font-weight: 600;">— Sarah M., Patterson Lakes</p>
+                </article>
+                <article style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07);">
+                    <div style="color: #fbbf24; margin-bottom: 0.75rem;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p style="color: var(--muted); font-style: italic; margin-bottom: 1rem;">"Saved my business! We had a ransomware attack and they had us back up and running within hours. Professional, knowledgeable, and affordable."</p>
+                    <p style="color: var(--text); font-weight: 600;">— David K., Seaford Business Owner</p>
+                </article>
+                <article style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07);">
+                    <div style="color: #fbbf24; margin-bottom: 0.75rem;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p style="color: var(--muted); font-style: italic; margin-bottom: 1rem;">"Finally someone who explains things without the jargon! Set up our whole home network and now we have WiFi everywhere. Great value for money."</p>
+                    <p style="color: var(--text); font-weight: 600;">— The Thompson Family, Frankston</p>
+                </article>
+            </div>
+            <div class="container" style="text-align: center; margin-top: 2rem;">
+                <a href="https://g.page/r/rapidtechsolutions/review" target="_blank" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="fab fa-google"></i> See All Reviews on Google
+                </a>
+            </div>
+        </section>
+
         <section id="faq" class="section alt" aria-label="Frequently asked questions">
             <div class="container section-header" data-animate="fade-up">
                 <p class="eyebrow">Questions</p>
@@ -415,7 +509,7 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container faq-grid">
                 <details>
                     <summary>How much does it cost?</summary>
-                    <p>Our rates start from $80/hour for remote support and $120/hour for home visits. We give you a quote before we start, so no surprises. Many simple fixes take less than an hour.</p>
+                    <p>We offer free diagnostics to assess your issue first. Once we understand the problem, we'll provide a clear quote for your approval before any work begins. No surprises, no hidden fees—you'll know exactly what to expect upfront.</p>
                 </details>
                 <details>
                     <summary>How quickly can you come?</summary>
@@ -428,6 +522,38 @@ if (function_exists('get_template_directory_uri')) {
                 <details>
                     <summary>Can you help older people who aren't good with computers?</summary>
                     <p>Absolutely! We're patient and explain everything in plain English. Many of our customers are seniors who appreciate our friendly, no-rush approach.</p>
+                </details>
+                <details>
+                    <summary>Do you come to my home or do I bring the computer to you?</summary>
+                    <p>We offer both options. We can come to your home or office anywhere in Patterson Lakes, Frankston, and surrounding suburbs. For complex repairs that take longer, we may take the computer to our workshop and return it once fixed.</p>
+                </details>
+                <details>
+                    <summary>What if you can't fix the problem?</summary>
+                    <p>We operate on a "no fix, no fee" basis for many services. If we can't solve your problem, you won't be charged for the repair attempt. We'll always be upfront about the likelihood of success before starting.</p>
+                </details>
+                <details>
+                    <summary>Will I lose my files during repairs?</summary>
+                    <p>We take data protection seriously. Before any repair, we discuss backup options with you. In most cases, your files remain safe. For high-risk repairs, we'll back up your data first.</p>
+                </details>
+                <details>
+                    <summary>Do you repair Macs as well as Windows PCs?</summary>
+                    <p>Yes, we service both Mac and Windows computers, as well as laptops from all major brands including Dell, HP, Lenovo, ASUS, Acer, and Apple MacBooks.</p>
+                </details>
+                <details>
+                    <summary>Can you remove viruses from my computer?</summary>
+                    <p>Absolutely. We specialize in virus and malware removal. We'll clean your system thoroughly, remove all threats, and install protection to prevent future infections.</p>
+                </details>
+                <details>
+                    <summary>How long do repairs typically take?</summary>
+                    <p>Simple fixes like virus removal or software issues often take 1-2 hours. Hardware repairs may take 24-48 hours if parts need to be ordered. We'll give you a timeframe upfront.</p>
+                </details>
+                <details>
+                    <summary>Do you provide ongoing support after the repair?</summary>
+                    <p>Yes, we offer follow-up support. If the same issue recurs within 30 days, we'll fix it at no extra charge. We also offer monthly support plans for businesses and individuals who want regular assistance.</p>
+                </details>
+                <details>
+                    <summary>Can you help set up a new computer?</summary>
+                    <p>Yes! We offer complete setup services including data transfer from your old computer, software installation, email configuration, printer setup, and personalizing settings to your preferences.</p>
                 </details>
             </div>
         </section>
@@ -622,5 +748,19 @@ if (function_exists('get_template_directory_uri')) {
             });
         });
     </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/691a9832dde8a31959180788/1ja7u51sh';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>
