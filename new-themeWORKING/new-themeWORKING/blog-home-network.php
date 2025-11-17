@@ -1,44 +1,145 @@
-<?php
-/* Template Name: How to Optimise Your Home Network */
-get_header();
-?>
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Optimise Your Home Network | Rapid Tech Solutions</title>
+    <meta name="description" content="Expert tips to improve your home WiFi speed and coverage. Learn router placement, security settings, and more from Melbourne IT professionals.">
+    <link rel="canonical" href="https://www.rapidtechsolutions.au/blog-home-network/">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+    <link href="./css/blog.css" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a class="brand" href="./index.php">
+                <span class="brand-mark lightning-animated" aria-hidden="true"></span>
+                Rapid Tech Solutions
+            </a>
+            <nav class="primary-nav">
+                <a href="./index.php#services">Services</a>
+                <a href="./index.php#contact" class="btn btn-outline">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<section class="blog-container">
-    <article class="blog-post animated-box" style="border: 2px solid #df4a43; padding: 25px; background: #fff;">
+    <main>
+        <div class="article-header">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="category">Home Network</span>
+                    <span class="reading-time"><i class="fas fa-clock"></i> 4 min read</span>
+                </div>
+                <h1>How to Optimise Your Home Network</h1>
+                <p class="article-excerpt">Get faster speeds, better coverage, and more reliable internet with these simple tips.</p>
+                <div class="article-info">
+                    <span><i class="fas fa-calendar"></i> <?php echo date('F j, Y'); ?></span>
+                    <span><i class="fas fa-user"></i> Rapid Tech Solutions</span>
+                </div>
+            </div>
+        </div>
 
-        <h1 class="section-heading" style="color:#df4a43;">How to Optimise Your Home Network</h1>
-        <p><em>Published on <?php echo date('F j, Y'); ?> • By Rapid Tech Solutions</em></p>
-        <hr class="hr-line" style="margin:20px 0;">
+        <article class="article-content">
+            <p>Your home network is the backbone of your internet experience, powering everything from streaming and gaming to remote work. At <strong>Rapid Tech Solutions</strong>, we often see people struggling with slow speeds, dropouts, and weak Wi-Fi coverage — problems that can often be fixed with a few adjustments.</p>
 
-        <p>Your home network is the backbone of your internet experience, powering everything from streaming and gaming to remote work.  
-        At <strong>Rapid Tech Solutions</strong>, we often see people struggling with slow speeds, dropouts, and weak Wi-Fi coverage — problems that can often be fixed with a few adjustments.  
-        Here’s how to get the most out of your home network.</p>
+            <section>
+                <h2>1. Place Your Router in the Right Spot</h2>
+                <p>Router placement makes a huge difference to your WiFi signal. Here's what works:</p>
+                <ul>
+                    <li>Put your router in a central location in your home</li>
+                    <li>Keep it elevated (on a shelf, not the floor)</li>
+                    <li>Move it away from thick walls and metal objects</li>
+                    <li>Keep it away from microwaves and cordless phones</li>
+                </ul>
+            </section>
 
-        <h2 style="color:#1f96e0;">1. Place Your Router Strategically</h2>
-        <p>Router placement can make or break your signal quality.  
-        Position it in a central, elevated location away from thick walls, appliances, and metal objects to maximise coverage.</p>
+            <section>
+                <h2>2. Use Ethernet Cables for Important Devices</h2>
+                <p>WiFi is convenient, but a direct cable connection is always faster and more stable. Use ethernet cables for:</p>
+                <ul>
+                    <li>Desktop computers</li>
+                    <li>Gaming consoles</li>
+                    <li>Smart TVs for streaming</li>
+                    <li>Work computers for video calls</li>
+                </ul>
+            </section>
 
-        <h2 style="color:#1f96e0;">2. Use Wired Connections for Critical Devices</h2>
-        <p>Ethernet connections provide faster, more reliable speeds than Wi-Fi.  
-        For gaming consoles, desktop PCs, or workstations, a direct cable connection is worth it.</p>
+            <section>
+                <h2>3. Upgrade Your Router</h2>
+                <p>If your router is more than 3-4 years old, it may be slowing you down. Modern routers offer:</p>
+                <ul>
+                    <li>Faster WiFi speeds</li>
+                    <li>Better range and coverage</li>
+                    <li>Improved security features</li>
+                    <li>Support for more devices</li>
+                </ul>
+                <div class="pro-tip">
+                    <h4>Pro Tip:</h4>
+                    <p>For larger homes, consider a mesh WiFi system. It uses multiple units to blanket your whole home in strong signal.</p>
+                </div>
+            </section>
 
-        <h2 style="color:#1f96e0;">3. Upgrade Your Networking Equipment</h2>
-        <p>Modern routers support better speeds, greater range, and advanced security features.  
-        Mesh systems can also eliminate dead zones in larger homes.</p>
+            <section>
+                <h2>4. Secure Your Network</h2>
+                <p>An unsecured network can let strangers use your internet and even access your devices. Protect yourself:</p>
+                <ul>
+                    <li>Set a strong WiFi password (at least 12 characters)</li>
+                    <li>Change the default admin password on your router</li>
+                    <li>Use WPA3 or WPA2 encryption</li>
+                    <li>Turn off WPS (WiFi Protected Setup)</li>
+                </ul>
+            </section>
 
-        <h2 style="color:#1f96e0;">4. Secure Your Network</h2>
-        <p>Set a strong Wi-Fi password and use WPA3 encryption if available.  
-        Disabling WPS and changing default admin credentials helps keep intruders out.</p>
+            <section>
+                <h2>5. Manage Your Devices</h2>
+                <p>Too many devices using the internet at once can slow everything down. Smart management helps:</p>
+                <ul>
+                    <li>Schedule large downloads for overnight</li>
+                    <li>Pause bandwidth-heavy devices when working</li>
+                    <li>Remove old devices you no longer use</li>
+                    <li>Reboot your router monthly to clear memory</li>
+                </ul>
+            </section>
 
-        <h2 style="color:#1f96e0;">5. Monitor and Manage Connected Devices</h2>
-        <p>Too many devices competing for bandwidth can slow down your network.  
-        Limit high-bandwidth activities during work hours or schedule software updates for off-peak times.</p>
+            <section class="cta-section">
+                <h2>Need Help With Your Home Network?</h2>
+                <p>If you're still having WiFi problems after trying these tips, our technicians can help. We offer:</p>
+                <ul>
+                    <li>WiFi assessment and signal testing</li>
+                    <li>Router setup and configuration</li>
+                    <li>Mesh system installation</li>
+                    <li>Network security audits</li>
+                </ul>
+                <div class="cta-buttons">
+                    <a href="./index.php#contact" class="btn"><i class="fas fa-phone"></i> Get Help Today</a>
+                </div>
+            </section>
+        </article>
 
-        <h3 style="margin-top:25px; color:#df4a43;">Final Thoughts</h3>
-        <p>With a few changes, you can turn a frustratingly slow network into a fast, reliable connection.  
-        If you need expert help with setup, upgrades, or troubleshooting, <a href="/contact" style="color:#1f96e0; font-weight:bold;">Rapid Tech Solutions</a> offers professional network optimisation services across Melbourne.</p>
+        <aside class="related-articles">
+            <div class="container">
+                <h3>Related Articles</h3>
+                <div class="related-grid">
+                    <a href="./blog-malware-protection.php" class="related-card">
+                        <h4>Protecting Your Devices from Malware</h4>
+                        <p>Essential security tips for your computers and phones.</p>
+                    </a>
+                    <a href="./blog-cloud-services.php" class="related-card">
+                        <h4>Cloud Backup Solutions</h4>
+                        <p>Keep your important files safe in the cloud.</p>
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </main>
 
-    </article>
-</section>
-
-<?php get_footer(); ?>
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-note">© <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

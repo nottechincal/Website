@@ -15,23 +15,23 @@
     <meta property="og:description" content="Human-first IT support, cloud expertise, and cybersecurity for homes and growing businesses in Patterson Lakes and beyond.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.rapidtechsolutions.au">
-    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/og-image.jpg">
+    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
     <meta property="og:site_name" content="Rapid Tech Solutions">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Rapid Tech Solutions">
     <meta name="twitter:description" content="On-demand IT services, repairs, and cybersecurity protection across Melbourne.">
-    <meta name="twitter:image" content="<?php echo get_template_directory_uri(); ?>/images/og-image.jpg">
+    <meta name="twitter:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/">
-    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/images/favicon.png">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://www.google.com">
-    <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/images/fallback.jpg" as="image">
+    <link rel="preload" href="./images/fallback.jpg" as="image">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" referrerpolicy="no-referrer">
-    <link href="<?php echo get_template_directory_uri(); ?>/css/styles.css" rel="stylesheet">
-    <link href="<?php echo get_template_directory_uri(); ?>/css/animations.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+    <link href="./css/animations.css" rel="stylesheet">
     <title>Rapid Tech Solutions | Expert IT Support & Computer Repairs Melbourne | Patterson Lakes</title>
     <script type="application/ld+json">
     {
@@ -41,8 +41,8 @@
         "description": "Computer repair, cybersecurity, data recovery, and managed IT support in Patterson Lakes.",
         "telephone": "+61423680596",
         "url": "https://www.rapidtechsolutions.au",
-        "logo": "<?php echo get_template_directory_uri(); ?>/images/logo.png",
-        "image": "<?php echo get_template_directory_uri(); ?>/images/og-image.jpg",
+        "logo": "https://www.rapidtechsolutions.au/images/logo.png",
+        "image": "https://www.rapidtechsolutions.au/images/og-image.jpg",
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
@@ -155,9 +155,9 @@
 
     <main id="main">
         <section class="hero" aria-label="Rapid Tech Solutions hero">
-            <video autoplay muted loop playsinline id="bg-video" poster="<?php echo get_template_directory_uri(); ?>/images/fallback.jpg">
-                <source src="<?php echo get_template_directory_uri(); ?>/videos/bg1.webm" type="video/webm">
-                <source src="<?php echo get_template_directory_uri(); ?>/videos/bg1.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline id="bg-video" poster="./images/fallback.jpg">
+                <source src="./videos/bg1.webm" type="video/webm">
+                <source src="./videos/bg1.mp4" type="video/mp4">
             </video>
             <div class="hero-overlay"></div>
             <div class="container hero-grid">
@@ -446,7 +446,7 @@
                         <li><i class="fas fa-clock"></i> Mon–Fri 9am – 5pm, emergency callouts 24/7</li>
                     </ul>
                 </div>
-                <form class="contact-form" action="<?php echo get_template_directory_uri(); ?>/contactengine.php" method="POST">
+                <form class="contact-form" action="./contactengine.php" method="POST">
                     <label for="name">Name*</label>
                     <input type="text" id="name" name="Name" required>
 
@@ -512,7 +512,7 @@
                     <li><a href="#solutions">Solutions</a></li>
                     <li><a href="#process">Process</a></li>
                     <li><a href="#faq">FAQ</a></li>
-                    <li><a href="<?php echo get_template_directory_uri(); ?>/page-privacy.php">Privacy</a></li>
+                    <li><a href="./page-privacy.php">Privacy</a></li>
                 </ul>
             </div>
             <div>

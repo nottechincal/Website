@@ -8,10 +8,10 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="Rapid Tech Solutions">
     <title>Service Area | Rapid Tech Solutions</title>
-    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/images/favicon.png">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="<?php echo get_template_directory_uri(); ?>/css/styles.css" rel="stylesheet" media="screen">
+    <link href="./css/styles.css" rel="stylesheet" media="screen">
 </head>
 <body>
     <header role="banner">
@@ -20,13 +20,13 @@
         </div>
         <nav aria-label="Main navigation">
             <div id="navbar">
-                <a href="<?php echo home_url(); ?>#services">Services</a>
-                <a href="<?php echo home_url(); ?>#solutions">Solutions</a>
-                <a href="<?php echo home_url(); ?>#about">About Us</a>
-                <a href="<?php echo home_url(); ?>#contact">Contact</a>
-                <a href="<?php echo home_url(); ?>#faq">FAQ</a>
-                <a href="<?php echo home_url(); ?>#blog">Blog</a>
-                <a href="<?php echo home_url(); ?>/service-area">Service Area</a>
+                <a href="./index.php#services">Services</a>
+                <a href="./index.php#solutions">Solutions</a>
+                <a href="./index.php#about">About Us</a>
+                <a href="./index.php#contact">Contact</a>
+                <a href="./index.php#faq">FAQ</a>
+                <a href="./index.php#blog">Blog</a>
+                <a href="./service-area.php">Service Area</a>
             </div>
         </nav>
     </header>
@@ -36,27 +36,27 @@
             <p>Rapid Tech Solutions proudly serves Patterson Lakes (3197) and surrounding suburbs within 15km, offering expert IT services including computer repair, data recovery, and network setup.</p>
             <h2>Suburbs We Cover</h2>
             <ul class="postcode-list">
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3196')); ?>">Bonbeach (3196)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3195')); ?>">Aspendale, Braeside, Mordialloc (3195)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3194')); ?>">Mentone (3194)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3193')); ?>">Beaumaris (3193)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3192')); ?>">Cheltenham (3192)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3175')); ?>">Dandenong (3175)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3173')); ?>">Keysborough (3173)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3201')); ?>">Carrum Downs (3201)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3198')); ?>">Seaford (3198)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3199')); ?>">Frankston (3199)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3200')); ?>">Frankston North (3200)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3174')); ?>">Noble Park (3174)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3178')); ?>">Rowville (3178)</a></li>
-                <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3152')); ?>">Wantirna (3152)</a></li>
+                <li><a href="./postcode-3196.php">Bonbeach (3196)</a></li>
+                <li><a href="./postcode-3195.php">Aspendale, Braeside, Mordialloc (3195)</a></li>
+                <li><a href="./postcode-3194.php">Mentone (3194)</a></li>
+                <li><a href="./postcode-3193.php">Beaumaris (3193)</a></li>
+                <li><a href="./postcode-3192.php">Cheltenham (3192)</a></li>
+                <li><a href="./postcode-3175.php">Dandenong (3175)</a></li>
+                <li><a href="./postcode-3173.php">Keysborough (3173)</a></li>
+                <li><a href="./postcode-3201.php">Carrum Downs (3201)</a></li>
+                <li><a href="./postcode-3198.php">Seaford (3198)</a></li>
+                <li><a href="./postcode-3199.php">Frankston (3199)</a></li>
+                <li><a href="./postcode-3200.php">Frankston North (3200)</a></li>
+                <li><a href="./postcode-3174.php">Noble Park (3174)</a></li>
+                <li><a href="./postcode-3178.php">Rowville (3178)</a></li>
+                <li><a href="./postcode-3152.php">Wantirna (3152)</a></li>
             </ul>
-            <p><a href="<?php echo home_url(); ?>#contact">Contact us</a> to schedule a service in your area!</p>
+            <p><a href="./index.php#contact">Contact us</a> to schedule a service in your area!</p>
         </section>
     </main>
     <footer role="contentinfo">
         <div class="footer-content">
-            <p>&copy; 2025 Rapid Tech Solutions. All rights reserved.</p>
+            <p>&copy; <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</p>
             <div class="social-links" aria-label="Social media links">
                 <a href="https://www.facebook.com/rapidtechsolutions" target="_blank" aria-label="Visit our Facebook page"><i class="fab fa-facebook-f" alt="Facebook icon"></i></a>
                 <a href="https://www.twitter.com/rapidtechau" target="_blank" aria-label="Visit our Twitter page"><i class="fab fa-twitter" alt="Twitter icon"></i></a>
