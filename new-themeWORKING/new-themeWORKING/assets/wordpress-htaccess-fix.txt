@@ -1,96 +1,70 @@
 # CRITICAL FIX: WordPress Root .htaccess Configuration
-# This fixes the 404 errors for blog articles and suburb pages
+# Theme folder: new-themeWORKING6
 
 # =====================================================
 # ADD THIS TO YOUR WORDPRESS ROOT .htaccess FILE
-# (Located at: /public_html/.htaccess or similar)
+# Location: /public_html/.htaccess (NOT the theme folder)
+# Add BEFORE the "# BEGIN WordPress" section
 # =====================================================
 
-# Add these rules BEFORE the WordPress rewrite rules (before # BEGIN WordPress)
-
-# Redirect blog articles to theme directory
 RewriteEngine On
 RewriteBase /
 
-# Blog article redirects (fixes 404 errors)
-RewriteRule ^blog-scam-protection/?$ /wp-content/themes/new-themeWORKING3/blog-scam-protection.php [L]
-RewriteRule ^blog-password-security/?$ /wp-content/themes/new-themeWORKING3/blog-password-security.php [L]
-RewriteRule ^blog-computer-maintenance/?$ /wp-content/themes/new-themeWORKING3/blog-computer-maintenance.php [L]
-RewriteRule ^blog-malware-protection/?$ /wp-content/themes/new-themeWORKING3/blog-malware-protection.php [L]
-RewriteRule ^blog-hardware-upgrades/?$ /wp-content/themes/new-themeWORKING3/blog-hardware-upgrades.php [L]
-RewriteRule ^blog-home-network/?$ /wp-content/themes/new-themeWORKING3/blog-home-network.php [L]
-RewriteRule ^blog-cloud-services/?$ /wp-content/themes/new-themeWORKING3/blog-cloud-services.php [L]
-RewriteRule ^blog/?$ /wp-content/themes/new-themeWORKING3/blog.php [L]
+# Blog article redirects
+RewriteRule ^blog-scam-protection/?$ /wp-content/themes/new-themeWORKING6/blog-scam-protection.php [L]
+RewriteRule ^blog-password-security/?$ /wp-content/themes/new-themeWORKING6/blog-password-security.php [L]
+RewriteRule ^blog-computer-maintenance/?$ /wp-content/themes/new-themeWORKING6/blog-computer-maintenance.php [L]
+RewriteRule ^blog-malware-protection/?$ /wp-content/themes/new-themeWORKING6/blog-malware-protection.php [L]
+RewriteRule ^blog-hardware-upgrades/?$ /wp-content/themes/new-themeWORKING6/blog-hardware-upgrades.php [L]
+RewriteRule ^blog-home-network/?$ /wp-content/themes/new-themeWORKING6/blog-home-network.php [L]
+RewriteRule ^blog-cloud-services/?$ /wp-content/themes/new-themeWORKING6/blog-cloud-services.php [L]
+RewriteRule ^blog/?$ /wp-content/themes/new-themeWORKING6/blog.php [L]
 
 # Suburb page redirects
-RewriteRule ^computer-repairs-cranbourne/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-cranbourne.php [L]
-RewriteRule ^computer-repairs-cranbourne-north/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-cranbourne-north.php [L]
-RewriteRule ^computer-repairs-cranbourne-east/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-cranbourne-east.php [L]
-RewriteRule ^computer-repairs-cranbourne-west/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-cranbourne-west.php [L]
-RewriteRule ^computer-repairs-clyde/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-clyde.php [L]
-RewriteRule ^computer-repairs-clyde-north/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-clyde-north.php [L]
-RewriteRule ^computer-repairs-berwick/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-berwick.php [L]
-RewriteRule ^computer-repairs-narre-warren/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-narre-warren.php [L]
-RewriteRule ^computer-repairs-narre-warren-south/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-narre-warren-south.php [L]
-RewriteRule ^computer-repairs-hampton-park/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-hampton-park.php [L]
-RewriteRule ^computer-repairs-lynbrook/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-lynbrook.php [L]
-RewriteRule ^computer-repairs-lyndhurst/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-lyndhurst.php [L]
-RewriteRule ^computer-repairs-carrum-downs/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-carrum-downs.php [L]
-RewriteRule ^computer-repairs-skye/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-skye.php [L]
-RewriteRule ^computer-repairs-sandhurst/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-sandhurst.php [L]
-RewriteRule ^computer-repairs-junction-village/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-junction-village.php [L]
-RewriteRule ^computer-repairs-botanic-ridge/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-botanic-ridge.php [L]
-RewriteRule ^computer-repairs-devon-meadows/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-devon-meadows.php [L]
-RewriteRule ^computer-repairs-pearcedale/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-pearcedale.php [L]
-RewriteRule ^computer-repairs-langwarrin/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-langwarrin.php [L]
-RewriteRule ^computer-repairs-chelsea-heights/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-chelsea-heights.php [L]
-RewriteRule ^computer-repairs-patterson-lakes/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-patterson-lakes.php [L]
-RewriteRule ^computer-repairs-carrum/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-carrum.php [L]
-RewriteRule ^computer-repairs-seaford/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-seaford.php [L]
-RewriteRule ^computer-repairs-frankston/?$ /wp-content/themes/new-themeWORKING3/computer-repairs-frankston.php [L]
+RewriteRule ^computer-repairs-cranbourne/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-cranbourne.php [L]
+RewriteRule ^computer-repairs-cranbourne-north/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-cranbourne-north.php [L]
+RewriteRule ^computer-repairs-cranbourne-east/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-cranbourne-east.php [L]
+RewriteRule ^computer-repairs-cranbourne-west/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-cranbourne-west.php [L]
+RewriteRule ^computer-repairs-clyde/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-clyde.php [L]
+RewriteRule ^computer-repairs-clyde-north/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-clyde-north.php [L]
+RewriteRule ^computer-repairs-berwick/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-berwick.php [L]
+RewriteRule ^computer-repairs-narre-warren/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-narre-warren.php [L]
+RewriteRule ^computer-repairs-narre-warren-south/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-narre-warren-south.php [L]
+RewriteRule ^computer-repairs-hampton-park/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-hampton-park.php [L]
+RewriteRule ^computer-repairs-lynbrook/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-lynbrook.php [L]
+RewriteRule ^computer-repairs-lyndhurst/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-lyndhurst.php [L]
+RewriteRule ^computer-repairs-carrum-downs/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-carrum-downs.php [L]
+RewriteRule ^computer-repairs-skye/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-skye.php [L]
+RewriteRule ^computer-repairs-sandhurst/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-sandhurst.php [L]
+RewriteRule ^computer-repairs-junction-village/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-junction-village.php [L]
+RewriteRule ^computer-repairs-botanic-ridge/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-botanic-ridge.php [L]
+RewriteRule ^computer-repairs-devon-meadows/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-devon-meadows.php [L]
+RewriteRule ^computer-repairs-pearcedale/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-pearcedale.php [L]
+RewriteRule ^computer-repairs-langwarrin/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-langwarrin.php [L]
+RewriteRule ^computer-repairs-chelsea-heights/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-chelsea-heights.php [L]
+RewriteRule ^computer-repairs-patterson-lakes/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-patterson-lakes.php [L]
+RewriteRule ^computer-repairs-carrum/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-carrum.php [L]
+RewriteRule ^computer-repairs-seaford/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-seaford.php [L]
+RewriteRule ^computer-repairs-frankston/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-frankston.php [L]
 
 # Other pages
-RewriteRule ^service-areas/?$ /wp-content/themes/new-themeWORKING3/service-areas.php [L]
-RewriteRule ^about/?$ /wp-content/themes/new-themeWORKING3/about.php [L]
-RewriteRule ^privacy-policy/?$ /wp-content/themes/new-themeWORKING3/privacy-policy.php [L]
-RewriteRule ^terms-of-service/?$ /wp-content/themes/new-themeWORKING3/terms-of-service.php [L]
+RewriteRule ^service-areas/?$ /wp-content/themes/new-themeWORKING6/service-areas.php [L]
+RewriteRule ^about/?$ /wp-content/themes/new-themeWORKING6/about.php [L]
+RewriteRule ^privacy-policy/?$ /wp-content/themes/new-themeWORKING6/privacy-policy.php [L]
+RewriteRule ^terms-of-service/?$ /wp-content/themes/new-themeWORKING6/terms-of-service.php [L]
+RewriteRule ^thank-you/?$ /wp-content/themes/new-themeWORKING6/thank-you.php [L]
+
 
 # =====================================================
-# IMPORTANT NOTES:
+# YOUR FINAL ROOT .HTACCESS SHOULD LOOK LIKE THIS:
 # =====================================================
-
-# 1. CHANGE "new-themeWORKING3" to your actual theme folder name!
-#    Check what the folder is called on your server.
-
-# 2. These rules must go BEFORE the WordPress block that looks like:
-#    # BEGIN WordPress
-#    <IfModule mod_rewrite.c>
-#    RewriteEngine On
-#    ...
-#    # END WordPress
-
-# 3. After adding, test a few URLs:
-#    - https://rapidtechsolutions.au/blog-scam-protection/
-#    - https://rapidtechsolutions.au/computer-repairs-cranbourne/
-#    - https://rapidtechsolutions.au/service-areas/
-
-# 4. If errors occur, check your server error logs
-
-# =====================================================
-# EXAMPLE OF COMPLETE ROOT .HTACCESS:
-# =====================================================
-
-# Your file should look something like this:
 
 RewriteEngine On
 RewriteBase /
 
-# [All the redirect rules from above go here]
+# [ALL THE REWRITE RULES ABOVE GO HERE]
 
 # BEGIN WordPress
-# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
-# dynamically generated, and should only be modified via WordPress filters.
-# Any changes to the directives between these markers will be overwritten.
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
