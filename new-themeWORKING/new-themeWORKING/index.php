@@ -13,16 +13,16 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Rapid Tech Solutions delivers fast computer repairs, proactive cybersecurity, data recovery, and managed IT support across Patterson Lakes and Melbourne.">
-    <meta name="keywords" content="IT services Patterson Lakes, computer repair Melbourne, data recovery 3197, managed IT support Victoria, cybersecurity expert Australia">
+    <meta name="description" content="Rapid Tech Solutions delivers fast computer repairs, proactive cybersecurity, data recovery, and managed IT support across Cranbourne South, Patterson Lakes, and Melbourne's south-east.">
+    <meta name="keywords" content="IT services Cranbourne South, computer repair Melbourne, data recovery 3977, managed IT support Victoria, cybersecurity expert Australia, computer repairs Cranbourne, computer repairs Patterson Lakes, IT support Frankston">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Rapid Tech Solutions">
     <meta name="geo.region" content="AU-VIC">
-    <meta name="geo.placename" content="Patterson Lakes">
-    <meta name="geo.position" content="-38.0692;145.1433">
-    <meta name="ICBM" content="-38.0692, 145.1433">
+    <meta name="geo.placename" content="Cranbourne South">
+    <meta name="geo.position" content="-38.1333;145.2667">
+    <meta name="ICBM" content="-38.1333, 145.2667">
     <meta property="og:title" content="Rapid Tech Solutions | Modern IT Services in Melbourne">
-    <meta property="og:description" content="Human-first IT support, cloud expertise, and cybersecurity for homes and growing businesses in Patterson Lakes and beyond.">
+    <meta property="og:description" content="Human-first IT support, cloud expertise, and cybersecurity for homes and growing businesses in Cranbourne South, Patterson Lakes, and Melbourne's south-east.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.rapidtechsolutions.au">
     <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
@@ -42,13 +42,13 @@ if (function_exists('get_template_directory_uri')) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" referrerpolicy="no-referrer">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/animations.css" rel="stylesheet">
-    <title>Rapid Tech Solutions | Expert IT Support & Computer Repairs Melbourne | Patterson Lakes</title>
+    <title>Rapid Tech Solutions | Expert IT Support & Computer Repairs Melbourne | Cranbourne South</title>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Rapid Tech Solutions",
-        "description": "Computer repair, cybersecurity, data recovery, and managed IT support in Patterson Lakes.",
+        "description": "Computer repair, cybersecurity, data recovery, and managed IT support in Cranbourne South.",
         "telephone": "+61423680596",
         "url": "https://www.rapidtechsolutions.au",
         "logo": "https://www.rapidtechsolutions.au/images/logo.png",
@@ -56,16 +56,16 @@ if (function_exists('get_template_directory_uri')) {
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Patterson Lakes",
+            "streetAddress": "Cranbourne South",
             "addressLocality": "Melbourne",
             "addressRegion": "VIC",
-            "postalCode": "3197",
+            "postalCode": "3977",
             "addressCountry": "AU"
         },
         "geo": {
             "@type": "GeoCoordinates",
-            "latitude": -38.0692,
-            "longitude": 145.1433
+            "latitude": -38.1333,
+            "longitude": 145.2667
         },
         "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",
@@ -73,11 +73,18 @@ if (function_exists('get_template_directory_uri')) {
             "opens": "09:00",
             "closes": "17:00"
         },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "47",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
         "sameAs": [
             "https://www.facebook.com/RapidTechAUS/",
             "https://www.instagram.com/rapidtechsolutions.au/"
         ],
-        "areaServed": ["Patterson Lakes","Melbourne","Mornington Peninsula","Frankston"],
+        "areaServed": ["Cranbourne South","Cranbourne","Berwick","Narre Warren","Clyde","Patterson Lakes","Frankston","Chelsea Heights","Carrum","Seaford","Melbourne","Mornington Peninsula"],
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "IT Services",
@@ -400,7 +407,7 @@ if (function_exists('get_template_directory_uri')) {
                 <article class="card" data-animate="fade-up" style="border-left: 4px solid #00ffcc;">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
                         <i class="fas fa-desktop" style="color: #00ffcc; font-size: 1.2rem;"></i>
-                        <span style="color: var(--muted); font-size: 0.85rem;">Carrum Household</span>
+                        <span style="color: var(--muted); font-size: 0.85rem;">Berwick Household</span>
                     </div>
                     <h3 style="color: var(--text); margin-bottom: 0.5rem;">Slow Computer Transformed</h3>
                     <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Family computer taking 10+ minutes to start, constantly freezing during use.</p>
@@ -410,7 +417,7 @@ if (function_exists('get_template_directory_uri')) {
                 <article class="card" data-animate="fade-up" data-delay="100" style="border-left: 4px solid #29d5ff;">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
                         <i class="fas fa-wifi" style="color: #29d5ff; font-size: 1.2rem;"></i>
-                        <span style="color: var(--muted); font-size: 0.85rem;">Frankston Family</span>
+                        <span style="color: var(--muted); font-size: 0.85rem;">Patterson Lakes Family</span>
                     </div>
                     <h3 style="color: var(--text); margin-bottom: 0.5rem;">WiFi Dead Zones Eliminated</h3>
                     <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Large 2-storey home with no signal in bedrooms and garage. Kids couldn't attend online school.</p>
@@ -420,7 +427,7 @@ if (function_exists('get_template_directory_uri')) {
                 <article class="card" data-animate="fade-up" data-delay="200" style="border-left: 4px solid #ff9500;">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
                         <i class="fas fa-shield-alt" style="color: #ff9500; font-size: 1.2rem;"></i>
-                        <span style="color: var(--muted); font-size: 0.85rem;">Seaford Business</span>
+                        <span style="color: var(--muted); font-size: 0.85rem;">Cranbourne Business</span>
                     </div>
                     <h3 style="color: var(--text); margin-bottom: 0.5rem;">Ransomware Crisis Resolved</h3>
                     <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Small accounting firm hit by ransomware. All client files encrypted, business at standstill.</p>
@@ -430,7 +437,7 @@ if (function_exists('get_template_directory_uri')) {
                 <article class="card" data-animate="fade-up" data-delay="300" style="border-left: 4px solid #ff5c5c;">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
                         <i class="fas fa-hospital" style="color: #ff5c5c; font-size: 1.2rem;"></i>
-                        <span style="color: var(--muted); font-size: 0.85rem;">Mentone Medical Clinic</span>
+                        <span style="color: var(--muted); font-size: 0.85rem;">Frankston Medical Clinic</span>
                     </div>
                     <h3 style="color: var(--text); margin-bottom: 0.5rem;">Complete IT Modernisation</h3>
                     <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Medical practice with outdated systems, no backups, compliance concerns, frequent crashes.</p>
@@ -449,26 +456,26 @@ if (function_exists('get_template_directory_uri')) {
                 <article class="card">
                     <h3>How to Spot Tech Support Scams</h3>
                     <p>Protect yourself from fake calls and phishing emails targeting Australians.</p>
-                    <a href="https://www.rapidtechsolutions.au/blog-scam-protection/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <a href="<?php echo $base_path; ?>/blog-scam-protection.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="card">
                     <h3>Password Security Made Simple</h3>
                     <p>Easy steps to create strong passwords and keep your accounts safe.</p>
-                    <a href="https://www.rapidtechsolutions.au/blog-password-security/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <a href="<?php echo $base_path; ?>/blog-password-security.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="card">
                     <h3>Monthly Computer Maintenance</h3>
                     <p>15 minutes a month to avoid costly repairs and keep your PC running fast.</p>
-                    <a href="https://www.rapidtechsolutions.au/blog-computer-maintenance/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <a href="<?php echo $base_path; ?>/blog-computer-maintenance.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
             </div>
             <div class="container" style="text-align: center; margin-top: 1.5rem;">
                 <p style="color: var(--muted); margin-bottom: 1rem;">More helpful guides:</p>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                    <a href="https://www.rapidtechsolutions.au/blog-home-network/" class="text-link">WiFi Optimisation</a>
-                    <a href="https://www.rapidtechsolutions.au/blog-malware-protection/" class="text-link">Malware Protection</a>
-                    <a href="https://www.rapidtechsolutions.au/blog-hardware-upgrades/" class="text-link">Hardware Upgrades</a>
-                    <a href="https://www.rapidtechsolutions.au/blog-cloud-services/" class="text-link">Cloud Services</a>
+                    <a href="<?php echo $base_path; ?>/blog-home-network.php" class="text-link">WiFi Optimisation</a>
+                    <a href="<?php echo $base_path; ?>/blog-malware-protection.php" class="text-link">Malware Protection</a>
+                    <a href="<?php echo $base_path; ?>/blog-hardware-upgrades.php" class="text-link">Hardware Upgrades</a>
+                    <a href="<?php echo $base_path; ?>/blog-cloud-services.php" class="text-link">Cloud Services</a>
                 </div>
             </div>
         </section>
@@ -516,7 +523,7 @@ if (function_exists('get_template_directory_uri')) {
                 </article>
             </div>
             <div class="container" style="text-align: center; margin-top: 2rem;">
-                <a href="https://g.page/r/rapidtechsolutions/review" target="_blank" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                <a href="https://share.google/UxsUlLJwuV3D99r6y" target="_blank" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
                     <i class="fab fa-google"></i> See All Reviews on Google
                 </a>
             </div>

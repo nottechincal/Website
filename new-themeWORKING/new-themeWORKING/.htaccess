@@ -1,10 +1,10 @@
 # Enable Rewrite Engine
 RewriteEngine On
 
-# Set base directory (adjust this to your actual path on the server)
-# RewriteBase /
+# Set base directory (adjust if your WordPress is in a subdirectory)
+# RewriteBase /wp-content/themes/new-themeWORKING/
 
-# Remove .php extension from URLs
+# Remove .php extension from URLs (internal rewrite, no redirect)
 # If the request doesn't match an existing file or directory
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -12,17 +12,12 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # Check if the .php version exists
 RewriteCond %{REQUEST_FILENAME}.php -f
 
-# Rewrite to .php file
+# Rewrite to .php file (internal, keeps URL clean)
 RewriteRule ^(.+?)/?$ $1.php [L]
 
-# Redirect .php URLs to clean URLs (optional - prevents duplicate content)
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
-RewriteRule ^ /%1/ [R=301,L]
-
-# Force trailing slash for consistency (except for files)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !(.*)/$
-RewriteRule ^(.*)$ /$1/ [L,R=301]
+# Note: The redirect from .php to clean URLs has been disabled to prevent
+# conflicts with WordPress theme directory structure. Internal links should
+# work with or without .php extension.
 
 # Security Headers
 <IfModule mod_headers.c>
