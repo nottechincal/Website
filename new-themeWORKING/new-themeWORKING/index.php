@@ -676,7 +676,17 @@ if (function_exists('get_template_directory_uri')) {
                     <li><a href="<?php echo $base_path; ?>/blog.php">Blog & Tips</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="<?php echo $base_path; ?>/about.php">About Us</a></li>
-                    <li><a href="<?php echo $base_path; ?>/service-area.php">Service Areas</a></li>
+                    <li><a href="<?php echo $base_path; ?>/service-areas.php">All Service Areas</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Popular Suburbs</h3>
+                <ul>
+                    <li><a href="<?php echo $base_path; ?>/computer-repairs-cranbourne.php">Cranbourne</a></li>
+                    <li><a href="<?php echo $base_path; ?>/computer-repairs-berwick.php">Berwick</a></li>
+                    <li><a href="<?php echo $base_path; ?>/computer-repairs-narre-warren.php">Narre Warren</a></li>
+                    <li><a href="<?php echo $base_path; ?>/computer-repairs-frankston.php">Frankston</a></li>
+                    <li><a href="<?php echo $base_path; ?>/computer-repairs-patterson-lakes.php">Patterson Lakes</a></li>
                 </ul>
             </div>
             <div>
@@ -710,10 +720,10 @@ if (function_exists('get_template_directory_uri')) {
             },
             {
                 "@type": "Question",
-                "name": "How fast can you get onsite in Patterson Lakes?",
+                "name": "How fast can you get onsite in Cranbourne South?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We aim for same-day onsite visits locally and offer remote triage in under an hour."
+                    "text": "We aim for same-day onsite visits locally and offer remote triage in under an hour. Same-day service available across Cranbourne, Patterson Lakes, and surrounding suburbs."
                 }
             },
             {

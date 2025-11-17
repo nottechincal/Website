@@ -237,6 +237,30 @@
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
+    <url>
+        <loc>https://www.rapidtechsolutions.au/computer-repairs-carrum/</loc>
+        <lastmod>2025-11-17</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.rapidtechsolutions.au/computer-repairs-seaford/</loc>
+        <lastmod>2025-11-17</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.rapidtechsolutions.au/computer-repairs-frankston/</loc>
+        <lastmod>2025-11-17</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.rapidtechsolutions.au/service-areas/</loc>
+        <lastmod>2025-11-17</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <!-- Location Pages -->
     <url>
         <loc>https://www.rapidtechsolutions.au/postcode-3152/</loc>
