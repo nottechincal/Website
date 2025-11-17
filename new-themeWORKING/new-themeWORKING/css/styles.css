@@ -625,8 +625,8 @@ iframe {
 
 .whatsapp-icon {
     position: fixed;
-    bottom: 90px;
-    right: 25px;
+    bottom: 25px;
+    left: 25px;
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -636,12 +636,17 @@ iframe {
     place-items: center;
     z-index: 1000;
     box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+    transform: scale(1.1);
 }
 
 .sticky-cta {
     position: fixed;
     bottom: 25px;
-    right: 25px;
+    left: 85px;
     background: var(--primary);
     color: #fff;
     padding: 0.9rem 1.7rem;
@@ -649,6 +654,12 @@ iframe {
     font-weight: 600;
     z-index: 1000;
     box-shadow: var(--shadow);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.sticky-cta:hover {
+    transform: translateY(-3px);
+    background: #e24646;
 }
 
 @media (max-width: 900px) {
