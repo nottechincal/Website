@@ -107,7 +107,8 @@
 .article-content p {
     margin-bottom: 1rem;
     line-height: 1.8;
-    color: #333;
+    color: #1a1a1a;
+    font-size: 1.1rem;
 }
 
 .article-content ul, .article-content ol {
@@ -118,6 +119,8 @@
 .article-content li {
     margin-bottom: 0.5rem;
     line-height: 1.7;
+    color: #1a1a1a;
+    font-size: 1.05rem;
 }
 
 .stat-box, .pro-tip, .warning-box {

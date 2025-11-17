@@ -334,17 +334,16 @@ body {
 .section-header::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 0;
     height: 4px;
     background: linear-gradient(90deg, #29d5ff, #00ffcc);
     margin-top: 1rem;
     border-radius: 2px;
-    animation: width-pulse 3s ease infinite;
+    transition: width 1s ease-out;
 }
 
-@keyframes width-pulse {
-    0%, 100% { width: 60px; }
-    50% { width: 100px; }
+.section-header.is-visible::after {
+    width: 80px;
 }
 
 /* Enhanced Checklist Animation */

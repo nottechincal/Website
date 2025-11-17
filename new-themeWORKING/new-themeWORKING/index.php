@@ -163,27 +163,29 @@
             <div class="container hero-grid">
                 <div class="hero-copy">
                     <p class="eyebrow">Melbourne & Patterson Lakes</p>
-                    <h1>Human-first IT services that keep your business always-on.</h1>
-                    <p class="lead">From emergency repairs to managed cybersecurity, we build resilient tech foundations for homes, trades, and growing teams.</p>
+                    <h1>Computer Problems? We Fix Them Fast.</h1>
+                    <p class="lead">Your local IT experts. We repair computers, remove viruses, fix slow internet, and recover lost files. Same-day service for homes and businesses across Melbourne.</p>
                     <div class="hero-cta">
-                        <a class="btn" href="#contact">Book an Engineer</a>
+                        <a class="btn" href="#contact">Get Help Today</a>
                         <a class="btn btn-outline" href="tel:+61423680596">Call 0423 680 596</a>
                     </div>
                     <ul class="hero-badges" aria-label="Key service highlights">
-                        <li><i class="fas fa-bolt"></i> Same-day onsite support</li>
-                        <li><i class="fas fa-shield"></i> Advanced cyber protection</li>
-                        <li><i class="fas fa-cloud"></i> Cloud + Microsoft 365 experts</li>
+                        <li><i class="fas fa-bolt"></i> Same-day service</li>
+                        <li><i class="fas fa-shield"></i> Virus & malware removal</li>
+                        <li><i class="fas fa-home"></i> We come to you</li>
                     </ul>
                 </div>
                 <div class="hero-card" role="complementary" aria-label="Service summary card">
-                    <h2>Always-on monitoring</h2>
-                    <p>24/7 alerts for hardware health, backups, and security posture with monthly reporting.</p>
+                    <h2>Common Problems We Fix</h2>
+                    <p>Don't put up with frustrating computer issues. We solve them quickly and affordably.</p>
                     <ul>
-                        <li>Unlimited remote support</li>
-                        <li>Proactive patch management</li>
-                        <li>Encrypted backups & DR</li>
+                        <li>Slow or freezing computers</li>
+                        <li>Virus and popup removal</li>
+                        <li>WiFi and internet problems</li>
+                        <li>Lost or deleted files</li>
+                        <li>Printer not working</li>
                     </ul>
-                    <a class="btn btn-full" href="#solutions">Explore Managed IT</a>
+                    <a class="btn btn-full" href="#services">See All Services</a>
                 </div>
             </div>
             <div class="container stats" aria-label="Impact statistics">
@@ -208,53 +210,89 @@
 
         <section class="trust" aria-label="Trust badges">
             <div class="container trust-grid">
-                <p>Trusted by builders, clinics, retail, and home offices across Bayside.</p>
+                <p>Trusted by hundreds of Melbourne families and businesses since 2020.</p>
                 <div class="trust-logos">
-                    <span>Microsoft 365</span>
-                    <span>Lenovo</span>
-                    <span>Ubiquiti</span>
-                    <span>HP Business</span>
-                    <span>Google Workspace</span>
+                    <span>Windows PC</span>
+                    <span>Apple Mac</span>
+                    <span>All Laptops</span>
+                    <span>Home WiFi</span>
+                    <span>Printers</span>
                 </div>
             </div>
         </section>
 
         <section id="services" class="section" aria-label="Our IT services">
             <div class="container section-header" data-animate="fade-up">
-                <p class="eyebrow">What we fix</p>
-                <h2>End-to-end IT, tailored for homes and ambitious teams.</h2>
-                <p>Mix and match responsive break-fix support with ongoing maintenance retainers to match your risk appetite.</p>
+                <p class="eyebrow">Our Services</p>
+                <h2>What We Fix and Support</h2>
+                <p>Clear, honest pricing. No confusing technical talk. We explain everything in plain English.</p>
             </div>
             <div class="container cards-grid">
                 <article class="card" data-animate="fade-up">
-                    <i class="fas fa-screwdriver-wrench" aria-hidden="true"></i>
+                    <i class="fas fa-laptop-medical" aria-hidden="true"></i>
                     <h3>Computer Repairs</h3>
-                    <p>Diagnostics, component upgrades, and rapid part replacement for laptops, desktops, and gaming rigs.</p>
+                    <p>We fix laptops, desktops, and all-in-one computers. Fast turnaround, fair prices.</p>
+                    <ul style="list-style:none; padding:0; margin-top:0.5rem; font-size:0.9rem; color:var(--muted);">
+                        <li>✓ Slow computer speedup</li>
+                        <li>✓ Won't turn on / Blue screen</li>
+                        <li>✓ Broken screens & keyboards</li>
+                        <li>✓ Battery replacement</li>
+                    </ul>
                 </article>
                 <article class="card" data-animate="fade-up" data-delay="100">
-                    <i class="fas fa-user-shield" aria-hidden="true"></i>
-                    <h3>Cybersecurity & Hardening</h3>
-                    <p>Endpoint protection, phishing defense, and zero-trust policies to safeguard credentials and IP.</p>
+                    <i class="fas fa-virus-slash" aria-hidden="true"></i>
+                    <h3>Virus & Malware Removal</h3>
+                    <p>We clean out viruses, remove popups, and protect you from scams and hackers.</p>
+                    <ul style="list-style:none; padding:0; margin-top:0.5rem; font-size:0.9rem; color:var(--muted);">
+                        <li>✓ Virus cleanup</li>
+                        <li>✓ Annoying popups removed</li>
+                        <li>✓ Scam software deleted</li>
+                        <li>✓ Protection installed</li>
+                    </ul>
                 </article>
                 <article class="card" data-animate="fade-up" data-delay="200">
-                    <i class="fas fa-database" aria-hidden="true"></i>
-                    <h3>Data Recovery & Backup</h3>
-                    <p>Forensic recovery for SSD/HDD, server restores, and automated, encrypted backups.</p>
+                    <i class="fas fa-hard-drive" aria-hidden="true"></i>
+                    <h3>Data Recovery</h3>
+                    <p>Lost important photos, documents, or files? We can often get them back.</p>
+                    <ul style="list-style:none; padding:0; margin-top:0.5rem; font-size:0.9rem; color:var(--muted);">
+                        <li>✓ Deleted file recovery</li>
+                        <li>✓ Failed hard drive rescue</li>
+                        <li>✓ USB and memory card</li>
+                        <li>✓ Automatic backup setup</li>
+                    </ul>
                 </article>
                 <article class="card" data-animate="fade-up" data-delay="300">
                     <i class="fas fa-wifi" aria-hidden="true"></i>
-                    <h3>Network & Wi-Fi Engineering</h3>
-                    <p>Whole-home mesh, business-grade firewalls, and 4G/5G failover for uninterrupted connectivity.</p>
+                    <h3>Internet & WiFi</h3>
+                    <p>Slow internet? Dead spots? We fix your WiFi so it works everywhere in your home.</p>
+                    <ul style="list-style:none; padding:0; margin-top:0.5rem; font-size:0.9rem; color:var(--muted);">
+                        <li>✓ Slow internet fixed</li>
+                        <li>✓ WiFi dead zones solved</li>
+                        <li>✓ New router setup</li>
+                        <li>✓ NBN problems sorted</li>
+                    </ul>
                 </article>
                 <article class="card" data-animate="fade-up" data-delay="400">
-                    <i class="fas fa-cloud-arrow-up" aria-hidden="true"></i>
-                    <h3>Cloud & Microsoft 365</h3>
-                    <p>Migrations, license optimization, Teams/SharePoint automation, and ongoing governance.</p>
+                    <i class="fas fa-print" aria-hidden="true"></i>
+                    <h3>Printers & Devices</h3>
+                    <p>Printer not working? Struggling to connect devices? We make it all work together.</p>
+                    <ul style="list-style:none; padding:0; margin-top:0.5rem; font-size:0.9rem; color:var(--muted);">
+                        <li>✓ Printer setup & fixes</li>
+                        <li>✓ Email configuration</li>
+                        <li>✓ Smart TV setup</li>
+                        <li>✓ Phone & tablet help</li>
+                    </ul>
                 </article>
                 <article class="card" data-animate="fade-up" data-delay="500">
-                    <i class="fas fa-headset" aria-hidden="true"></i>
-                    <h3>Virtual CIO & Advisory</h3>
-                    <p>Roadmaps, budgeting, and vendor management that align technology with business outcomes.</p>
+                    <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                    <h3>Training & Help</h3>
+                    <p>Confused by technology? We teach you how to use your devices with patience and care.</p>
+                    <ul style="list-style:none; padding:0; margin-top:0.5rem; font-size:0.9rem; color:var(--muted);">
+                        <li>✓ Computer basics</li>
+                        <li>✓ Email & internet safety</li>
+                        <li>✓ Video calling setup</li>
+                        <li>✓ Online banking help</li>
+                    </ul>
                 </article>
             </div>
         </section>
@@ -262,42 +300,42 @@
         <section id="solutions" class="section alt" aria-label="Solution packages">
             <div class="container split">
                 <div>
-                    <p class="eyebrow">Flexible engagements</p>
-                    <h2>Pick the delivery model that suits your workload.</h2>
-                    <p>Whether you need ad-hoc emergency help, a managed service partner, or project delivery, Rapid Tech plugs in seamlessly.</p>
+                    <p class="eyebrow">How We Help</p>
+                    <h2>Choose What Works for You</h2>
+                    <p>No lock-in contracts. No hidden fees. Just honest, reliable computer help when you need it.</p>
                     <ul class="checklist">
-                        <li>Onsite, remote, and after-hours coverage</li>
-                        <li>Asset lifecycle tracking and reporting</li>
-                        <li>Vendor-neutral hardware recommendations</li>
-                        <li>Industry compliance (ISO27001, CPS234)</li>
+                        <li>We come to your home or office</li>
+                        <li>Remote help over the phone available</li>
+                        <li>Emergency after-hours support</li>
+                        <li>Senior-friendly service with patience</li>
                     </ul>
                 </div>
                 <div class="solution-cards">
                     <article>
-                        <h3>Rapid Response</h3>
-                        <p>Pay-as-you-go support for households and solo operators who need help yesterday.</p>
+                        <h3>One-Time Fix</h3>
+                        <p>Got a problem right now? We'll come out and fix it. You only pay for what you need.</p>
                         <ul>
-                            <li>1-hour triage window</li>
-                            <li>Loan equipment available</li>
-                            <li>Transparent hourly billing</li>
+                            <li>From $80/hour</li>
+                            <li>No call-out fee nearby</li>
+                            <li>Same-day service available</li>
                         </ul>
                     </article>
                     <article>
-                        <h3>Managed IT Care</h3>
-                        <p>Predictable monthly plans with monitoring, patching, and priority scheduling.</p>
+                        <h3>Regular Support</h3>
+                        <p>Want someone to call whenever you need help? Monthly plans with priority service.</p>
                         <ul>
-                            <li>Unlimited remote tickets</li>
-                            <li>Quarterly strategy reviews</li>
-                            <li>Security operations add-ons</li>
+                            <li>Unlimited phone support</li>
+                            <li>Regular check-ups</li>
+                            <li>Discounted repairs</li>
                         </ul>
                     </article>
                     <article>
-                        <h3>Projects & Rollouts</h3>
-                        <p>Network refresh, relocations, POS installs, and cloud migrations delivered end-to-end.</p>
+                        <h3>Business IT</h3>
+                        <p>Running a business? We keep your computers and network running smoothly so you can focus on work.</p>
                         <ul>
-                            <li>Detailed project governance</li>
-                            <li>Vendor coordination</li>
-                            <li>Training & documentation</li>
+                            <li>All staff supported</li>
+                            <li>Fast response times</li>
+                            <li>System monitoring</li>
                         </ul>
                     </article>
                 </div>
@@ -337,8 +375,8 @@
 
         <section id="blog" class="section" aria-label="Latest insights">
             <div class="container section-header" data-animate="fade-up">
-                <p class="eyebrow">Insights</p>
-                <h2>Guides to keep your tech stack sharp.</h2>
+                <p class="eyebrow">Helpful Tips</p>
+                <h2>Free Guides to Protect Your Computer</h2>
             </div>
             <div class="container cards-grid blog-grid">
                 <article class="card">
@@ -361,25 +399,25 @@
 
         <section id="faq" class="section alt" aria-label="Frequently asked questions">
             <div class="container section-header" data-animate="fade-up">
-                <p class="eyebrow">FAQ</p>
-                <h2>Answers to common support requests.</h2>
+                <p class="eyebrow">Questions</p>
+                <h2>Common Questions Answered</h2>
             </div>
             <div class="container faq-grid">
                 <details>
-                    <summary>Do you offer after-hours or weekend callouts?</summary>
-                    <p>Yes. After-hours and weekend services are available for critical incidents. Let us know the severity and location so we can dispatch appropriately.</p>
+                    <summary>How much does it cost?</summary>
+                    <p>Our rates start from $80/hour for remote support and $120/hour for home visits. We give you a quote before we start, so no surprises. Many simple fixes take less than an hour.</p>
                 </details>
                 <details>
-                    <summary>How fast can you get onsite in Patterson Lakes?</summary>
-                    <p>We aim for same-day onsite visits within Bayside and Mornington Peninsula suburbs and offer remote triage in under an hour.</p>
+                    <summary>How quickly can you come?</summary>
+                    <p>Usually the same day you call. We service Patterson Lakes and all surrounding suburbs. Emergency visits available for urgent problems.</p>
                 </details>
                 <details>
-                    <summary>Can you work with our existing IT provider?</summary>
-                    <p>Absolutely. We frequently collaborate with internal teams or other providers to cover overflow tickets, projects, or security uplift.</p>
+                    <summary>Do you work on weekends?</summary>
+                    <p>Yes, we offer weekend and after-hours service for emergencies. Just call us and we'll help you out.</p>
                 </details>
                 <details>
-                    <summary>What industries do you specialise in?</summary>
-                    <p>We partner with healthcare, construction, hospitality, professional services, and home offices—adapting controls to industry requirements.</p>
+                    <summary>Can you help older people who aren't good with computers?</summary>
+                    <p>Absolutely! We're patient and explain everything in plain English. Many of our customers are seniors who appreciate our friendly, no-rush approach.</p>
                 </details>
             </div>
         </section>
