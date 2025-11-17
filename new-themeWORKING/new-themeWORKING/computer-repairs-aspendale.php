@@ -15,6 +15,15 @@ $year = date('Y');
     <title>Computer Repairs Aspendale | Same-Day IT Support 3195 | Free Diagnosis</title>
     <meta name="description" content="Expert computer repairs in Aspendale 3195. Same-day service, free diagnostics, no fix no fee. Virus removal, data recovery, laptop repairs. Call 0423 680 596.">
     <meta name="keywords" content="computer repairs Aspendale, IT support 3195, laptop repair Aspendale, virus removal Aspendale, data recovery 3195, computer technician Aspendale">
+    <meta property="og:title" content="Computer Repairs Aspendale | Same-Day IT Support | Rapid Tech Solutions">
+    <meta property="og:description" content="Expert computer repairs in Aspendale. Same-day service, free diagnostics, virus removal, data recovery. Call 0423 680 596.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.rapidtechsolutions.au/computer-repairs-aspendale/">
+    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Computer Repairs Aspendale">
+    <meta name="twitter:description" content="Same-day computer repair service in Aspendale. Call 0423 680 596">
+    <meta name="twitter:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/computer-repairs-aspendale/">
     <meta name="geo.region" content="AU-VIC">
     <meta name="geo.placename" content="Aspendale">
@@ -66,6 +75,14 @@ $year = date('Y');
             {"@type": "ListItem", "position": 3, "name": "Computer Repairs Aspendale", "item": "https://www.rapidtechsolutions.au/computer-repairs-aspendale/"}
         ]
     }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BDN34WT3J6');
     </script>
 </head>
 <body>

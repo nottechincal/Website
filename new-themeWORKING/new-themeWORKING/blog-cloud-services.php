@@ -15,11 +15,28 @@ if (function_exists('get_template_directory_uri')) {
     <title>Benefits of Cloud Services for Small Businesses | Rapid Tech Solutions</title>
     <meta name="description" content="Discover how cloud services can save money, improve security, and enable remote work for your small business.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/blog-cloud-services/">
+    <meta property="og:title" content="Benefits of Cloud Services for Small Businesses | Rapid Tech Solutions">
+    <meta property="og:description" content="Expert IT advice and tips from Rapid Tech Solutions, Melbourne's trusted computer repair specialists.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.rapidtechsolutions.au/blog-cloud-services/">
+    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Benefits of Cloud Services for Small Businesses | Rapid Tech Solutions">
+    <meta name="twitter:description" content="Expert IT advice from Rapid Tech Solutions">
+    <meta name="twitter:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
     <link rel="icon" type="image/png" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BDN34WT3J6');
+    </script>
 </head>
 <body>
     <header class="site-header" role="banner">

@@ -15,6 +15,15 @@ $year = date('Y');
     <title>Computer Repairs Mordialloc | Same-Day IT Support 3195 | Free Diagnosis</title>
     <meta name="description" content="Expert computer repairs in Mordialloc 3195. Same-day service, free diagnostics, no fix no fee. Virus removal, data recovery, laptop repairs. Call 0423 680 596.">
     <meta name="keywords" content="computer repairs Mordialloc, IT support 3195, laptop repair Mordialloc, virus removal Mordialloc, data recovery 3195, computer technician Mordialloc">
+    <meta property="og:title" content="Computer Repairs Mordialloc | Same-Day IT Support | Rapid Tech Solutions">
+    <meta property="og:description" content="Expert computer repairs in Mordialloc. Same-day service, free diagnostics, virus removal, data recovery. Call 0423 680 596.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.rapidtechsolutions.au/computer-repairs-mordialloc/">
+    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Computer Repairs Mordialloc">
+    <meta name="twitter:description" content="Same-day computer repair service in Mordialloc. Call 0423 680 596">
+    <meta name="twitter:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/computer-repairs-mordialloc/">
     <meta name="geo.region" content="AU-VIC">
     <meta name="geo.placename" content="Mordialloc">
@@ -66,6 +75,14 @@ $year = date('Y');
             {"@type": "ListItem", "position": 3, "name": "Computer Repairs Mordialloc", "item": "https://www.rapidtechsolutions.au/computer-repairs-mordialloc/"}
         ]
     }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BDN34WT3J6');
     </script>
 </head>
 <body>

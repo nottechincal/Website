@@ -15,6 +15,15 @@ $year = date('Y');
     <title>Computer Repairs Mentone | Same-Day IT Support 3194 | Free Diagnosis</title>
     <meta name="description" content="Expert computer repairs in Mentone 3194. Same-day service, free diagnostics, no fix no fee. Virus removal, data recovery, laptop repairs. Call 0423 680 596.">
     <meta name="keywords" content="computer repairs Mentone, IT support 3194, laptop repair Mentone, virus removal Mentone, data recovery 3194, computer technician Mentone">
+    <meta property="og:title" content="Computer Repairs Mentone | Same-Day IT Support | Rapid Tech Solutions">
+    <meta property="og:description" content="Expert computer repairs in Mentone. Same-day service, free diagnostics, virus removal, data recovery. Call 0423 680 596.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.rapidtechsolutions.au/computer-repairs-mentone/">
+    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Computer Repairs Mentone">
+    <meta name="twitter:description" content="Same-day computer repair service in Mentone. Call 0423 680 596">
+    <meta name="twitter:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/computer-repairs-mentone/">
     <meta name="geo.region" content="AU-VIC">
     <meta name="geo.placename" content="Mentone">
@@ -66,6 +75,14 @@ $year = date('Y');
             {"@type": "ListItem", "position": 3, "name": "Computer Repairs Mentone", "item": "https://www.rapidtechsolutions.au/computer-repairs-mentone/"}
         ]
     }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BDN34WT3J6');
     </script>
 </head>
 <body>

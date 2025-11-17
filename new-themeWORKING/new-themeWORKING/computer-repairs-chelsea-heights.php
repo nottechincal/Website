@@ -156,6 +156,14 @@ $meta_desc = "Expert computer repairs in Chelsea Heights 3196. Same-day service,
         ]
     }
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BDN34WT3J6');
+    </script>
 </head>
 <body>
     <header class="site-header" role="banner">
