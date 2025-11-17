@@ -89,7 +89,7 @@ http_response_code(404);
 <body>
     <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a class="brand" href="<?php echo $base_path; ?>/index.php">
+            <a class="brand" href="/">
                 <span class="brand-mark lightning-animated" aria-hidden="true"></span>
                 Rapid Tech Solutions
             </a>
@@ -108,7 +108,7 @@ http_response_code(404);
                 Oops! The page you're looking for seems to have gone missing. Don't worry—it happens to the best of us. The page may have been moved, deleted, or you might have typed the address incorrectly.
             </p>
             <div class="error-actions">
-                <a href="<?php echo $base_path; ?>/index.php" class="btn btn-primary">
+                <a href="/" class="btn btn-primary">
                     <i class="fas fa-home"></i> Go to Homepage
                 </a>
                 <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">

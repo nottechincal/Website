@@ -24,7 +24,7 @@ if (function_exists('get_template_directory_uri')) {
 <body>
     <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a class="brand" href="<?php echo $base_path; ?>/index.php">
+            <a class="brand" href="/">
                 <span class="brand-mark lightning-animated" aria-hidden="true"></span>
                 Rapid Tech Solutions
             </a>

@@ -22,7 +22,7 @@ if (function_exists('get_template_directory_uri')) {
 <body>
     <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a class="brand" href="<?php echo $base_path; ?>/index.php">
+            <a class="brand" href="/">
                 <span class="brand-mark lightning-animated" aria-hidden="true"></span>
                 Rapid Tech Solutions
             </a>
@@ -72,7 +72,7 @@ if (function_exists('get_template_directory_uri')) {
                 <a href="tel:+61423680596" class="btn" style="margin-right: 1rem;">
                     <i class="fas fa-phone"></i> 0423 680 596
                 </a>
-                <a href="<?php echo $base_path; ?>/index.php" class="btn btn-outline">
+                <a href="/" class="btn btn-outline">
                     <i class="fas fa-home"></i> Return to Homepage
                 </a>
             </div>

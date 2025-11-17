@@ -127,7 +127,7 @@ $year = date('Y');
 <body>
     <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a class="brand" href="<?php echo $base_path; ?>/index.php"><span class="brand-mark lightning-animated"></span>Rapid Tech Solutions</a>
+            <a class="brand" href="/"><span class="brand-mark lightning-animated"></span>Rapid Tech Solutions</a>
             <nav class="primary-nav">
                 <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
                 <a href="tel:+61423680596" class="btn btn-outline"><i class="fas fa-phone"></i> 0423 680 596</a>
