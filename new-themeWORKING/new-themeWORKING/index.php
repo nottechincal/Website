@@ -666,10 +666,10 @@ if (function_exists('get_template_directory_uri')) {
                 <h3>Quick links</h3>
                 <ul>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
                     <li><a href="#process">Process</a></li>
                     <li><a href="#faq">FAQ</a></li>
-                    <li><a href="<?php echo $base_path; ?>/page-privacy.php">Privacy</a></li>
+                    <li><a href="<?php echo $base_path; ?>/about.php">About Us</a></li>
+                    <li><a href="<?php echo $base_path; ?>/service-area.php">Service Areas</a></li>
                 </ul>
             </div>
             <div>
@@ -680,6 +680,10 @@ if (function_exists('get_template_directory_uri')) {
                     <li>ABN 64 654 861 096</li>
                 </ul>
             </div>
+        </div>
+        <div style="text-align: center; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem;">
+            <a href="<?php echo $base_path; ?>/privacy-policy.php" style="color: var(--muted); margin: 0 1rem;">Privacy Policy</a>
+            <a href="<?php echo $base_path; ?>/terms-of-service.php" style="color: var(--muted); margin: 0 1rem;">Terms of Service</a>
         </div>
         <p class="footer-note">© <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</p>
     </footer>

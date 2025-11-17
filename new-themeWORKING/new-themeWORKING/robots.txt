@@ -1,5 +1,20 @@
+# Robots.txt for Rapid Tech Solutions
+# https://www.rapidtechsolutions.au
+
 User-agent: *
-Allow: /sitemap.xml
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.rapidtechsolutions.au/sitemap.xml
+
+# Disallow admin and sensitive areas
+Disallow: /vendor/
+Disallow: /inc/
 Disallow: /wp-admin/
 Disallow: /wp-includes/
-Sitemap: https://www.rapidtechsolutions.au/sitemap.xml
+Disallow: /contactengine.php
+Disallow: /paymentpage.php
+Disallow: /bookingengine.php
+
+# Crawl-delay to be respectful
+Crawl-delay: 1
