@@ -74,8 +74,8 @@ if (function_exists('get_template_directory_uri')) {
             "closes": "17:00"
         },
         "sameAs": [
-            "https://www.facebook.com/rapidtechsolutions",
-            "https://www.linkedin.com/company/rapidtechsolutions"
+            "https://www.facebook.com/RapidTechAUS/",
+            "https://www.instagram.com/rapidtechsolutions.au/"
         ],
         "areaServed": ["Patterson Lakes","Melbourne","Mornington Peninsula","Frankston"],
         "hasOfferCatalog": {
@@ -158,11 +158,11 @@ if (function_exists('get_template_directory_uri')) {
         </div>
     </header>
 
-    <!-- Emergency Services Banner -->
-    <div style="background: linear-gradient(90deg, #ff5c5c 0%, #e24646 100%); color: white; padding: 0.75rem 0; text-align: center; font-weight: 500;">
+    <!-- Emergency Services Banner - Sticky on Scroll -->
+    <div id="emergency-banner" style="background: linear-gradient(90deg, #ff5c5c 0%, #e24646 100%); color: white; padding: 0.75rem 0; text-align: center; font-weight: 500; position: relative; z-index: 999; transition: all 0.3s ease;">
         <div class="container" style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
             <span><i class="fas fa-bolt"></i> Same-Day Emergency Service Available</span>
-            <a href="tel:+61423680596" style="background: white; color: #ff5c5c; padding: 0.4rem 1rem; border-radius: 20px; font-weight: 600; text-decoration: none;">Call Now: 0423 680 596</a>
+            <a href="tel:+61423680596" style="background: white; color: #ff5c5c; padding: 0.4rem 1rem; border-radius: 20px; font-weight: 600; text-decoration: none; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Call Now: 0423 680 596</a>
         </div>
     </div>
 
@@ -658,15 +658,15 @@ if (function_exists('get_template_directory_uri')) {
                 <a class="brand" href="/">Rapid Tech Solutions</a>
                 <p>Strategic IT support, cybersecurity, and cloud enablement for Melbourne businesses and households.</p>
                 <div class="social">
-                    <a href="https://www.facebook.com/rapidtechsolutions" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/company/rapidtechsolutions" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/RapidTechAUS/" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/rapidtechsolutions.au/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div>
                 <h3>Quick links</h3>
                 <ul>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#process">Process</a></li>
+                    <li><a href="<?php echo $base_path; ?>/blog.php">Blog & Tips</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="<?php echo $base_path; ?>/about.php">About Us</a></li>
                     <li><a href="<?php echo $base_path; ?>/service-area.php">Service Areas</a></li>
@@ -772,6 +772,31 @@ if (function_exists('get_template_directory_uri')) {
                 }
             });
         });
+    </script>
+
+    <!-- Sticky Emergency Banner Script -->
+    <script>
+    (function() {
+        const banner = document.getElementById('emergency-banner');
+        const header = document.querySelector('.site-header');
+        let bannerOffset = banner.offsetTop;
+        let bannerHeight = banner.offsetHeight;
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > bannerOffset + 50) {
+                banner.style.position = 'fixed';
+                banner.style.top = '0';
+                banner.style.left = '0';
+                banner.style.right = '0';
+                banner.style.boxShadow = '0 2px 10px rgba(255, 92, 92, 0.3)';
+                document.body.style.paddingTop = bannerHeight + 'px';
+            } else {
+                banner.style.position = 'relative';
+                banner.style.boxShadow = 'none';
+                document.body.style.paddingTop = '0';
+            }
+        });
+    })();
     </script>
 
     <!--Start of Tawk.to Script-->
