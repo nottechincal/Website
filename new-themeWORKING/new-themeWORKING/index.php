@@ -31,6 +31,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" referrerpolicy="no-referrer">
     <link href="<?php echo get_template_directory_uri(); ?>/css/styles.css" rel="stylesheet">
+    <link href="<?php echo get_template_directory_uri(); ?>/css/animations.css" rel="stylesheet">
     <title>Rapid Tech Solutions | Expert IT Support & Computer Repairs Melbourne | Patterson Lakes</title>
     <script type="application/ld+json">
     {
@@ -129,7 +130,7 @@
     <header class="site-header" role="banner">
         <div class="container header-inner">
             <a class="brand" href="/">
-                <span class="brand-mark" aria-hidden="true">⚡</span>
+                <span class="brand-mark lightning-animated" aria-hidden="true"></span>
                 Rapid Tech Solutions
             </a>
             <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
@@ -140,7 +141,7 @@
                 <a href="#services">Services</a>
                 <a href="#solutions">Solutions</a>
                 <a href="#process">Process</a>
-                <a href="#testimonials">Testimonials</a>
+                
                 <a href="#blog">Insights</a>
                 <a href="#contact" class="btn btn-outline">Book Support</a>
             </nav>
@@ -186,19 +187,19 @@
                 </div>
             </div>
             <div class="container stats" aria-label="Impact statistics">
-                <article>
+                <article data-animate="fade-up">
                     <span>500+</span>
                     <p>Devices secured & repaired</p>
                 </article>
-                <article>
+                <article data-animate="fade-up" data-delay="0">
                     <span>97%</span>
                     <p>Same-day resolution rate</p>
                 </article>
-                <article>
+                <article data-animate="fade-up" data-delay="100">
                     <span>4.9★</span>
                     <p>Average customer rating</p>
                 </article>
-                <article>
+                <article data-animate="fade-up" data-delay="200">
                     <span>30+</span>
                     <p>Suburbs serviced daily</p>
                 </article>
@@ -219,38 +220,38 @@
         </section>
 
         <section id="services" class="section" aria-label="Our IT services">
-            <div class="container section-header">
+            <div class="container section-header" data-animate="fade-up">
                 <p class="eyebrow">What we fix</p>
                 <h2>End-to-end IT, tailored for homes and ambitious teams.</h2>
                 <p>Mix and match responsive break-fix support with ongoing maintenance retainers to match your risk appetite.</p>
             </div>
             <div class="container cards-grid">
-                <article class="card">
+                <article class="card" data-animate="fade-up">
                     <i class="fas fa-screwdriver-wrench" aria-hidden="true"></i>
                     <h3>Computer Repairs</h3>
                     <p>Diagnostics, component upgrades, and rapid part replacement for laptops, desktops, and gaming rigs.</p>
                 </article>
-                <article class="card">
+                <article class="card" data-animate="fade-up" data-delay="100">
                     <i class="fas fa-user-shield" aria-hidden="true"></i>
                     <h3>Cybersecurity & Hardening</h3>
                     <p>Endpoint protection, phishing defense, and zero-trust policies to safeguard credentials and IP.</p>
                 </article>
-                <article class="card">
+                <article class="card" data-animate="fade-up" data-delay="200">
                     <i class="fas fa-database" aria-hidden="true"></i>
                     <h3>Data Recovery & Backup</h3>
                     <p>Forensic recovery for SSD/HDD, server restores, and automated, encrypted backups.</p>
                 </article>
-                <article class="card">
+                <article class="card" data-animate="fade-up" data-delay="300">
                     <i class="fas fa-wifi" aria-hidden="true"></i>
                     <h3>Network & Wi-Fi Engineering</h3>
                     <p>Whole-home mesh, business-grade firewalls, and 4G/5G failover for uninterrupted connectivity.</p>
                 </article>
-                <article class="card">
+                <article class="card" data-animate="fade-up" data-delay="400">
                     <i class="fas fa-cloud-arrow-up" aria-hidden="true"></i>
                     <h3>Cloud & Microsoft 365</h3>
                     <p>Migrations, license optimization, Teams/SharePoint automation, and ongoing governance.</p>
                 </article>
-                <article class="card">
+                <article class="card" data-animate="fade-up" data-delay="500">
                     <i class="fas fa-headset" aria-hidden="true"></i>
                     <h3>Virtual CIO & Advisory</h3>
                     <p>Roadmaps, budgeting, and vendor management that align technology with business outcomes.</p>
@@ -304,27 +305,27 @@
         </section>
 
         <section id="process" class="section" aria-label="Our process">
-            <div class="container section-header">
+            <div class="container section-header" data-animate="fade-up">
                 <p class="eyebrow">Process</p>
                 <h2>Clarity from first call to final handover.</h2>
             </div>
             <div class="container timeline">
-                <article>
+                <article data-animate="fade-up" data-delay="300">
                     <span>1</span>
                     <h3>Discovery</h3>
                     <p>We listen, assess urgency, and capture business context in a lightweight digital brief.</p>
                 </article>
-                <article>
+                <article data-animate="fade-up" data-delay="400">
                     <span>2</span>
                     <h3>Stabilise</h3>
                     <p>Immediate remediation, isolation, or recovery to get you productive again.</p>
                 </article>
-                <article>
+                <article data-animate="fade-up" data-delay="500">
                     <span>3</span>
                     <h3>Optimise</h3>
                     <p>Implement best-practice tools, automation, and monitoring for resilience.</p>
                 </article>
-                <article>
+                <article data-animate="fade-up" data-delay="600">
                     <span>4</span>
                     <h3>Partner</h3>
                     <p>Quarterly reviews and continuous improvement keep tech aligned with your goals.</p>
@@ -332,38 +333,10 @@
             </div>
         </section>
 
-        <section id="testimonials" class="section alt" aria-label="Testimonials">
-            <div class="container section-header">
-                <p class="eyebrow">Results</p>
-                <h2>Stories from local clients.</h2>
-            </div>
-            <div class="container testimonial-grid">
-                <article>
-                    <p>“Rapid Tech migrated our trades team to Microsoft 365 with zero downtime. Tickets that once took days now take minutes.”</p>
-                    <div class="author">
-                        <strong>Jamie</strong>
-                        <span>Construction Manager, Seaford</span>
-                    </div>
-                </article>
-                <article>
-                    <p>“They recovered a failed SSD containing 8 years of dental records and then built a backup plan so we never face that again.”</p>
-                    <div class="author">
-                        <strong>Dr. Patel</strong>
-                        <span>Dental Clinic, Frankston</span>
-                    </div>
-                </article>
-                <article>
-                    <p>“Proactive alerts spotted malware before it spread to our POS machines. The team handled it all after hours.”</p>
-                    <div class="author">
-                        <strong>Ella</strong>
-                        <span>Retail Owner, Mornington</span>
-                    </div>
-                </article>
-            </div>
-        </section>
+        
 
         <section id="blog" class="section" aria-label="Latest insights">
-            <div class="container section-header">
+            <div class="container section-header" data-animate="fade-up">
                 <p class="eyebrow">Insights</p>
                 <h2>Guides to keep your tech stack sharp.</h2>
             </div>
@@ -371,23 +344,23 @@
                 <article class="card">
                     <h3>Home Network Tune-Up Checklist</h3>
                     <p>Eliminate dead zones, boost Wi-Fi speeds, and secure every device at home.</p>
-                    <a href="<?php echo get_template_directory_uri(); ?>/blog-home-network.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://www.rapidtechsolutions.au/blog-home-network/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="card">
                     <h3>Cloud vs Local Backups</h3>
                     <p>How hybrid backup strategies protect Melbourne businesses from downtime.</p>
-                    <a href="<?php echo get_template_directory_uri(); ?>/blog-cloud-services.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://www.rapidtechsolutions.au/blog-cloud-services/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="card">
                     <h3>Malware Playbook for SMEs</h3>
                     <p>Contain threats fast with isolation steps, user training, and managed protection.</p>
-                    <a href="<?php echo get_template_directory_uri(); ?>/blog-malware-protection.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://www.rapidtechsolutions.au/blog-malware-protection/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
             </div>
         </section>
 
         <section id="faq" class="section alt" aria-label="Frequently asked questions">
-            <div class="container section-header">
+            <div class="container section-header" data-animate="fade-up">
                 <p class="eyebrow">FAQ</p>
                 <h2>Answers to common support requests.</h2>
             </div>
@@ -558,6 +531,7 @@
     </script>
 
     <script>
+        // Mobile navigation toggle
         const toggle = document.querySelector('.menu-toggle');
         const nav = document.getElementById('primary-nav');
         if (toggle) {
@@ -567,6 +541,38 @@
                 nav.classList.toggle('is-open');
             });
         }
+
+        // Scroll Animation Observer
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('[data-animate]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            elements.forEach(el => observer.observe(el));
+        };
+
+        // Initialize animations on load
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
     </script>
 </body>
 </html>
