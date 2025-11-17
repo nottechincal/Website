@@ -2,43 +2,46 @@
 <html lang="en-AU">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rapid Tech Solutions offers expert computer repair, malware removal, data recovery, and network setup services in Patterson Lakes and Melbourne. Contact us for tailored IT solutions.">
-    <meta name="keywords" content="computer repair Patterson Lakes, malware removal Melbourne, data recovery 3197, network setup Melbourne, IT services Patterson Lakes, tech support Australia, cloud services">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Rapid Tech Solutions delivers same-day computer repairs, friendly onsite technicians, and senior-friendly IT support across Patterson Lakes and Melbourne.">
+    <meta name="keywords" content="IT services Patterson Lakes, computer repair Melbourne, data recovery 3197, managed IT support Victoria, senior computer help, home tech support">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Rapid Tech Solutions">
     <meta name="geo.region" content="AU-VIC">
     <meta name="geo.placename" content="Patterson Lakes">
     <meta name="geo.position" content="-38.0692;145.1433">
     <meta name="ICBM" content="-38.0692, 145.1433">
-    <meta property="og:title" content="Rapid Tech Solutions | IT Services in Patterson Lakes">
-    <meta property="og:description" content="Providing reliable computer repair, malware removal, data recovery, and network setup in Patterson Lakes, Melbourne. Contact us today!">
+    <meta property="og:title" content="Rapid Tech Solutions | Modern IT Services in Melbourne">
+    <meta property="og:description" content="Human-first IT support, cloud expertise, and cybersecurity for homes and growing businesses in Patterson Lakes and beyond.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.rapidtechsolutions.au">
     <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/og-image.jpg">
     <meta property="og:site_name" content="Rapid Tech Solutions">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Rapid Tech Solutions | IT Services in Patterson Lakes">
-    <meta name="twitter:description" content="Professional IT services in Patterson Lakes, Melbourne, including computer repair and network setup. Contact us now!">
+    <meta name="twitter:title" content="Rapid Tech Solutions">
+    <meta name="twitter:description" content="On-demand IT services, repairs, and cybersecurity protection across Melbourne.">
     <meta name="twitter:image" content="<?php echo get_template_directory_uri(); ?>/images/og-image.jpg">
-    <title>Rapid Tech Solutions | IT Services in Patterson Lakes</title>
     <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/images/favicon.png">
     <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/images/fallback.jpg" as="image">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="<?php echo get_template_directory_uri(); ?>/css/styles.css" rel="stylesheet" media="screen">
-    <!-- Schema Markup for Local Business -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" referrerpolicy="no-referrer">
+    <link href="<?php echo get_template_directory_uri(); ?>/css/styles.css" rel="stylesheet">
+    <title>Rapid Tech Solutions | IT Services in Patterson Lakes</title>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Rapid Tech Solutions",
-        "description": "Expert IT services including computer repair, malware removal, data recovery, and network setup in Patterson Lakes, Melbourne.",
+        "description": "Computer repair, cybersecurity, data recovery, and managed IT support in Patterson Lakes.",
         "telephone": "+61423680596",
         "url": "https://www.rapidtechsolutions.au",
+        "logo": "<?php echo get_template_directory_uri(); ?>/images/logo.png",
+        "image": "<?php echo get_template_directory_uri(); ?>/images/og-image.jpg",
+        "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Patterson Lakes",
+            "streetAddress": "Patterson Lakes",
+            "addressLocality": "Melbourne",
             "addressRegion": "VIC",
             "postalCode": "3197",
             "addressCountry": "AU"
@@ -48,441 +51,553 @@
             "latitude": -38.0692,
             "longitude": 145.1433
         },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+        },
         "sameAs": [
             "https://www.facebook.com/rapidtechsolutions",
-            "https://www.twitter.com/rapidtechau",
             "https://www.linkedin.com/company/rapidtechsolutions"
         ],
-        "openingHours": "Mo-Fr 09:00-17:00",
-        "image": "<?php echo get_template_directory_uri(); ?>/images/logo.png",
-        "offers": {
+        "areaServed": ["Patterson Lakes","Melbourne","Mornington Peninsula","Frankston"]
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a class="brand" href="/">
+                <span class="brand-mark" aria-hidden="true">
+                    <span class="brand-bolt"></span>
+                </span>
+                Rapid Tech Solutions
+            </a>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+                <a href="#services">Services</a>
+                <a href="#solutions">Solutions</a>
+                <a href="#care">Senior Care</a>
+                <a href="#process">Process</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact" class="btn btn-outline">Book Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <a href="http://wa.me/61423680596" target="_blank" class="whatsapp-icon" aria-label="Chat with Rapid Tech Solutions on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <a href="#contact" class="sticky-cta" aria-label="Contact Rapid Tech Solutions">Get Rapid Support</a>
+
+    <main id="main" tabindex="-1">
+        <section class="hero" aria-label="Rapid Tech Solutions hero">
+            <video autoplay muted loop playsinline id="bg-video" poster="<?php echo get_template_directory_uri(); ?>/images/fallback.jpg">
+                <source src="<?php echo get_template_directory_uri(); ?>/videos/bg1.webm" type="video/webm">
+                <source src="<?php echo get_template_directory_uri(); ?>/videos/bg1.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Melbourne & Patterson Lakes</p>
+                    <h1>Friendly, plain-English computer help for homes and local businesses.</h1>
+                    <p class="lead">Book a same-day technician for repairs, Wi-Fi fixes, training, or cybersecurity. We keep instructions easy to follow and make sure every family member is comfortable using their tech.</p>
+                    <div class="hero-cta">
+                        <a class="btn" href="#contact">Book a Technician</a>
+                        <a class="btn btn-outline" href="tel:+61423680596">Call 0423 680 596</a>
+                    </div>
+                    <ul class="hero-badges" aria-label="Key service highlights">
+                        <li><i class="fas fa-bolt"></i> Same-day onsite support</li>
+                        <li><i class="fas fa-hand-holding-heart"></i> Patient, senior-friendly guidance</li>
+                        <li><i class="fas fa-shield"></i> Cyber safety for families & clinics</li>
+                    </ul>
+                </div>
+                <div class="hero-card" role="complementary" aria-label="Service summary card">
+                    <h2>Rapid help, zero jargon</h2>
+                    <p>We text before arrival, bring loan equipment, and leave easy instructions so you stay confident after we go.</p>
+                    <ul>
+                        <li>Friendly follow-up check-ins</li>
+                        <li>Simple printed cheat-sheets</li>
+                        <li>Secure backups with status alerts</li>
+                    </ul>
+                    <a class="btn btn-full" href="#solutions">Explore Service Plans</a>
+                </div>
+            </div>
+            <div class="container stats" aria-label="Impact statistics">
+                <article>
+                    <span>500+</span>
+                    <p>Devices secured & repaired</p>
+                </article>
+                <article>
+                    <span>97%</span>
+                    <p>Same-day resolution rate</p>
+                </article>
+                <article>
+                    <span>4.9★</span>
+                    <p>Average customer rating</p>
+                </article>
+                <article>
+                    <span>30+</span>
+                    <p>Suburbs serviced daily</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="trust" aria-label="Trust badges">
+            <div class="container trust-grid">
+                <p>Trusted by builders, clinics, retail, and home offices across Bayside.</p>
+                <div class="trust-logos">
+                    <span>Microsoft 365</span>
+                    <span>Lenovo</span>
+                    <span>Ubiquiti</span>
+                    <span>HP Business</span>
+                    <span>Google Workspace</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section" aria-label="Our IT services">
+            <div class="container section-header">
+                <p class="eyebrow">What we fix</p>
+                <h2>Clear, reliable help for every device in your house or office.</h2>
+                <p>From replacing a cracked laptop screen to restoring Wi-Fi in a retirement village, our technicians keep instructions gentle and outcomes fast.</p>
+            </div>
+            <div class="container cards-grid">
+                <article class="card">
+                    <i class="fas fa-screwdriver-wrench" aria-hidden="true"></i>
+                    <h3>Computer Repairs</h3>
+                    <p>Speedy diagnosis, part replacement, and tune-ups for laptops, desktops, and all-in-ones.</p>
+                </article>
+                <article class="card">
+                    <i class="fas fa-user-shield" aria-hidden="true"></i>
+                    <h3>Cyber Safety</h3>
+                    <p>Malware removal, scam protection lessons, and automatic updates that keep you protected.</p>
+                </article>
+                <article class="card">
+                    <i class="fas fa-database" aria-hidden="true"></i>
+                    <h3>Data Recovery & Backup</h3>
+                    <p>Recover photos and business files, then automate backups to USB, cloud, or NAS.</p>
+                </article>
+                <article class="card">
+                    <i class="fas fa-wifi" aria-hidden="true"></i>
+                    <h3>Network & Wi-Fi</h3>
+                    <p>Whole-home mesh, business-grade routers, and 4G/5G backup so video calls never drop.</p>
+                </article>
+                <article class="card">
+                    <i class="fas fa-cloud-arrow-up" aria-hidden="true"></i>
+                    <h3>Cloud & Email</h3>
+                    <p>Microsoft 365, Google Workspace, backups, and password managers configured for you.</p>
+                </article>
+                <article class="card">
+                    <i class="fas fa-headset" aria-hidden="true"></i>
+                    <h3>Personal Tech Coaching</h3>
+                    <p>One-on-one lessons, setup of smart TVs and tablets, and printed guides for future reference.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="solutions" class="section alt" aria-label="Solution packages">
+            <div class="container split">
+                <div>
+                    <p class="eyebrow">Flexible engagements</p>
+                    <h2>Pick the delivery model that suits your workload.</h2>
+                    <p>Whether you need ad-hoc emergency help, a managed service partner, or regular home visits, Rapid Tech plugs in seamlessly.</p>
+                    <ul class="checklist">
+                        <li>Onsite, remote, and after-hours coverage</li>
+                        <li>Asset lifecycle tracking and reporting</li>
+                        <li>Vendor-neutral hardware recommendations</li>
+                        <li>Industry compliance (ISO27001, CPS234)</li>
+                    </ul>
+                </div>
+                <div class="solution-cards">
+                    <article>
+                        <h3>Rapid Response</h3>
+                        <p>Pay-as-you-go support for households and solo operators who need help yesterday.</p>
+                        <ul>
+                            <li>1-hour phone assessment</li>
+                            <li>Loan equipment available</li>
+                            <li>Transparent hourly billing</li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3>Managed IT Care</h3>
+                        <p>Predictable monthly plans with monitoring, patching, and priority scheduling.</p>
+                        <ul>
+                            <li>Unlimited remote tickets</li>
+                            <li>Quarterly strategy reviews</li>
+                            <li>Security operations add-ons</li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3>Projects & Rollouts</h3>
+                        <p>Network refresh, relocations, POS installs, and cloud migrations delivered end-to-end.</p>
+                        <ul>
+                            <li>Detailed project governance</li>
+                            <li>Vendor coordination</li>
+                            <li>Training & documentation</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="care" class="section seniors" aria-label="Senior-friendly technology support">
+            <div class="container section-header">
+                <p class="eyebrow">Senior-friendly care</p>
+                <h2>Designed for older Australians who want worry-free technology.</h2>
+                <p>High-contrast text, bigger buttons, and calm technicians keep every visit relaxed. We stay until you are confident pressing each button yourself.</p>
+            </div>
+            <div class="container seniors-grid">
+                <article class="comfort-card">
+                    <i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i>
+                    <h3>Larger text & accessibility setup</h3>
+                    <p>We configure screen zoom, readability settings, captioning, and safety shortcuts on every device we touch.</p>
+                </article>
+                <article class="comfort-card">
+                    <i class="fas fa-user-check" aria-hidden="true"></i>
+                    <h3>Police-checked technicians</h3>
+                    <p>Every onsite visit is logged, photo ID is shown, and loved ones can join via speakerphone.</p>
+                </article>
+                <article class="comfort-card">
+                    <i class="fas fa-file-signature" aria-hidden="true"></i>
+                    <h3>Leave-behind instructions</h3>
+                    <p>Printed cheat-sheets and fridge magnets with next steps so anyone in the home can follow along later.</p>
+                </article>
+                <article class="comfort-card">
+                    <i class="fas fa-heart-circle-check" aria-hidden="true"></i>
+                    <h3>Post-visit wellness call</h3>
+                    <p>We check back in within 48 hours to make sure everything still feels good and answer new questions.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="process" class="section" aria-label="Our process">
+            <div class="container section-header">
+                <p class="eyebrow">Process</p>
+                <h2>Clarity from first call to final handover.</h2>
+            </div>
+            <div class="container timeline">
+                <article>
+                    <span>1</span>
+                    <h3>Discovery</h3>
+                    <p>We listen, assess urgency, and capture business context in a lightweight digital brief.</p>
+                </article>
+                <article>
+                    <span>2</span>
+                    <h3>Stabilise</h3>
+                    <p>Immediate remediation, isolation, or recovery to get you productive again.</p>
+                </article>
+                <article>
+                    <span>3</span>
+                    <h3>Optimise</h3>
+                    <p>Implement best-practice tools, automation, and monitoring for resilience.</p>
+                </article>
+                <article>
+                    <span>4</span>
+                    <h3>Partner</h3>
+                    <p>Quarterly reviews and continuous improvement keep tech aligned with your goals.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section alt assurance" aria-label="Service guarantees">
+            <div class="container section-header">
+                <p class="eyebrow">Our promises</p>
+                <h2>Simple guarantees older Australians appreciate.</h2>
+                <p>Every visit follows a checklist focused on safety, patience, and easy-to-read documentation.</p>
+            </div>
+            <div class="container assurance-grid">
+                <article>
+                    <h3>No surprise costs</h3>
+                    <p>Clear quotes before we begin, pensioner-friendly rates, and receipts emailed plus printed.</p>
+                </article>
+                <article>
+                    <h3>Plain-language updates</h3>
+                    <p>We translate every finding into everyday language and call family members if requested.</p>
+                </article>
+                <article>
+                    <h3>Protect-your-data checklist</h3>
+                    <p>We secure passwords, test backups, and label every cable before leaving.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="blog" class="section" aria-label="Latest insights">
+            <div class="container section-header">
+                <p class="eyebrow">Insights</p>
+                <h2>Guides to keep your tech stack sharp.</h2>
+            </div>
+            <div class="container cards-grid blog-grid">
+                <article class="card">
+                    <h3>Home Network Tune-Up Checklist</h3>
+                    <p>Eliminate dead zones, boost Wi-Fi speeds, and secure every device at home.</p>
+                    <a href="<?php echo get_template_directory_uri(); ?>/blog-home-network.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                </article>
+                <article class="card">
+                    <h3>Cloud vs Local Backups</h3>
+                    <p>How hybrid backup strategies protect Melbourne businesses from downtime.</p>
+                    <a href="<?php echo get_template_directory_uri(); ?>/blog-cloud-services.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                </article>
+                <article class="card">
+                    <h3>Malware Playbook for SMEs</h3>
+                    <p>Contain threats fast with isolation steps, user training, and managed protection.</p>
+                    <a href="<?php echo get_template_directory_uri(); ?>/blog-malware-protection.php" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                </article>
+            </div>
+        </section>
+
+        <section id="faq" class="section alt" aria-label="Frequently asked questions">
+            <div class="container section-header">
+                <p class="eyebrow">FAQ</p>
+                <h2>Answers to common support requests.</h2>
+            </div>
+            <div class="container faq-grid">
+                <details>
+                    <summary>Do you offer after-hours or weekend callouts?</summary>
+                    <p>Yes. After-hours and weekend services are available for critical incidents. Let us know the severity and location so we can dispatch appropriately.</p>
+                </details>
+                <details>
+                    <summary>How fast can you get onsite in Patterson Lakes?</summary>
+                    <p>We aim for same-day onsite visits within Bayside and Mornington Peninsula suburbs and offer remote assistance in under an hour.</p>
+                </details>
+                <details>
+                    <summary>Can you work with our existing IT provider?</summary>
+                    <p>Absolutely. We frequently collaborate with internal teams or other providers to cover overflow tickets, projects, or security uplift.</p>
+                </details>
+                <details>
+                    <summary>What industries do you specialise in?</summary>
+                    <p>We partner with healthcare, construction, hospitality, professional services, and home offices—adapting controls to industry requirements.</p>
+                </details>
+                <details>
+                    <summary>Do you help with tablets, smart TVs, and phones?</summary>
+                    <p>Yes, we configure Apple, Android, and smart home devices, connect them to secure Wi-Fi, and leave instructions for daily use.</p>
+                </details>
+                <details>
+                    <summary>Is there a discount for seniors or repeat visits?</summary>
+                    <p>We provide loyalty pricing for households and concession discounts Monday–Friday. Ask when booking so it’s applied to your invoice.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="cta-panel" aria-label="Primary call to action">
+            <div class="container cta-panel-inner">
+                <div>
+                    <p class="eyebrow">Need help now?</p>
+                    <h2>Book a same-day technician and get back online fast.</h2>
+                    <p>Describe the issue, attach screenshots, and we’ll confirm your booking within 30 minutes.</p>
+                </div>
+                <a class="btn" href="#contact">Book a Technician</a>
+            </div>
+        </section>
+
+        <section id="contact" class="section" aria-label="Contact Rapid Tech Solutions">
+            <div class="container contact-grid">
+                <div>
+                    <p class="eyebrow">Contact</p>
+                    <h2>Let’s solve your tech challenge.</h2>
+                    <p>Call <a href="tel:+61423680596">0423 680 596</a> or use the form to brief us. We respond within one business hour and can loop in carers or managers.</p>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-location-dot"></i> Patterson Lakes, VIC 3197</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+61423680596">+61 423 680 596</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:support@rapidtechsolutions.au">support@rapidtechsolutions.au</a></li>
+                        <li><i class="fas fa-clock"></i> Mon–Fri 9am – 5pm, emergency callouts 24/7</li>
+                    </ul>
+                </div>
+                <form class="contact-form" action="<?php echo get_template_directory_uri(); ?>/contactengine.php" method="POST">
+                    <label for="name">Name*</label>
+                    <input type="text" id="name" name="Name" required>
+
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="Email" required>
+
+                    <label for="phone">Phone*</label>
+                    <input type="tel" id="phone" name="Tel" required>
+
+                    <label for="service">Service needed</label>
+                    <select id="service" name="Service">
+                        <option value="Repairs">Repairs / Troubleshooting</option>
+                        <option value="Cybersecurity">Cybersecurity</option>
+                        <option value="Network">Network & Wi-Fi</option>
+                        <option value="Cloud">Cloud & Microsoft 365</option>
+                        <option value="Projects">Projects / Advisory</option>
+                    </select>
+
+                    <label for="message">Message*</label>
+                    <textarea id="message" name="Message" rows="5" required></textarea>
+
+                    <button type="submit" class="btn btn-full">Submit request</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="service-area" class="section alt" aria-label="Service area">
+            <div class="container service-area-grid">
+                <div>
+                    <p class="eyebrow">Coverage</p>
+                    <h2>Local to Patterson Lakes. Mobile across Melbourne.</h2>
+                    <p>We service Bayside, Frankston, Mornington Peninsula, and the South East corridor. Remote support is available Australia-wide.</p>
+                    <ul class="service-list">
+                        <li>Patterson Lakes, Carrum, Seaford</li>
+                        <li>Frankston, Langwarrin, Skye</li>
+                        <li>Chelsea Heights, Aspendale, Edithvale</li>
+                        <li>Mordialloc, Parkdale, Mentone</li>
+                        <li>Mornington Peninsula suburbs</li>
+                    </ul>
+                </div>
+                <figure>
+                    <iframe title="Service area map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31516.347265566255!2d145.123!3d-38.0692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad61ab1a0f5e9df%3A0x5045675218ce6e0!2sPatterson%20Lakes%20VIC%203197!5e0!3m2!1sen!2sau!4v1710000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <figcaption>Onsite visits within 30 minutes of Patterson Lakes plus remote national coverage.</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div>
+                <a class="brand" href="/">Rapid Tech Solutions</a>
+                <p>Strategic IT support, cybersecurity, and cloud enablement for Melbourne businesses and households.</p>
+                <div class="social">
+                    <a href="https://www.facebook.com/rapidtechsolutions" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/company/rapidtechsolutions" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Quick links</h3>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="<?php echo get_template_directory_uri(); ?>/page-privacy.php">Privacy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+61423680596">+61 423 680 596</a></li>
+                    <li><a href="mailto:support@rapidtechsolutions.au">support@rapidtechsolutions.au</a></li>
+                    <li>ABN 64 654 861 096</li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-note">© <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</p>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Do you offer after-hours or weekend callouts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. After-hours and weekend services are available for critical incidents across Bayside and Mornington Peninsula."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How fast can you get onsite in Patterson Lakes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We aim for same-day onsite visits locally and offer remote assistance in under an hour."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can you work with our existing IT provider?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We frequently collaborate with internal teams or other MSPs to cover overflow tickets, projects, or security uplift."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What industries do you specialise in?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Healthcare, construction, hospitality, professional services, retail, and home offices."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you help with tablets, smart TVs, and phones?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we configure Apple, Android, and smart home devices, connect them securely, and leave instructions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there a discount for seniors or repeat visits?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We provide loyalty pricing for households and concession discounts Monday–Friday."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Computer Repair & IT Support",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "Rapid Tech Solutions",
+            "areaServed": "Patterson Lakes and Melbourne"
+        },
+        "description": "Same-day onsite computer repairs, Wi-Fi support, cybersecurity, and senior-friendly technology coaching in Melbourne.",
+        "areaServed": ["Patterson Lakes","Frankston","Mornington Peninsula","Melbourne"],
+        "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "IT Services",
+            "name": "Rapid Tech Solutions Services",
             "itemListElement": [
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Computer Repair"
+                        "name": "Same-day computer repair"
                     }
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Data Recovery"
+                        "name": "Managed IT care plans"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Senior technology lessons"
                     }
                 }
             ]
         }
     }
     </script>
-</head>
-<body>
-    <!-- Header Section -->
-    <header role="banner">
-        <div id="menu-icon" aria-label="Toggle navigation menu">
-            <i class="fas fa-ellipsis-h"></i>
-        </div>
-        <nav aria-label="Main navigation">
-            <div id="navbar">
-                <a href="#services">Services</a>
-                <a href="#solutions">Solutions</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact</a>
-                <a href="#faq">FAQ</a>
-                <a href="#blog">Blog</a>
-                <a href="#service-area">Service Area</a>
-            </div>
-        </nav>
-    </header>
-    <!-- WhatsApp Icon Overlay -->
-    <a href="http://wa.me/61423680596" target="_blank" class="whatsapp-icon" aria-label="Contact us on WhatsApp">
-        <i class="fab fa-whatsapp" alt="WhatsApp icon"></i>
-    </a>
-    <!-- Sticky CTA Button -->
-    <a href="#contact" class="sticky-cta" aria-label="Contact us now">Contact Us</a>
-    <!-- Main Content -->
-    <main>
-        <!-- Video Section -->
-        <section class="fullscreen landing parallax" aria-label="Hero section with background video">
-            <video autoplay muted loop playsinline id="bg-video" poster="<?php echo get_template_directory_uri(); ?>/images/fallback.jpg" loading="lazy">
-                <source src="<?php echo get_template_directory_uri(); ?>/videos/bg1.webm" type="video/webm">
-                <source src="<?php echo get_template_directory_uri(); ?>/videos/bg1.mp4" type="video/mp4">
-                <div class="video-fallback" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/fallback.jpg');" aria-hidden="true"></div>
-            </video>
-            <div class="overlay">
-                <div class="hero-content">
-                    <h1>Innovative IT Solutions in Patterson Lakes</h1>
-                    <a href="#contact" class="cta">Get Started</a>
-                </div>
-            </div>
-        </section>
-        <!-- Services Section -->
-        <section id="services" aria-label="Our IT services in Patterson Lakes">
-            <h2 class="section-heading">Our Services</h2>
-            <div class="services">
-                <article class="service animated-box" loading="lazy">
-                    <i class="fas fa-tools" aria-hidden="true"></i>
-                    <h3>Computer Repair</h3>
-                    <p>Expert repair services for desktops, laptops, and devices in Patterson Lakes, including hardware replacements and screen repairs.</p>
-                </article>
-                <article class="service animated-box" loading="lazy">
-                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                    <h3>Malware & Ransomware Removal</h3>
-                    <p>Advanced malware and ransomware removal to protect your data and restore system security in Patterson Lakes.</p>
-                </article>
-                <article class="service animated-box" loading="lazy">
-                    <i class="fas fa-memory" aria-hidden="true"></i>
-                    <h3>Hardware Upgrades</h3>
-                    <p>Boost performance with hardware upgrades, including memory, storage, and graphics cards for Patterson Lakes clients.</p>
-                </article>
-                <article class="service animated-box" loading="lazy">
-                    <i class="fas fa-database" aria-hidden="true"></i>
-                    <h3>Data Recovery</h3>
-                    <p>Recover lost or corrupted data from hard drives, SSDs, and USB drives with our Patterson Lakes experts.</p>
-                </article>
-                <article class="service animated-box" loading="lazy">
-                    <i class="fas fa-virus-slash" aria-hidden="true"></i>
-                    <h3>Virus & Malware Protection</h3>
-                    <p>Comprehensive virus and malware protection to secure your devices in Patterson Lakes.</p>
-                </article>
-                <article class="service animated-box" loading="lazy">
-                    <i class="fas fa-network-wired" aria-hidden="true"></i>
-                    <h3>Network Setup & Support</h3>
-                    <p>Professional network setup, Wi-Fi configuration, and troubleshooting in Patterson Lakes.</p>
-                </article>
-                <article class="service animated-box" loading="lazy">
-                    <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
-                    <h3>Cloud Services</h3>
-                    <p>Seamless cloud migration and support for secure data management in Patterson Lakes.</p>
-                </article>
-            </div>
-            <div class="hr-line"></div>
-        </section>
-        <!-- Solutions Section -->
-        <section id="solutions" aria-label="Our IT solutions for homes and businesses">
-            <h2 class="section-heading">Solutions</h2>
-            <div class="pricing-table">
-                <article class="service animated-box" loading="lazy">
-                    <div class="price-heading text-center">
-                        <h3>Home & Personal Solutions</h3>
-                    </div>
-                    <ul class="price-feature">
-                        <li><i class="fas fa-check-circle"></i> Basic Troubleshooting</li>
-                        <li><i class="fas fa-check-circle"></i> Software & Hardware Installation</li>
-                        <li><i class="fas fa-check-circle"></i> Device Setup (Printers, Modems, etc.)</li>
-                        <li><i class="fas fa-check-circle"></i> System Diagnostics</li>
-                        <li><i class="fas fa-check-circle"></i> Home Network Setup</li>
-                        <li><i class="fas fa-check-circle"></i> Smart Home Device Integration</li>
-                        <li><i class="fas fa-check-circle"></i> Home Office Configuration</li>
-                        <li><i class="fas fa-check-circle"></i> Computer & Device Repairs</li>
-                        <li><i class="fas fa-check-circle"></i> Data Backup & Transfer</li>
-                        <li><i class="fas fa-check-circle"></i> Comprehensive Tech Support</li>
-                        <li><i class="fas fa-check-circle"></i> On-Site, Phone, Remote & After-Hours Support</li>
-                    </ul>
-                    <div class="price-footer text-center">
-                        <a class="btn btn-price" href="#contact">Contact Us</a>
-                    </div>
-                </article>
-                <article class="service animated-box" loading="lazy">
-                    <div class="price-heading text-center">
-                        <h3>Small & Medium Business Solutions</h3>
-                    </div>
-                    <ul class="price-feature">
-                        <li><i class="fas fa-check-circle"></i> Advanced Troubleshooting</li>
-                        <li><i class="fas fa-check-circle"></i> Virus, Malware & Ransomware Removal</li>
-                        <li><i class="fas fa-check-circle"></i> Software & Hardware Diagnostics</li>
-                        <li><i class="fas fa-check-circle"></i> Network Setup & Security Audit</li>
-                        <li><i class="fas fa-check-circle"></i> Performance Optimisation</li>
-                        <li><i class="fas fa-check-circle"></i> Cloud Integration & Management</li>
-                        <li><i class="fas fa-check-circle"></i> Data Recovery, Backup & Transfer</li>
-                        <li><i class="fas fa-check-circle"></i> Comprehensive System Overhaul</li>
-                        <li><i class="fas fa-check-circle"></i> Custom Hardware Builds & Upgrades</li>
-                        <li><i class="fas fa-check-circle"></i> Priority Technical Support</li>
-                        <li><i class="fas fa-check-circle"></i> On-Site, Phone, Remote & After-Hours Support</li>
-                    </ul>
-                    <div class="price-footer text-center">
-                        <a class="btn btn-price" href="#contact">Contact Us</a>
-                    </div>
-                </article>
-            </div>
-            <div class="hr-line"></div>
-        </section>
-        <!-- CTA Banner -->
-        <section id="cta-banner" aria-label="Call to action for IT services">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Tech Experience?</h2>
-                <p>Contact us today for tailored IT solutions in Patterson Lakes and surrounding areas.</p>
-                <a href="#contact" class="cta">Get in Touch</a>
-            </div>
-        </section>
-        <!-- About Us and Contact Us Section -->
-        <section id="about-contact" aria-label="About and contact information">
-            <h2 class="section-heading">About and Contact</h2>
-            <div class="about-contact-container">
-                <article id="about" class="service animated-box" aria-label="About Rapid Tech Solutions">
-                    <h2 class="section-heading">About Us</h2>
-                    <p>Rapid Tech Solutions is a Patterson Lakes-based team of IT professionals dedicated to delivering innovative technology services. We specialise in computer repairs, malware protection, data recovery, and network setup, ensuring reliable solutions for homes and businesses. Our mission is to provide exceptional service with a focus on customer satisfaction.</p>
-                    <p><a href="#services">Explore our services</a> or <a href="#contact">contact us</a> to learn how we can help you in Patterson Lakes.</p>
-                </article>
-                <article id="contact" class="service animated-box" aria-label="Contact Rapid Tech Solutions">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <form method="POST" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" onsubmit="alert('Thank you for your message! We\'ll get back to you soon!');" aria-label="Contact form">
-                        <input type="hidden" name="action" value="rapidtech_handle_contact_form">
-                        <div class="form-group">
-                            <label for="Name">Name</label>
-                            <input type="text" id="Name" name="Name" required placeholder="Your Name" aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="Email">Email</label>
-                            <input type="email" id="Email" name="Email" required placeholder="Your Email" aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="ServiceRequest">Select Service</label>
-                            <select id="ServiceRequest" name="ServiceRequest" required aria-required="true">
-                                <option value="General Inquiry">General Inquiry</option>
-                                <option value="Home Solution">Home Solution</option>
-                                <option value="Business Solution">Business Solution</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="Message">Message</label>
-                            <textarea id="Message" name="Message" rows="5" required placeholder="Your Message" aria-required="true"></textarea>
-                        </div>
-                        <button type="submit" name="contact-form-submit">Submit</button>
-                    </form>
-                </article>
-            </div>
-            <div class="hr-line"></div>
-        </section>
-        <!-- FAQ Section -->
-        <section id="faq" aria-label="Frequently asked questions about IT services">
-            <h2 class="section-heading">Frequently Asked Questions</h2>
-            <button id="expand-all-faq" class="faq-toggle-btn" aria-expanded="false">Expand All FAQs</button>
-            <div class="faq-container">
-                <article class="faq-item animated-box" aria-labelledby="faq1">
-                    <h3 class="faq-question" id="faq1"><span class="faq-number">1.</span> How long does a typical repair take?</h3>
-                    <div class="faq-answer">
-                        <p>Most repairs are completed within 1-3 business days, depending on the complexity. Contact us for a tailored estimate in Patterson Lakes.</p>
-                    </div>
-                </article>
-                <article class="faq-item animated-box" aria-labelledby="faq2">
-                    <h3 class="faq-question" id="faq2"><span class="faq-number">2.</span> Do you offer on-site support?</h3>
-                    <div class="faq-answer">
-                        <p>Yes, we provide on-site, phone, and remote support for Patterson Lakes clients, including after-hours assistance for your convenience.</p>
-                    </div>
-                </article>
-                <article class="faq-item animated-box" aria-labelledby="faq3">
-                    <h3 class="faq-question" id="faq3"><span class="faq-number">3.</span> Can you recover data from a failed hard drive?</h3>
-                    <div class="faq-answer">
-                        <p>Our Patterson Lakes-based experts can often recover data from failed or corrupted drives, including hard drives, SSDs, and USBs.</p>
-                    </div>
-                </article>
-                <article class="faq-item animated-box" aria-labelledby="faq4">
-                    <h3 class="faq-question" id="faq4"><span class="faq-number">4.</span> What types of devices do you repair?</h3>
-                    <div class="faq-answer">
-                        <p>We repair desktops, laptops, tablets, and smartphones, addressing both hardware and software issues for Patterson Lakes clients.</p>
-                    </div>
-                </article>
-                <article class="faq-item animated-box" aria-labelledby="faq5">
-                    <h3 class="faq-question" id="faq5"><span class="faq-number">5.</span> How can I protect my devices from malware?</h3>
-                    <div class="faq-answer">
-                        <p>We offer advanced malware protection, including antivirus installation and regular system scans to secure your devices in Patterson Lakes.</p>
-                    </div>
-                </article>
-                <article class="faq-item animated-box" aria-labelledby="faq6">
-                    <h3 class="faq-question" id="faq6"><span class="faq-number">6.</span> Do you provide network setup for businesses?</h3>
-                    <div class="faq-answer">
-                        <p>Yes, we specialise in business network setup, including Wi-Fi configuration and security audits for reliable connectivity in Patterson Lakes.</p>
-                    </div>
-                </article>
-                <article class="faq-item animated-box" aria-labelledby="faq7">
-                    <h3 class="faq-question" id="faq7"><span class="faq-number">7.</span> What is the cost of your services?</h3>
-                    <div class="faq-answer">
-                        <p>Costs vary based on the service and complexity. We offer free quotes tailored to your needs in Patterson Lakes. <a href="#contact">Contact us</a> for details.</p>
-                    </div>
-                </article>
-                <article class="faq-item animated-box" aria-labelledby="faq8">
-                    <h3 class="faq-question" id="faq8"><span class="faq-number">8.</span> Do you offer cloud backup solutions?</h3>
-                    <div class="faq-answer">
-                        <p>Yes, we provide cloud backup and migration services to ensure your data is secure and accessible in Patterson Lakes.</p>
-                    </div>
-                </article>
-            </div>
-            <div class="hr-line"></div>
-        </section>
-        <!-- Service Area Section -->
-        <section id="service-area" aria-label="Our service areas near Patterson Lakes">
-            <h2 class="section-heading">Our Service Area</h2>
-            <div class="service-area-container">
-                <p class="service-area-intro">We proudly serve Patterson Lakes (3197) and surrounding areas within 15km, offering expert IT services including computer repair, data recovery, and network setup.</p>
-                <h3 class="subheading">Suburbs We Serve</h3>
-                <div class="postcode-grid">
-                    <ul class="postcode-column">
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3196')); ?>" class="postcode-link">Bonbeach (3196)</a></li>
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3195')); ?>" class="postcode-link">Aspendale, Braeside, Mordialloc (3195)</a></li>
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3194')); ?>" class="postcode-link">Mentone (3194)</a></li>
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3193')); ?>" class="postcode-link">Beaumaris (3193)</a></li>
-                    </ul>
-                    <ul class="postcode-column">
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3192')); ?>" class="postcode-link">Cheltenham (3192)</a></li>
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3175')); ?>" class="postcode-link">Dandenong (3175)</a></li>
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3173')); ?>" class="postcode-link">Keysborough (3173)</a></li>
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3201')); ?>" class="postcode-link">Carrum Downs (3201)</a></li>
-                    </ul>
-                    <ul class="postcode-column">
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3198')); ?>" class="postcode-link">Seaford (3198)</a></li>
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3199')); ?>" class="postcode-link">Frankston (3199)</a></li>
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3200')); ?>" class="postcode-link">Frankston North (3200)</a></li>
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3174')); ?>" class="postcode-link">Noble Park (3174)</a></li>
-                    </ul>
-                    <ul class="postcode-column">
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3178')); ?>" class="postcode-link">Rowville (3178)</a></li>
-                        <li><a href="<?php echo get_permalink(get_page_by_path('postcode-3152')); ?>" class="postcode-link">Wantirna (3152)</a></li>
-                        <li></li> <!-- Empty for balance -->
-                        <li></li> <!-- Empty for balance -->
-                    </ul>
-                </div>
-                <p class="service-area-cta"><a href="#contact" class="cta">Contact us</a> to schedule a service in your area!</p>
-            </div>
-            <div class="hr-line"></div>
-        </section>
-        <!-- Blog Preview Section -->
-        <section id="blog" aria-label="Latest IT insights and tips">
-            <h2 class="section-heading">Latest Insights</h2>
-            <div class="blog-container">
-                <article class="blog-post animated-box" loading="lazy">
-                    <h3>5 Tips to Protect Your Devices from Malware</h3>
-                    <p>Learn expert strategies to safeguard your computers and networks from malware threats in Patterson Lakes.</p>
-                    <a href="<?php echo get_permalink(get_page_by_path('blog-malware-protection')); ?>" class="btn btn-price" target="_blank">Read More</a>
-                </article>
-                <article class="blog-post animated-box" loading="lazy">
-                    <h3>Why Regular Hardware Upgrades Matter</h3>
-                    <p>Discover how hardware upgrades can boost performance and extend device lifespan in Patterson Lakes.</p>
-                    <a href="<?php echo get_permalink(get_page_by_path('blog-hardware-upgrades')); ?>" class="btn btn-price" target="_blank">Read More</a>
-                </article>
-                <article class="blog-post animated-box" loading="lazy">
-                    <h3>How to Optimise Your Home Network</h3>
-                    <p>Get practical tips for setting up a fast and secure home Wi-Fi network in Patterson Lakes.</p>
-                    <a href="<?php echo get_permalink(get_page_by_path('blog-home-network')); ?>" class="btn btn-price" target="_blank">Read More</a>
-                </article>
-                <article class="blog-post animated-box" loading="lazy">
-                    <h3>Benefits of Cloud Services for Small Businesses</h3>
-                    <p>Explore how cloud solutions can enhance efficiency and security for Patterson Lakes businesses.</p>
-                    <a href="<?php echo get_permalink(get_page_by_path('blog-cloud-services')); ?>" class="btn btn-price" target="_blank">Read More</a>
-                </article>
-            </div>
-            <div class="hr-line"></div>
-        </section>
-        <!-- Trusted By Section -->
-        <section id="trusted-by" aria-label="Trusted by our Patterson Lakes clients">
-            <h2 class="section-heading">Trusted by Our Clients</h2>
-            <div class="trusted-container">
-                <p>Over 500+ devices repaired and 100+ networks optimised in Patterson Lakes and surrounding areas!</p>
-            </div>
-            <div class="hr-line"></div>
-        </section>
-    </main>
-    <!-- Footer Section -->
-    <footer role="contentinfo">
-        <div class="footer-content">
-            <p>&copy; 2025 Rapid Tech Solutions. All rights reserved.</p>
-            <div class="social-links" aria-label="Social media links">
-                <a href="https://www.facebook.com/rapidtechsolutions" target="_blank" aria-label="Visit our Facebook page"><i class="fab fa-facebook-f" alt="Facebook icon"></i></a>
-                <a href="https://www.twitter.com/rapidtechau" target="_blank" aria-label="Visit our Twitter page"><i class="fab fa-twitter" alt="Twitter icon"></i></a>
-                <a href="https://www.linkedin.com/company/rapidtechsolutions" target="_blank" aria-label="Visit our LinkedIn page"><i class="fab fa-linkedin-in" alt="LinkedIn icon"></i></a>
-            </div>
-        </div>
-    </footer>
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const headerHeight = document.querySelector('header').offsetHeight;
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const href = this.getAttribute('href');
-                    // Ignore empty hashes or external links
-                    if (!href || href === '#' || href.startsWith('http')) return;
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (!targetElement) return;
-                    e.preventDefault();
-                    // Find actual element to scroll to (section or heading)
-                    let scrollTarget = targetElement;
-                    if (scrollTarget.classList.contains('service') || scrollTarget.classList.contains('animated-box')) {
-                        scrollTarget = scrollTarget.closest('section') || scrollTarget;
-                    }
-                    const scrollY = scrollTarget.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    window.scrollTo({
-                        top: scrollY,
-                        behavior: 'smooth'
-                    });
-                    // Close mobile nav if open
-                    document.getElementById('navbar').classList.remove('active');
-                });
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.getElementById('primary-nav');
+        if (toggle) {
+            toggle.addEventListener('click', () => {
+                const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', (!expanded).toString());
+                nav.classList.toggle('is-open');
             });
-        });
-
-        // Menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuIcon = document.getElementById('menu-icon');
-            const navbar = document.getElementById('navbar');
-            if (menuIcon && navbar) {
-                menuIcon.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                    navbar.classList.toggle('active');
-                });
-                document.addEventListener('click', function(event) {
-                    if (!navbar.contains(event.target) && !menuIcon.contains(event.target)) {
-                        navbar.classList.remove('active');
-                    }
-                });
-            }
-        });
-
-        // FAQ toggle with smooth animation and expand all
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqItems = document.querySelectorAll('.faq-item');
-            const expandAllBtn = document.getElementById('expand-all-faq');
-            let allExpanded = false;
-            faqItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const answer = this.querySelector('.faq-answer');
-                    if (answer) {
-                        const isActive = answer.classList.contains('active');
-                        if (!allExpanded) {
-                            document.querySelectorAll('.faq-answer.active').forEach(otherAnswer => {
-                                if (otherAnswer !== answer) {
-                                    otherAnswer.classList.remove('active');
-                                    otherAnswer.style.maxHeight = null;
-                                    otherAnswer.parentElement.classList.remove('active');
-                                }
-                            });
-                        }
-                        answer.classList.toggle('active');
-                        this.classList.toggle('active');
-                        answer.style.maxHeight = isActive ? null : `${answer.scrollHeight + 30}px`;
-                    }
-                });
-            });
-            if (expandAllBtn) {
-                expandAllBtn.addEventListener('click', function() {
-                    allExpanded = !allExpanded;
-                    this.setAttribute('aria-expanded', allExpanded);
-                    this.textContent = allExpanded ? 'Collapse All FAQs' : 'Expand All FAQs';
-                    faqItems.forEach(item => {
-                        const answer = item.querySelector('.faq-answer');
-                        if (answer) {
-                            answer.classList.toggle('active', allExpanded);
-                            item.classList.toggle('active', allExpanded);
-                            answer.style.maxHeight = allExpanded ? `${answer.scrollHeight + 30}px` : null;
-                        }
-                    });
-                });
-            }
-        });
+        }
     </script>
 </body>
 </html>
