@@ -153,7 +153,7 @@ if (function_exists('get_template_directory_uri')) {
                 <a href="#process">Process</a>
                 
                 <a href="#blog">Insights</a>
-                <a href="#contact" class="btn btn-outline">Book Support</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
             </nav>
         </div>
     </header>
@@ -235,7 +235,7 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container section-header" data-animate="fade-up">
                 <p class="eyebrow">Our Services</p>
                 <h2>What We Fix and Support</h2>
-                <p>Clear, honest pricing. No confusing technical talk. We explain everything in plain English.</p>
+                <p>Transparent service. No confusing technical talk. We explain everything in plain English.</p>
             </div>
             <div class="container cards-grid">
                 <article class="card" data-animate="fade-up">
@@ -323,20 +323,20 @@ if (function_exists('get_template_directory_uri')) {
                 <div class="solution-cards">
                     <article>
                         <h3>One-Time Fix</h3>
-                        <p>Got a problem right now? We'll come out and fix it. You only pay for what you need.</p>
+                        <p>Got a problem right now? We'll come out and fix it. Free diagnostics included.</p>
                         <ul>
-                            <li>From $80/hour</li>
-                            <li>No call-out fee nearby</li>
+                            <li>Free initial assessment</li>
+                            <li>Quote before any work begins</li>
                             <li>Same-day service available</li>
                         </ul>
                     </article>
                     <article>
                         <h3>Regular Support</h3>
-                        <p>Want someone to call whenever you need help? Monthly plans with priority service.</p>
+                        <p>Want someone to call whenever you need help? Priority service with consistent support.</p>
                         <ul>
-                            <li>Unlimited phone support</li>
-                            <li>Regular check-ups</li>
-                            <li>Discounted repairs</li>
+                            <li>Dedicated phone support</li>
+                            <li>Regular system check-ups</li>
+                            <li>Priority response times</li>
                         </ul>
                     </article>
                     <article>
@@ -344,8 +344,8 @@ if (function_exists('get_template_directory_uri')) {
                         <p>Running a business? We keep your computers and network running smoothly so you can focus on work.</p>
                         <ul>
                             <li>All staff supported</li>
-                            <li>Fast response times</li>
-                            <li>System monitoring</li>
+                            <li>Proactive monitoring</li>
+                            <li>Tailored solutions</li>
                         </ul>
                     </article>
                 </div>
@@ -415,7 +415,7 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container faq-grid">
                 <details>
                     <summary>How much does it cost?</summary>
-                    <p>Our rates start from $80/hour for remote support and $120/hour for home visits. We give you a quote before we start, so no surprises. Many simple fixes take less than an hour.</p>
+                    <p>We offer free diagnostics to assess your issue first. Once we understand the problem, we'll provide a clear quote for your approval before any work begins. No surprises, no hidden fees—you'll know exactly what to expect upfront.</p>
                 </details>
                 <details>
                     <summary>How quickly can you come?</summary>

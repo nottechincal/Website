@@ -1,3 +1,12 @@
+<?php
+// Define base path - works with or without WordPress
+if (function_exists('get_template_directory_uri')) {
+    $base_path = get_template_directory_uri();
+} else {
+    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
+    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
+}
+?>
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
@@ -6,22 +15,22 @@
     <title>How to Optimise Your Home Network | Rapid Tech Solutions</title>
     <meta name="description" content="Expert tips to improve your home WiFi speed and coverage. Learn router placement, security settings, and more from Melbourne IT professionals.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/blog-home-network/">
-    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="icon" type="image/png" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="./css/styles.css" rel="stylesheet">
-    <link href="./css/blog.css" rel="stylesheet">
+    <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
+    <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
 </head>
 <body>
     <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a class="brand" href="./index.php">
+            <a class="brand" href="<?php echo $base_path; ?>/index.php">
                 <span class="brand-mark lightning-animated" aria-hidden="true"></span>
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="./index.php#services">Services</a>
-                <a href="./index.php#contact" class="btn btn-outline">Contact</a>
+                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
+                <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Contact</a>
             </nav>
         </div>
     </header>
@@ -114,7 +123,7 @@
                     <li>Network security audits</li>
                 </ul>
                 <div class="cta-buttons">
-                    <a href="./index.php#contact" class="btn"><i class="fas fa-phone"></i> Get Help Today</a>
+                    <a href="<?php echo $base_path; ?>/index.php#contact" class="btn"><i class="fas fa-phone"></i> Get Help Today</a>
                 </div>
             </section>
         </article>
@@ -123,11 +132,11 @@
             <div class="container">
                 <h3>Related Articles</h3>
                 <div class="related-grid">
-                    <a href="./blog-malware-protection.php" class="related-card">
+                    <a href="<?php echo $base_path; ?>/blog-malware-protection.php" class="related-card">
                         <h4>Protecting Your Devices from Malware</h4>
                         <p>Essential security tips for your computers and phones.</p>
                     </a>
-                    <a href="./blog-cloud-services.php" class="related-card">
+                    <a href="<?php echo $base_path; ?>/blog-cloud-services.php" class="related-card">
                         <h4>Cloud Backup Solutions</h4>
                         <p>Keep your important files safe in the cloud.</p>
                     </a>

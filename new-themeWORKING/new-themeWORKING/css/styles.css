@@ -205,13 +205,13 @@ p {
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    opacity: 0.6;
+    opacity: 0.35;
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(120deg, rgba(5, 6, 10, 0.7), rgba(5, 6, 10, 0.5));
+    background: linear-gradient(120deg, rgba(5, 6, 10, 0.85), rgba(5, 6, 10, 0.75));
     z-index: 0;
 }
 
@@ -334,6 +334,19 @@ p {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
+}
+
+/* Force 6 columns on large screens for services section */
+@media (min-width: 1200px) {
+    .cards-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .card {
