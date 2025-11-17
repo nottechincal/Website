@@ -480,14 +480,57 @@ p {
 
 .faq-grid details {
     background: rgba(255, 255, 255, 0.05);
-    padding: 1rem 1.2rem;
+    padding: 0;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.faq-grid details:hover {
+    border-color: var(--accent);
+    background: rgba(41, 213, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.faq-grid details[open] {
+    border-color: var(--accent);
 }
 
 .faq-grid summary {
     font-weight: 600;
     cursor: pointer;
+    padding: 1rem 1.2rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.faq-grid summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-grid summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--accent);
+    font-weight: 400;
+    transition: transform 0.3s ease;
+}
+
+.faq-grid details[open] summary::after {
+    content: '−';
+}
+
+.faq-grid details p {
+    padding: 0 1.2rem 1rem;
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1rem;
 }
 
 .cta-panel {
