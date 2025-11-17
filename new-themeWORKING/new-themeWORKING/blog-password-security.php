@@ -29,8 +29,8 @@ if (function_exists('get_template_directory_uri')) {
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
-                <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Contact</a>
+                <a href="/#services">Services</a>
+                <a href="/#contact" class="btn btn-outline">Contact</a>
             </nav>
         </div>
     </header>
@@ -169,7 +169,7 @@ if (function_exists('get_template_directory_uri')) {
                     <li>Train your family on password best practices</li>
                 </ul>
                 <div class="cta-buttons">
-                    <a href="<?php echo $base_path; ?>/index.php#contact" class="btn"><i class="fas fa-lock"></i> Book a Security Setup</a>
+                    <a href="/#contact" class="btn"><i class="fas fa-lock"></i> Book a Security Setup</a>
                 </div>
             </section>
         </article>
@@ -178,11 +178,11 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container">
                 <h3>Related Articles</h3>
                 <div class="related-grid">
-                    <a href="<?php echo $base_path; ?>/blog-scam-protection.php" class="related-card">
+                    <a href="/blog-scam-protection/" class="related-card">
                         <h4>Avoid Tech Support Scams</h4>
                         <p>Spot and avoid common online scams.</p>
                     </a>
-                    <a href="<?php echo $base_path; ?>/blog-malware-protection.php" class="related-card">
+                    <a href="/blog-malware-protection/" class="related-card">
                         <h4>Malware Protection</h4>
                         <p>Keep your devices safe from threats.</p>
                     </a>

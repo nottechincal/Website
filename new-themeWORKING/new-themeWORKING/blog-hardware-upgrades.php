@@ -29,8 +29,8 @@ if (function_exists('get_template_directory_uri')) {
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
-                <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Contact</a>
+                <a href="/#services">Services</a>
+                <a href="/#contact" class="btn btn-outline">Contact</a>
             </nav>
         </div>
     </header>
@@ -125,7 +125,7 @@ if (function_exists('get_template_directory_uri')) {
                     <li>Professional installation</li>
                 </ul>
                 <div class="cta-buttons">
-                    <a href="<?php echo $base_path; ?>/index.php#contact" class="btn"><i class="fas fa-tools"></i> Get Upgrade Advice</a>
+                    <a href="/#contact" class="btn"><i class="fas fa-tools"></i> Get Upgrade Advice</a>
                 </div>
             </section>
         </article>
@@ -134,11 +134,11 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container">
                 <h3>Related Articles</h3>
                 <div class="related-grid">
-                    <a href="<?php echo $base_path; ?>/blog-malware-protection.php" class="related-card">
+                    <a href="/blog-malware-protection/" class="related-card">
                         <h4>Protect Against Malware</h4>
                         <p>Keep your computer safe from viruses.</p>
                     </a>
-                    <a href="<?php echo $base_path; ?>/blog-home-network.php" class="related-card">
+                    <a href="/blog-home-network/" class="related-card">
                         <h4>Optimise Your Home Network</h4>
                         <p>Get faster WiFi speeds and better coverage.</p>
                     </a>

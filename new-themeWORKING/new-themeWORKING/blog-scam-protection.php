@@ -20,6 +20,58 @@ if (function_exists('get_template_directory_uri')) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Spot and Avoid Tech Support Scams",
+        "description": "Learn to identify fake tech support calls, phishing emails, and online scams targeting Melbourne residents. Protect your family and finances.",
+        "image": "https://www.rapidtechsolutions.au/images/blog/scam-protection.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.rapidtechsolutions.au/images/logo.png"
+            }
+        },
+        "datePublished": "2025-11-17",
+        "dateModified": "2025-11-17",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.rapidtechsolutions.au/blog-scam-protection/"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.rapidtechsolutions.au/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.rapidtechsolutions.au/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Scam Protection"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <header class="site-header" role="banner">
@@ -29,11 +81,21 @@ if (function_exists('get_template_directory_uri')) {
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
-                <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Contact</a>
+                <a href="/#services">Services</a>
+                <a href="/#contact" class="btn btn-outline">Contact</a>
             </nav>
         </div>
     </header>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="container">
+            <a href="/">Home</a>
+            <span class="separator"><i class="fas fa-chevron-right"></i></span>
+            <a href="/blog/">Blog</a>
+            <span class="separator"><i class="fas fa-chevron-right"></i></span>
+            <span class="current">Scam Protection</span>
+        </div>
+    </nav>
 
     <main>
         <div class="article-header">
@@ -75,6 +137,12 @@ if (function_exists('get_template_directory_uri')) {
                 <div class="pro-tip">
                     <h4>What to Do:</h4>
                     <p>Don't call the number. Press Alt+F4 to close the browser, or restart your computer. Real virus warnings come from your installed antivirus software, not websites.</p>
+                </div>
+
+                <div class="service-cta">
+                    <h4><i class="fas fa-shield-alt"></i> Need Professional Virus Removal?</h4>
+                    <p>If you suspect your computer has been compromised by a scam, our experts can help. We remove malware, secure your system, and set up protection.</p>
+                    <a href="/service-virus-removal/" class="btn">Learn About Virus Removal Services</a>
                 </div>
 
                 <h3>3. Phishing Emails</h3>
@@ -145,27 +213,32 @@ if (function_exists('get_template_directory_uri')) {
                     <li>Family safety training</li>
                 </ul>
                 <div class="cta-buttons">
-                    <a href="<?php echo $base_path; ?>/index.php#contact" class="btn"><i class="fas fa-shield-alt"></i> Get a Free Security Check</a>
+                    <a href="/#contact" class="btn"><i class="fas fa-shield-alt"></i> Get a Free Security Check</a>
                     <a href="tel:+61423680596" class="btn btn-outline"><i class="fas fa-phone"></i> Call Us: 0423 680 596</a>
                 </div>
             </section>
-        </article>
 
-        <aside class="related-articles">
-            <div class="container">
+            <div class="related-articles">
                 <h3>Related Articles</h3>
                 <div class="related-grid">
-                    <a href="<?php echo $base_path; ?>/blog-malware-protection.php" class="related-card">
+                    <div class="related-card">
                         <h4>Protect Against Malware</h4>
-                        <p>Essential security for your devices.</p>
-                    </a>
-                    <a href="<?php echo $base_path; ?>/blog-password-security.php" class="related-card">
+                        <p>Essential security practices to keep your devices safe from viruses and malicious software.</p>
+                        <a href="/blog-malware-protection/">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-card">
                         <h4>Creating Strong Passwords</h4>
-                        <p>Keep your accounts safe and secure.</p>
-                    </a>
+                        <p>Learn how to create and manage secure passwords for all your accounts.</p>
+                        <a href="/blog-password-security/">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-card">
+                        <h4>Monthly Computer Maintenance</h4>
+                        <p>Simple steps to keep your computer running smoothly and securely.</p>
+                        <a href="/blog-computer-maintenance/">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-        </aside>
+        </article>
     </main>
 
     <footer class="site-footer">

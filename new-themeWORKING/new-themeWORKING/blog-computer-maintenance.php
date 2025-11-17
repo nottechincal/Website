@@ -29,8 +29,8 @@ if (function_exists('get_template_directory_uri')) {
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
-                <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Contact</a>
+                <a href="/#services">Services</a>
+                <a href="/#contact" class="btn btn-outline">Contact</a>
             </nav>
         </div>
     </header>
@@ -222,7 +222,7 @@ if (function_exists('get_template_directory_uri')) {
                     <li>Hardware health check</li>
                 </ul>
                 <div class="cta-buttons">
-                    <a href="<?php echo $base_path; ?>/index.php#contact" class="btn"><i class="fas fa-tools"></i> Book a Tune-Up</a>
+                    <a href="/#contact" class="btn"><i class="fas fa-tools"></i> Book a Tune-Up</a>
                 </div>
             </section>
         </article>
@@ -231,11 +231,11 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container">
                 <h3>Related Articles</h3>
                 <div class="related-grid">
-                    <a href="<?php echo $base_path; ?>/blog-hardware-upgrades.php" class="related-card">
+                    <a href="/blog-hardware-upgrades/" class="related-card">
                         <h4>When to Upgrade Your Hardware</h4>
                         <p>Signs it's time for new components.</p>
                     </a>
-                    <a href="<?php echo $base_path; ?>/blog-cloud-services.php" class="related-card">
+                    <a href="/blog-cloud-services/" class="related-card">
                         <h4>Cloud Backup Solutions</h4>
                         <p>Protect your data from disasters.</p>
                     </a>
