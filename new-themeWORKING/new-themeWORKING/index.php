@@ -394,36 +394,48 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container section-header" data-animate="fade-up">
                 <p class="eyebrow">Real Results</p>
                 <h2>Recent Success Stories</h2>
-                <p>See how we've helped local homes and businesses solve their IT challenges.</p>
+                <p>From quick fixes to complete IT transformations—we solve problems of all sizes for Melbourne homes and businesses.</p>
             </div>
             <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
                 <article class="card" data-animate="fade-up" style="border-left: 4px solid #00ffcc;">
-                    <span style="background: #00ffcc; color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 1rem;">Easy Fix</span>
-                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">Slow Computer in Carrum</h3>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <i class="fas fa-desktop" style="color: #00ffcc; font-size: 1.2rem;"></i>
+                        <span style="color: var(--muted); font-size: 0.85rem;">Carrum Household</span>
+                    </div>
+                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">Slow Computer Transformed</h3>
                     <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Family computer taking 10+ minutes to start, constantly freezing during use.</p>
                     <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Solution:</strong> Upgraded from old hard drive to SSD, removed 47 startup programs, cleaned dust from fans.</p>
-                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-clock"></i> Fixed in 2 hours • Computer now boots in 15 seconds</p>
+                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-check-circle"></i> Now boots in 15 seconds</p>
                 </article>
                 <article class="card" data-animate="fade-up" data-delay="100" style="border-left: 4px solid #29d5ff;">
-                    <span style="background: #29d5ff; color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 1rem;">Medium</span>
-                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">WiFi Dead Zones in Frankston Home</h3>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <i class="fas fa-wifi" style="color: #29d5ff; font-size: 1.2rem;"></i>
+                        <span style="color: var(--muted); font-size: 0.85rem;">Frankston Family</span>
+                    </div>
+                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">WiFi Dead Zones Eliminated</h3>
                     <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Large 2-storey home with no signal in bedrooms and garage. Kids couldn't attend online school.</p>
                     <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Solution:</strong> Installed mesh WiFi system with 3 access points, configured QoS for video calls, secured network.</p>
-                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-wifi"></i> Full coverage • All rooms now 100+ Mbps</p>
+                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-check-circle"></i> Full coverage • 100+ Mbps everywhere</p>
                 </article>
                 <article class="card" data-animate="fade-up" data-delay="200" style="border-left: 4px solid #ff9500;">
-                    <span style="background: #ff9500; color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 1rem;">Challenging</span>
-                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">Ransomware Attack on Seaford Business</h3>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <i class="fas fa-shield-alt" style="color: #ff9500; font-size: 1.2rem;"></i>
+                        <span style="color: var(--muted); font-size: 0.85rem;">Seaford Business</span>
+                    </div>
+                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">Ransomware Crisis Resolved</h3>
                     <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Small accounting firm hit by ransomware. All client files encrypted, business at standstill.</p>
                     <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Solution:</strong> Isolated infected systems, restored from backups, implemented endpoint protection, staff security training.</p>
-                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-shield"></i> Zero data loss • Back online in 6 hours</p>
+                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-check-circle"></i> Zero data loss • Back online in 6 hours</p>
                 </article>
                 <article class="card" data-animate="fade-up" data-delay="300" style="border-left: 4px solid #ff5c5c;">
-                    <span style="background: #ff5c5c; color: #fff; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 1rem;">Complex</span>
-                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">Complete IT Overhaul for Mentone Clinic</h3>
-                    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Medical practice with outdated systems, no backups, HIPAA compliance concerns, frequent crashes.</p>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <i class="fas fa-hospital" style="color: #ff5c5c; font-size: 1.2rem;"></i>
+                        <span style="color: var(--muted); font-size: 0.85rem;">Mentone Medical Clinic</span>
+                    </div>
+                    <h3 style="color: var(--text); margin-bottom: 0.5rem;">Complete IT Modernisation</h3>
+                    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Problem:</strong> Medical practice with outdated systems, no backups, compliance concerns, frequent crashes.</p>
                     <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;"><strong>Solution:</strong> Migrated to cloud infrastructure, implemented automated backups, security audit, new workstations, ongoing monitoring.</p>
-                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-hospital"></i> 99.9% uptime • Fully compliant</p>
+                    <p style="color: var(--accent); font-weight: 600;"><i class="fas fa-check-circle"></i> 99.9% uptime • Fully compliant</p>
                 </article>
             </div>
         </section>
@@ -435,20 +447,29 @@ if (function_exists('get_template_directory_uri')) {
             </div>
             <div class="container cards-grid blog-grid">
                 <article class="card">
-                    <h3>Home Network Tune-Up Checklist</h3>
-                    <p>Eliminate dead zones, boost Wi-Fi speeds, and secure every device at home.</p>
-                    <a href="https://www.rapidtechsolutions.au/blog-home-network/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <h3>How to Spot Tech Support Scams</h3>
+                    <p>Protect yourself from fake calls and phishing emails targeting Australians.</p>
+                    <a href="https://www.rapidtechsolutions.au/blog-scam-protection/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="card">
-                    <h3>Cloud vs Local Backups</h3>
-                    <p>How hybrid backup strategies protect Melbourne businesses from downtime.</p>
-                    <a href="https://www.rapidtechsolutions.au/blog-cloud-services/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <h3>Password Security Made Simple</h3>
+                    <p>Easy steps to create strong passwords and keep your accounts safe.</p>
+                    <a href="https://www.rapidtechsolutions.au/blog-password-security/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="card">
-                    <h3>Malware Playbook for SMEs</h3>
-                    <p>Contain threats fast with isolation steps, user training, and managed protection.</p>
-                    <a href="https://www.rapidtechsolutions.au/blog-malware-protection/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
+                    <h3>Monthly Computer Maintenance</h3>
+                    <p>15 minutes a month to avoid costly repairs and keep your PC running fast.</p>
+                    <a href="https://www.rapidtechsolutions.au/blog-computer-maintenance/" class="text-link">Read article <i class="fas fa-arrow-right"></i></a>
                 </article>
+            </div>
+            <div class="container" style="text-align: center; margin-top: 1.5rem;">
+                <p style="color: var(--muted); margin-bottom: 1rem;">More helpful guides:</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                    <a href="https://www.rapidtechsolutions.au/blog-home-network/" class="text-link">WiFi Optimisation</a>
+                    <a href="https://www.rapidtechsolutions.au/blog-malware-protection/" class="text-link">Malware Protection</a>
+                    <a href="https://www.rapidtechsolutions.au/blog-hardware-upgrades/" class="text-link">Hardware Upgrades</a>
+                    <a href="https://www.rapidtechsolutions.au/blog-cloud-services/" class="text-link">Cloud Services</a>
+                </div>
             </div>
         </section>
 
