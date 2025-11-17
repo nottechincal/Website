@@ -73,6 +73,13 @@ if (function_exists('get_template_directory_uri')) {
             "opens": "09:00",
             "closes": "17:00"
         },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "47",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
         "sameAs": [
             "https://www.facebook.com/RapidTechAUS/",
             "https://www.instagram.com/rapidtechsolutions.au/"
@@ -516,7 +523,7 @@ if (function_exists('get_template_directory_uri')) {
                 </article>
             </div>
             <div class="container" style="text-align: center; margin-top: 2rem;">
-                <a href="https://g.page/r/rapidtechsolutions/review" target="_blank" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                <a href="https://share.google/UxsUlLJwuV3D99r6y" target="_blank" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
                     <i class="fab fa-google"></i> See All Reviews on Google
                 </a>
             </div>
