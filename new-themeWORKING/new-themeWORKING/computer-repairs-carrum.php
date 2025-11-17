@@ -119,7 +119,7 @@ $year = date('Y');
 <body>
     <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a class="brand" href="<?php echo $base_path; ?>/index.php"><span class="brand-mark lightning-animated"></span>Rapid Tech Solutions</a>
+            <a class="brand" href="/"><span class="brand-mark lightning-animated"></span>Rapid Tech Solutions</a>
             <nav class="primary-nav">
                 <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
                 <a href="tel:+61423680596" class="btn btn-outline"><i class="fas fa-phone"></i> 0423 680 596</a>
@@ -135,7 +135,7 @@ $year = date('Y');
     <main>
         <div style="background: rgba(255,255,255,0.02); padding: 0.75rem 0;">
             <div class="container" style="font-size: 0.9rem; color: var(--muted);">
-                <a href="<?php echo $base_path; ?>/index.php" style="color: var(--muted);">Home</a> ›
+                <a href="/" style="color: var(--muted);">Home</a> ›
                 <a href="<?php echo $base_path; ?>/service-area.php" style="color: var(--muted);">Service Areas</a> ›
                 <span style="color: var(--accent);">Carrum</span>
             </div>

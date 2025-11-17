@@ -160,7 +160,7 @@ $meta_desc = "Expert computer repairs in Chelsea Heights 3196. Same-day service,
 <body>
     <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a class="brand" href="<?php echo $base_path; ?>/index.php">
+            <a class="brand" href="/">
                 <span class="brand-mark lightning-animated" aria-hidden="true"></span>
                 Rapid Tech Solutions
             </a>
@@ -183,7 +183,7 @@ $meta_desc = "Expert computer repairs in Chelsea Heights 3196. Same-day service,
         <!-- Breadcrumbs -->
         <div style="background: rgba(255,255,255,0.02); padding: 0.75rem 0;">
             <div class="container" style="font-size: 0.9rem; color: var(--muted);">
-                <a href="<?php echo $base_path; ?>/index.php" style="color: var(--muted);">Home</a>
+                <a href="/" style="color: var(--muted);">Home</a>
                 <span style="margin: 0 0.5rem;">›</span>
                 <a href="<?php echo $base_path; ?>/service-area.php" style="color: var(--muted);">Service Areas</a>
                 <span style="margin: 0 0.5rem;">›</span>
