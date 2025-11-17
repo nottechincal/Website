@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Rapid Tech Solutions delivers same-day computer repairs, friendly onsite technicians, and senior-friendly IT support across Patterson Lakes and Melbourne.">
-    <meta name="keywords" content="IT services Patterson Lakes, computer repair Melbourne, data recovery 3197, managed IT support Victoria, senior computer help, home tech support">
+    <meta name="description" content="Rapid Tech Solutions delivers fast computer repairs, proactive cybersecurity, data recovery, and managed IT support across Patterson Lakes and Melbourne.">
+    <meta name="keywords" content="IT services Patterson Lakes, computer repair Melbourne, data recovery 3197, managed IT support Victoria, cybersecurity expert Australia">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Rapid Tech Solutions">
     <meta name="geo.region" content="AU-VIC">
@@ -70,9 +70,7 @@
     <header class="site-header" role="banner">
         <div class="container header-inner">
             <a class="brand" href="/">
-                <span class="brand-mark" aria-hidden="true">
-                    <span class="brand-bolt"></span>
-                </span>
+                <span class="brand-mark" aria-hidden="true">⚡</span>
                 Rapid Tech Solutions
             </a>
             <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
@@ -82,9 +80,9 @@
             <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
                 <a href="#services">Services</a>
                 <a href="#solutions">Solutions</a>
-                <a href="#care">Senior Care</a>
                 <a href="#process">Process</a>
-                <a href="#faq">FAQ</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#blog">Insights</a>
                 <a href="#contact" class="btn btn-outline">Book Support</a>
             </nav>
         </div>
@@ -95,7 +93,7 @@
     </a>
     <a href="#contact" class="sticky-cta" aria-label="Contact Rapid Tech Solutions">Get Rapid Support</a>
 
-    <main id="main" tabindex="-1">
+    <main id="main">
         <section class="hero" aria-label="Rapid Tech Solutions hero">
             <video autoplay muted loop playsinline id="bg-video" poster="<?php echo get_template_directory_uri(); ?>/images/fallback.jpg">
                 <source src="<?php echo get_template_directory_uri(); ?>/videos/bg1.webm" type="video/webm">
@@ -105,27 +103,27 @@
             <div class="container hero-grid">
                 <div class="hero-copy">
                     <p class="eyebrow">Melbourne & Patterson Lakes</p>
-                    <h1>Friendly, plain-English computer help for homes and local businesses.</h1>
-                    <p class="lead">Book a same-day technician for repairs, Wi-Fi fixes, training, or cybersecurity. We keep instructions easy to follow and make sure every family member is comfortable using their tech.</p>
+                    <h1>Human-first IT services that keep your business always-on.</h1>
+                    <p class="lead">From emergency repairs to managed cybersecurity, we build resilient tech foundations for homes, trades, and growing teams.</p>
                     <div class="hero-cta">
-                        <a class="btn" href="#contact">Book a Technician</a>
+                        <a class="btn" href="#contact">Book an Engineer</a>
                         <a class="btn btn-outline" href="tel:+61423680596">Call 0423 680 596</a>
                     </div>
                     <ul class="hero-badges" aria-label="Key service highlights">
                         <li><i class="fas fa-bolt"></i> Same-day onsite support</li>
-                        <li><i class="fas fa-hand-holding-heart"></i> Patient, senior-friendly guidance</li>
-                        <li><i class="fas fa-shield"></i> Cyber safety for families & clinics</li>
+                        <li><i class="fas fa-shield"></i> Advanced cyber protection</li>
+                        <li><i class="fas fa-cloud"></i> Cloud + Microsoft 365 experts</li>
                     </ul>
                 </div>
                 <div class="hero-card" role="complementary" aria-label="Service summary card">
-                    <h2>Rapid help, zero jargon</h2>
-                    <p>We text before arrival, bring loan equipment, and leave easy instructions so you stay confident after we go.</p>
+                    <h2>Always-on monitoring</h2>
+                    <p>24/7 alerts for hardware health, backups, and security posture with monthly reporting.</p>
                     <ul>
-                        <li>Friendly follow-up check-ins</li>
-                        <li>Simple printed cheat-sheets</li>
-                        <li>Secure backups with status alerts</li>
+                        <li>Unlimited remote support</li>
+                        <li>Proactive patch management</li>
+                        <li>Encrypted backups & DR</li>
                     </ul>
-                    <a class="btn btn-full" href="#solutions">Explore Service Plans</a>
+                    <a class="btn btn-full" href="#solutions">Explore Managed IT</a>
                 </div>
             </div>
             <div class="container stats" aria-label="Impact statistics">
@@ -164,39 +162,39 @@
         <section id="services" class="section" aria-label="Our IT services">
             <div class="container section-header">
                 <p class="eyebrow">What we fix</p>
-                <h2>Clear, reliable help for every device in your house or office.</h2>
-                <p>From replacing a cracked laptop screen to restoring Wi-Fi in a retirement village, our technicians keep instructions gentle and outcomes fast.</p>
+                <h2>End-to-end IT, tailored for homes and ambitious teams.</h2>
+                <p>Mix and match responsive break-fix support with ongoing maintenance retainers to match your risk appetite.</p>
             </div>
             <div class="container cards-grid">
                 <article class="card">
                     <i class="fas fa-screwdriver-wrench" aria-hidden="true"></i>
                     <h3>Computer Repairs</h3>
-                    <p>Speedy diagnosis, part replacement, and tune-ups for laptops, desktops, and all-in-ones.</p>
+                    <p>Diagnostics, component upgrades, and rapid part replacement for laptops, desktops, and gaming rigs.</p>
                 </article>
                 <article class="card">
                     <i class="fas fa-user-shield" aria-hidden="true"></i>
-                    <h3>Cyber Safety</h3>
-                    <p>Malware removal, scam protection lessons, and automatic updates that keep you protected.</p>
+                    <h3>Cybersecurity & Hardening</h3>
+                    <p>Endpoint protection, phishing defense, and zero-trust policies to safeguard credentials and IP.</p>
                 </article>
                 <article class="card">
                     <i class="fas fa-database" aria-hidden="true"></i>
                     <h3>Data Recovery & Backup</h3>
-                    <p>Recover photos and business files, then automate backups to USB, cloud, or NAS.</p>
+                    <p>Forensic recovery for SSD/HDD, server restores, and automated, encrypted backups.</p>
                 </article>
                 <article class="card">
                     <i class="fas fa-wifi" aria-hidden="true"></i>
-                    <h3>Network & Wi-Fi</h3>
-                    <p>Whole-home mesh, business-grade routers, and 4G/5G backup so video calls never drop.</p>
+                    <h3>Network & Wi-Fi Engineering</h3>
+                    <p>Whole-home mesh, business-grade firewalls, and 4G/5G failover for uninterrupted connectivity.</p>
                 </article>
                 <article class="card">
                     <i class="fas fa-cloud-arrow-up" aria-hidden="true"></i>
-                    <h3>Cloud & Email</h3>
-                    <p>Microsoft 365, Google Workspace, backups, and password managers configured for you.</p>
+                    <h3>Cloud & Microsoft 365</h3>
+                    <p>Migrations, license optimization, Teams/SharePoint automation, and ongoing governance.</p>
                 </article>
                 <article class="card">
                     <i class="fas fa-headset" aria-hidden="true"></i>
-                    <h3>Personal Tech Coaching</h3>
-                    <p>One-on-one lessons, setup of smart TVs and tablets, and printed guides for future reference.</p>
+                    <h3>Virtual CIO & Advisory</h3>
+                    <p>Roadmaps, budgeting, and vendor management that align technology with business outcomes.</p>
                 </article>
             </div>
         </section>
@@ -206,7 +204,7 @@
                 <div>
                     <p class="eyebrow">Flexible engagements</p>
                     <h2>Pick the delivery model that suits your workload.</h2>
-                    <p>Whether you need ad-hoc emergency help, a managed service partner, or regular home visits, Rapid Tech plugs in seamlessly.</p>
+                    <p>Whether you need ad-hoc emergency help, a managed service partner, or project delivery, Rapid Tech plugs in seamlessly.</p>
                     <ul class="checklist">
                         <li>Onsite, remote, and after-hours coverage</li>
                         <li>Asset lifecycle tracking and reporting</li>
@@ -219,7 +217,7 @@
                         <h3>Rapid Response</h3>
                         <p>Pay-as-you-go support for households and solo operators who need help yesterday.</p>
                         <ul>
-                            <li>1-hour phone assessment</li>
+                            <li>1-hour triage window</li>
                             <li>Loan equipment available</li>
                             <li>Transparent hourly billing</li>
                         </ul>
@@ -243,36 +241,6 @@
                         </ul>
                     </article>
                 </div>
-            </div>
-        </section>
-
-        <section id="care" class="section seniors" aria-label="Senior-friendly technology support">
-            <div class="container section-header">
-                <p class="eyebrow">Senior-friendly care</p>
-                <h2>Designed for older Australians who want worry-free technology.</h2>
-                <p>High-contrast text, bigger buttons, and calm technicians keep every visit relaxed. We stay until you are confident pressing each button yourself.</p>
-            </div>
-            <div class="container seniors-grid">
-                <article class="comfort-card">
-                    <i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i>
-                    <h3>Larger text & accessibility setup</h3>
-                    <p>We configure screen zoom, readability settings, captioning, and safety shortcuts on every device we touch.</p>
-                </article>
-                <article class="comfort-card">
-                    <i class="fas fa-user-check" aria-hidden="true"></i>
-                    <h3>Police-checked technicians</h3>
-                    <p>Every onsite visit is logged, photo ID is shown, and loved ones can join via speakerphone.</p>
-                </article>
-                <article class="comfort-card">
-                    <i class="fas fa-file-signature" aria-hidden="true"></i>
-                    <h3>Leave-behind instructions</h3>
-                    <p>Printed cheat-sheets and fridge magnets with next steps so anyone in the home can follow along later.</p>
-                </article>
-                <article class="comfort-card">
-                    <i class="fas fa-heart-circle-check" aria-hidden="true"></i>
-                    <h3>Post-visit wellness call</h3>
-                    <p>We check back in within 48 hours to make sure everything still feels good and answer new questions.</p>
-                </article>
             </div>
         </section>
 
@@ -305,24 +273,32 @@
             </div>
         </section>
 
-        <section class="section alt assurance" aria-label="Service guarantees">
+        <section id="testimonials" class="section alt" aria-label="Testimonials">
             <div class="container section-header">
-                <p class="eyebrow">Our promises</p>
-                <h2>Simple guarantees older Australians appreciate.</h2>
-                <p>Every visit follows a checklist focused on safety, patience, and easy-to-read documentation.</p>
+                <p class="eyebrow">Results</p>
+                <h2>Stories from local clients.</h2>
             </div>
-            <div class="container assurance-grid">
+            <div class="container testimonial-grid">
                 <article>
-                    <h3>No surprise costs</h3>
-                    <p>Clear quotes before we begin, pensioner-friendly rates, and receipts emailed plus printed.</p>
+                    <p>“Rapid Tech migrated our trades team to Microsoft 365 with zero downtime. Tickets that once took days now take minutes.”</p>
+                    <div class="author">
+                        <strong>Jamie</strong>
+                        <span>Construction Manager, Seaford</span>
+                    </div>
                 </article>
                 <article>
-                    <h3>Plain-language updates</h3>
-                    <p>We translate every finding into everyday language and call family members if requested.</p>
+                    <p>“They recovered a failed SSD containing 8 years of dental records and then built a backup plan so we never face that again.”</p>
+                    <div class="author">
+                        <strong>Dr. Patel</strong>
+                        <span>Dental Clinic, Frankston</span>
+                    </div>
                 </article>
                 <article>
-                    <h3>Protect-your-data checklist</h3>
-                    <p>We secure passwords, test backups, and label every cable before leaving.</p>
+                    <p>“Proactive alerts spotted malware before it spread to our POS machines. The team handled it all after hours.”</p>
+                    <div class="author">
+                        <strong>Ella</strong>
+                        <span>Retail Owner, Mornington</span>
+                    </div>
                 </article>
             </div>
         </section>
@@ -363,7 +339,7 @@
                 </details>
                 <details>
                     <summary>How fast can you get onsite in Patterson Lakes?</summary>
-                    <p>We aim for same-day onsite visits within Bayside and Mornington Peninsula suburbs and offer remote assistance in under an hour.</p>
+                    <p>We aim for same-day onsite visits within Bayside and Mornington Peninsula suburbs and offer remote triage in under an hour.</p>
                 </details>
                 <details>
                     <summary>Can you work with our existing IT provider?</summary>
@@ -373,14 +349,6 @@
                     <summary>What industries do you specialise in?</summary>
                     <p>We partner with healthcare, construction, hospitality, professional services, and home offices—adapting controls to industry requirements.</p>
                 </details>
-                <details>
-                    <summary>Do you help with tablets, smart TVs, and phones?</summary>
-                    <p>Yes, we configure Apple, Android, and smart home devices, connect them to secure Wi-Fi, and leave instructions for daily use.</p>
-                </details>
-                <details>
-                    <summary>Is there a discount for seniors or repeat visits?</summary>
-                    <p>We provide loyalty pricing for households and concession discounts Monday–Friday. Ask when booking so it’s applied to your invoice.</p>
-                </details>
             </div>
         </section>
 
@@ -388,10 +356,10 @@
             <div class="container cta-panel-inner">
                 <div>
                     <p class="eyebrow">Need help now?</p>
-                    <h2>Book a same-day technician and get back online fast.</h2>
+                    <h2>Book a same-day technician and get back to business.</h2>
                     <p>Describe the issue, attach screenshots, and we’ll confirm your booking within 30 minutes.</p>
                 </div>
-                <a class="btn" href="#contact">Book a Technician</a>
+                <a class="btn" href="#contact">Send a Support Ticket</a>
             </div>
         </section>
 
@@ -400,7 +368,7 @@
                 <div>
                     <p class="eyebrow">Contact</p>
                     <h2>Let’s solve your tech challenge.</h2>
-                    <p>Call <a href="tel:+61423680596">0423 680 596</a> or use the form to brief us. We respond within one business hour and can loop in carers or managers.</p>
+                    <p>Call <a href="tel:+61423680596">0423 680 596</a> or use the form to brief us. We respond within one business hour.</p>
                     <ul class="contact-list">
                         <li><i class="fas fa-location-dot"></i> Patterson Lakes, VIC 3197</li>
                         <li><i class="fas fa-phone"></i> <a href="tel:+61423680596">+61 423 680 596</a></li>
@@ -507,7 +475,7 @@
                 "name": "How fast can you get onsite in Patterson Lakes?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We aim for same-day onsite visits locally and offer remote assistance in under an hour."
+                    "text": "We aim for same-day onsite visits locally and offer remote triage in under an hour."
                 }
             },
             {
@@ -525,66 +493,8 @@
                     "@type": "Answer",
                     "text": "Healthcare, construction, hospitality, professional services, retail, and home offices."
                 }
-            },
-            {
-                "@type": "Question",
-                "name": "Do you help with tablets, smart TVs, and phones?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, we configure Apple, Android, and smart home devices, connect them securely, and leave instructions."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is there a discount for seniors or repeat visits?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "We provide loyalty pricing for households and concession discounts Monday–Friday."
-                }
             }
         ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Computer Repair & IT Support",
-        "provider": {
-            "@type": "LocalBusiness",
-            "name": "Rapid Tech Solutions",
-            "areaServed": "Patterson Lakes and Melbourne"
-        },
-        "description": "Same-day onsite computer repairs, Wi-Fi support, cybersecurity, and senior-friendly technology coaching in Melbourne.",
-        "areaServed": ["Patterson Lakes","Frankston","Mornington Peninsula","Melbourne"],
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Rapid Tech Solutions Services",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Same-day computer repair"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Managed IT care plans"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Senior technology lessons"
-                    }
-                }
-            ]
-        }
     }
     </script>
 
