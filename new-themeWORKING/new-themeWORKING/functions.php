@@ -26,7 +26,7 @@ function rapidtech_custom_templates($templates) {
     $templates['postcode-3174.php'] = 'Postcode: Noble Park (3174)';
     $templates['postcode-3178.php'] = 'Postcode: Rowville (3178)';
     $templates['postcode-3152.php'] = 'Postcode: Wantirna (3152)';
-    $templates['faq-schema.php'] = 'FAQ Schema';
+    
     return $templates;
 }
 add_filter('theme_page_templates', 'rapidtech_custom_templates');

@@ -1,0 +1,466 @@
+/* Location Pages Styles - Rapid Tech Solutions */
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+    background: #f8f9fa;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.breadcrumb ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.breadcrumb li {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: '›';
+    margin-left: 0.5rem;
+    color: #adb5bd;
+}
+
+.breadcrumb a {
+    color: var(--clr-accent, #667eea);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: var(--clr-primary, #764ba2);
+    text-decoration: underline;
+}
+
+/* Location Hero */
+.location-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.location-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>') repeat;
+    opacity: 0.3;
+}
+
+.location-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.location-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.location-hero .lead {
+    font-size: 1.15rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.location-hero .hero-cta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.location-hero .btn {
+    padding: 0.875rem 1.75rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.location-hero .btn:not(.btn-outline) {
+    background: #fff;
+    color: #667eea;
+}
+
+.location-hero .btn:not(.btn-outline):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.location-hero .btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.location-hero .btn-outline:hover {
+    background: #fff;
+    color: #667eea;
+}
+
+.location-hero .hero-badges {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.location-hero .hero-badges li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.location-hero .hero-badges i {
+    font-size: 1.1rem;
+}
+
+/* Services Grid */
+.location-services h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1a1a2e;
+}
+
+.location-services > .container > p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #e9ecef;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #1a1a2e;
+}
+
+.service-card p {
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.service-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-card ul li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.service-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: 700;
+}
+
+/* Unique Content Section */
+.location-unique h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a2e;
+}
+
+.location-unique p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: #444;
+}
+
+.location-unique h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #667eea;
+}
+
+/* Why Choose Us */
+.location-why h2 {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: #1a1a2e;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.why-item {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.why-item i {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.why-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: #1a1a2e;
+}
+
+.why-item p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Nearby Suburbs */
+.location-areas h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #1a1a2e;
+}
+
+.location-areas > .container > p {
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.nearby-suburbs {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+}
+
+.nearby-suburbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.nearby-suburbs li i {
+    color: #28a745;
+}
+
+/* CTA Section */
+.location-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+
+.location-cta .cta-panel-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.location-cta h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.location-cta p {
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+.location-cta .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.location-cta .btn {
+    padding: 0.875rem 1.75rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.location-cta .btn:not(.btn-outline) {
+    background: #fff;
+    color: #667eea;
+}
+
+.location-cta .btn:not(.btn-outline):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.location-cta .btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.location-cta .btn-outline:hover {
+    background: #fff;
+    color: #667eea;
+}
+
+/* FAQ Section */
+.location-faq h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #1a1a2e;
+}
+
+.location-faq .faq-grid {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.location-faq details {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+}
+
+.location-faq summary {
+    padding: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #1a1a2e;
+    transition: background 0.2s;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.location-faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.location-faq summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: #667eea;
+    font-weight: 400;
+}
+
+.location-faq details[open] summary::after {
+    content: '−';
+}
+
+.location-faq summary:hover {
+    background: #f8f9fa;
+}
+
+.location-faq details p {
+    padding: 0 1.25rem 1.25rem;
+    margin: 0;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .location-hero {
+        padding: 3rem 0;
+    }
+
+    .location-hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .location-cta .cta-panel-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .location-cta .cta-buttons {
+        justify-content: center;
+    }
+
+    .breadcrumb ol {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .location-hero .hero-cta {
+        flex-direction: column;
+    }
+
+    .location-hero .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+}

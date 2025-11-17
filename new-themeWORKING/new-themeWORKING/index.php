@@ -21,12 +21,17 @@
     <meta name="twitter:title" content="Rapid Tech Solutions">
     <meta name="twitter:description" content="On-demand IT services, repairs, and cybersecurity protection across Melbourne.">
     <meta name="twitter:image" content="<?php echo get_template_directory_uri(); ?>/images/og-image.jpg">
+    <link rel="canonical" href="https://www.rapidtechsolutions.au/">
     <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.google.com">
     <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/images/fallback.jpg" as="image">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" referrerpolicy="no-referrer">
     <link href="<?php echo get_template_directory_uri(); ?>/css/styles.css" rel="stylesheet">
-    <title>Rapid Tech Solutions | IT Services in Patterson Lakes</title>
+    <title>Rapid Tech Solutions | Expert IT Support & Computer Repairs Melbourne | Patterson Lakes</title>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -61,7 +66,61 @@
             "https://www.facebook.com/rapidtechsolutions",
             "https://www.linkedin.com/company/rapidtechsolutions"
         ],
-        "areaServed": ["Patterson Lakes","Melbourne","Mornington Peninsula","Frankston"]
+        "areaServed": ["Patterson Lakes","Melbourne","Mornington Peninsula","Frankston"],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "IT Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Computer Repairs",
+                        "description": "Fast diagnostics, component upgrades, and repairs for laptops, desktops, and gaming PCs"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Cybersecurity Services",
+                        "description": "Endpoint protection, phishing defense, and zero-trust security policies"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Data Recovery",
+                        "description": "SSD and HDD recovery, server restores, and encrypted backup solutions"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Network Solutions",
+                        "description": "Business-grade WiFi, mesh networks, and 4G/5G failover connectivity"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Cloud & Microsoft 365",
+                        "description": "Migrations, license optimization, and SharePoint automation"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Virtual CIO Advisory",
+                        "description": "IT roadmaps, budgeting, and technology strategy consulting"
+                    }
+                }
+            ]
+        }
     }
     </script>
 </head>
@@ -418,7 +477,7 @@
                     </ul>
                 </div>
                 <figure>
-                    <iframe title="Service area map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31516.347265566255!2d145.123!3d-38.0692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad61ab1a0f5e9df%3A0x5045675218ce6e0!2sPatterson%20Lakes%20VIC%203197!5e0!3m2!1sen!2sau!4v1710000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe title="Service area map showing Patterson Lakes and surrounding Melbourne suburbs" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31516.347265566255!2d145.123!3d-38.0692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad61ab1a0f5e9df%3A0x5045675218ce6e0!2sPatterson%20Lakes%20VIC%203197!5e0!3m2!1sen!2sau!4v1710000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <figcaption>Onsite visits within 30 minutes of Patterson Lakes plus remote national coverage.</figcaption>
                 </figure>
             </div>
