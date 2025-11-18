@@ -4,29 +4,64 @@
  */
 
 /**
- * Register custom page templates
+ * Return an array of standalone templates within the theme root that output
+ * full HTML documents. These templates power the virtual landing pages.
+ */
+function rapidtech_get_virtual_templates() {
+    static $templates = null;
+
+    if ($templates !== null) {
+        return $templates;
+    }
+
+    $templates = array();
+    $excluded = array(
+        'index',
+        'functions',
+        'header',
+        'footer',
+        '404',
+        'contactengine',
+        'bookingengine'
+    );
+
+    foreach (glob(get_template_directory() . '/*.php') as $path) {
+        $slug = sanitize_title(basename($path, '.php'));
+        if ($slug === '') {
+            continue;
+        }
+        if (in_array($slug, $excluded, true)) {
+            continue;
+        }
+
+        $sample = file_get_contents($path, false, null, 0, 2048);
+        if ($sample === false || stripos($sample, '<!DOCTYPE html') === false) {
+            continue;
+        }
+
+        $templates[$slug] = $path;
+    }
+
+    return $templates;
+}
+
+/**
+ * Generate a readable label from a slug (e.g. computer-repairs-berwick → Computer Repairs Berwick)
+ */
+function rapidtech_pretty_template_label($slug) {
+    $label = str_replace(array('-', '_'), ' ', $slug);
+    $label = ucwords(trim($label));
+    return $label;
+}
+
+/**
+ * Register custom page templates based on the discovered virtual templates.
  */
 function rapidtech_custom_templates($templates) {
-    $templates['service-area.php'] = 'Service Area';
-    $templates['blog-malware-protection.php'] = 'Blog: Malware Protection';
-    $templates['blog-hardware-upgrades.php'] = 'Blog: Hardware Upgrades';
-    $templates['blog-home-network.php'] = 'Blog: Home Network';
-    $templates['blog-cloud-services.php'] = 'Blog: Cloud Services';
-    $templates['postcode-3196.php'] = 'Postcode: Bonbeach (3196)';
-    $templates['postcode-3195.php'] = 'Postcode: Aspendale, Braeside, Mordialloc (3195)';
-    $templates['postcode-3194.php'] = 'Postcode: Mentone (3194)';
-    $templates['postcode-3193.php'] = 'Postcode: Beaumaris (3193)';
-    $templates['postcode-3192.php'] = 'Postcode: Cheltenham (3192)';
-    $templates['postcode-3175.php'] = 'Postcode: Dandenong (3175)';
-    $templates['postcode-3173.php'] = 'Postcode: Keysborough (3173)';
-    $templates['postcode-3201.php'] = 'Postcode: Carrum Downs (3201)';
-    $templates['postcode-3198.php'] = 'Postcode: Seaford (3198)';
-    $templates['postcode-3199.php'] = 'Postcode: Frankston (3199)';
-    $templates['postcode-3200.php'] = 'Postcode: Frankston North (3200)';
-    $templates['postcode-3174.php'] = 'Postcode: Noble Park (3174)';
-    $templates['postcode-3178.php'] = 'Postcode: Rowville (3178)';
-    $templates['postcode-3152.php'] = 'Postcode: Wantirna (3152)';
-    
+    foreach (rapidtech_get_virtual_templates() as $slug => $path) {
+        $templates[basename($path)] = rapidtech_pretty_template_label($slug);
+    }
+
     return $templates;
 }
 add_filter('theme_page_templates', 'rapidtech_custom_templates');
@@ -35,6 +70,14 @@ add_filter('theme_page_templates', 'rapidtech_custom_templates');
  * Load the correct template for the page
  */
 function rapidtech_load_template($template) {
+    $virtual_slug = get_query_var('rapidtech_virtual');
+    if (!empty($virtual_slug)) {
+        $templates = rapidtech_get_virtual_templates();
+        if (isset($templates[$virtual_slug])) {
+            return $templates[$virtual_slug];
+        }
+    }
+
     global $post;
     if ($post && !empty(get_post_meta($post->ID, '_wp_page_template', true))) {
         $page_template = get_post_meta($post->ID, '_wp_page_template', true);
@@ -42,9 +85,72 @@ function rapidtech_load_template($template) {
             return get_template_directory() . '/' . $page_template;
         }
     }
+
     return $template;
 }
 add_filter('template_include', 'rapidtech_load_template');
+
+/**
+ * Make the `rapidtech_virtual` query var publicly available.
+ */
+function rapidtech_register_query_var($vars) {
+    $vars[] = 'rapidtech_virtual';
+    return $vars;
+}
+add_filter('query_vars', 'rapidtech_register_query_var');
+
+/**
+ * Register rewrite rules so landing page URLs never hit a WordPress 404.
+ */
+function rapidtech_register_virtual_routes() {
+    foreach (rapidtech_get_virtual_templates() as $slug => $path) {
+        $pattern = '^' . preg_quote($slug, '/') . '/?$';
+        add_rewrite_rule($pattern, 'index.php?rapidtech_virtual=' . $slug, 'top');
+    }
+}
+add_action('init', 'rapidtech_register_virtual_routes');
+
+/**
+ * Ensure rewrite rules stay in sync after the theme is activated or updated.
+ */
+function rapidtech_flush_virtual_routes() {
+    rapidtech_register_virtual_routes();
+    flush_rewrite_rules();
+}
+add_action('after_switch_theme', 'rapidtech_flush_virtual_routes');
+
+/**
+ * Allow pretty permalinks (e.g. /computer-repairs-berwick/) to render the
+ * corresponding standalone PHP template even if no WordPress page exists.
+ */
+function rapidtech_serve_virtual_pages() {
+    if (!is_404() || is_admin()) {
+        return;
+    }
+
+    $request_path = wp_parse_url(add_query_arg(array()), PHP_URL_PATH);
+    if (empty($request_path)) {
+        return;
+    }
+
+    $slug = trim($request_path, '/');
+    if ($slug === '' || strpos($slug, 'wp-json') === 0) {
+        return;
+    }
+
+    $slug = sanitize_title($slug);
+    $templates = rapidtech_get_virtual_templates();
+
+    if (!isset($templates[$slug])) {
+        return;
+    }
+
+    status_header(200);
+    nocache_headers();
+    include $templates[$slug];
+    exit;
+}
+add_action('template_redirect', 'rapidtech_serve_virtual_pages', 0);
 
 /**
  * Enqueue scripts and styles
