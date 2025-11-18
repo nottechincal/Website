@@ -37,7 +37,7 @@ if (function_exists('get_template_directory_uri')) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://www.google.com">
-    <link rel="preload" href="<?php echo $base_path; ?>/images/fallback.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="<?php echo $base_path; ?>/images/fallback.webp" as="image" type="image/webp" fetchpriority="high">
     <!-- Critical CSS loaded synchronously -->
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
     <!-- Non-critical CSS deferred -->
@@ -195,7 +195,7 @@ if (function_exists('get_template_directory_uri')) {
 
     <main id="main">
         <section class="hero" aria-label="Rapid Tech Solutions hero">
-            <video autoplay muted loop playsinline id="bg-video" poster="<?php echo $base_path; ?>/images/fallback.jpg" fetchpriority="high">
+            <video autoplay muted loop playsinline id="bg-video" poster="<?php echo $base_path; ?>/images/fallback.webp" fetchpriority="high">
                 <!-- Video sources loaded only on desktop for performance -->
             </video>
             <div class="hero-overlay"></div>
