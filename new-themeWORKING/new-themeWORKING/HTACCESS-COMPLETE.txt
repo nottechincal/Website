@@ -102,6 +102,8 @@ RewriteRule ^thank-you/?$ /wp-content/themes/new-themeWORKING6/thank-you.php [L]
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType video/webm "access plus 1 year"
 </IfModule>
 
 # BEGIN WordPress
