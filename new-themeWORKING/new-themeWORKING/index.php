@@ -166,8 +166,8 @@ if (function_exists('get_template_directory_uri')) {
                 <a href="#services">Services</a>
                 <a href="#solutions">Solutions</a>
                 <a href="#process">Process</a>
-                
-                <a href="#blog">Insights</a>
+                <a href="/blog/">Blog</a>
+                <a href="/faq/">FAQ</a>
                 <a href="#contact" class="btn btn-outline">Get in Touch</a>
             </nav>
         </div>
@@ -682,7 +682,7 @@ if (function_exists('get_template_directory_uri')) {
                 <ul>
                     <li><a href="#services">Services</a></li>
                     <li><a href="/blog/">Blog & Tips</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="/faq/">FAQ</a></li>
                     <li><a href="/about/">About Us</a></li>
                     <li><a href="/service-areas/">All Service Areas</a></li>
                 </ul>

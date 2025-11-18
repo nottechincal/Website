@@ -317,7 +317,6 @@
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
-    <url>
     <!-- Service+Location Combo Pages -->
     <url>
         <loc>https://www.rapidtechsolutions.au/virus-removal-dandenong/</loc>
@@ -362,6 +361,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
         <loc>https://www.rapidtechsolutions.au/service-areas/</loc>
         <lastmod>2025-11-17</lastmod>
         <changefreq>weekly</changefreq>
