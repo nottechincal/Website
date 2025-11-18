@@ -37,11 +37,18 @@ if (function_exists('get_template_directory_uri')) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://www.google.com">
-    <link rel="preload" href="<?php echo $base_path; ?>/images/fallback.jpg" as="image">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" referrerpolicy="no-referrer">
+    <link rel="preload" href="<?php echo $base_path; ?>/images/fallback.jpg" as="image" fetchpriority="high">
+    <!-- Critical CSS loaded synchronously -->
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/animations.css" rel="stylesheet">
+    <!-- Non-critical CSS deferred -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
+    <link href="<?php echo $base_path; ?>/css/animations.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+        <link href="<?php echo $base_path; ?>/css/animations.css" rel="stylesheet">
+    </noscript>
     <title>Rapid Tech Solutions | Expert IT Support & Computer Repairs Melbourne | Cranbourne South</title>
     <script type="application/ld+json">
     {
@@ -141,8 +148,8 @@ if (function_exists('get_template_directory_uri')) {
         }
     }
     </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
+    <!-- Google tag (gtag.js) - Deferred for performance -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -166,8 +173,8 @@ if (function_exists('get_template_directory_uri')) {
                 <a href="#services">Services</a>
                 <a href="#solutions">Solutions</a>
                 <a href="#process">Process</a>
-                
-                <a href="#blog">Insights</a>
+                <a href="/blog/">Blog</a>
+                <a href="/faq/">FAQ</a>
                 <a href="#contact" class="btn btn-outline">Get in Touch</a>
             </nav>
         </div>
@@ -188,9 +195,8 @@ if (function_exists('get_template_directory_uri')) {
 
     <main id="main">
         <section class="hero" aria-label="Rapid Tech Solutions hero">
-            <video autoplay muted loop playsinline id="bg-video" poster="<?php echo $base_path; ?>/images/fallback.jpg">
-                <source src="<?php echo $base_path; ?>/videos/bg1.webm" type="video/webm">
-                <source src="<?php echo $base_path; ?>/videos/bg1.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline id="bg-video" poster="<?php echo $base_path; ?>/images/fallback.jpg" fetchpriority="high">
+                <!-- Video sources loaded only on desktop for performance -->
             </video>
             <div class="hero-overlay"></div>
             <div class="container hero-grid">
@@ -682,7 +688,7 @@ if (function_exists('get_template_directory_uri')) {
                 <ul>
                     <li><a href="#services">Services</a></li>
                     <li><a href="/blog/">Blog & Tips</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="/faq/">FAQ</a></li>
                     <li><a href="/about/">About Us</a></li>
                     <li><a href="/service-areas/">All Service Areas</a></li>
                 </ul>
@@ -927,11 +933,29 @@ if (function_exists('get_template_directory_uri')) {
         document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
     }
     
-    // Respect prefers-reduced-motion
+    // Performance: Only load video on desktop (saves 3MB on mobile)
     const bgVideo = document.getElementById('bg-video');
-    if (bgVideo && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        bgVideo.pause();
-        bgVideo.removeAttribute('autoplay');
+    const isDesktop = window.innerWidth >= 1024;
+
+    if (bgVideo) {
+        if (isDesktop && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            // Load video sources only on desktop
+            const webmSource = document.createElement('source');
+            webmSource.src = '<?php echo $base_path; ?>/videos/bg1.webm';
+            webmSource.type = 'video/webm';
+            bgVideo.appendChild(webmSource);
+
+            const mp4Source = document.createElement('source');
+            mp4Source.src = '<?php echo $base_path; ?>/videos/bg1.mp4';
+            mp4Source.type = 'video/mp4';
+            bgVideo.appendChild(mp4Source);
+
+            bgVideo.load();
+        } else {
+            // On mobile or reduced motion: pause and use poster only
+            bgVideo.pause();
+            bgVideo.removeAttribute('autoplay');
+        }
     }
     </script>
     <script type="text/javascript">
