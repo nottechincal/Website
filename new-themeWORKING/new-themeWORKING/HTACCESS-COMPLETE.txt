@@ -118,3 +118,15 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
 # END WordPress
+
+# Service+Location Combo Pages (NEW - High SEO Value)
+RewriteRule ^virus-removal-dandenong/?$ /wp-content/themes/new-themeWORKING6/virus-removal-dandenong.php [L]
+RewriteRule ^virus-removal-cranbourne/?$ /wp-content/themes/new-themeWORKING6/virus-removal-cranbourne.php [L]
+RewriteRule ^data-recovery-frankston/?$ /wp-content/themes/new-themeWORKING6/data-recovery-frankston.php [L]
+RewriteRule ^data-recovery-patterson-lakes/?$ /wp-content/themes/new-themeWORKING6/data-recovery-patterson-lakes.php [L]
+RewriteRule ^network-setup-berwick/?$ /wp-content/themes/new-themeWORKING6/network-setup-berwick.php [L]
+RewriteRule ^emergency-computer-repair-melbourne/?$ /wp-content/themes/new-themeWORKING6/emergency-computer-repair-melbourne.php [L]
+
+# FAQ and Booking Pages
+RewriteRule ^faq/?$ /wp-content/themes/new-themeWORKING6/faq.php [L]
+RewriteRule ^book/?$ /wp-content/themes/new-themeWORKING6/book.php [L]
