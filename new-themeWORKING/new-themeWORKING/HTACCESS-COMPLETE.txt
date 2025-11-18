@@ -80,7 +80,12 @@ RewriteRule ^computer-repairs-dandenong/?$ /wp-content/themes/new-themeWORKING6/
 RewriteRule ^computer-repairs-springvale/?$ /wp-content/themes/new-themeWORKING6/computer-repairs-springvale.php [L]
 
 # Other pages
+RewriteRule ^service-area/?$ /wp-content/themes/new-themeWORKING6/service-area.php [L]
 RewriteRule ^service-areas/?$ /wp-content/themes/new-themeWORKING6/service-areas.php [L]
+RewriteRule ^service-computer-repairs/?$ /wp-content/themes/new-themeWORKING6/service-computer-repairs.php [L]
+RewriteRule ^service-data-recovery/?$ /wp-content/themes/new-themeWORKING6/service-data-recovery.php [L]
+RewriteRule ^service-virus-removal/?$ /wp-content/themes/new-themeWORKING6/service-virus-removal.php [L]
+RewriteRule ^service-network-wifi/?$ /wp-content/themes/new-themeWORKING6/service-network-wifi.php [L]
 RewriteRule ^about/?$ /wp-content/themes/new-themeWORKING6/about.php [L]
 RewriteRule ^privacy-policy/?$ /wp-content/themes/new-themeWORKING6/privacy-policy.php [L]
 RewriteRule ^terms-of-service/?$ /wp-content/themes/new-themeWORKING6/terms-of-service.php [L]
