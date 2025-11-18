@@ -115,13 +115,21 @@ $year = date('Y');
         ]
     }
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BDN34WT3J6');
+    </script>
 </head>
 <body>
     <header class="site-header" role="banner">
         <div class="container header-inner">
             <a class="brand" href="/"><span class="brand-mark lightning-animated"></span>Rapid Tech Solutions</a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
+                <a href="/#services">Services</a>
                 <a href="tel:+61423680596" class="btn btn-outline"><i class="fas fa-phone"></i> 0423 680 596</a>
             </nav>
         </div>
@@ -136,7 +144,7 @@ $year = date('Y');
         <div style="background: rgba(255,255,255,0.02); padding: 0.75rem 0;">
             <div class="container" style="font-size: 0.9rem; color: var(--muted);">
                 <a href="/" style="color: var(--muted);">Home</a> ›
-                <a href="<?php echo $base_path; ?>/service-area.php" style="color: var(--muted);">Service Areas</a> ›
+                <a href="/service-areas/" style="color: var(--muted);">Service Areas</a> ›
                 <span style="color: var(--accent);">Frankston</span>
             </div>
         </div>
@@ -272,7 +280,7 @@ $year = date('Y');
                 <p>Don't let technology problems slow down your business or home life. Contact Rapid Tech Solutions today for fast, reliable, and affordable computer repairs and IT support in Frankston 3199.</p>
                 <div class="cta-buttons">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Request Quote</a>
+                    <a href="/#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Request Quote</a>
                 </div>
                 <p style="margin-top: 1rem; color: var(--muted); font-size: 0.9rem;"><i class="fas fa-map-marker-alt"></i> Serving Frankston, Cranbourne South, and all of Melbourne's south-east</p>
             </section>
@@ -281,8 +289,8 @@ $year = date('Y');
     <footer class="site-footer">
         <div class="container">
             <div style="text-align: center; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,0.1);">
-                <a href="<?php echo $base_path; ?>/privacy-policy.php" style="color: var(--muted); margin: 0 1rem;">Privacy Policy</a>
-                <a href="<?php echo $base_path; ?>/terms-of-service.php" style="color: var(--muted); margin: 0 1rem;">Terms of Service</a>
+                <a href="/privacy-policy/" style="color: var(--muted); margin: 0 1rem;">Privacy Policy</a>
+                <a href="/terms-of-service/" style="color: var(--muted); margin: 0 1rem;">Terms of Service</a>
             </div>
             <p class="footer-note">© <?php echo $year; ?> Rapid Tech Solutions. Computer Repairs Frankston. All rights reserved.</p>
         </div>

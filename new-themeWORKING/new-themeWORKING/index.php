@@ -141,6 +141,14 @@ if (function_exists('get_template_directory_uri')) {
         }
     }
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BDN34WT3J6');
+    </script>
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -817,6 +825,115 @@ if (function_exists('get_template_directory_uri')) {
     </script>
 
     <!--Start of Tawk.to Script-->
+    <!-- Floating Mobile CTA -->
+    <div id="floating-cta" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; background: linear-gradient(135deg, #00ffcc 0%, #29d5ff 100%); padding: 12px 24px; border-radius: 50px; box-shadow: 0 4px 20px rgba(0,255,204,0.4); animation: pulse 2s infinite;">
+        <a href="tel:+61423680596" style="color: #05060a; text-decoration: none; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-phone-alt"></i> Call Now: 0423 680 596
+        </a>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div id="exit-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
+        <div style="background: linear-gradient(135deg, #0f1016 0%, #1a1a2e 100%); padding: 40px; border-radius: 16px; max-width: 500px; margin: 20px; position: relative; border: 2px solid #00ffcc; box-shadow: 0 10px 40px rgba(0,255,204,0.3);">
+            <button id="close-popup" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; padding: 5px 10px;">&times;</button>
+            <div style="text-align: center;">
+                <div style="font-size: 48px; margin-bottom: 20px;">🚀</div>
+                <h3 style="color: #00ffcc; margin-bottom: 15px; font-size: 24px;">Wait! Don't Let Computer Problems Slow You Down</h3>
+                <p style="color: #e9edf3; margin-bottom: 25px; line-height: 1.6;">Get a <strong style="color: #00ffcc;">FREE diagnostic assessment</strong> when you call in the next 10 minutes!</p>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <a href="tel:+61423680596" style="background: linear-gradient(135deg, #00ffcc 0%, #29d5ff 100%); color: #05060a; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 18px; display: inline-block; transition: transform 0.3s;">
+                        <i class="fas fa-phone-alt"></i> Call Now: 0423 680 596
+                    </a>
+                    <p style="color: #8f9bb3; font-size: 14px; margin: 0;">Same-day service available • No fix, no fee guarantee</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    @keyframes pulse {
+        0%, 100% { transform: translateX(-50%) scale(1); }
+        50% { transform: translateX(-50%) scale(1.05); }
+    }
+    
+    @media (min-width: 769px) {
+        #floating-cta { display: none !important; }
+    }
+    </style>
+
+    <script>
+    // Floating CTA for mobile
+    let lastScroll = 0;
+    const floatingCTA = document.getElementById('floating-cta');
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (window.innerWidth <= 768 && currentScroll > 300) {
+            if (currentScroll > lastScroll) {
+                floatingCTA.style.display = 'block';
+            }
+        } else {
+            floatingCTA.style.display = 'none';
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Exit Intent Popup
+    let exitIntentShown = false;
+    const exitPopup = document.getElementById('exit-popup');
+    const closePopup = document.getElementById('close-popup');
+    
+    document.addEventListener('mouseout', (e) => {
+        if (!exitIntentShown && e.clientY < 50 && window.innerWidth > 768) {
+            exitIntentShown = true;
+            exitPopup.style.display = 'flex';
+            localStorage.setItem('exitPopupShown', Date.now());
+        }
+    });
+    
+    // Check if popup was shown in last 24 hours
+    const lastShown = localStorage.getItem('exitPopupShown');
+    if (lastShown && (Date.now() - lastShown) < 86400000) {
+        exitIntentShown = true;
+    }
+    
+    closePopup.addEventListener('click', () => {
+        exitPopup.style.display = 'none';
+    });
+    
+    exitPopup.addEventListener('click', (e) => {
+        if (e.target === exitPopup) {
+            exitPopup.style.display = 'none';
+        }
+    });
+    
+    // Performance: Lazy load images
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
+    }
+    
+    // Respect prefers-reduced-motion
+    const bgVideo = document.getElementById('bg-video');
+    if (bgVideo && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        bgVideo.pause();
+        bgVideo.removeAttribute('autoplay');
+    }
+    </script>
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){

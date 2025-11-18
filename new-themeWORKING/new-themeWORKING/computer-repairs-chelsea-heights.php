@@ -156,6 +156,14 @@ $meta_desc = "Expert computer repairs in Chelsea Heights 3196. Same-day service,
         ]
     }
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BDN34WT3J6');
+    </script>
 </head>
 <body>
     <header class="site-header" role="banner">
@@ -165,7 +173,7 @@ $meta_desc = "Expert computer repairs in Chelsea Heights 3196. Same-day service,
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
+                <a href="/#services">Services</a>
                 <a href="tel:+61423680596" class="btn btn-outline"><i class="fas fa-phone"></i> 0423 680 596</a>
             </nav>
         </div>
@@ -185,7 +193,7 @@ $meta_desc = "Expert computer repairs in Chelsea Heights 3196. Same-day service,
             <div class="container" style="font-size: 0.9rem; color: var(--muted);">
                 <a href="/" style="color: var(--muted);">Home</a>
                 <span style="margin: 0 0.5rem;">›</span>
-                <a href="<?php echo $base_path; ?>/service-area.php" style="color: var(--muted);">Service Areas</a>
+                <a href="/service-areas/" style="color: var(--muted);">Service Areas</a>
                 <span style="margin: 0 0.5rem;">›</span>
                 <span style="color: var(--accent);">Computer Repairs <?php echo $suburb; ?></span>
             </div>
@@ -333,7 +341,7 @@ $meta_desc = "Expert computer repairs in Chelsea Heights 3196. Same-day service,
                 <p>Don't let computer problems slow you down. Contact Rapid Tech Solutions today for fast, reliable, and affordable computer repairs in <?php echo $suburb; ?> <?php echo $postcode; ?>.</p>
                 <div class="cta-buttons">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Request Quote</a>
+                    <a href="/#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Request Quote</a>
                 </div>
                 <p style="margin-top: 1rem; color: var(--muted); font-size: 0.9rem;">
                     <i class="fas fa-map-marker-alt"></i> Serving <?php echo $suburb; ?>, Patterson Lakes, and all of Melbourne's south-east
@@ -345,8 +353,8 @@ $meta_desc = "Expert computer repairs in Chelsea Heights 3196. Same-day service,
     <footer class="site-footer">
         <div class="container">
             <div style="text-align: center; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem;">
-                <a href="<?php echo $base_path; ?>/privacy-policy.php" style="color: var(--muted); margin: 0 1rem;">Privacy Policy</a>
-                <a href="<?php echo $base_path; ?>/terms-of-service.php" style="color: var(--muted); margin: 0 1rem;">Terms of Service</a>
+                <a href="/privacy-policy/" style="color: var(--muted); margin: 0 1rem;">Privacy Policy</a>
+                <a href="/terms-of-service/" style="color: var(--muted); margin: 0 1rem;">Terms of Service</a>
             </div>
             <p class="footer-note">© <?php echo $current_year; ?> Rapid Tech Solutions. Computer Repairs <?php echo $suburb; ?>. All rights reserved.</p>
         </div>

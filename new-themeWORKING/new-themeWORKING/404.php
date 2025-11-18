@@ -94,8 +94,8 @@ http_response_code(404);
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
-                <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Contact</a>
+                <a href="/#services">Services</a>
+                <a href="/#contact" class="btn btn-outline">Contact</a>
             </nav>
         </div>
     </header>
@@ -111,7 +111,7 @@ http_response_code(404);
                 <a href="/" class="btn btn-primary">
                     <i class="fas fa-home"></i> Go to Homepage
                 </a>
-                <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">
+                <a href="/#contact" class="btn btn-outline">
                     <i class="fas fa-phone"></i> Contact Us
                 </a>
             </div>
@@ -119,12 +119,12 @@ http_response_code(404);
             <div class="helpful-links">
                 <h3>Helpful Links</h3>
                 <ul>
-                    <li><a href="<?php echo $base_path; ?>/index.php#services">Our Services</a></li>
-                    <li><a href="<?php echo $base_path; ?>/service-computer-repairs.php">Computer Repairs</a></li>
-                    <li><a href="<?php echo $base_path; ?>/service-data-recovery.php">Data Recovery</a></li>
-                    <li><a href="<?php echo $base_path; ?>/blog-scam-protection.php">Blog Articles</a></li>
-                    <li><a href="<?php echo $base_path; ?>/about.php">About Us</a></li>
-                    <li><a href="<?php echo $base_path; ?>/index.php#faq">FAQ</a></li>
+                    <li><a href="/#services">Our Services</a></li>
+                    <li><a href="/service-computer-repairs/">Computer Repairs</a></li>
+                    <li><a href="/service-data-recovery/">Data Recovery</a></li>
+                    <li><a href="/blog/">Blog Articles</a></li>
+                    <li><a href="/about/">About Us</a></li>
+                    <li><a href="/#faq">FAQ</a></li>
                 </ul>
             </div>
         </div>

@@ -15,11 +15,28 @@ if (function_exists('get_template_directory_uri')) {
     <title>Why Regular Hardware Upgrades Matter | Rapid Tech Solutions</title>
     <meta name="description" content="Learn how hardware upgrades can extend your computer's life, improve performance, and save you money.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/blog-hardware-upgrades/">
+    <meta property="og:title" content="Why Regular Hardware Upgrades Matter | Rapid Tech Solutions">
+    <meta property="og:description" content="Expert IT advice and tips from Rapid Tech Solutions, Melbourne's trusted computer repair specialists.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.rapidtechsolutions.au/blog-hardware-upgrades/">
+    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Regular Hardware Upgrades Matter | Rapid Tech Solutions">
+    <meta name="twitter:description" content="Expert IT advice from Rapid Tech Solutions">
+    <meta name="twitter:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
     <link rel="icon" type="image/png" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BDN34WT3J6');
+    </script>
 </head>
 <body>
     <header class="site-header" role="banner">
@@ -29,8 +46,8 @@ if (function_exists('get_template_directory_uri')) {
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
-                <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Contact</a>
+                <a href="/#services">Services</a>
+                <a href="/#contact" class="btn btn-outline">Contact</a>
             </nav>
         </div>
     </header>
@@ -125,7 +142,7 @@ if (function_exists('get_template_directory_uri')) {
                     <li>Professional installation</li>
                 </ul>
                 <div class="cta-buttons">
-                    <a href="<?php echo $base_path; ?>/index.php#contact" class="btn"><i class="fas fa-tools"></i> Get Upgrade Advice</a>
+                    <a href="/#contact" class="btn"><i class="fas fa-tools"></i> Get Upgrade Advice</a>
                 </div>
             </section>
         </article>
@@ -134,11 +151,11 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container">
                 <h3>Related Articles</h3>
                 <div class="related-grid">
-                    <a href="<?php echo $base_path; ?>/blog-malware-protection.php" class="related-card">
+                    <a href="/blog-malware-protection/" class="related-card">
                         <h4>Protect Against Malware</h4>
                         <p>Keep your computer safe from viruses.</p>
                     </a>
-                    <a href="<?php echo $base_path; ?>/blog-home-network.php" class="related-card">
+                    <a href="/blog-home-network/" class="related-card">
                         <h4>Optimise Your Home Network</h4>
                         <p>Get faster WiFi speeds and better coverage.</p>
                     </a>
