@@ -161,12 +161,12 @@ if (function_exists('get_template_directory_uri')) {
 
                 <div style="margin: 1.5rem 0;">
                     <h4 style="color: var(--text);">Hard Drive Failure</h4>
-                    <p>Hard drives are mechanical devices with moving parts that eventually wear out. You might hear clicking sounds, experience extremely slow performance, or find that your computer no longer recognizes the drive. Sometimes drives fail suddenly without any warning. These failures can be caused by motor problems, read/write head crashes, or electronic component failures. Our recovery process involves careful analysis of the failure type and using specialized equipment to extract your data safely. We've successfully recovered data from drives that other services declared hopeless.</p>
+                    <p>Hard drives are mechanical devices with moving parts that eventually wear out. You might hear clicking sounds, experience extremely slow performance, or find that your computer no longer recognizes the drive. Sometimes drives fail suddenly without any warning. These failures can be caused by motor problems, read/write head crashes, or electronic component failures. Our recovery process involves careful analysis of the failure type and using specialised equipment to extract your data safely. We've successfully recovered data from drives that other services declared hopeless.</p>
                 </div>
 
                 <div style="margin: 1.5rem 0;">
                     <h4 style="color: var(--text);">Corrupted Storage Devices</h4>
-                    <p>USB drives, memory cards, and external hard drives can become corrupted due to improper ejection, power surges, or file system errors. When you plug in your device and see messages like "Drive needs to be formatted" or "Device not recognized," don't panic. This usually means the file system is damaged, not the actual data. Formatting the drive (as suggested by your computer) would make recovery much harder. Instead, bring the device to us immediately. We have specialized software that can bypass the corrupted file system and access your data directly.</p>
+                    <p>USB drives, memory cards, and external hard drives can become corrupted due to improper ejection, power surges, or file system errors. When you plug in your device and see messages like "Drive needs to be formatted" or "Device not recognized," don't panic. This usually means the file system is damaged, not the actual data. Formatting the drive (as suggested by your computer) would make recovery much harder. Instead, bring the device to us immediately. We have specialised software that can bypass the corrupted file system and access your data directly.</p>
                 </div>
 
                 <div style="margin: 1.5rem 0;">
@@ -200,7 +200,7 @@ if (function_exists('get_template_directory_uri')) {
                         <span style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">3</span>
                         <div>
                             <h4 style="margin: 0 0 0.5rem 0;">Professional Recovery</h4>
-                            <p style="margin: 0;">Using specialized hardware and software tools, we carefully extract your data. We create a complete image of the drive first, then work on the copy to ensure your original media isn't further damaged. Every recovered file is verified for integrity.</p>
+                            <p style="margin: 0;">Using specialised hardware and software tools, we carefully extract your data. We create a complete image of the drive first, then work on the copy to ensure your original media isn't further damaged. Every recovered file is verified for integrity.</p>
                         </div>
                     </div>
                     <div style="display: flex; align-items: flex-start; gap: 1rem;">

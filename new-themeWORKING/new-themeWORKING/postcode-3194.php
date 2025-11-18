@@ -23,7 +23,7 @@ render_location_page([
         <p>Mentone\'s Como Parade and surrounding streets feature an eclectic mix of boutiques, cafes, restaurants, and specialty stores. These businesses form the suburb\'s heart and require IT systems that support their unique operations. We\'ve implemented point-of-sale systems for local cafes, set up inventory management for boutiques, and ensured reliable connectivity for businesses during busy weekend trading. Our responsive support means technical issues don\'t disrupt customer service.</p>
 
         <h3>Cafe and Hospitality Technology</h3>
-        <p>Mentone\'s cafe culture thrives, with numerous establishments serving locals and visitors. These businesses need reliable WiFi for customers, efficient ordering systems, and secure payment processing. We specialize in hospitality IT—from configuring customer WiFi that protects business networks to setting up kitchen display systems that streamline operations. When your coffee machine\'s IoT system fails or your EFTPOS goes down, we respond quickly because we understand every minute matters.</p>
+        <p>Mentone\'s cafe culture thrives, with numerous establishments serving locals and visitors. These businesses need reliable WiFi for customers, efficient ordering systems, and secure payment processing. We specialise in hospitality IT—from configuring customer WiFi that protects business networks to setting up kitchen display systems that streamline operations. When your coffee machine\'s IoT system fails or your EFTPOS goes down, we respond quickly because we understand every minute matters.</p>
 
         <h3>Beach Lifestyle Connectivity</h3>
         <p>Mentone residents enjoy active lifestyles centered around the beach and outdoor activities. We help families stay connected while embracing this lifestyle—from setting up outdoor WiFi coverage for entertaining to ensuring home security systems monitor properties while families enjoy the beach. Our solutions balance always-on connectivity with the relaxed coastal lifestyle Mentone is known for.</p>
@@ -32,7 +32,7 @@ render_location_page([
         <p>Local professionals including physiotherapists, accountants, and healthcare providers operate throughout Mentone. These businesses need IT systems that maintain patient/client confidentiality while enabling efficient service delivery. We understand compliance requirements for various industries and implement appropriate security measures, backup systems, and access controls that protect sensitive information.</p>
 
         <h3>Educational Technology</h3>
-        <p>Families in Mentone prioritize education, with excellent local schools including Mentone Grammar and Mentone Girls Secondary College. We support students with reliable home setups for online learning, help parents implement appropriate content controls, and maintain devices used for education. Our affordable repair services keep family budgets intact while ensuring students have working technology for their studies.</p>
+        <p>Families in Mentone prioritise education, with excellent local schools including Mentone Grammar and Mentone Girls Secondary College. We support students with reliable home setups for online learning, help parents implement appropriate content controls, and maintain devices used for education. Our affordable repair services keep family budgets intact while ensuring students have working technology for their studies.</p>
     '
 ]);
 ?>

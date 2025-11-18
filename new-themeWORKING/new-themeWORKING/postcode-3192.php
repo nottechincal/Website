@@ -26,10 +26,10 @@ render_location_page([
         <p>With Southland Shopping Centre nearby, Cheltenham\'s retail sector thrives. Local businesses need reliable point-of-sale systems, inventory management, and secure payment processing. We support retailers from boutiques to service providers, ensuring their technology enhances rather than hinders customer experience. Our responsive support means technical issues don\'t translate to lost sales.</p>
 
         <h3>Golf Club and Sports Facility IT</h3>
-        <p>Cheltenham is home to prestigious golf clubs including Kingston Heath and Cheltenham Golf Club. These facilities require specialized IT support—from member management systems to booking platforms and course monitoring technology. We\'ve worked with local clubs to modernize their IT infrastructure while respecting their traditions and member expectations.</p>
+        <p>Cheltenham is home to prestigious golf clubs including Kingston Heath and Cheltenham Golf Club. These facilities require specialised IT support—from member management systems to booking platforms and course monitoring technology. We\'ve worked with local clubs to modernize their IT infrastructure while respecting their traditions and member expectations.</p>
 
         <h3>Home Technology for Cheltenham Residents</h3>
-        <p>Cheltenham\'s tree-lined streets house families who value quality and reliability. We provide home IT services that match these standards—from optimizing Wi-Fi coverage in heritage homes with thick walls to setting up sophisticated home security systems. Our technicians understand that Cheltenham residents expect discreet, professional service that respects their homes and privacy.</p>
+        <p>Cheltenham\'s tree-lined streets house families who value quality and reliability. We provide home IT services that match these standards—from optimising Wi-Fi coverage in heritage homes with thick walls to setting up sophisticated home security systems. Our technicians understand that Cheltenham residents expect discreet, professional service that respects their homes and privacy.</p>
 
         <h3>Healthcare IT Compliance</h3>
         <p>With numerous medical practices in Cheltenham, healthcare IT compliance is crucial. We ensure patient data is secure, systems are backed up appropriately, and practitioners can access information when needed. Our understanding of healthcare privacy requirements makes us the trusted IT partner for Cheltenham\'s medical community.</p>

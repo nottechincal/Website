@@ -203,7 +203,7 @@ $year = date('Y');
                 <p>Lost important files, photos, or documents? Our <strong>data recovery specialists</strong> can often retrieve data from damaged hard drives, failed SSDs, and accidentally deleted files. We operate on a "no data, no fee" basis—if we can't recover your files, you don't pay for the attempt.</p>
 
                 <h3>Gaming PC Repairs & Upgrades</h3>
-                <p>Seaford has a thriving gaming community, and we specialize in <strong>gaming PC repairs</strong>. From graphics card replacements to cooling solutions, performance tuning to custom builds, we can optimize your gaming rig for the best experience. We also handle console-to-PC transitions and setup.</p>
+                <p>Seaford has a thriving gaming community, and we specialise in <strong>gaming PC repairs</strong>. From graphics card replacements to cooling solutions, performance tuning to custom builds, we can optimise your gaming rig for the best experience. We also handle console-to-PC transitions and setup.</p>
 
                 <h3>WiFi and Network Issues</h3>
                 <p>Struggling with poor WiFi coverage in your Seaford home? We design and install <strong>home network solutions</strong> that eliminate dead zones and provide fast, reliable internet throughout your property. Perfect for multi-storey homes or large properties.</p>
