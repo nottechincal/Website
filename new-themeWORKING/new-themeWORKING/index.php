@@ -583,7 +583,7 @@ if (function_exists('get_template_directory_uri')) {
                 </details>
                 <details>
                     <summary>Can you remove viruses from my computer?</summary>
-                    <p>Absolutely. We specialize in virus and malware removal. We'll clean your system thoroughly, remove all threats, and install protection to prevent future infections.</p>
+                    <p>Absolutely. We specialise in virus and malware removal. We'll clean your system thoroughly, remove all threats, and install protection to prevent future infections.</p>
                 </details>
                 <details>
                     <summary>How long do repairs typically take?</summary>
@@ -805,39 +805,36 @@ if (function_exists('get_template_directory_uri')) {
         });
     </script>
 
-    <!-- Sticky Emergency Banner Script -->
+    <!-- Sticky Emergency Banner Script (Desktop Only) -->
     <script>
     (function() {
         const banner = document.getElementById('emergency-banner');
         const header = document.querySelector('.site-header');
-        let bannerOffset = banner.offsetTop;
-        let bannerHeight = banner.offsetHeight;
 
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > bannerOffset + 50) {
-                banner.style.position = 'fixed';
-                banner.style.top = '0';
-                banner.style.left = '0';
-                banner.style.right = '0';
-                banner.style.boxShadow = '0 2px 10px rgba(255, 92, 92, 0.3)';
-                document.body.style.paddingTop = bannerHeight + 'px';
-            } else {
-                banner.style.position = 'relative';
-                banner.style.boxShadow = 'none';
-                document.body.style.paddingTop = '0';
-            }
-        });
+        // Only make banner sticky on desktop (>768px)
+        if (window.innerWidth > 768) {
+            let bannerOffset = banner.offsetTop;
+            let bannerHeight = banner.offsetHeight;
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > bannerOffset + 50) {
+                    banner.style.position = 'fixed';
+                    banner.style.top = '0';
+                    banner.style.left = '0';
+                    banner.style.right = '0';
+                    banner.style.boxShadow = '0 2px 10px rgba(255, 92, 92, 0.3)';
+                    document.body.style.paddingTop = bannerHeight + 'px';
+                } else {
+                    banner.style.position = 'relative';
+                    banner.style.boxShadow = 'none';
+                    document.body.style.paddingTop = '0';
+                }
+            });
+        }
     })();
     </script>
 
     <!--Start of Tawk.to Script-->
-    <!-- Floating Mobile CTA -->
-    <div id="floating-cta" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; background: linear-gradient(135deg, #00ffcc 0%, #29d5ff 100%); padding: 12px 24px; border-radius: 50px; box-shadow: 0 4px 20px rgba(0,255,204,0.4); animation: pulse 2s infinite;">
-        <a href="tel:+61423680596" style="color: #05060a; text-decoration: none; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 8px;">
-            <i class="fas fa-phone-alt"></i> Call Now: 0423 680 596
-        </a>
-    </div>
-
     <!-- Exit Intent Popup -->
     <div id="exit-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
         <div style="background: linear-gradient(135deg, #0f1016 0%, #1a1a2e 100%); padding: 40px; border-radius: 16px; max-width: 500px; margin: 20px; position: relative; border: 2px solid #00ffcc; box-shadow: 0 10px 40px rgba(0,255,204,0.3);">
@@ -856,36 +853,7 @@ if (function_exists('get_template_directory_uri')) {
         </div>
     </div>
 
-    <style>
-    @keyframes pulse {
-        0%, 100% { transform: translateX(-50%) scale(1); }
-        50% { transform: translateX(-50%) scale(1.05); }
-    }
-    
-    @media (min-width: 769px) {
-        #floating-cta { display: none !important; }
-    }
-    </style>
-
     <script>
-    // Floating CTA for mobile
-    let lastScroll = 0;
-    const floatingCTA = document.getElementById('floating-cta');
-    
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (window.innerWidth <= 768 && currentScroll > 300) {
-            if (currentScroll > lastScroll) {
-                floatingCTA.style.display = 'block';
-            }
-        } else {
-            floatingCTA.style.display = 'none';
-        }
-        
-        lastScroll = currentScroll;
-    });
-
     // Exit Intent Popup
     let exitIntentShown = false;
     const exitPopup = document.getElementById('exit-popup');

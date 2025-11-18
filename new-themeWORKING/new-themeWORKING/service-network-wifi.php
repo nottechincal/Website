@@ -101,7 +101,7 @@ if (function_exists('get_template_directory_uri')) {
                     </ol>
                 </nav>
                 <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem;">Network & WiFi Solutions in Patterson Lakes & Melbourne</h1>
-                <p class="lead" style="font-size: 1.3rem; color: var(--muted); max-width: 700px;">Slow WiFi? Dead zones? Connection dropping? We optimize your network for maximum speed and coverage throughout your home or office. Fast, reliable internet everywhere you need it.</p>
+                <p class="lead" style="font-size: 1.3rem; color: var(--muted); max-width: 700px;">Slow WiFi? Dead zones? Connection dropping? We optimise your network for maximum speed and coverage throughout your home or office. Fast, reliable internet everywhere you need it.</p>
                 <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call 0423 680 596</a>
                     <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Request WiFi Assessment</a>
@@ -113,9 +113,9 @@ if (function_exists('get_template_directory_uri')) {
         <section class="section">
             <div class="container" style="max-width: 900px;">
                 <h2>Professional Network and WiFi Services</h2>
-                <p>In today's connected world, reliable internet isn't a luxury – it's essential. Whether you're working from home, streaming movies, gaming online, or managing smart home devices, your WiFi network needs to perform flawlessly. Unfortunately, many homes in Patterson Lakes and across Melbourne suffer from slow speeds, frustrating dead zones, and unreliable connections. At Rapid Tech Solutions, we specialize in diagnosing and solving these network problems, ensuring you get the fast, stable internet connection you're paying for.</p>
+                <p>In today's connected world, reliable internet isn't a luxury – it's essential. Whether you're working from home, streaming movies, gaming online, or managing smart home devices, your WiFi network needs to perform flawlessly. Unfortunately, many homes in Patterson Lakes and across Melbourne suffer from slow speeds, frustrating dead zones, and unreliable connections. At Rapid Tech Solutions, we specialise in diagnosing and solving these network problems, ensuring you get the fast, stable internet connection you're paying for.</p>
 
-                <p>Modern households have more connected devices than ever before. Smartphones, tablets, laptops, smart TVs, gaming consoles, security cameras, smart speakers, and countless other gadgets all compete for bandwidth. When your network isn't properly configured, this leads to buffering videos, dropped Zoom calls, laggy games, and general frustration. Our network optimization services address these issues at their root cause, not with band-aid solutions. We analyze your specific environment, identify bottlenecks, and implement professional solutions that deliver real results.</p>
+                <p>Modern households have more connected devices than ever before. Smartphones, tablets, laptops, smart TVs, gaming consoles, security cameras, smart speakers, and countless other gadgets all compete for bandwidth. When your network isn't properly configured, this leads to buffering videos, dropped Zoom calls, laggy games, and general frustration. Our network optimization services address these issues at their root cause, not with band-aid solutions. We analyse your specific environment, identify bottlenecks, and implement professional solutions that deliver real results.</p>
 
                 <h3 style="margin-top: 2rem; color: var(--accent);">Our Network & WiFi Services</h3>
 
@@ -166,7 +166,7 @@ if (function_exists('get_template_directory_uri')) {
 
                 <div style="margin: 1.5rem 0;">
                     <h4 style="color: var(--text);">Frequent Disconnections</h4>
-                    <p>Nothing is more frustrating than your internet dropping out during an important video call or while streaming the climax of a movie. Intermittent connections can be caused by router overheating, outdated firmware, interference from other electronic devices, or overloaded networks. We diagnose the exact cause of your disconnections by analyzing logs, testing equipment, and monitoring signal stability. Once identified, we implement lasting fixes that keep you connected reliably. Many disconnection issues are actually simple configuration problems that we can resolve quickly.</p>
+                    <p>Nothing is more frustrating than your internet dropping out during an important video call or while streaming the climax of a movie. Intermittent connections can be caused by router overheating, outdated firmware, interference from other electronic devices, or overloaded networks. We diagnose the exact cause of your disconnections by analysing logs, testing equipment, and monitoring signal stability. Once identified, we implement lasting fixes that keep you connected reliably. Many disconnection issues are actually simple configuration problems that we can resolve quickly.</p>
                 </div>
 
                 <div style="margin: 1.5rem 0;">
@@ -193,14 +193,14 @@ if (function_exists('get_template_directory_uri')) {
                         <span style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">2</span>
                         <div>
                             <h4 style="margin: 0 0 0.5rem 0;">Customized Solution Design</h4>
-                            <p style="margin: 0;">Based on our assessment and your specific needs, we design a tailored solution. This might involve optimizing your existing equipment, recommending router upgrades, or designing a mesh network layout. We explain all options clearly with honest pros and cons, helping you choose the best solution for your budget and requirements.</p>
+                            <p style="margin: 0;">Based on our assessment and your specific needs, we design a tailored solution. This might involve optimising your existing equipment, recommending router upgrades, or designing a mesh network layout. We explain all options clearly with honest pros and cons, helping you choose the best solution for your budget and requirements.</p>
                         </div>
                     </div>
                     <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
                         <span style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">3</span>
                         <div>
                             <h4 style="margin: 0 0 0.5rem 0;">Professional Implementation</h4>
-                            <p style="margin: 0;">We install and configure your network solution with meticulous attention to detail. This includes optimal physical placement, channel selection to avoid interference, security configuration, QoS settings, and device prioritization. Every setting is optimized for your specific environment and usage patterns.</p>
+                            <p style="margin: 0;">We install and configure your network solution with meticulous attention to detail. This includes optimal physical placement, channel selection to avoid interference, security configuration, QoS settings, and device prioritization. Every setting is optimised for your specific environment and usage patterns.</p>
                         </div>
                     </div>
                     <div style="display: flex; align-items: flex-start; gap: 1rem;">

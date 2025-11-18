@@ -79,7 +79,7 @@ $year = date('Y');
                 <h2>Common Virus Infections We Remove in Frankston</h2>
                 
                 <h3>1. Ransomware Attacks</h3>
-                <p>Files locked and being held for ransom? We specialize in ransomware removal and data recovery without paying criminals. We've helped many Frankston businesses and residents recover from CryptoLocker, WannaCry, and other ransomware variants.</p>
+                <p>Files locked and being held for ransom? We specialise in ransomware removal and data recovery without paying criminals. We've helped many Frankston businesses and residents recover from CryptoLocker, WannaCry, and other ransomware variants.</p>
                 
                 <h3>2. Browser Hijackers & Adware</h3>
                 <p>Constant popups, changed homepage, or unwanted toolbars? We remove stubborn browser hijackers, adware, and potentially unwanted programs (PUPs) that slow down your Frankston computer and invade your privacy.</p>

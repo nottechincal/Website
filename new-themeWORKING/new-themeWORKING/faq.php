@@ -123,7 +123,7 @@ $year = date('Y');
                 <div class="faq-grid" style="grid-template-columns: 1fr;">
                     <details>
                         <summary>How quickly can you come to my home/office?</summary>
-                        <p>We typically offer <strong>same-day service</strong> in Melbourne's south-east. Book in the morning, and we can often attend the same afternoon. For urgent issues, we prioritize emergency callouts.</p>
+                        <p>We typically offer <strong>same-day service</strong> in Melbourne's south-east. Book in the morning, and we can often attend the same afternoon. For urgent issues, we prioritise emergency callouts.</p>
                     </details>
 
                     <details>
@@ -196,7 +196,7 @@ $year = date('Y');
 
                     <details>
                         <summary>Can you remove viruses from my computer?</summary>
-                        <p>Absolutely. We specialize in <strong>virus and malware removal</strong>. We'll clean your system thoroughly, remove all threats, install protection to prevent future infections, and show you how to stay safe online.</p>
+                        <p>Absolutely. We specialise in <strong>virus and malware removal</strong>. We'll clean your system thoroughly, remove all threats, install protection to prevent future infections, and show you how to stay safe online.</p>
                     </details>
 
                     <details>
@@ -218,7 +218,7 @@ $year = date('Y');
 
                     <details>
                         <summary>Can you help set up a home network?</summary>
-                        <p>Yes. We install and configure home and office networks including WiFi routers, mesh WiFi systems, network printers, and smart home devices. We eliminate WiFi dead zones and optimize for speed and coverage.</p>
+                        <p>Yes. We install and configure home and office networks including WiFi routers, mesh WiFi systems, network printers, and smart home devices. We eliminate WiFi dead zones and optimise for speed and coverage.</p>
                     </details>
                 </div>
             </section>

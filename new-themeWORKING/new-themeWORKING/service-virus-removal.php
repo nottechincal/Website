@@ -113,9 +113,9 @@ if (function_exists('get_template_directory_uri')) {
         <section class="section">
             <div class="container" style="max-width: 900px;">
                 <h2>Professional Virus and Malware Removal Services</h2>
-                <p>In today's digital landscape, malware threats are more sophisticated and dangerous than ever before. Viruses, spyware, ransomware, and other malicious software can steal your personal information, destroy your files, slow down your computer to a crawl, or even hold your data hostage for ransom. At Rapid Tech Solutions in Patterson Lakes, we specialize in removing these threats completely and setting up robust protection to keep you safe. Our virus removal service goes beyond simply running an antivirus scan – we perform a comprehensive cleanup that eliminates every trace of infection.</p>
+                <p>In today's digital landscape, malware threats are more sophisticated and dangerous than ever before. Viruses, spyware, ransomware, and other malicious software can steal your personal information, destroy your files, slow down your computer to a crawl, or even hold your data hostage for ransom. At Rapid Tech Solutions in Patterson Lakes, we specialise in removing these threats completely and setting up robust protection to keep you safe. Our virus removal service goes beyond simply running an antivirus scan – we perform a comprehensive cleanup that eliminates every trace of infection.</p>
 
-                <p>Many people don't realize their computer is infected until significant damage has been done. Malware is designed to be stealthy, working in the background while stealing passwords, banking details, and personal information. Other types are more obvious, bombarding you with pop-up ads or redirecting your web searches. Either way, these infections need immediate professional attention. Our experienced technicians have seen every type of malware threat and know exactly how to eliminate them while preserving your important data.</p>
+                <p>Many people don't realise their computer is infected until significant damage has been done. Malware is designed to be stealthy, working in the background while stealing passwords, banking details, and personal information. Other types are more obvious, bombarding you with pop-up ads or redirecting your web searches. Either way, these infections need immediate professional attention. Our experienced technicians have seen every type of malware threat and know exactly how to eliminate them while preserving your important data.</p>
 
                 <h3 style="margin-top: 2rem; color: var(--accent);">Types of Threats We Remove</h3>
 
@@ -191,7 +191,7 @@ if (function_exists('get_template_directory_uri')) {
                         <span style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">1</span>
                         <div>
                             <h4 style="margin: 0 0 0.5rem 0;">Complete System Analysis</h4>
-                            <p style="margin: 0;">We begin with a thorough examination of your system to identify all infections. This includes scanning for viruses, checking startup programs, examining browser extensions, reviewing installed software, and analyzing system processes. We document every threat found to ensure complete removal.</p>
+                            <p style="margin: 0;">We begin with a thorough examination of your system to identify all infections. This includes scanning for viruses, checking startup programs, examining browser extensions, reviewing installed software, and analysing system processes. We document every threat found to ensure complete removal.</p>
                         </div>
                     </div>
                     <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
@@ -205,7 +205,7 @@ if (function_exists('get_template_directory_uri')) {
                         <span style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">3</span>
                         <div>
                             <h4 style="margin: 0 0 0.5rem 0;">System Repair and Optimization</h4>
-                            <p style="margin: 0;">After removal, we repair any damage the malware caused. This includes restoring modified system settings, fixing broken file associations, repairing Windows components, and removing leftover files. We also optimize startup programs and clean temporary files to restore your computer's speed.</p>
+                            <p style="margin: 0;">After removal, we repair any damage the malware caused. This includes restoring modified system settings, fixing broken file associations, repairing Windows components, and removing leftover files. We also optimise startup programs and clean temporary files to restore your computer's speed.</p>
                         </div>
                     </div>
                     <div style="display: flex; align-items: flex-start; gap: 1rem;">

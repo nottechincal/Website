@@ -20,7 +20,7 @@ render_location_page([
         <p>Rowville has established itself as one of Melbourne\'s most desirable family suburbs, combining excellent schools, beautiful parklands, and proximity to both nature and city conveniences. With properties ranging from established family homes to modern estates, Rowville residents expect technology that matches their lifestyle standards.</p>
 
         <h3>Smart Home Technology for Modern Families</h3>
-        <p>Rowville homeowners are increasingly embracing smart home technology. We specialize in integrating home automation systems—from smart lighting and climate control to security cameras and video doorbells. Our technicians ensure all devices communicate seamlessly, creating homes that are secure, efficient, and convenient. We\'ve helped families near Lysterfield Lake transform their properties into connected smart homes.</p>
+        <p>Rowville homeowners are increasingly embracing smart home technology. We specialise in integrating home automation systems—from smart lighting and climate control to security cameras and video doorbells. Our technicians ensure all devices communicate seamlessly, creating homes that are secure, efficient, and convenient. We\'ve helped families near Lysterfield Lake transform their properties into connected smart homes.</p>
 
         <h3>Home Office Excellence</h3>
         <p>Many Rowville professionals work from home, requiring enterprise-grade home office setups. We design and implement home offices with dedicated networks, professional video conferencing equipment, and secure VPN connections to corporate systems. Whether you\'re in Wellington Village or near Stamford Park, we ensure your home office rivals any corporate environment in reliability and functionality.</p>
@@ -32,7 +32,7 @@ render_location_page([
         <p>The Stud Park Shopping Centre and surrounding business areas host numerous small businesses serving the local community. From healthcare providers to retail shops and professional services, these businesses need IT support that understands their unique needs. We provide everything from network setup to ongoing maintenance, ensuring Rowville businesses can focus on serving their customers.</p>
 
         <h3>Gaming and Entertainment Systems</h3>
-        <p>With families prioritizing quality of life, gaming and entertainment systems have become important. We optimize home networks for gaming, set up media servers, and ensure streaming services work flawlessly across multiple devices. Our technical expertise extends to configuring high-end gaming PCs and resolving connectivity issues that impact online gaming experiences.</p>
+        <p>With families prioritising quality of life, gaming and entertainment systems have become important. We optimise home networks for gaming, set up media servers, and ensure streaming services work flawlessly across multiple devices. Our technical expertise extends to configuring high-end gaming PCs and resolving connectivity issues that impact online gaming experiences.</p>
     '
 ]);
 ?>

@@ -339,7 +339,7 @@ function render_location_page($config) {
                 <div class="faq-grid">
                     <details>
                         <summary>How quickly can you get to <?php echo $suburb; ?>?</summary>
-                        <p>We can typically reach <?php echo $suburb; ?> within <?php echo $distance; ?> minutes during business hours. For urgent issues, we prioritize same-day service and can often be there within 1-2 hours.</p>
+                        <p>We can typically reach <?php echo $suburb; ?> within <?php echo $distance; ?> minutes during business hours. For urgent issues, we prioritise same-day service and can often be there within 1-2 hours.</p>
                     </details>
                     <details>
                         <summary>Do you offer after-hours IT support in <?php echo $suburb; ?>?</summary>
@@ -351,7 +351,7 @@ function render_location_page($config) {
                     </details>
                     <details>
                         <summary>Can you help with NBN issues in <?php echo $suburb; ?>?</summary>
-                        <p>Absolutely! We diagnose NBN connectivity problems, optimize router placement, and configure your network for maximum speed and reliability in <?php echo $suburb; ?>.</p>
+                        <p>Absolutely! We diagnose NBN connectivity problems, optimise router placement, and configure your network for maximum speed and reliability in <?php echo $suburb; ?>.</p>
                     </details>
                 </div>
             </div>

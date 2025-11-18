@@ -23,7 +23,7 @@ render_location_page([
         <p>The commercial areas around Westfield Knox and Mountain Highway host hundreds of small businesses, from retail shops to professional services. These businesses rely on stable internet connectivity and secure payment systems. We\'ve helped local retailers implement point-of-sale systems, secured accounting firms\' sensitive client data, and ensured healthcare practices meet privacy compliance requirements.</p>
 
         <h3>Home Office Solutions for Wantirna Families</h3>
-        <p>With remote work becoming permanent for many Wantirna residents, home office setups have become critical. We specialize in optimizing NBN connections along residential streets near Blind Creek Trail and Templeton Reserve, setting up mesh Wi-Fi systems for larger properties, and ensuring video conferencing runs smoothly even when the whole family is online.</p>
+        <p>With remote work becoming permanent for many Wantirna residents, home office setups have become critical. We specialise in optimising NBN connections along residential streets near Blind Creek Trail and Templeton Reserve, setting up mesh Wi-Fi systems for larger properties, and ensuring video conferencing runs smoothly even when the whole family is online.</p>
 
         <h3>Supporting Students and Schools</h3>
         <p>Wantirna\'s reputation for quality education means families need technology that supports learning. We help parents set up parental controls, maintain computers for homework and research, and troubleshoot issues with school-issued devices. Whether your child attends Wantirna College or one of the local primary schools, we ensure their technology supports their education.</p>
