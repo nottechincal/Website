@@ -1,0 +1,39 @@
+# URGENT FAQ FIX - Copy This EXACTLY Into Your .htaccess
+
+## The Problem
+Your live server's .htaccess file is MISSING or has WRONG rewrite rules.
+
+## The Solution - Copy These Lines
+
+**Open your `/public_html/.htaccess` file in cPanel and add these lines AFTER the WordPress section:**
+
+```apache
+# FAQ and Booking Pages
+RewriteRule ^faq/?$ /wp-content/themes/rapidtech-theme/faq.php [L]
+RewriteRule ^book/?$ /wp-content/themes/rapidtech-theme/book.php [L]
+```
+
+**OR replace the ENTIRE .htaccess file with the complete one from:**
+`rapidtech-theme/docs/DEPLOYMENT.htaccess`
+
+---
+
+## Quick Test After Adding
+
+Visit: https://rapidtechsolutions.au/faq/
+
+**Should work immediately!** (No cache clear needed for .htaccess)
+
+If it STILL doesn't work, your WordPress installation might be in a different location. Check:
+- Is WordPress in `/public_html/` or `/public_html/wordpress/`?
+- Is the theme folder EXACTLY: `/wp-content/themes/rapidtech-theme/`?
+
+---
+
+## Alternative: Direct Test
+
+Try visiting the file directly:
+https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/faq.php
+
+**If that works** = theme is correct, .htaccess is wrong
+**If that 404s** = theme not uploaded correctly
