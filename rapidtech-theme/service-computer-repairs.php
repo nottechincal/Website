@@ -84,8 +84,8 @@ if (function_exists('get_template_directory_uri')) {
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
-                <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Get in Touch</a>
+                <a href="/#services">Services</a>
+                <a href="/#contact" class="btn btn-outline">Get in Touch</a>
             </nav>
         </div>
     </header>
@@ -104,7 +104,7 @@ if (function_exists('get_template_directory_uri')) {
                 <p class="lead" style="font-size: 1.3rem; color: var(--muted); max-width: 700px;">Fast, reliable repairs for laptops, desktops, and all-in-one computers. Free diagnostics. Upfront quotes. Same-day service available.</p>
                 <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call 0423 680 596</a>
-                    <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Request Free Quote</a>
+                    <a href="/#contact" class="btn btn-outline">Request Free Quote</a>
                 </div>
             </div>
         </section>
@@ -245,15 +245,15 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container">
                 <h2 style="text-align: center; margin-bottom: 2rem;">Related Services</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-                    <a href="<?php echo $base_path; ?>/service-data-recovery.php" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07); text-decoration: none; transition: transform 0.3s ease;">
+                    <a href="/service-data-recovery/" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07); text-decoration: none; transition: transform 0.3s ease;">
                         <h4 style="color: var(--accent);"><i class="fas fa-hard-drive"></i> Data Recovery</h4>
                         <p style="color: var(--muted);">Recover lost or deleted files from damaged drives</p>
                     </a>
-                    <a href="<?php echo $base_path; ?>/service-virus-removal.php" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07); text-decoration: none; transition: transform 0.3s ease;">
+                    <a href="/service-virus-removal/" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07); text-decoration: none; transition: transform 0.3s ease;">
                         <h4 style="color: var(--accent);"><i class="fas fa-virus-slash"></i> Virus Removal</h4>
                         <p style="color: var(--muted);">Remove malware and protect your computer</p>
                     </a>
-                    <a href="<?php echo $base_path; ?>/service-network-wifi.php" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07); text-decoration: none; transition: transform 0.3s ease;">
+                    <a href="/service-network-wifi/" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07); text-decoration: none; transition: transform 0.3s ease;">
                         <h4 style="color: var(--accent);"><i class="fas fa-wifi"></i> Network & WiFi</h4>
                         <p style="color: var(--muted);">Fix internet problems and boost WiFi coverage</p>
                     </a>

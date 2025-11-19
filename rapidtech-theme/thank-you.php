@@ -35,7 +35,7 @@ if (function_exists('get_template_directory_uri')) {
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
+                <a href="/#services">Services</a>
                 <a href="tel:+61423680596" class="btn btn-outline">Call Us</a>
             </nav>
         </div>
@@ -91,17 +91,17 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container" style="text-align: center;">
                 <h3 style="margin-bottom: 2rem;">While You Wait, Check Out Our Free Guides</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
-                    <a href="<?php echo $base_path; ?>/blog-scam-protection.php" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.08);">
+                    <a href="/blog-scam-protection/" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.08);">
                         <i class="fas fa-shield-alt" style="color: #ff9500; font-size: 1.5rem; margin-bottom: 0.75rem; display: block;"></i>
                         <strong style="display: block; margin-bottom: 0.5rem;">Protect From Scams</strong>
                         <span style="color: var(--muted); font-size: 0.9rem;">Learn to spot fake tech support calls</span>
                     </a>
-                    <a href="<?php echo $base_path; ?>/blog-password-security.php" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.08);">
+                    <a href="/blog-password-security/" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.08);">
                         <i class="fas fa-lock" style="color: #29d5ff; font-size: 1.5rem; margin-bottom: 0.75rem; display: block;"></i>
                         <strong style="display: block; margin-bottom: 0.5rem;">Password Security</strong>
                         <span style="color: var(--muted); font-size: 0.9rem;">Create strong passwords easily</span>
                     </a>
-                    <a href="<?php echo $base_path; ?>/blog-computer-maintenance.php" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.08);">
+                    <a href="/blog-computer-maintenance/" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.08);">
                         <i class="fas fa-tools" style="color: #00ffcc; font-size: 1.5rem; margin-bottom: 0.75rem; display: block;"></i>
                         <strong style="display: block; margin-bottom: 0.5rem;">Computer Maintenance</strong>
                         <span style="color: var(--muted); font-size: 0.9rem;">Keep your PC running fast</span>
@@ -114,8 +114,8 @@ if (function_exists('get_template_directory_uri')) {
     <footer class="site-footer" role="contentinfo">
         <div class="container">
             <div style="text-align: center; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem;">
-                <a href="<?php echo $base_path; ?>/privacy-policy.php" style="color: var(--muted); margin: 0 1rem;">Privacy Policy</a>
-                <a href="<?php echo $base_path; ?>/terms-of-service.php" style="color: var(--muted); margin: 0 1rem;">Terms of Service</a>
+                <a href="/privacy-policy/" style="color: var(--muted); margin: 0 1rem;">Privacy Policy</a>
+                <a href="/terms-of-service/" style="color: var(--muted); margin: 0 1rem;">Terms of Service</a>
             </div>
             <p class="footer-note">© <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</p>
         </div>
