@@ -1,0 +1,112 @@
+========================================
+UPLOAD CORRECT SITEMAP - MISSING 17 PAGES
+========================================
+
+PROBLEM FOUND:
+Your live server has the OLD sitemap with only 57 URLs.
+You're missing 17 pages that Google can't discover!
+
+MISSING PAGES:
+1. FAQ page
+2. 10 new suburb pages (bonbeach, aspendale, edithvale, chelsea, mordialloc, mentone, keysborough, noble-park, dandenong, springvale)
+3. 6 service+location combo pages (virus-removal-dandenong, virus-removal-cranbourne, data-recovery-frankston, data-recovery-patterson-lakes, network-setup-berwick, emergency-computer-repair-melbourne)
+
+========================================
+STEP-BY-STEP FIX:
+========================================
+
+1. DELETE OLD SITEMAP ON SERVER
+   - Go to your server file manager
+   - Navigate to: /public_html/wp-content/themes/rapidtech-theme/
+   - Find: sitemap.xml
+   - DELETE it (this is the old 57-URL version)
+
+2. UPLOAD NEW SITEMAP
+   - Download the file: SITEMAP-COMPLETE-74-URLS.xml (from this same folder)
+   - Rename it to: sitemap.xml
+   - Upload to: /public_html/wp-content/themes/rapidtech-theme/sitemap.xml
+
+3. VERIFY IT WORKED
+   - Open in browser: https://rapidtechsolutions.au/sitemap.xml
+   - Scroll down - you should now see these MISSING pages:
+
+     LOOK FOR THESE (they should be at the bottom):
+     - computer-repairs-bonbeach
+     - computer-repairs-aspendale
+     - computer-repairs-edithvale
+     - computer-repairs-chelsea
+     - computer-repairs-mordialloc
+     - computer-repairs-mentone
+     - computer-repairs-keysborough
+     - computer-repairs-noble-park
+     - computer-repairs-dandenong
+     - computer-repairs-springvale
+     - virus-removal-dandenong
+     - virus-removal-cranbourne
+     - data-recovery-frankston
+     - data-recovery-patterson-lakes
+     - network-setup-berwick
+     - emergency-computer-repair-melbourne
+     - faq
+
+4. UPDATE GOOGLE SEARCH CONSOLE
+   - Go to: https://search.google.com/search-console
+   - Click Sitemaps (left sidebar)
+   - Find sitemap.xml
+   - Click the 3 dots (⋮) → Remove sitemap
+   - Wait 5 minutes
+   - Click "Add a new sitemap"
+   - Enter: sitemap.xml
+   - Click Submit
+
+5. WAIT 24-48 HOURS
+   - Google will re-process the sitemap
+   - Count should update from 57 to 74
+
+========================================
+QUICK CHECK:
+========================================
+
+Your OLD sitemap (57 URLs) ends with:
+    <url>
+        <loc>https://www.rapidtechsolutions.au/postcode-3201/</loc>
+        ...
+    </url>
+</urlset>
+
+Your NEW sitemap (74 URLs) has MORE entries after postcode-3201, including:
+- FAQ page
+- 10 new suburb pages
+- 6 service+location pages
+
+If you don't see these extra pages when you visit:
+https://rapidtechsolutions.au/sitemap.xml
+
+Then you haven't uploaded the correct file yet!
+
+========================================
+FILE LOCATION:
+========================================
+
+The correct file is in this GitHub repository at:
+rapidtech-theme/docs/SITEMAP-COMPLETE-74-URLS.xml
+
+Download it, rename to sitemap.xml, and upload to your server.
+
+========================================
+CONFIRMATION:
+========================================
+
+After uploading, visit:
+https://rapidtechsolutions.au/sitemap.xml
+
+Scroll to the bottom - you should see:
+- virus-removal pages
+- data-recovery pages
+- network-setup-berwick
+- emergency-computer-repair-melbourne
+- faq
+
+If you see these, you uploaded correctly! ✓
+
+Then wait 24-48 hours for Google Search Console to update from 57 to 74.
