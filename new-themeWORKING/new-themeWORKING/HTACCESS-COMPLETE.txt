@@ -137,3 +137,19 @@ RewriteRule ^emergency-computer-repair-melbourne/?$ /wp-content/themes/new-theme
 # FAQ and Booking Pages
 RewriteRule ^faq/?$ /wp-content/themes/new-themeWORKING6/faq.php [L]
 RewriteRule ^book/?$ /wp-content/themes/new-themeWORKING6/book.php [L]
+
+# Postcode Location Pages
+RewriteRule ^postcode-3152/?$ /wp-content/themes/new-themeWORKING6/postcode-3152.php [L]
+RewriteRule ^postcode-3173/?$ /wp-content/themes/new-themeWORKING6/postcode-3173.php [L]
+RewriteRule ^postcode-3174/?$ /wp-content/themes/new-themeWORKING6/postcode-3174.php [L]
+RewriteRule ^postcode-3175/?$ /wp-content/themes/new-themeWORKING6/postcode-3175.php [L]
+RewriteRule ^postcode-3178/?$ /wp-content/themes/new-themeWORKING6/postcode-3178.php [L]
+RewriteRule ^postcode-3192/?$ /wp-content/themes/new-themeWORKING6/postcode-3192.php [L]
+RewriteRule ^postcode-3193/?$ /wp-content/themes/new-themeWORKING6/postcode-3193.php [L]
+RewriteRule ^postcode-3194/?$ /wp-content/themes/new-themeWORKING6/postcode-3194.php [L]
+RewriteRule ^postcode-3195/?$ /wp-content/themes/new-themeWORKING6/postcode-3195.php [L]
+RewriteRule ^postcode-3196/?$ /wp-content/themes/new-themeWORKING6/postcode-3196.php [L]
+RewriteRule ^postcode-3198/?$ /wp-content/themes/new-themeWORKING6/postcode-3198.php [L]
+RewriteRule ^postcode-3199/?$ /wp-content/themes/new-themeWORKING6/postcode-3199.php [L]
+RewriteRule ^postcode-3200/?$ /wp-content/themes/new-themeWORKING6/postcode-3200.php [L]
+RewriteRule ^postcode-3201/?$ /wp-content/themes/new-themeWORKING6/postcode-3201.php [L]
