@@ -32,7 +32,8 @@ if (function_exists('get_template_directory_uri')) {
     <meta name="twitter:description" content="On-demand IT services, repairs, and cybersecurity protection across Melbourne.">
     <meta name="twitter:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/">
-    <link rel="icon" type="image/png" href="<?php echo $base_path; ?>/images/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
+    <link rel="alternate icon" type="image/png" href="<?php echo $base_path; ?>/images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
