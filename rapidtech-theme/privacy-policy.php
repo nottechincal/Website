@@ -16,7 +16,8 @@ $current_year = date('Y');
     <title>Privacy Policy | Rapid Tech Solutions</title>
     <meta name="description" content="Privacy Policy for Rapid Tech Solutions. Learn how we collect, use, and protect your personal information.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/privacy-policy/">
-    <link rel="icon" type="image/png" href="<?php echo $base_path; ?>/images/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
