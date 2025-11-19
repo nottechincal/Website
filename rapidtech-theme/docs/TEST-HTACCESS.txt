@@ -1,0 +1,48 @@
+# .htaccess Verification Test
+
+Copy your current /public_html/.htaccess content and paste it here to verify it's correct.
+
+## What to Check:
+
+1. **Search for:** new-themeWORKING6
+   - Should find: **0 results** ✅
+   - If you find ANY: ❌ .htaccess not updated
+
+2. **Search for:** rapidtech-theme
+   - Should find: **75 results** ✅
+   - If less than 75: ❌ .htaccess not updated
+
+3. **FAQ Rule Check:**
+   - Find line starting with: RewriteRule ^faq
+   - Should say: /wp-content/themes/rapidtech-theme/faq.php
+   - NOT: /wp-content/themes/new-themeWORKING6/faq.php
+
+## Quick Command (if you have SSH access):
+
+```bash
+cd /public_html
+grep -c "new-themeWORKING6" .htaccess
+# Should return: 0
+
+grep -c "rapidtech-theme" .htaccess
+# Should return: 75
+```
+
+## If Incorrect:
+
+Your .htaccess needs to be replaced with:
+`rapidtech-theme/docs/DEPLOYMENT.htaccess`
+
+Simply copy ALL content from DEPLOYMENT.htaccess and paste into /public_html/.htaccess
+
+---
+
+## Current Correct FAQ Rule:
+
+```apache
+# FAQ and Booking Pages
+RewriteRule ^faq/?$ /wp-content/themes/rapidtech-theme/faq.php [L]
+RewriteRule ^book/?$ /wp-content/themes/rapidtech-theme/book.php [L]
+```
+
+If your .htaccess has the OLD theme name, that's why FAQ returns 404!

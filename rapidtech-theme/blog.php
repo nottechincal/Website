@@ -149,8 +149,8 @@ $current_year = date('Y');
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
-                <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Contact</a>
+                <a href="/#services">Services</a>
+                <a href="/#contact" class="btn btn-outline">Contact</a>
             </nav>
         </div>
     </header>
@@ -177,7 +177,7 @@ $current_year = date('Y');
                                 <span><i class="fas fa-clock"></i> 6 min read</span>
                                 <span><i class="fas fa-calendar"></i> Nov 2025</span>
                             </div>
-                            <a href="<?php echo $base_path; ?>/blog-scam-protection.php" class="btn">Read Article</a>
+                            <a href="/blog-scam-protection/" class="btn">Read Article</a>
                         </div>
                     </article>
 
@@ -191,7 +191,7 @@ $current_year = date('Y');
                                 <span><i class="fas fa-clock"></i> 5 min read</span>
                                 <span><i class="fas fa-calendar"></i> Nov 2025</span>
                             </div>
-                            <a href="<?php echo $base_path; ?>/blog-password-security.php" class="btn btn-outline">Read Article</a>
+                            <a href="/blog-password-security/" class="btn btn-outline">Read Article</a>
                         </div>
                     </article>
 
@@ -205,7 +205,7 @@ $current_year = date('Y');
                                 <span><i class="fas fa-clock"></i> 7 min read</span>
                                 <span><i class="fas fa-calendar"></i> Nov 2025</span>
                             </div>
-                            <a href="<?php echo $base_path; ?>/blog-computer-maintenance.php" class="btn btn-outline">Read Article</a>
+                            <a href="/blog-computer-maintenance/" class="btn btn-outline">Read Article</a>
                         </div>
                     </article>
 
@@ -218,7 +218,7 @@ $current_year = date('Y');
                             <div class="blog-card-meta">
                                 <span><i class="fas fa-clock"></i> 8 min read</span>
                             </div>
-                            <a href="<?php echo $base_path; ?>/blog-malware-protection.php" class="btn btn-outline">Read Article</a>
+                            <a href="/blog-malware-protection/" class="btn btn-outline">Read Article</a>
                         </div>
                     </article>
 
@@ -231,7 +231,7 @@ $current_year = date('Y');
                             <div class="blog-card-meta">
                                 <span><i class="fas fa-clock"></i> 6 min read</span>
                             </div>
-                            <a href="<?php echo $base_path; ?>/blog-home-network.php" class="btn btn-outline">Read Article</a>
+                            <a href="/blog-home-network/" class="btn btn-outline">Read Article</a>
                         </div>
                     </article>
 
@@ -244,7 +244,7 @@ $current_year = date('Y');
                             <div class="blog-card-meta">
                                 <span><i class="fas fa-clock"></i> 5 min read</span>
                             </div>
-                            <a href="<?php echo $base_path; ?>/blog-hardware-upgrades.php" class="btn btn-outline">Read Article</a>
+                            <a href="/blog-hardware-upgrades/" class="btn btn-outline">Read Article</a>
                         </div>
                     </article>
 
@@ -257,7 +257,7 @@ $current_year = date('Y');
                             <div class="blog-card-meta">
                                 <span><i class="fas fa-clock"></i> 6 min read</span>
                             </div>
-                            <a href="<?php echo $base_path; ?>/blog-cloud-services.php" class="btn btn-outline">Read Article</a>
+                            <a href="/blog-cloud-services/" class="btn btn-outline">Read Article</a>
                         </div>
                     </article>
                 </div>
@@ -273,7 +273,7 @@ $current_year = date('Y');
                 </p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Send a Message</a>
+                    <a href="/#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Send a Message</a>
                 </div>
             </div>
         </section>
@@ -282,9 +282,9 @@ $current_year = date('Y');
     <footer class="site-footer">
         <div class="container">
             <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap;">
-                <a href="<?php echo $base_path; ?>/privacy-policy.php" style="color: var(--muted);">Privacy Policy</a>
-                <a href="<?php echo $base_path; ?>/terms-of-service.php" style="color: var(--muted);">Terms of Service</a>
-                <a href="<?php echo $base_path; ?>/about.php" style="color: var(--muted);">About Us</a>
+                <a href="/privacy-policy/" style="color: var(--muted);">Privacy Policy</a>
+                <a href="/terms-of-service/" style="color: var(--muted);">Terms of Service</a>
+                <a href="/about/" style="color: var(--muted);">About Us</a>
             </div>
             <p class="footer-note">© <?php echo $current_year; ?> Rapid Tech Solutions. All rights reserved.</p>
         </div>

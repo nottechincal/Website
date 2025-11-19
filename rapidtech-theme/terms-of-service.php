@@ -38,8 +38,8 @@ $current_year = date('Y');
                 Rapid Tech Solutions
             </a>
             <nav class="primary-nav">
-                <a href="<?php echo $base_path; ?>/index.php#services">Services</a>
-                <a href="<?php echo $base_path; ?>/index.php#contact" class="btn btn-outline">Contact</a>
+                <a href="/#services">Services</a>
+                <a href="/#contact" class="btn btn-outline">Contact</a>
             </nav>
         </div>
     </header>
@@ -250,9 +250,9 @@ $current_year = date('Y');
     <footer class="site-footer">
         <div class="container">
             <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap;">
-                <a href="<?php echo $base_path; ?>/privacy-policy.php" style="color: var(--muted);">Privacy Policy</a>
-                <a href="<?php echo $base_path; ?>/terms-of-service.php" style="color: var(--muted);">Terms of Service</a>
-                <a href="<?php echo $base_path; ?>/about.php" style="color: var(--muted);">About Us</a>
+                <a href="/privacy-policy/" style="color: var(--muted);">Privacy Policy</a>
+                <a href="/terms-of-service/" style="color: var(--muted);">Terms of Service</a>
+                <a href="/about/" style="color: var(--muted);">About Us</a>
             </div>
             <p class="footer-note">© <?php echo $current_year; ?> Rapid Tech Solutions. All rights reserved.</p>
         </div>
