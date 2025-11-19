@@ -45,7 +45,8 @@ function render_location_page($config) {
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="IT Support <?php echo $suburb; ?> <?php echo $postcode; ?> | Rapid Tech Solutions">
     <meta name="twitter:description" content="Same-day IT support and computer repairs in <?php echo $suburb; ?>. Expert technicians serving Melbourne.">
-    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">

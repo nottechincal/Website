@@ -20,7 +20,8 @@ $year = date('Y');
     <meta property="og:description" content="Same-day virus & malware removal service in Melbourne. Call 0423 680 596">
     <meta property="og:url" content="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
     <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
-    <link rel="icon" type="image/png" href="<?php echo $base_path; ?>/images/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">

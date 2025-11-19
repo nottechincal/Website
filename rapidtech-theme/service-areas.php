@@ -16,7 +16,8 @@ $year = date('Y');
     <meta name="description" content="Computer repairs and IT support across Melbourne's south-east. Serving Cranbourne, Berwick, Narre Warren, Frankston, Patterson Lakes, and 20+ suburbs. Same-day service available.">
     <meta name="keywords" content="computer repairs Melbourne south-east, IT support Cranbourne, computer repairs Frankston, laptop repair Narre Warren, computer technician Patterson Lakes">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/service-areas/">
-    <link rel="icon" type="image/png" href="<?php echo $base_path; ?>/images/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
