@@ -2,7 +2,7 @@
 RewriteEngine On
 
 # Set base directory (adjust if your WordPress is in a subdirectory)
-# RewriteBase /wp-content/themes/new-themeWORKING/
+# RewriteBase /wp-content/themes/rapidtech-theme/
 
 # Remove .php extension from URLs (internal rewrite, no redirect)
 # If the request doesn't match an existing file or directory

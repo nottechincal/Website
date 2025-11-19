@@ -40,7 +40,7 @@ function render_location_page($config) {
     <meta property="og:description" content="Professional IT services for <?php echo $suburb; ?> residents and businesses. Same-day onsite support, cybersecurity, and computer repairs.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.rapidtechsolutions.au/postcode-<?php echo $postcode; ?>/">
-    <meta property="og:image" content="https://www.rapidtechsolutions.au/wp-content/themes/new-themeWORKING/images/og-image.jpg">
+    <meta property="og:image" content="https://www.rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
     <meta property="og:site_name" content="Rapid Tech Solutions">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="IT Support <?php echo $suburb; ?> <?php echo $postcode; ?> | Rapid Tech Solutions">
@@ -61,7 +61,7 @@ function render_location_page($config) {
         "description": "Professional IT support, computer repairs, and cybersecurity services in <?php echo $suburb; ?> <?php echo $postcode; ?>",
         "telephone": "+61423680596",
         "url": "https://www.rapidtechsolutions.au/postcode-<?php echo $postcode; ?>/",
-        "image": "https://www.rapidtechsolutions.au/wp-content/themes/new-themeWORKING/images/og-image.jpg",
+        "image": "https://www.rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg",
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
