@@ -1,0 +1,62 @@
+=============================================================
+🚨 URGENT: COPY THIS INTO YOUR .HTACCESS FILE NOW 🚨
+=============================================================
+
+FAQ IS 404 BECAUSE YOUR .HTACCESS IS MISSING THESE LINES!
+
+**STEP 1: Open cPanel File Manager**
+Navigate to: /public_html/.htaccess
+
+**STEP 2: Click "Edit"**
+
+**STEP 3: Add These Lines (Copy & Paste EXACTLY)**
+
+Find this section in your .htaccess:
+```
+# END WordPress
+```
+
+RIGHT AFTER that line, add these:
+
+```apache
+# FAQ and Booking Pages
+RewriteRule ^faq/?$ /wp-content/themes/rapidtech-theme/faq.php [L]
+RewriteRule ^book/?$ /wp-content/themes/rapidtech-theme/book.php [L]
+```
+
+**STEP 4: SAVE THE FILE**
+
+**STEP 5: Test**
+Visit: https://rapidtechsolutions.au/faq/
+
+✅ Should work IMMEDIATELY!
+
+---
+
+## OR: Replace Entire .htaccess (Better Option)
+
+**Instead of adding lines, replace the WHOLE file:**
+
+1. Open: rapidtech-theme/docs/DEPLOYMENT.htaccess
+2. Copy EVERYTHING (all ~155 lines)
+3. Open: /public_html/.htaccess in cPanel
+4. Delete ALL content
+5. Paste the new content
+6. SAVE
+
+This ensures ALL pages work correctly, not just FAQ!
+
+---
+
+## Why This Keeps Happening
+
+Your .htaccess file on the live server is NOT the same as the one in the repository. Every time I fix it in the code, you need to upload it to your server.
+
+**The .htaccess file is NOT part of the WordPress theme!**
+It sits in /public_html/.htaccess (outside the theme folder)
+
+So you need to update it SEPARATELY from uploading the theme.
+
+---
+
+=============================================================
