@@ -12,8 +12,8 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Spot and Avoid Tech Support Scams | Rapid Tech Solutions</title>
-    <meta name="description" content="Learn to identify fake tech support calls, phishing emails, and online scams targeting Melbourne residents. Protect your family and finances.">
+    <title>How to Spot and Avoid Tech Support Scams</title>
+    <meta name="description" content="Recognise fake tech support calls, phishing emails and remote-access scams targeting Australians, and know exactly what to do if you have been caught.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/blog-scam-protection/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">

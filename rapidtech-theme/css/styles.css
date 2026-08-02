@@ -1,3 +1,30 @@
+/* ---------------------------------------------------------------------------
+   Space Grotesk — self-hosted.
+   Served from Google Fonts previously, which cost a render-blocking request to
+   a third-party origin on every page. This is the same variable font, one file,
+   covering weights 400-700. font-display:swap keeps text visible during load.
+   --------------------------------------------------------------------------- */
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('../fonts/space-grotesk/space-grotesk-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                   U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+                   U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('../fonts/space-grotesk/space-grotesk-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+                   U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF,
+                   U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
     --bg: #05060a;
     --text: #e9edf3;
@@ -750,5 +777,138 @@ iframe {
     .cta-panel-inner {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Components introduced during the 2026 rebuild.
+   --------------------------------------------------------------------------- */
+
+/* Inline SVG icons, replacing Font Awesome glyphs on rebuilt templates. */
+.icon {
+    width: 1.15em;
+    height: 1.15em;
+    flex: none;
+    vertical-align: -0.15em;
+}
+
+/* Emergency banner.
+   Previously driven by JavaScript that toggled position:fixed on scroll and
+   wrote to document.body.style.paddingTop, which shifted the whole page and
+   scored a Cumulative Layout Shift penalty on every load. position:sticky
+   does the same job in CSS with no shift and no scroll listener. */
+.emergency-banner {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    font-weight: 500;
+    padding: 0.75rem 0;
+    text-align: center;
+}
+
+.emergency-banner .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.emergency-banner a {
+    background: #fff;
+    color: var(--primary);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.emergency-banner a:hover,
+.emergency-banner a:focus-visible {
+    transform: scale(1.05);
+}
+
+/* Breadcrumbs. */
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.breadcrumbs li + li::before {
+    content: '/';
+    margin-right: 0.5rem;
+    color: var(--muted);
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus-visible {
+    text-decoration: underline;
+}
+
+/* Cross-links between suburb pages. */
+.neighbour-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.neighbour-links a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(143, 155, 179, 0.35);
+    border-radius: 999px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.neighbour-links a:hover,
+.neighbour-links a:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Hamburger, replacing the Font Awesome bars glyph. */
+.menu-toggle-bars,
+.menu-toggle-bars::before,
+.menu-toggle-bars::after {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+}
+
+.menu-toggle-bars {
+    position: relative;
+}
+
+.menu-toggle-bars::before,
+.menu-toggle-bars::after {
+    content: '';
+    position: absolute;
+    left: 0;
+}
+
+.menu-toggle-bars::before { top: -7px; }
+.menu-toggle-bars::after  { top: 7px; }
+
+/* Scroll-in animations must not hide content when motion is reduced. */
+@media (prefers-reduced-motion: reduce) {
+    [data-animate] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }

@@ -12,10 +12,9 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network & WiFi Solutions Patterson Lakes & Melbourne | Rapid Tech Solutions</title>
-    <meta name="description" content="Expert network and WiFi services in Patterson Lakes and Melbourne. Fix slow WiFi, extend coverage, setup home networks, solve internet problems. Call 0423 680 596.">
-    <meta name="keywords" content="WiFi setup Patterson Lakes, network solutions Melbourne, fix slow WiFi 3197, WiFi extender installation, home network setup, internet problems fix, wireless network help">
-    <meta name="robots" content="index, follow">
+    <title>Network & Wi-Fi Solutions Melbourne | Fix Slow Wi-Fi</title>
+    <meta name="description" content="Fix slow or patchy Wi-Fi, extend coverage with mesh systems, sort NBN faults and set up business networks across Melbourne's south-east. Same-day service.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Rapid Tech Solutions">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/service-network-wifi/">
 
@@ -43,9 +42,9 @@ if (function_exists('get_template_directory_uri')) {
             "telephone": "+61423680596",
             "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Patterson Lakes",
+                "addressLocality": "Cranbourne South",
                 "addressRegion": "VIC",
-                "postalCode": "3197",
+                "postalCode": "3977",
                 "addressCountry": "AU"
             }
         },

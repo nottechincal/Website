@@ -12,9 +12,8 @@ $year = date('Y');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Recovery Frankston | Same-Day Malware Cleanup | Call 0423 680 596</title>
-    <meta name="description" content="Professional data recovery in Frankston. Same-day service, complete security cleanup, ransomware recovery. Expert technicians serving Frankston 3199.">
-    <meta name="keywords" content="data recovery Frankston, malware removal Frankston 3199, ransomware removal Frankston, computer virus cleanup Frankston">
+    <title>Data Recovery Frankston | Same-Day Service</title>
+    <meta name="description" content="Professional data recovery in Frankston 3199. Failed hard drives, dead SSDs, deleted files and corrupted storage. Free assessment, no recovery no fee.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
     <meta property="og:title" content="Data Recovery Frankston | Rapid Tech Solutions">
     <meta property="og:description" content="Same-day data recovery service in Frankston. Call 0423 680 596">

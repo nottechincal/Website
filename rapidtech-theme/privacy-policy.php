@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: Privacy Policy
+*/
 // Define base path - works with or without WordPress
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
@@ -14,7 +17,7 @@ $current_year = date('Y');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Rapid Tech Solutions</title>
-    <meta name="description" content="Privacy Policy for Rapid Tech Solutions. Learn how we collect, use, and protect your personal information.">
+    <meta name="description" content="How Rapid Tech Solutions collects, uses, stores and protects your personal information, and how to request access to or deletion of your data.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/privacy-policy/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">

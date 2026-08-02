@@ -12,10 +12,9 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Repairs Patterson Lakes & Melbourne | Same-Day Service | Rapid Tech Solutions</title>
-    <meta name="description" content="Professional computer repair services in Patterson Lakes and Melbourne. Laptops, desktops, Macs. Free diagnostics, same-day service, no fix no fee. Call 0423 680 596.">
-    <meta name="keywords" content="computer repairs Patterson Lakes, laptop repair Melbourne, PC repair 3197, Mac repair, desktop repair, computer technician near me, same day computer repair">
-    <meta name="robots" content="index, follow">
+    <title>Computer Repairs Melbourne | No Fix, No Fee</title>
+    <meta name="description" content="Laptop, desktop and Mac repairs across Melbourne's south-east. Free diagnostics, same-day service and a 30-day warranty. No fix, no fee. Call 0423 680 596.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Rapid Tech Solutions">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/service-computer-repairs/">
 
@@ -43,9 +42,9 @@ if (function_exists('get_template_directory_uri')) {
             "telephone": "+61423680596",
             "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Patterson Lakes",
+                "addressLocality": "Cranbourne South",
                 "addressRegion": "VIC",
-                "postalCode": "3197",
+                "postalCode": "3977",
                 "addressCountry": "AU"
             }
         },

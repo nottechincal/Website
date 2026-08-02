@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: FAQ
+*/
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
 } else {
@@ -12,8 +15,8 @@ $year = date('Y');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Frequently Asked Questions | Rapid Tech Solutions Melbourne</title>
-    <meta name="description" content="Answers to common questions about computer repair, IT support, pricing, service areas, and data security. Get expert answers from Melbourne's trusted tech team.">
+    <title>Computer Repair FAQ | Rapid Tech Solutions</title>
+    <meta name="description" content="Straight answers on pricing, callout times, service areas, warranties and data security for computer repairs across Melbourne's south-east.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/faq/">
     <meta property="og:title" content="FAQ - Computer Repair Questions Answered">
     <meta property="og:description" content="Get answers to your computer repair questions from Melbourne's trusted IT experts.">
@@ -43,23 +46,191 @@ $year = date('Y');
                 "name": "How much does computer repair cost?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We offer free diagnostics to assess your issue first. Repair costs vary depending on the problem, but we always provide a clear quote before starting work. Common repairs range from $50-$200 for software issues to $150-$400 for hardware repairs. No hidden fees."
+                    "text": "We offer free diagnostics to assess your issue first. Repair costs vary depending on the problem, but we always provide a clear quote before starting work. Typical pricing: Software fixes: $50-$200 (virus removal, slow computer, software issues) Hardware repairs: $150-$400 (screen replacement, hard drive upgrade, component repair) Data recovery: $100-$500 (depending on complexity) Network setup: $150-$350 (home WiFi, mesh systems) No hidden fees. The quote we give is the price you pay."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Do you offer same-day service?",
+                "name": "Do you charge a callout fee?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes! We offer same-day service for most repairs across Melbourne's south-east. Many repairs are completed within 1-2 hours. For complex issues requiring parts, we typically complete repairs within 24-48 hours."
+                    "text": "No callout fee for most Melbourne south-east suburbs when you proceed with the repair. If you decline the repair after our free diagnostic, a $50 service fee applies to cover travel costs."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What areas do you service?",
+                "name": "What payment methods do you accept?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We service 35+ suburbs across Melbourne's south-east including Cranbourne, Dandenong, Patterson Lakes, Frankston, Berwick, Narre Warren, and surrounding areas. Remote support is available Australia-wide."
+                    "text": "We accept cash, bank transfer, credit/debit cards (Visa, Mastercard), and EFTPOS. Payment is due upon completion of the repair."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer payment plans?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For larger repairs (over $300), we can arrange payment plans for approved customers. Contact us to discuss options."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How quickly can you come to my home/office?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We typically offer same-day service in Melbourne's south-east. Book in the morning, and we can often attend the same afternoon. For urgent issues, we prioritise emergency callouts."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long do repairs take?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Repair time depends on the issue: Software issues: 1-2 hours (virus removal, slow computer, software problems) Simple hardware: 1-3 hours (RAM upgrades, basic component replacement) Screen replacement: 24-48 hours (if parts in stock) Complex repairs: 2-5 days (motherboard issues, water damage, data recovery) We always give you a timeframe upfront."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer after-hours and weekend service?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! We offer after-hours and weekend service for emergencies. Additional fees may apply for out-of-hours callouts. Call us to arrange: 0423 680 596"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What suburbs do you service?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We service 35+ Melbourne suburbs including: Cranbourne & Cranbourne South Dandenong Patterson Lakes Frankston Berwick Narre Warren Chelsea Heights Seaford Carrum Keysborough Noble Park Springvale View complete list of service areas"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you come to my home or do I bring my computer in?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We offer both options : On-site service: We come to your home or office (most popular) Drop-off service: Bring your computer to us in Cranbourne South Remote support: For software issues, we can connect remotely For complex repairs requiring extended work, we may take the computer to our workshop and return it once fixed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer remote support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! For software issues, we offer remote support where we connect to your computer via secure remote access. This is faster and more convenient for issues like slow performance, software problems, or configuration help."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you repair Mac computers as well as Windows PCs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! We service both Mac and Windows computers . Our technicians are experienced with Apple MacBooks, iMacs, Mac Minis, as well as all Windows laptop and desktop brands (Dell, HP, Lenovo, ASUS, Acer, etc.)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can you remove viruses from my computer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. We specialise in virus and malware removal . We'll clean your system thoroughly, remove all threats, install protection to prevent future infections, and show you how to stay safe online."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can you recover my deleted files?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In many cases, yes. We offer data recovery services for: Accidentally deleted files Failed or damaged hard drives Corrupted USB drives and SD cards Ransomware-encrypted files We operate on a \"no data, no fee\" basis - if we can't recover your files, you don't pay for the attempt."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you build custom computers?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! We build custom gaming PCs, workstations, and office computers tailored to your needs and budget. We source quality components and provide warranty on all builds."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can you help set up a home network?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We install and configure home and office networks including WiFi routers, mesh WiFi systems, network printers, and smart home devices. We eliminate WiFi dead zones and optimise for speed and coverage."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will I lose my files during repairs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We take data protection seriously . Before any repair, we discuss backup options with you. In most cases, your files remain safe. For high-risk repairs, we'll back up your data first."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my personal data safe with you?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We adhere to strict privacy and data protection policies . We never access your personal files unless required for the repair, and we delete any temporary backups after completing work. All data is handled confidentially."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you keep my passwords or personal information?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. We never record or store your passwords or personal information. If we need access to your system for repairs, we ask you to provide temporary access or watch while we work."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if you can't fix my computer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We operate on a \"no fix, no fee\" basis for many services. If we can't solve your problem, you won't be charged for the repair attempt. We'll always be honest about the likelihood of success before starting."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer a warranty on repairs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We provide a 30-day warranty on all labour and repairs. If the same issue recurs within 30 days, we'll fix it at no extra charge. Parts come with manufacturer warranty (typically 1-3 years)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if a part you installed fails?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All parts we install come with manufacturer warranty . If a part fails within the warranty period, we'll replace it free of charge (parts only - warranty covers faulty parts, not accidental damage)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can you help seniors/elderly who aren't tech-savvy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely! We're patient and explain everything in plain English . Many of our customers are seniors who appreciate our friendly, no-rush approach. We can also provide basic computer training if needed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer ongoing IT support for businesses?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We offer managed IT support for small to medium businesses including: Regular maintenance and monitoring Priority response times Network management Security and backup solutions Microsoft 365 administration Contact us for a business IT consultation"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I book a service?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Three easy ways: Call: 0423 680 596 (fastest) Book online: Use our booking form Contact form: Send us a message"
                 }
             }
         ]

@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: Service Areas
+*/
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
 } else {
@@ -12,9 +15,8 @@ $year = date('Y');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Areas | Computer Repairs Melbourne South-East | Rapid Tech Solutions</title>
-    <meta name="description" content="Computer repairs and IT support across Melbourne's south-east. Serving Cranbourne, Berwick, Narre Warren, Frankston, Patterson Lakes, and 20+ suburbs. Same-day service available.">
-    <meta name="keywords" content="computer repairs Melbourne south-east, IT support Cranbourne, computer repairs Frankston, laptop repair Narre Warren, computer technician Patterson Lakes">
+    <title>Service Areas | Computer Repairs Melbourne South-East</title>
+    <meta name="description" content="Every suburb we cover for computer repairs and IT support, from Cranbourne and Berwick through to Frankston, Chelsea and Mordialloc. Same-day callouts.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/service-areas/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
@@ -188,49 +190,49 @@ $year = date('Y');
                         <h3>Cranbourne North</h3>
                         <div class="postcode">Postcode: 3977</div>
                         <p>Expert IT support for Cranbourne North families and businesses. Free diagnostics included.</p>
-                        <a href="/computer-repairs-cranbourne-north/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-cranbourne/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Cranbourne East</h3>
                         <div class="postcode">Postcode: 3977</div>
                         <p>Computer repairs and network setup for the growing Cranbourne East community.</p>
-                        <a href="/computer-repairs-cranbourne-east/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-cranbourne/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Cranbourne West</h3>
                         <div class="postcode">Postcode: 3977</div>
                         <p>Local computer technician serving Cranbourne West homes and businesses.</p>
-                        <a href="/computer-repairs-cranbourne-west/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-cranbourne/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Clyde</h3>
                         <div class="postcode">Postcode: 3978</div>
                         <p>Reliable computer repairs for Clyde residents. 30-day warranty on all repairs.</p>
-                        <a href="/computer-repairs-clyde/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-cranbourne/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Clyde North</h3>
                         <div class="postcode">Postcode: 3978</div>
                         <p>Growing suburb, growing IT needs. We're your local tech experts in Clyde North.</p>
-                        <a href="/computer-repairs-clyde-north/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-cranbourne/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Junction Village</h3>
                         <div class="postcode">Postcode: 3977</div>
                         <p>Computer repairs and WiFi solutions for Junction Village homes.</p>
-                        <a href="/computer-repairs-junction-village/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-cranbourne/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Botanic Ridge</h3>
                         <div class="postcode">Postcode: 3977</div>
                         <p>Premium IT support for Botanic Ridge's modern community.</p>
-                        <a href="/computer-repairs-botanic-ridge/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-cranbourne/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Devon Meadows</h3>
                         <div class="postcode">Postcode: 3977</div>
                         <p>Rural-friendly computer repairs serving Devon Meadows properties.</p>
-                        <a href="/computer-repairs-devon-meadows/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-cranbourne/" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
             </div>
@@ -238,6 +240,12 @@ $year = date('Y');
             <div class="region-section">
                 <h2><i class="fas fa-building" style="color: #ff9500;"></i> Casey & Greater Dandenong</h2>
                 <div class="suburb-grid">
+                    <div class="suburb-card">
+                        <h3>Dandenong</h3>
+                        <div class="postcode">Postcode: 3175</div>
+                        <p>Computer repairs and business IT support across Dandenong, Noble Park, Keysborough and Springvale.</p>
+                        <a href="/computer-repairs-dandenong/" class="btn btn-outline">View Details</a>
+                    </div>
                     <div class="suburb-card">
                         <h3>Berwick</h3>
                         <div class="postcode">Postcode: 3806</div>
@@ -254,25 +262,25 @@ $year = date('Y');
                         <h3>Narre Warren South</h3>
                         <div class="postcode">Postcode: 3805</div>
                         <p>Expert IT support for Narre Warren South residents and businesses.</p>
-                        <a href="/computer-repairs-narre-warren-south/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-narre-warren/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Hampton Park</h3>
                         <div class="postcode">Postcode: 3976</div>
                         <p>Affordable computer repairs and virus removal in Hampton Park.</p>
-                        <a href="/computer-repairs-hampton-park/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-narre-warren/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Lynbrook</h3>
                         <div class="postcode">Postcode: 3975</div>
                         <p>Quick computer repairs for Lynbrook homes. Same-day service available.</p>
-                        <a href="/computer-repairs-lynbrook/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-cranbourne/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Lyndhurst</h3>
                         <div class="postcode">Postcode: 3975</div>
                         <p>Trusted computer technician for Lyndhurst families and businesses.</p>
-                        <a href="/computer-repairs-lyndhurst/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-cranbourne/" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
             </div>
@@ -290,13 +298,25 @@ $year = date('Y');
                         <h3>Chelsea Heights</h3>
                         <div class="postcode">Postcode: 3196</div>
                         <p>Local computer technician serving Chelsea Heights community.</p>
-                        <a href="/computer-repairs-chelsea-heights/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-chelsea/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Carrum</h3>
                         <div class="postcode">Postcode: 3197</div>
                         <p>Beachside computer repairs for Carrum residents. Fast and reliable service.</p>
-                        <a href="/computer-repairs-carrum/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-patterson-lakes/" class="btn btn-outline">View Details</a>
+                    </div>
+                    <div class="suburb-card">
+                        <h3>Chelsea</h3>
+                        <div class="postcode">Postcode: 3196</div>
+                        <p>Computer repairs across Chelsea, Chelsea Heights, Edithvale and Aspendale.</p>
+                        <a href="/computer-repairs-chelsea/" class="btn btn-outline">View Details</a>
+                    </div>
+                    <div class="suburb-card">
+                        <h3>Mordialloc</h3>
+                        <div class="postcode">Postcode: 3195</div>
+                        <p>Computer repairs and IT support across Mordialloc, Mentone, Cheltenham and Beaumaris.</p>
+                        <a href="/computer-repairs-mordialloc/" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
             </div>
@@ -326,25 +346,68 @@ $year = date('Y');
                         <h3>Langwarrin</h3>
                         <div class="postcode">Postcode: 3910</div>
                         <p>Reliable IT support for Langwarrin homes and small businesses.</p>
-                        <a href="/computer-repairs-langwarrin/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-frankston/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Skye</h3>
                         <div class="postcode">Postcode: 3977</div>
                         <p>Computer repairs and data recovery for Skye residents.</p>
-                        <a href="/computer-repairs-skye/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-carrum-downs/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Sandhurst</h3>
                         <div class="postcode">Postcode: 3977</div>
                         <p>Premium IT support for Sandhurst's modern estate homes.</p>
-                        <a href="/computer-repairs-sandhurst/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-cranbourne/" class="btn btn-outline">View Details</a>
                     </div>
                     <div class="suburb-card">
                         <h3>Pearcedale</h3>
                         <div class="postcode">Postcode: 3912</div>
                         <p>Rural computer repairs serving Pearcedale and surrounds.</p>
-                        <a href="/computer-repairs-pearcedale/" class="btn btn-outline">View Details</a>
+                        <a href="/computer-repairs-frankston/" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-section">
+                <h2><i class="fas fa-tools" style="color: var(--accent);"></i> Specialist Services by Location</h2>
+                <p>Some services have their own dedicated page for a specific area:</p>
+                <div class="suburb-grid">
+                    <div class="suburb-card">
+                        <h3>Data Recovery Frankston</h3>
+                        <div class="postcode">Postcode: 3199</div>
+                        <p>Failed drives, dead SSDs and deleted files recovered. Free assessment.</p>
+                        <a href="/data-recovery-frankston/" class="btn btn-outline">View Details</a>
+                    </div>
+                    <div class="suburb-card">
+                        <h3>Data Recovery Patterson Lakes</h3>
+                        <div class="postcode">Postcode: 3197</div>
+                        <p>Drive and storage recovery for Patterson Lakes homes and businesses.</p>
+                        <a href="/data-recovery-patterson-lakes/" class="btn btn-outline">View Details</a>
+                    </div>
+                    <div class="suburb-card">
+                        <h3>Virus Removal Cranbourne</h3>
+                        <div class="postcode">Postcode: 3977</div>
+                        <p>Complete malware and ransomware clean-up, with protection set up afterwards.</p>
+                        <a href="/virus-removal-cranbourne/" class="btn btn-outline">View Details</a>
+                    </div>
+                    <div class="suburb-card">
+                        <h3>Virus Removal Dandenong</h3>
+                        <div class="postcode">Postcode: 3175</div>
+                        <p>Same-day virus, spyware and ransomware removal in Dandenong.</p>
+                        <a href="/virus-removal-dandenong/" class="btn btn-outline">View Details</a>
+                    </div>
+                    <div class="suburb-card">
+                        <h3>Network Setup Berwick</h3>
+                        <div class="postcode">Postcode: 3806</div>
+                        <p>Wi-Fi dead zones, mesh installs, NBN faults and business networks.</p>
+                        <a href="/network-setup-berwick/" class="btn btn-outline">View Details</a>
+                    </div>
+                    <div class="suburb-card">
+                        <h3>Emergency Repairs Melbourne</h3>
+                        <div class="postcode">South-East</div>
+                        <p>Urgent same-day callouts for crashed systems and business outages.</p>
+                        <a href="/emergency-computer-repair-melbourne/" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
             </div>

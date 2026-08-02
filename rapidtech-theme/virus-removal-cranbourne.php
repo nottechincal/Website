@@ -12,9 +12,8 @@ $year = date('Y');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virus Removal Cranbourne | Same-Day Malware Cleanup | Call 0423 680 596</title>
-    <meta name="description" content="Professional virus & malware removal in Cranbourne. Same-day service, complete security cleanup, ransomware recovery. Expert technicians serving Cranbourne 3977.">
-    <meta name="keywords" content="virus removal Cranbourne, malware removal Cranbourne 3977, ransomware removal Cranbourne, computer virus cleanup Cranbourne">
+    <title>Virus Removal Cranbourne | Same-Day Cleanup</title>
+    <meta name="description" content="Complete virus, spyware and ransomware removal in Cranbourne 3977. Same-day service, full system clean-up and protection set up afterwards. No fix, no fee.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
     <meta property="og:title" content="Virus Removal Cranbourne | Rapid Tech Solutions">
     <meta property="og:description" content="Same-day virus & malware removal service in Cranbourne. Call 0423 680 596">

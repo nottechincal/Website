@@ -12,9 +12,8 @@ $year = date('Y');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Setup Berwick | Same-Day Malware Cleanup | Call 0423 680 596</title>
-    <meta name="description" content="Professional virus & malware removal in Berwick. Same-day service, complete security cleanup, ransomware recovery. Expert technicians serving Berwick 3806.">
-    <meta name="keywords" content="virus removal Berwick, malware removal Berwick 3806, ransomware removal Berwick, computer virus cleanup Berwick">
+    <title>Network & Wi-Fi Setup Berwick | Same-Day Service</title>
+    <meta name="description" content="Wi-Fi and network setup in Berwick 3806. Fix dead zones, install mesh systems, sort out NBN connections and business networks. Same-day onsite service.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
     <meta property="og:title" content="Network Setup Berwick | Rapid Tech Solutions">
     <meta property="og:description" content="Same-day virus & malware removal service in Berwick. Call 0423 680 596">

@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: Terms of Service
+*/
 // Define base path - works with or without WordPress
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
@@ -14,7 +17,7 @@ $current_year = date('Y');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | Rapid Tech Solutions</title>
-    <meta name="description" content="Terms of Service for Rapid Tech Solutions IT support services in Melbourne.">
+    <meta name="description" content="The terms covering Rapid Tech Solutions IT support and computer repair services, including quotes, warranties, liability and payment conditions.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/terms-of-service/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">

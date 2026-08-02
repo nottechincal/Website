@@ -12,8 +12,8 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Security: Simple Steps to Protect Your Accounts | Rapid Tech Solutions</title>
-    <meta name="description" content="Learn how to create strong passwords, use password managers, and keep your online accounts secure. Easy tips for Melbourne families.">
+    <title>Password Security: Protect Your Online Accounts</title>
+    <meta name="description" content="How to build strong passwords, use a password manager properly, and turn on two-factor authentication. Straightforward security advice for families.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/blog-password-security/">
     <meta property="og:title" content="Password Security: Simple Steps to Protect Your Accounts | Rapid Tech Solutions">
     <meta property="og:description" content="Expert IT advice and tips from Rapid Tech Solutions, Melbourne's trusted computer repair specialists.">
@@ -37,6 +37,61 @@ if (function_exists('get_template_directory_uri')) {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-BDN34WT3J6');
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Password Security: Protect Your Online Accounts",
+        "description": "How to build strong passwords, use a password manager properly, and turn on two-factor authentication. Straightforward security advice for families.",
+        "image": "https://www.rapidtechsolutions.au/images/og-image.jpg",
+        "inLanguage": "en-AU",
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-08-02",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.rapidtechsolutions.au/blog-password-security/"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions",
+            "url": "https://www.rapidtechsolutions.au/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.rapidtechsolutions.au/images/logo.png"
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.rapidtechsolutions.au/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.rapidtechsolutions.au/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Password Security: Protect Your Online Accounts",
+                "item": "https://www.rapidtechsolutions.au/blog-password-security/"
+            }
+        ]
+    }
     </script>
 </head>
 <body>

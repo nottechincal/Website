@@ -19,7 +19,7 @@ services:
       WORDPRESS_DEBUG: 'true'
     volumes:
       - wp_data:/var/www/html
-      - ./new-themeWORKING/new-themeWORKING:/var/www/html/wp-content/themes/new-themeWORKING
+      - ./rapidtech-theme:/var/www/html/wp-content/themes/rapidtech-theme
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest

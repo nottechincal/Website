@@ -12,8 +12,8 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why Regular Hardware Upgrades Matter | Rapid Tech Solutions</title>
-    <meta name="description" content="Learn how hardware upgrades can extend your computer's life, improve performance, and save you money.">
+    <title>Why Regular Hardware Upgrades Matter</title>
+    <meta name="description" content="When to upgrade rather than replace, which parts give the biggest speed gain, and how an SSD or memory upgrade can add years to an ageing computer.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/blog-hardware-upgrades/">
     <meta property="og:title" content="Why Regular Hardware Upgrades Matter | Rapid Tech Solutions">
     <meta property="og:description" content="Expert IT advice and tips from Rapid Tech Solutions, Melbourne's trusted computer repair specialists.">
@@ -37,6 +37,61 @@ if (function_exists('get_template_directory_uri')) {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-BDN34WT3J6');
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Why Regular Hardware Upgrades Matter",
+        "description": "When to upgrade rather than replace, which parts give the biggest speed gain, and how an SSD or memory upgrade can add years to an ageing computer.",
+        "image": "https://www.rapidtechsolutions.au/images/og-image.jpg",
+        "inLanguage": "en-AU",
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-08-02",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.rapidtechsolutions.au/blog-hardware-upgrades/"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions",
+            "url": "https://www.rapidtechsolutions.au/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.rapidtechsolutions.au/images/logo.png"
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.rapidtechsolutions.au/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.rapidtechsolutions.au/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Why Regular Hardware Upgrades Matter",
+                "item": "https://www.rapidtechsolutions.au/blog-hardware-upgrades/"
+            }
+        ]
+    }
     </script>
 </head>
 <body>

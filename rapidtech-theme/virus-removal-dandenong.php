@@ -12,9 +12,8 @@ $year = date('Y');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virus Removal Dandenong | Same-Day Malware Cleanup | Call 0423 680 596</title>
-    <meta name="description" content="Professional virus & malware removal in Dandenong. Same-day service, complete security cleanup, ransomware recovery. Expert technicians serving Dandenong 3175.">
-    <meta name="keywords" content="virus removal Dandenong, malware removal Dandenong 3175, ransomware removal Dandenong, computer virus cleanup Dandenong">
+    <title>Virus Removal Dandenong | Same-Day Cleanup</title>
+    <meta name="description" content="Complete virus, spyware and ransomware removal in Dandenong 3175. Same-day service, full system clean-up and protection set up afterwards. No fix, no fee.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
     <meta property="og:title" content="Virus Removal Dandenong | Rapid Tech Solutions">
     <meta property="og:description" content="Same-day virus & malware removal service in Dandenong. Call 0423 680 596">

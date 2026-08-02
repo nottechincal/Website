@@ -1,0 +1,38 @@
+# Rapid Tech Solutions — https://www.rapidtechsolutions.au
+# This file must sit at the DOCUMENT ROOT. A robots.txt inside the theme
+# folder is never read by any crawler.
+
+User-agent: *
+Allow: /
+
+# WordPress internals and non-page endpoints.
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /?s=
+Disallow: /search/
+
+# Theme source: templates, includes and build tooling are not content.
+Disallow: /wp-content/themes/rapidtech-theme/inc/
+Disallow: /wp-content/themes/rapidtech-theme/tools/
+
+# Form handlers and transactional pages — no crawl value, and indexing a
+# thank-you page produces thin results.
+Disallow: /contactengine.php
+Disallow: /bookingengine.php
+Disallow: /thank-you/
+Disallow: /contactthanks/
+
+# Allow assets. Blocking CSS or JS stops Google rendering the page as a user
+# sees it, which suppresses mobile-usability and Core Web Vitals assessment.
+Allow: /wp-content/themes/rapidtech-theme/css/
+Allow: /wp-content/themes/rapidtech-theme/js/
+Allow: /wp-content/themes/rapidtech-theme/images/
+Allow: /wp-content/themes/rapidtech-theme/fonts/
+Allow: /wp-content/uploads/
+
+# No Crawl-delay directive: Google ignores it entirely, while Bing obeys it —
+# so the previous "Crawl-delay: 1" only served to throttle Bing.
+
+Sitemap: https://www.rapidtechsolutions.au/sitemap.xml

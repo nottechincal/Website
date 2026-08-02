@@ -12,10 +12,9 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virus & Malware Removal Patterson Lakes & Melbourne | Rapid Tech Solutions</title>
-    <meta name="description" content="Expert virus and malware removal in Patterson Lakes and Melbourne. Remove viruses, spyware, ransomware. Protect your computer and data. Call 0423 680 596.">
-    <meta name="keywords" content="virus removal Patterson Lakes, malware removal Melbourne, spyware removal 3197, ransomware removal, computer virus fix, malware protection, antivirus help near me">
-    <meta name="robots" content="index, follow">
+    <title>Virus & Malware Removal Melbourne | Same-Day</title>
+    <meta name="description" content="Complete virus, spyware and ransomware removal with protection set up afterwards so it does not come back. Same-day service across Melbourne's south-east.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Rapid Tech Solutions">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/service-virus-removal/">
 
@@ -43,9 +42,9 @@ if (function_exists('get_template_directory_uri')) {
             "telephone": "+61423680596",
             "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Patterson Lakes",
+                "addressLocality": "Cranbourne South",
                 "addressRegion": "VIC",
-                "postalCode": "3197",
+                "postalCode": "3977",
                 "addressCountry": "AU"
             }
         },

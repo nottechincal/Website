@@ -12,9 +12,8 @@ $year = date('Y');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency Computer Repair Melbourne | Same-Day Malware Cleanup | Call 0423 680 596</title>
-    <meta name="description" content="Professional virus & malware removal in Melbourne. Same-day service, complete security cleanup, ransomware recovery. Expert technicians serving Melbourne VIC.">
-    <meta name="keywords" content="virus removal Melbourne, malware removal Melbourne VIC, ransomware removal Melbourne, computer virus cleanup Melbourne">
+    <title>Emergency Computer Repair Melbourne | Same-Day</title>
+    <meta name="description" content="Urgent computer repairs across Melbourne's south-east. Same-day onsite callouts for crashed systems, dead machines and business outages. Call 0423 680 596.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
     <meta property="og:title" content="Emergency Computer Repair Melbourne | Rapid Tech Solutions">
     <meta property="og:description" content="Same-day virus & malware removal service in Melbourne. Call 0423 680 596">

@@ -12,8 +12,8 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Computer Maintenance Tips to Avoid Costly Repairs | Rapid Tech Solutions</title>
-    <meta name="description" content="Easy monthly maintenance tasks to keep your computer running fast and avoid expensive repairs. Perfect for Melbourne families and small businesses.">
+    <title>Computer Maintenance Tips to Avoid Costly Repairs</title>
+    <meta name="description" content="Simple monthly maintenance that keeps a computer fast and prevents expensive repairs later. Written for Melbourne families and small businesses.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/blog-computer-maintenance/">
     <meta property="og:title" content="Simple Computer Maintenance Tips to Avoid Costly Repairs | Rapid Tech Solutions">
     <meta property="og:description" content="Expert IT advice and tips from Rapid Tech Solutions, Melbourne's trusted computer repair specialists.">
@@ -37,6 +37,61 @@ if (function_exists('get_template_directory_uri')) {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-BDN34WT3J6');
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Computer Maintenance Tips to Avoid Costly Repairs",
+        "description": "Simple monthly maintenance that keeps a computer fast and prevents expensive repairs later. Written for Melbourne families and small businesses.",
+        "image": "https://www.rapidtechsolutions.au/images/og-image.jpg",
+        "inLanguage": "en-AU",
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-08-02",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.rapidtechsolutions.au/blog-computer-maintenance/"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions",
+            "url": "https://www.rapidtechsolutions.au/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.rapidtechsolutions.au/images/logo.png"
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.rapidtechsolutions.au/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.rapidtechsolutions.au/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Computer Maintenance Tips to Avoid Costly Repairs",
+                "item": "https://www.rapidtechsolutions.au/blog-computer-maintenance/"
+            }
+        ]
+    }
     </script>
 </head>
 <body>

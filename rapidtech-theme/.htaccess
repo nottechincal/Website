@@ -1,50 +1,78 @@
-# Enable Rewrite Engine
-RewriteEngine On
+# ============================================================================
+#  Rapid Tech Solutions theme — /wp-content/themes/rapidtech-theme/.htaccess
+#
+#  This file ONLY affects the theme directory. It previously carried the
+#  site's canonical redirects, security headers, compression and caching —
+#  none of which ever applied to the live site, because visitors never request
+#  a URL inside the theme folder. Those directives now live in the web-root
+#  .htaccess (see deploy/webroot/.htaccess).
+#
+#  What is left is the job this file actually has: making sure the theme
+#  directory cannot serve a second, duplicate copy of the website.
+# ============================================================================
 
-# Set base directory (adjust if your WordPress is in a subdirectory)
-# RewriteBase /wp-content/themes/rapidtech-theme/
+# Never list directory contents.
+Options -Indexes
 
-# Remove .php extension from URLs (internal rewrite, no redirect)
-# If the request doesn't match an existing file or directory
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-# Check if the .php version exists
-RewriteCond %{REQUEST_FILENAME}.php -f
-
-# Rewrite to .php file (internal, keeps URL clean)
-RewriteRule ^(.+?)/?$ $1.php [L]
-
-# Note: The redirect from .php to clean URLs has been disabled to prevent
-# conflicts with WordPress theme directory structure. Internal links should
-# work with or without .php extension.
-
-# Security Headers
+# ---------------------------------------------------------------------------
+# Stop the theme directory being a second, indexable copy of the site.
+#
+# The previous version of this file rewrote extensionless URLs onto .php files
+# inside the theme, so every page was reachable at BOTH its WordPress permalink
+# AND /wp-content/themes/rapidtech-theme/<page>.php — a full duplicate of the
+# site available for Google to crawl.
+#
+# X-Robots-Tag removes those duplicates from the index without changing what
+# the server will serve, so it cannot take a page offline. That matters here:
+# only 17 of the theme's templates declared a WordPress "Template Name", so
+# some pages may still be reachable only via this directory.
+# ---------------------------------------------------------------------------
 <IfModule mod_headers.c>
-    Header set X-Content-Type-Options "nosniff"
-    Header set X-Frame-Options "SAMEORIGIN"
-    Header set X-XSS-Protection "1; mode=block"
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-Robots-Tag "noindex, nofollow"
 </IfModule>
 
-# Enable GZIP compression
+# ---------------------------------------------------------------------------
+# HARDENING — enable only after confirming every page resolves at its own
+# permalink (e.g. https://www.rapidtechsolutions.au/computer-repairs-berwick/
+# returns 200 in a private window). Uncommenting this before that check will
+# return 403 for any page still being served from the theme directory.
+# ---------------------------------------------------------------------------
+# <FilesMatch "\.php$">
+#     Require all denied
+# </FilesMatch>
+
+# Includes, build tooling and metadata are never page content, regardless.
+<FilesMatch "(^\.|composer\.(json|lock)|\.(md|sql|log|bak|dist|ini|sh|yml|yaml|py)$)">
+    Require all denied
+</FilesMatch>
+
+RedirectMatch 404 ^/wp-content/themes/rapidtech-theme/(inc|tools)/
+
+# ---------------------------------------------------------------------------
+# Assets served from here still need correct types and long cache lifetimes,
+# because the root .htaccess rules do not cascade into a directory that has
+# its own .htaccess for these modules.
+# ---------------------------------------------------------------------------
+<IfModule mod_mime.c>
+    AddType image/webp    .webp
+    AddType image/svg+xml .svg
+    AddType font/woff2    .woff2
+    AddType video/mp4     .mp4
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(woff2|jpg|jpeg|png|gif|webp|svg|ico|mp4)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+    # Fonts are loaded with crossorigin (required for preload) — allow it.
+    <FilesMatch "\.woff2$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    AddOutputFilterByType DEFLATE text/css text/javascript application/javascript image/svg+xml
 </IfModule>
-
-# Cache static files
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType image/jpg "access plus 1 year"
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType image/webp "access plus 1 year"
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType image/x-icon "access plus 1 year"
-</IfModule>
-
-# Custom error pages
-ErrorDocument 404 /404.php
-ErrorDocument 500 /404.php

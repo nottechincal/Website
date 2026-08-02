@@ -12,8 +12,8 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Optimise Your Home Network | Rapid Tech Solutions</title>
-    <meta name="description" content="Expert tips to improve your home WiFi speed and coverage. Learn router placement, security settings, and more from Melbourne IT professionals.">
+    <title>How to Optimise Your Home Network and Wi-Fi</title>
+    <meta name="description" content="Practical steps to improve home Wi-Fi speed and coverage: router placement, channel selection, mesh systems and security settings that actually matter.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/blog-home-network/">
     <meta property="og:title" content="How to Optimise Your Home Network | Rapid Tech Solutions">
     <meta property="og:description" content="Expert IT advice and tips from Rapid Tech Solutions, Melbourne's trusted computer repair specialists.">
@@ -37,6 +37,61 @@ if (function_exists('get_template_directory_uri')) {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-BDN34WT3J6');
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How to Optimise Your Home Network and Wi-Fi",
+        "description": "Practical steps to improve home Wi-Fi speed and coverage: router placement, channel selection, mesh systems and security settings that actually matter.",
+        "image": "https://www.rapidtechsolutions.au/images/og-image.jpg",
+        "inLanguage": "en-AU",
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-08-02",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.rapidtechsolutions.au/blog-home-network/"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions",
+            "url": "https://www.rapidtechsolutions.au/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.rapidtechsolutions.au/images/logo.png"
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.rapidtechsolutions.au/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.rapidtechsolutions.au/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "How to Optimise Your Home Network and Wi-Fi",
+                "item": "https://www.rapidtechsolutions.au/blog-home-network/"
+            }
+        ]
+    }
     </script>
 </head>
 <body>

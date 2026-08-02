@@ -12,8 +12,8 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benefits of Cloud Services for Small Businesses | Rapid Tech Solutions</title>
-    <meta name="description" content="Discover how cloud services can save money, improve security, and enable remote work for your small business.">
+    <title>Cloud Services for Small Business: The Benefits</title>
+    <meta name="description" content="How cloud services cut costs, improve security and make remote work practical for small businesses. A plain-English guide from Melbourne IT technicians.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/blog-cloud-services/">
     <meta property="og:title" content="Benefits of Cloud Services for Small Businesses | Rapid Tech Solutions">
     <meta property="og:description" content="Expert IT advice and tips from Rapid Tech Solutions, Melbourne's trusted computer repair specialists.">
@@ -37,6 +37,61 @@ if (function_exists('get_template_directory_uri')) {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-BDN34WT3J6');
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Benefits of Cloud Services for Small Businesses",
+        "description": "How cloud services cut costs, improve security and make remote work practical for small businesses. A plain-English guide from Melbourne IT technicians.",
+        "image": "https://www.rapidtechsolutions.au/images/og-image.jpg",
+        "inLanguage": "en-AU",
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-08-02",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.rapidtechsolutions.au/blog-cloud-services/"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions",
+            "url": "https://www.rapidtechsolutions.au/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Rapid Tech Solutions",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.rapidtechsolutions.au/images/logo.png"
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.rapidtechsolutions.au/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.rapidtechsolutions.au/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Benefits of Cloud Services for Small Businesses",
+                "item": "https://www.rapidtechsolutions.au/blog-cloud-services/"
+            }
+        ]
+    }
     </script>
 </head>
 <body>

@@ -1,410 +1,328 @@
 <?php
 /**
- * Location Page Template Helper
- * Provides consistent structure for suburb/postcode pages
+ * Suburb page renderer.
+ *
+ * Previously this emitted a LocalBusiness node per suburb, each declaring a
+ * different PostalAddress — effectively claiming a physical office in every
+ * suburb the site targeted. The business has one address; suburbs belong in
+ * areaServed, which is what this now does.
+ *
+ * It also loaded its stylesheets as "./css/styles.css", which resolves against
+ * the request path — so at the page's own canonical URL (/computer-repairs-x/)
+ * it fetched /computer-repairs-x/css/styles.css and the page rendered unstyled.
  */
 
-if (!defined('ABSPATH')) {
-    define('ABSPATH', dirname(__FILE__) . '/../');
-}
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/seo.php';
+require_once __DIR__ . '/icons.php';
+require_once __DIR__ . '/locations.php';
 
-function render_location_page($config) {
-    $suburb = $config['suburb_name'];
-    $postcode = $config['postcode'];
-    $nearby = $config['nearby_suburbs'];
-    $distance = $config['distance_from_base'];
-    $landmarks = $config['landmarks'];
-    $lat = $config['geo_lat'];
-    $long = $config['geo_long'];
-    $population = $config['population'];
-    $issues = $config['common_issues'];
-    $description = $config['suburb_description'];
-    $unique_content = $config['unique_content'];
-    ?>
-<!DOCTYPE html>
-<html lang="en-AU">
+/**
+ * Render a full suburb page.
+ *
+ * @param string $slug Key into rt_locations().
+ */
+function render_location_page(string $slug): void
+{
+    $all = rt_locations();
+
+    if (!isset($all[$slug])) {
+        http_response_code(404);
+        require RT::path('404.php');
+        return;
+    }
+
+    $loc      = $all[$slug];
+    $suburb   = $loc['suburb'];
+    $postcode = $loc['postcode'];
+    $path     = '/computer-repairs-' . $slug;
+
+    $faqs = rt_location_faqs($loc);
+
+    $title = sprintf('Computer Repairs %s %s | Same-Day', $suburb, $postcode);
+    $desc  = $loc['blurb'];
+
+    /* One business, many areas served — the correct shape for a mobile service. */
+    $business = RT::local_business([
+        '@id'         => RT::url($path . '#business'),
+        'name'        => RT::NAME,
+        'description' => $desc,
+        'areaServed'  => array_merge(
+            [RT::area_served($suburb, $postcode)],
+            array_map(fn($n) => RT::area_served($n), $loc['covers'])
+        ),
+    ]);
+
+    $service = [
+        '@context'    => 'https://schema.org',
+        '@type'       => 'Service',
+        'serviceType' => 'Computer repair and IT support',
+        'name'        => sprintf('Computer Repairs in %s %s', $suburb, $postcode),
+        'description' => $desc,
+        'provider'    => ['@id' => RT::url('/#business')],
+        'areaServed'  => RT::area_served($suburb, $postcode),
+        'url'         => RT::url($path),
+        'hasOfferCatalog' => [
+            '@type' => 'OfferCatalog',
+            'name'  => 'IT Services',
+            'itemListElement' => array_map(fn($s) => [
+                '@type'       => 'Offer',
+                'itemOffered' => [
+                    '@type'       => 'Service',
+                    'name'        => $s['name'],
+                    'description' => $s['desc'],
+                ],
+            ], array_values(RT::SERVICES)),
+        ],
+    ];
+
+    /* The FAQ block is already on the page; marking it up makes it eligible
+       for FAQ rich results at no extra content cost. */
+    $faq_schema = [
+        '@context'   => 'https://schema.org',
+        '@type'      => 'FAQPage',
+        'mainEntity' => array_map(fn($f) => [
+            '@type'          => 'Question',
+            'name'           => $f['q'],
+            'acceptedAnswer' => ['@type' => 'Answer', 'text' => $f['a']],
+        ], $faqs),
+    ];
+
+    ?><!DOCTYPE html>
+<html lang="<?php echo RT::LANG; ?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Support &amp; Computer Repairs <?php echo $suburb; ?> <?php echo $postcode; ?> | Same-Day Service | Rapid Tech Solutions</title>
-    <meta name="description" content="Expert IT support and computer repairs in <?php echo $suburb; ?> <?php echo $postcode; ?>. Same-day onsite service for homes and businesses. Cybersecurity, data recovery, network solutions. Call 0423 680 596.">
-    <meta name="keywords" content="IT support <?php echo $suburb; ?>, computer repairs <?php echo $postcode; ?>, <?php echo $suburb; ?> IT services, computer help <?php echo $suburb; ?>, tech support <?php echo $postcode; ?>, cybersecurity <?php echo $suburb; ?>, data recovery <?php echo $postcode; ?>">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Rapid Tech Solutions">
-    <meta name="geo.region" content="AU-VIC">
-    <meta name="geo.placename" content="<?php echo $suburb; ?>">
-    <meta name="geo.position" content="<?php echo $lat; ?>;<?php echo $long; ?>">
-    <meta name="ICBM" content="<?php echo $lat; ?>, <?php echo $long; ?>">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/postcode-<?php echo $postcode; ?>/">
-    <meta property="og:title" content="IT Support &amp; Computer Repairs in <?php echo $suburb; ?> <?php echo $postcode; ?>">
-    <meta property="og:description" content="Professional IT services for <?php echo $suburb; ?> residents and businesses. Same-day onsite support, cybersecurity, and computer repairs.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.rapidtechsolutions.au/postcode-<?php echo $postcode; ?>/">
-    <meta property="og:image" content="https://www.rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
-    <meta property="og:site_name" content="Rapid Tech Solutions">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="IT Support <?php echo $suburb; ?> <?php echo $postcode; ?> | Rapid Tech Solutions">
-    <meta name="twitter:description" content="Same-day IT support and computer repairs in <?php echo $suburb; ?>. Expert technicians serving Melbourne.">
-    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="./css/styles.css" rel="stylesheet">
-    <link href="./css/location-pages.css" rel="stylesheet">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Rapid Tech Solutions - <?php echo $suburb; ?>",
-        "description": "Professional IT support, computer repairs, and cybersecurity services in <?php echo $suburb; ?> <?php echo $postcode; ?>",
-        "telephone": "+61423680596",
-        "url": "https://www.rapidtechsolutions.au/postcode-<?php echo $postcode; ?>/",
-        "image": "https://www.rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg",
-        "priceRange": "$$",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "<?php echo $suburb; ?>",
-            "addressRegion": "VIC",
-            "postalCode": "<?php echo $postcode; ?>",
-            "addressCountry": "AU"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": <?php echo $lat; ?>,
-            "longitude": <?php echo $long; ?>
-        },
-        "areaServed": {
-            "@type": "GeoCircle",
-            "geoMidpoint": {
-                "@type": "GeoCoordinates",
-                "latitude": <?php echo $lat; ?>,
-                "longitude": <?php echo $long; ?>
-            },
-            "geoRadius": "10000"
-        },
-        "serviceArea": ["<?php echo $suburb; ?>", "<?php echo implode('", "', $nearby); ?>"],
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "09:00",
-            "closes": "17:00"
-        },
-        "sameAs": [
-            "https://www.facebook.com/rapidtechsolutions",
-            "https://www.linkedin.com/company/rapidtechsolutions"
-        ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.rapidtechsolutions.au/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Service Areas",
-                "item": "https://www.rapidtechsolutions.au/service-area/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "<?php echo $suburb; ?> <?php echo $postcode; ?>",
-                "item": "https://www.rapidtechsolutions.au/postcode-<?php echo $postcode; ?>/"
-            }
-        ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "IT Support and Computer Repair",
-        "provider": {
-            "@type": "LocalBusiness",
-            "name": "Rapid Tech Solutions"
-        },
-        "areaServed": {
-            "@type": "City",
-            "name": "<?php echo $suburb; ?>"
-        },
-        "description": "Comprehensive IT support including computer repairs, cybersecurity, data recovery, and network solutions for <?php echo $suburb; ?> <?php echo $postcode; ?>"
-    }
-    </script>
+<?php rt_head([
+    'title'       => $title,
+    'description' => $desc,
+    'path'        => $path,
+    'css'         => 'css/location-pages.css',
+    'schema'      => [$business, $service, $faq_schema],
+]); ?>
+<meta name="geo.region" content="AU-VIC">
+<meta name="geo.placename" content="<?php echo RT::e($suburb); ?>">
+<meta name="geo.position" content="<?php echo RT::e($loc['lat'] . ';' . $loc['lng']); ?>">
+<meta name="ICBM" content="<?php echo RT::e($loc['lat'] . ', ' . $loc['lng']); ?>">
 </head>
-<body>
-    <a class="skip-link" href="#main">Skip to content</a>
+<body data-tawk="<?php echo RT::TAWK_ID; ?>">
+<?php rt_header(); ?>
 
-    <header class="site-header" role="banner">
-        <div class="container header-inner">
-            <a class="brand" href="https://www.rapidtechsolutions.au/">
-                <span class="brand-mark" aria-hidden="true">⚡</span>
-                Rapid Tech Solutions
-            </a>
-            <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
-                <span class="sr-only">Toggle navigation</span>
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
-                <a href="https://www.rapidtechsolutions.au/#services">Services</a>
-                <a href="https://www.rapidtechsolutions.au/#solutions">Solutions</a>
-                <a href="https://www.rapidtechsolutions.au/service-area/">Service Areas</a>
-                <a href="https://www.rapidtechsolutions.au/#testimonials">Reviews</a>
-                <a href="https://www.rapidtechsolutions.au/#contact" class="btn btn-outline">Book Support</a>
-            </nav>
-        </div>
-    </header>
+<div class="container">
+<?php rt_breadcrumbs([
+    'Service Areas' => '/service-areas',
+    $suburb . ' ' . $postcode => $path,
+]); ?>
+</div>
 
-    <nav class="breadcrumb" aria-label="Breadcrumb">
+<main id="main">
+    <section class="location-hero">
         <div class="container">
-            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="https://www.rapidtechsolutions.au/">
-                        <span itemprop="name">Home</span>
-                    </a>
-                    <meta itemprop="position" content="1">
-                </li>
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="https://www.rapidtechsolutions.au/service-area/">
-                        <span itemprop="name">Service Areas</span>
-                    </a>
-                    <meta itemprop="position" content="2">
-                </li>
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name"><?php echo $suburb; ?> <?php echo $postcode; ?></span>
-                    <meta itemprop="position" content="3">
-                </li>
-            </ol>
+            <p class="eyebrow">Computer Repairs in <?php echo RT::e($suburb); ?></p>
+            <h1>Computer Repairs &amp; IT Support in <?php echo RT::e($suburb); ?> <?php echo RT::e($postcode); ?></h1>
+            <p class="lead"><?php echo RT::e($loc['blurb']); ?></p>
+            <div class="hero-cta">
+                <a class="btn" href="tel:<?php echo RT::PHONE_E164; ?>">
+                    <?php echo rt_icon('phone'); ?> Call <?php echo RT::e(RT::PHONE_DISPLAY); ?>
+                </a>
+                <a class="btn btn-outline" href="/#contact">Request a Quote</a>
+            </div>
+            <ul class="hero-badges">
+                <li><?php echo rt_icon('clock'); ?> Same-day service available</li>
+                <li><?php echo rt_icon('pin'); ?> About <?php echo RT::e($loc['distance']); ?> minutes from our base</li>
+                <li><?php echo rt_icon('shield'); ?> No fix, no fee</li>
+            </ul>
         </div>
-    </nav>
+    </section>
 
-    <main id="main">
-        <section class="location-hero">
-            <div class="container">
-                <div class="location-hero-content">
-                    <p class="eyebrow">IT Services in <?php echo $suburb; ?></p>
-                    <h1>Expert Computer Repairs &amp; IT Support in <?php echo $suburb; ?> <?php echo $postcode; ?></h1>
-                    <p class="lead"><?php echo $description; ?></p>
-                    <div class="hero-cta">
-                        <a class="btn" href="tel:+61423680596">
-                            <i class="fas fa-phone"></i> Call 0423 680 596
-                        </a>
-                        <a class="btn btn-outline" href="https://www.rapidtechsolutions.au/#contact">
-                            Book Online
-                        </a>
-                    </div>
-                    <ul class="hero-badges">
-                        <li><i class="fas fa-clock"></i> Same-day service available</li>
-                        <li><i class="fas fa-map-marker-alt"></i> <?php echo $distance; ?> min from our base</li>
-                        <li><i class="fas fa-star"></i> 4.9★ customer rating</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    <section class="section">
+        <div class="container">
+            <h2>IT Services We Provide in <?php echo RT::e($suburb); ?></h2>
+            <p>We cover <?php echo RT::e($suburb); ?> and the surrounding <?php echo RT::e($postcode); ?>
+               area for both homes and businesses, with most jobs completed the same day.
+               Common local work includes <?php echo RT::e(rt_sentence_list($loc['issues'])); ?>.</p>
 
-        <section class="location-services section">
-            <div class="container">
-                <h2>IT Services We Provide in <?php echo $suburb; ?></h2>
-                <p>With a population of <?php echo $population; ?> residents, <?php echo $suburb; ?> has diverse technology needs. Our technicians provide tailored solutions for both residential and commercial clients in the area.</p>
-
-                <div class="services-grid">
-                    <article class="service-card">
-                        <i class="fas fa-laptop-medical" aria-hidden="true"></i>
-                        <h3>Computer Repairs <?php echo $suburb; ?></h3>
-                        <p>Fast diagnostics and repairs for laptops, desktops, and gaming PCs. We service all major brands and can often complete repairs same-day at your <?php echo $suburb; ?> location.</p>
-                        <ul>
-                            <li>Hardware diagnostics and replacement</li>
-                            <li>Virus and malware removal</li>
-                            <li>Operating system reinstallation</li>
-                            <li>SSD upgrades for faster performance</li>
-                        </ul>
-                    </article>
-
-                    <article class="service-card">
-                        <i class="fas fa-shield-halved" aria-hidden="true"></i>
-                        <h3>Cybersecurity Services</h3>
-                        <p>Protect your <?php echo $suburb; ?> home or business from cyber threats with enterprise-grade security solutions.</p>
-                        <ul>
-                            <li>Antivirus and endpoint protection</li>
-                            <li>Firewall configuration</li>
-                            <li>Security audits and assessments</li>
-                            <li>Staff security awareness training</li>
-                        </ul>
-                    </article>
-
-                    <article class="service-card">
-                        <i class="fas fa-network-wired" aria-hidden="true"></i>
-                        <h3>Network Solutions</h3>
-                        <p>Reliable Wi-Fi and network infrastructure for <?php echo $suburb; ?> properties. We solve <?php echo implode(', ', $issues); ?>.</p>
-                        <ul>
-                            <li>NBN troubleshooting and optimization</li>
-                            <li>Mesh Wi-Fi system installation</li>
-                            <li>Business network design</li>
-                            <li>4G/5G failover solutions</li>
-                        </ul>
-                    </article>
-
-                    <article class="service-card">
-                        <i class="fas fa-database" aria-hidden="true"></i>
-                        <h3>Data Recovery &amp; Backup</h3>
-                        <p>Lost important files? Our data recovery experts retrieve data from failed drives and set up automated backup systems.</p>
-                        <ul>
-                            <li>Hard drive and SSD recovery</li>
-                            <li>Cloud backup solutions</li>
-                            <li>Disaster recovery planning</li>
-                            <li>RAID array recovery</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="location-unique section alt">
-            <div class="container">
-                <?php echo $unique_content; ?>
-            </div>
-        </section>
-
-        <section class="location-why section">
-            <div class="container">
-                <h2>Why <?php echo $suburb; ?> Residents Choose Rapid Tech Solutions</h2>
-                <div class="why-grid">
-                    <div class="why-item">
-                        <i class="fas fa-truck-fast"></i>
-                        <h3>Fast Response Times</h3>
-                        <p>Located just <?php echo $distance; ?> minutes from <?php echo $suburb; ?>, we can reach your home or business quickly. Most callouts are completed same-day.</p>
-                    </div>
-                    <div class="why-item">
-                        <i class="fas fa-user-tie"></i>
-                        <h3>Local Knowledge</h3>
-                        <p>We understand <?php echo $suburb; ?>'s unique mix of residential and business properties. From homes near <?php echo $landmarks[0]; ?> to local businesses, we've serviced them all.</p>
-                    </div>
-                    <div class="why-item">
-                        <i class="fas fa-dollar-sign"></i>
-                        <h3>Transparent Pricing</h3>
-                        <p>No hidden fees or surprise charges. We provide upfront quotes before starting any work.</p>
-                    </div>
-                    <div class="why-item">
-                        <i class="fas fa-award"></i>
-                        <h3>Certified Experts</h3>
-                        <p>Our technicians hold certifications in Microsoft, CompTIA, and cybersecurity.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="location-areas section alt">
-            <div class="container">
-                <h2>Areas We Service Near <?php echo $suburb; ?></h2>
-                <p>In addition to <?php echo $suburb; ?> <?php echo $postcode; ?>, we provide IT support to surrounding suburbs:</p>
-                <ul class="nearby-suburbs">
-                    <?php foreach($nearby as $area): ?>
-                    <li><i class="fas fa-check"></i> <?php echo $area; ?></li>
-                    <?php endforeach; ?>
-                </ul>
-                <p>Whether you're near <?php echo implode(', ', array_slice($landmarks, 0, 3)); ?>, or anywhere else in the <?php echo $postcode; ?> postcode area, we've got you covered.</p>
-            </div>
-        </section>
-
-        <section class="location-cta section">
-            <div class="container cta-panel-inner">
-                <div>
-                    <h2>Need IT Help in <?php echo $suburb; ?> Today?</h2>
-                    <p>Don't let technology problems slow you down. Our <?php echo $suburb; ?> IT support team is ready to help with computer repairs, network issues, data recovery, and more.</p>
-                </div>
-                <div class="cta-buttons">
-                    <a class="btn" href="tel:+61423680596">
-                        <i class="fas fa-phone"></i> 0423 680 596
-                    </a>
-                    <a class="btn btn-outline" href="https://www.rapidtechsolutions.au/#contact">
-                        Request a Quote
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="location-faq section alt">
-            <div class="container">
-                <h2>Frequently Asked Questions - <?php echo $suburb; ?> IT Support</h2>
-                <div class="faq-grid">
-                    <details>
-                        <summary>How quickly can you get to <?php echo $suburb; ?>?</summary>
-                        <p>We can typically reach <?php echo $suburb; ?> within <?php echo $distance; ?> minutes during business hours. For urgent issues, we prioritise same-day service and can often be there within 1-2 hours.</p>
-                    </details>
-                    <details>
-                        <summary>Do you offer after-hours IT support in <?php echo $suburb; ?>?</summary>
-                        <p>Yes, we provide emergency after-hours and weekend support for critical IT issues. Whether your business server crashes or you experience a security breach, we're available when you need us.</p>
-                    </details>
-                    <details>
-                        <summary>What are your rates for <?php echo $suburb; ?> callouts?</summary>
-                        <p>We offer competitive hourly rates with no hidden fees. Remote support starts from $80/hour, and onsite visits are $120/hour with a minimum 1-hour charge. We provide free quotes for larger projects.</p>
-                    </details>
-                    <details>
-                        <summary>Can you help with NBN issues in <?php echo $suburb; ?>?</summary>
-                        <p>Absolutely! We diagnose NBN connectivity problems, optimise router placement, and configure your network for maximum speed and reliability in <?php echo $suburb; ?>.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer" role="contentinfo">
-        <div class="container footer-grid">
-            <div>
-                <a class="brand" href="https://www.rapidtechsolutions.au/">Rapid Tech Solutions</a>
-                <p>Professional IT support and computer repairs serving <?php echo $suburb; ?> <?php echo $postcode; ?> and surrounding Melbourne suburbs.</p>
-                <div class="social">
-                    <a href="https://www.facebook.com/rapidtechsolutions" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/company/rapidtechsolutions" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div>
-                <h3>Our Services</h3>
-                <ul>
-                    <li><a href="https://www.rapidtechsolutions.au/#services">Computer Repairs</a></li>
-                    <li><a href="https://www.rapidtechsolutions.au/#services">Cybersecurity</a></li>
-                    <li><a href="https://www.rapidtechsolutions.au/#services">Data Recovery</a></li>
-                    <li><a href="https://www.rapidtechsolutions.au/#services">Network Solutions</a></li>
-                    <li><a href="https://www.rapidtechsolutions.au/#services">Cloud Services</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Contact Us</h3>
-                <ul>
-                    <li><a href="tel:+61423680596">0423 680 596</a></li>
-                    <li><a href="mailto:support@rapidtechsolutions.au">support@rapidtechsolutions.au</a></li>
-                    <li>Patterson Lakes, VIC 3197</li>
-                    <li>ABN 64 654 861 096</li>
-                </ul>
+            <div class="services-grid">
+                <?php foreach (RT::SERVICES as $s_slug => $s) : ?>
+                <article class="service-card">
+                    <?php echo rt_icon(rt_service_icon($s_slug)); ?>
+                    <h3><a href="/service-<?php echo RT::e($s_slug); ?>/"><?php echo RT::e($s['name']); ?></a></h3>
+                    <p><?php echo RT::e($s['desc']); ?></p>
+                </article>
+                <?php endforeach; ?>
             </div>
         </div>
-        <p class="footer-note">© <?php echo date('Y'); ?> Rapid Tech Solutions. IT Support <?php echo $suburb; ?> <?php echo $postcode; ?>. All rights reserved.</p>
-    </footer>
+    </section>
 
-    <script>
-        const toggle = document.querySelector('.menu-toggle');
-        const nav = document.getElementById('primary-nav');
-        if (toggle) {
-            toggle.addEventListener('click', () => {
-                const expanded = toggle.getAttribute('aria-expanded') === 'true';
-                toggle.setAttribute('aria-expanded', (!expanded).toString());
-                nav.classList.toggle('is-open');
-            });
-        }
-    </script>
+    <section class="section alt location-body">
+        <div class="container">
+            <?php echo $loc['body']; ?>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Why <?php echo RT::e($suburb); ?> Residents Choose Rapid Tech Solutions</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <?php echo rt_icon('truck'); ?>
+                    <h3>Fast Response</h3>
+                    <p>We are roughly <?php echo RT::e($loc['distance']); ?> minutes from
+                       <?php echo RT::e($suburb); ?>, and most callouts are completed the same day.</p>
+                </div>
+                <div class="why-item">
+                    <?php echo rt_icon('user'); ?>
+                    <h3>Local Knowledge</h3>
+                    <p>We work around <?php echo RT::e(rt_sentence_list(array_slice($loc['landmarks'], 0, 3))); ?>
+                       regularly, and know the area's housing and business mix.</p>
+                </div>
+                <div class="why-item">
+                    <?php echo rt_icon('dollar'); ?>
+                    <h3>Transparent Pricing</h3>
+                    <p>Upfront quotes before any work starts. No hidden fees, and no charge
+                       if we cannot fix the problem.</p>
+                </div>
+                <div class="why-item">
+                    <?php echo rt_icon('award'); ?>
+                    <h3>Certified Technicians</h3>
+                    <p>Our technicians hold Microsoft, CompTIA and cybersecurity
+                       certifications, and every repair carries a 30-day warranty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt">
+        <div class="container">
+            <h2>Areas We Service Near <?php echo RT::e($suburb); ?></h2>
+            <p>This page covers <?php echo RT::e($suburb); ?> <?php echo RT::e($postcode); ?>
+               and the surrounding localities, all on the same callout terms:</p>
+            <ul class="nearby-suburbs">
+                <?php foreach ($loc['covers'] as $near) : ?>
+                <li><?php echo rt_icon('check'); ?> <?php echo RT::e($near); ?></li>
+                <?php endforeach; ?>
+            </ul>
+
+            <?php if (!empty($loc['neighbours'])) : ?>
+            <h3>Other areas we cover</h3>
+            <ul class="neighbour-links">
+                <?php foreach ($loc['neighbours'] as $n_slug) :
+                    $n = $all[$n_slug] ?? null;
+                    if (!$n) { continue; } ?>
+                <li>
+                    <a href="/computer-repairs-<?php echo RT::e($n_slug); ?>/">
+                        Computer repairs <?php echo RT::e($n['suburb']); ?> <?php echo RT::e($n['postcode']); ?>
+                    </a>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+
+            <p><a href="/service-areas/">See every suburb we cover &rarr;</a></p>
+        </div>
+    </section>
+
+    <section class="section location-faq">
+        <div class="container">
+            <h2>Computer Repairs in <?php echo RT::e($suburb); ?> — Common Questions</h2>
+            <div class="faq-grid">
+                <?php foreach ($faqs as $f) : ?>
+                <details>
+                    <summary><?php echo RT::e($f['q']); ?></summary>
+                    <p><?php echo RT::e($f['a']); ?></p>
+                </details>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt">
+        <div class="container cta-panel-inner">
+            <div>
+                <h2>Need IT Help in <?php echo RT::e($suburb); ?> Today?</h2>
+                <p>Call us and we will tell you straight away whether it is something we can
+                   fix, what it is likely to cost, and how soon we can get to you.</p>
+            </div>
+            <div class="cta-buttons">
+                <a class="btn" href="tel:<?php echo RT::PHONE_E164; ?>">
+                    <?php echo rt_icon('phone'); ?> <?php echo RT::e(RT::PHONE_DISPLAY); ?>
+                </a>
+                <a class="btn btn-outline" href="/#contact">Request a Quote</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<?php rt_footer(); ?>
 </body>
 </html>
 <?php
 }
-?>
+
+/** Map a service slug to its icon key. */
+function rt_service_icon(string $slug): string
+{
+    return [
+        'computer-repairs' => 'laptop',
+        'virus-removal'    => 'shield',
+        'data-recovery'    => 'database',
+        'network-wifi'     => 'network',
+    ][$slug] ?? 'bolt';
+}
+
+/** "a, b and c" */
+function rt_sentence_list(array $items): string
+{
+    if (count($items) < 2) {
+        return (string) reset($items);
+    }
+
+    $last = array_pop($items);
+
+    return implode(', ', $items) . ' and ' . $last;
+}
+
+/** Suburb-specific FAQ content, used for both the page and its FAQPage schema. */
+function rt_location_faqs(array $loc): array
+{
+    $suburb = $loc['suburb'];
+
+    return [
+        [
+            'q' => sprintf('How quickly can you get to %s?', $suburb),
+            'a' => sprintf(
+                'We are about %s minutes from %s, so we can usually be there the same day. '
+                . 'For urgent problems we prioritise callouts and can often attend within one to two hours '
+                . 'during business hours (%s).',
+                $loc['distance'], $suburb, RT::HOURS_TEXT
+            ),
+        ],
+        [
+            'q' => 'Do you come to me, or do I bring the computer in?',
+            'a' => sprintf(
+                'Either. We do onsite visits throughout %s for anything that is easier to fix in place — '
+                . 'network problems, printers, desktop setups. For repairs that need parts or bench time we can '
+                . 'collect the machine and return it once it is done.',
+                $suburb
+            ),
+        ],
+        [
+            'q' => sprintf('What does a callout to %s cost?', $suburb),
+            'a' => 'Remote support starts at $80 per hour and onsite visits are $120 per hour with a '
+                 . 'one-hour minimum. We quote before starting, there are no call-out surcharges within our '
+                 . 'service area, and if we cannot fix it you do not pay.',
+        ],
+        [
+            'q' => sprintf('Can you help with NBN and Wi-Fi problems in %s?', $suburb),
+            'a' => sprintf(
+                'Yes. We diagnose NBN connection faults, reposition or replace routers, and install mesh Wi-Fi '
+                . 'where a single router cannot cover the property. Wi-Fi coverage is one of the most common '
+                . 'jobs we do in %s.',
+                $suburb
+            ),
+        ],
+        [
+            'q' => 'Do you offer after-hours or weekend support?',
+            'a' => 'Yes, for urgent business problems such as a server outage or a suspected security breach. '
+                 . 'Standard hours are ' . RT::HOURS_TEXT . '; after-hours attendance is arranged by phone.',
+        ],
+    ];
+}

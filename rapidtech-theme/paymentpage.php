@@ -8,8 +8,9 @@ Template Name: Payment Page
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, follow">
     <title>Payments Currently Unavailable | Rapid Tech Solutions</title>
+    <meta name="description" content="Online payments are temporarily unavailable. Please call 0423 680 596 to arrange payment.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/">
     <style>
         body {

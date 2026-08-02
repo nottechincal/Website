@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: Home
+*/
 // Define base path - works with or without WordPress
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
@@ -13,60 +16,101 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Rapid Tech Solutions delivers fast computer repairs, proactive cybersecurity, data recovery, and managed IT support across Cranbourne South, Patterson Lakes, and Melbourne's south-east.">
-    <meta name="keywords" content="IT services Cranbourne South, computer repair Melbourne, data recovery 3977, managed IT support Victoria, cybersecurity expert Australia, computer repairs Cranbourne, computer repairs Patterson Lakes, IT support Frankston">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="Same-day computer repairs, virus removal, data recovery and Wi-Fi fixes across Melbourne's south-east. We come to you. No fix, no fee. Call 0423 680 596.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Rapid Tech Solutions">
     <meta name="geo.region" content="AU-VIC">
     <meta name="geo.placename" content="Cranbourne South">
     <meta name="geo.position" content="-38.1333;145.2667">
     <meta name="ICBM" content="-38.1333, 145.2667">
-    <meta property="og:title" content="Rapid Tech Solutions | Modern IT Services in Melbourne">
-    <meta property="og:description" content="Human-first IT support, cloud expertise, and cybersecurity for homes and growing businesses in Cranbourne South, Patterson Lakes, and Melbourne's south-east.">
+    <title>Computer Repairs &amp; IT Support Melbourne | Same-Day</title>
+    <meta property="og:title" content="Computer Repairs &amp; IT Support Melbourne | Same-Day">
+    <meta property="og:description" content="Same-day computer repairs, virus removal, data recovery and Wi-Fi fixes across Melbourne's south-east. We come to you. No fix, no fee.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.rapidtechsolutions.au">
+    <meta property="og:url" content="https://www.rapidtechsolutions.au/">
+    <meta property="og:locale" content="en_AU">
     <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Rapid Tech Solutions — computer repairs and IT support, Melbourne">
     <meta property="og:site_name" content="Rapid Tech Solutions">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Rapid Tech Solutions">
-    <meta name="twitter:description" content="On-demand IT services, repairs, and cybersecurity protection across Melbourne.">
+    <meta name="twitter:title" content="Computer Repairs &amp; IT Support Melbourne | Same-Day">
+    <meta name="twitter:description" content="Same-day computer repairs, virus removal, data recovery and Wi-Fi fixes across Melbourne's south-east. We come to you. No fix, no fee.">
     <meta name="twitter:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $base_path; ?>/images/favicon-large.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://www.google.com">
+
+    <?php /* Space Grotesk is self-hosted: this removes two preconnects and a
+             render-blocking round trip to Google Fonts on every page load. */ ?>
+    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="<?php echo $base_path; ?>/images/fallback.webp" as="image" type="image/webp" fetchpriority="high">
-    <!-- Critical CSS loaded synchronously -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
-    <!-- Non-critical CSS deferred -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
     <link href="<?php echo $base_path; ?>/css/animations.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
         <link href="<?php echo $base_path; ?>/css/animations.css" rel="stylesheet">
     </noscript>
-    <title>Rapid Tech Solutions | Expert IT Support & Computer Repairs Melbourne | Cranbourne South</title>
+    <?php /* WebSite and Organization nodes: required for sitelinks and
+             knowledge-panel eligibility, and neither existed before. */ ?>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://www.rapidtechsolutions.au/#website",
+                "url": "https://www.rapidtechsolutions.au/",
+                "name": "Rapid Tech Solutions",
+                "inLanguage": "en-AU",
+                "publisher": { "@id": "https://www.rapidtechsolutions.au/#business" }
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://www.rapidtechsolutions.au/#organization",
+                "name": "Rapid Tech Solutions",
+                "url": "https://www.rapidtechsolutions.au/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.rapidtechsolutions.au/images/logo.png"
+                },
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+61423680596",
+                    "contactType": "customer service",
+                    "areaServed": "AU",
+                    "availableLanguage": "English"
+                },
+                "sameAs": [
+                    "https://www.facebook.com/RapidTechAUS/",
+                    "https://www.instagram.com/rapidtechsolutions.au/"
+                ]
+            }
+        ]
+    }
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
+        "@id": "https://www.rapidtechsolutions.au/#business",
         "name": "Rapid Tech Solutions",
         "description": "Computer repair, cybersecurity, data recovery, and managed IT support in Cranbourne South.",
         "telephone": "+61423680596",
-        "url": "https://www.rapidtechsolutions.au",
+        "email": "support@rapidtechsolutions.au",
+        "url": "https://www.rapidtechsolutions.au/",
         "logo": "https://www.rapidtechsolutions.au/images/logo.png",
         "image": "https://www.rapidtechsolutions.au/images/og-image.jpg",
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Cranbourne South",
-            "addressLocality": "Melbourne",
+            "addressLocality": "Cranbourne South",
             "addressRegion": "VIC",
             "postalCode": "3977",
             "addressCountry": "AU"
@@ -159,7 +203,7 @@ if (function_exists('get_template_directory_uri')) {
       gtag('config', 'G-BDN34WT3J6');
     </script>
 </head>
-<body>
+<body data-tawk="691a9832dde8a31959180788/1ja7u51sh">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" role="banner">
         <div class="container header-inner">
@@ -183,10 +227,10 @@ if (function_exists('get_template_directory_uri')) {
     </header>
 
     <!-- Emergency Services Banner - Sticky on Scroll -->
-    <div id="emergency-banner" style="background: linear-gradient(90deg, #ff5c5c 0%, #e24646 100%); color: white; padding: 0.75rem 0; text-align: center; font-weight: 500; position: relative; z-index: 999; transition: all 0.3s ease;">
-        <div class="container" style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+    <div class="emergency-banner">
+        <div class="container">
             <span><i class="fas fa-bolt"></i> Same-Day Emergency Service Available</span>
-            <a href="tel:+61423680596" style="background: white; color: #ff5c5c; padding: 0.4rem 1rem; border-radius: 20px; font-weight: 600; text-decoration: none; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Call Now: 0423 680 596</a>
+            <a href="tel:+61423680596">Call Now: 0423 680 596</a>
         </div>
     </div>
 
@@ -197,7 +241,10 @@ if (function_exists('get_template_directory_uri')) {
 
     <main id="main">
         <section class="hero" aria-label="Rapid Tech Solutions hero">
-            <video autoplay muted loop playsinline id="bg-video" poster="<?php echo $base_path; ?>/images/fallback.webp" fetchpriority="high">
+            <video autoplay muted loop playsinline id="bg-video"
+                   poster="<?php echo $base_path; ?>/images/fallback.webp"
+                   data-src="<?php echo $base_path; ?>/videos/bg1.mp4"
+                   width="1920" height="1080">
                 <!-- Video sources loaded only on desktop for performance -->
             </video>
             <div class="hero-overlay"></div>
@@ -239,7 +286,7 @@ if (function_exists('get_template_directory_uri')) {
                     <p>Same-day resolution rate</p>
                 </article>
                 <article data-animate="fade-up" data-delay="100">
-                    <span>4.9★</span>
+                    <span>5.0★</span>
                     <p>Average customer rating</p>
                 </article>
                 <article data-animate="fade-up" data-delay="200">
@@ -762,183 +809,10 @@ if (function_exists('get_template_directory_uri')) {
     }
     </script>
 
-    <script>
-        // Mobile navigation toggle
-        const toggle = document.querySelector('.menu-toggle');
-        const nav = document.getElementById('primary-nav');
-        if (toggle) {
-            toggle.addEventListener('click', () => {
-                const expanded = toggle.getAttribute('aria-expanded') === 'true';
-                toggle.setAttribute('aria-expanded', (!expanded).toString());
-                nav.classList.toggle('is-open');
-            });
-        }
-
-        // Scroll Animation Observer
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('[data-animate]');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
-
-            elements.forEach(el => observer.observe(el));
-        };
-
-        // Initialize animations on load
-        document.addEventListener('DOMContentLoaded', animateOnScroll);
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    </script>
-
-    <!-- Sticky Emergency Banner Script (Desktop Only) -->
-    <script>
-    (function() {
-        const banner = document.getElementById('emergency-banner');
-        const header = document.querySelector('.site-header');
-
-        // Only make banner sticky on desktop (>768px)
-        if (window.innerWidth > 768) {
-            let bannerOffset = banner.offsetTop;
-            let bannerHeight = banner.offsetHeight;
-
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > bannerOffset + 50) {
-                    banner.style.position = 'fixed';
-                    banner.style.top = '0';
-                    banner.style.left = '0';
-                    banner.style.right = '0';
-                    banner.style.boxShadow = '0 2px 10px rgba(255, 92, 92, 0.3)';
-                    document.body.style.paddingTop = bannerHeight + 'px';
-                } else {
-                    banner.style.position = 'relative';
-                    banner.style.boxShadow = 'none';
-                    document.body.style.paddingTop = '0';
-                }
-            });
-        }
-    })();
-    </script>
-
-    <!--Start of Tawk.to Script-->
-    <!-- Exit Intent Popup -->
-    <div id="exit-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
-        <div style="background: linear-gradient(135deg, #0f1016 0%, #1a1a2e 100%); padding: 40px; border-radius: 16px; max-width: 500px; margin: 20px; position: relative; border: 2px solid #00ffcc; box-shadow: 0 10px 40px rgba(0,255,204,0.3);">
-            <button id="close-popup" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; padding: 5px 10px;">&times;</button>
-            <div style="text-align: center;">
-                <div style="font-size: 48px; margin-bottom: 20px;">🚀</div>
-                <h3 style="color: #00ffcc; margin-bottom: 15px; font-size: 24px;">Wait! Don't Let Computer Problems Slow You Down</h3>
-                <p style="color: #e9edf3; margin-bottom: 25px; line-height: 1.6;">Get a <strong style="color: #00ffcc;">FREE diagnostic assessment</strong> when you call in the next 10 minutes!</p>
-                <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <a href="tel:+61423680596" style="background: linear-gradient(135deg, #00ffcc 0%, #29d5ff 100%); color: #05060a; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 18px; display: inline-block; transition: transform 0.3s;">
-                        <i class="fas fa-phone-alt"></i> Call Now: 0423 680 596
-                    </a>
-                    <p style="color: #8f9bb3; font-size: 14px; margin: 0;">Same-day service available • No fix, no fee guarantee</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-    // Exit Intent Popup
-    let exitIntentShown = false;
-    const exitPopup = document.getElementById('exit-popup');
-    const closePopup = document.getElementById('close-popup');
-    
-    document.addEventListener('mouseout', (e) => {
-        if (!exitIntentShown && e.clientY < 50 && window.innerWidth > 768) {
-            exitIntentShown = true;
-            exitPopup.style.display = 'flex';
-            localStorage.setItem('exitPopupShown', Date.now());
-        }
-    });
-    
-    // Check if popup was shown in last 24 hours
-    const lastShown = localStorage.getItem('exitPopupShown');
-    if (lastShown && (Date.now() - lastShown) < 86400000) {
-        exitIntentShown = true;
-    }
-    
-    closePopup.addEventListener('click', () => {
-        exitPopup.style.display = 'none';
-    });
-    
-    exitPopup.addEventListener('click', (e) => {
-        if (e.target === exitPopup) {
-            exitPopup.style.display = 'none';
-        }
-    });
-    
-    // Performance: Lazy load images
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                    }
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-        
-        document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
-    }
-    
-    // Performance: Only load video on desktop (saves 3MB on mobile)
-    const bgVideo = document.getElementById('bg-video');
-    const isDesktop = window.innerWidth >= 1024;
-
-    if (bgVideo) {
-        if (isDesktop && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            // Load video sources only on desktop
-            const webmSource = document.createElement('source');
-            webmSource.src = '<?php echo $base_path; ?>/videos/bg1.webm';
-            webmSource.type = 'video/webm';
-            bgVideo.appendChild(webmSource);
-
-            const mp4Source = document.createElement('source');
-            mp4Source.src = '<?php echo $base_path; ?>/videos/bg1.mp4';
-            mp4Source.type = 'video/mp4';
-            bgVideo.appendChild(mp4Source);
-
-            bgVideo.load();
-        } else {
-            // On mobile or reduced motion: pause and use poster only
-            bgVideo.pause();
-            bgVideo.removeAttribute('autoplay');
-        }
-    }
-    </script>
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/691a9832dde8a31959180788/1ja7u51sh';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
+    <?php /* All page behaviour now lives in one deferred file. This replaced
+             four inline <script> blocks running two competing
+             IntersectionObservers, plus a scroll handler that mutated
+             document.body.style.paddingTop on every frame. */ ?>
+    <script src="<?php echo $base_path; ?>/js/main.js" defer></script>
 </body>
 </html>

@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: Blog Index
+*/
 // Define base path - works with or without WordPress
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
@@ -13,8 +16,8 @@ $current_year = date('Y');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Help Blog | Free Computer Tips & Guides | Rapid Tech Solutions</title>
-    <meta name="description" content="Free IT guides, computer tips, and tech help for Melbourne residents. Learn about scam protection, password security, computer maintenance, and more.">
+    <title>Computer Tips & IT Guides | Rapid Tech Solutions</title>
+    <meta name="description" content="Free computer tips, security guides and IT how-tos for Melbourne households and small businesses. Practical advice from working technicians.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/blog/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">

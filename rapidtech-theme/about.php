@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: About
+*/
 // Define base path - works with or without WordPress
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
@@ -13,8 +16,8 @@ $current_year = date('Y');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Rapid Tech Solutions - Local IT Support Melbourne</title>
-    <meta name="description" content="Learn about Rapid Tech Solutions - your trusted local IT support team in Patterson Lakes and Melbourne. Honest, affordable computer repair services.">
+    <title>About Rapid Tech Solutions | Local IT Support Melbourne</title>
+    <meta name="description" content="Meet the team behind Rapid Tech Solutions. Local, honest computer repairs and IT support based in Cranbourne South, serving Melbourne's south-east.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/about/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">

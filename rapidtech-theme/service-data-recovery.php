@@ -12,10 +12,9 @@ if (function_exists('get_template_directory_uri')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Recovery Patterson Lakes & Melbourne | Lost Files Retrieved | Rapid Tech Solutions</title>
-    <meta name="description" content="Professional data recovery services in Patterson Lakes and Melbourne. Recover deleted files, failed hard drives, corrupted storage. Free assessment. Call 0423 680 596.">
-    <meta name="keywords" content="data recovery Patterson Lakes, hard drive recovery Melbourne, recover deleted files 3197, SSD recovery, USB data recovery, photo recovery, document recovery near me">
-    <meta name="robots" content="index, follow">
+    <title>Data Recovery Melbourne | Lost Files Retrieved</title>
+    <meta name="description" content="Recover deleted files, failed hard drives, dead SSDs and corrupted storage. Free assessment before any work, and no charge if the data cannot be recovered.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Rapid Tech Solutions">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/service-data-recovery/">
 
@@ -43,9 +42,9 @@ if (function_exists('get_template_directory_uri')) {
             "telephone": "+61423680596",
             "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Patterson Lakes",
+                "addressLocality": "Cranbourne South",
                 "addressRegion": "VIC",
-                "postalCode": "3197",
+                "postalCode": "3977",
                 "addressCountry": "AU"
             }
         },

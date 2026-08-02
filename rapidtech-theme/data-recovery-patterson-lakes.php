@@ -12,9 +12,8 @@ $year = date('Y');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Recovery Patterson Lakes | Same-Day Malware Cleanup | Call 0423 680 596</title>
-    <meta name="description" content="Professional virus & malware removal in Patterson Lakes. Same-day service, complete security cleanup, ransomware recovery. Expert technicians serving Patterson Lakes 3197.">
-    <meta name="keywords" content="virus removal Patterson Lakes, malware removal Patterson Lakes 3197, ransomware removal Patterson Lakes, computer virus cleanup Patterson Lakes">
+    <title>Data Recovery Patterson Lakes | Same-Day Service</title>
+    <meta name="description" content="Professional data recovery in Patterson Lakes 3197. Failed drives, dead SSDs, deleted files and corrupted storage recovered. Free assessment, no fix no fee.">
     <link rel="canonical" href="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
     <meta property="og:title" content="Data Recovery Patterson Lakes | Rapid Tech Solutions">
     <meta property="og:description" content="Same-day virus & malware removal service in Patterson Lakes. Call 0423 680 596">
