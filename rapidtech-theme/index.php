@@ -51,6 +51,14 @@ if (function_exists('get_template_directory_uri')) {
 
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/animations.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <script>
+    /* Set only when JavaScript is running AND an IntersectionObserver exists.
+       animations.css scopes its opacity:0 rules to this class, so content is
+       never hidden on a browser that cannot reveal it again. */
+    if ('IntersectionObserver' in window) {
+        document.documentElement.className += ' js-anim';
+    }
+    </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
     <noscript>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -250,7 +258,7 @@ if (function_exists('get_template_directory_uri')) {
             <div class="hero-overlay"></div>
             <div class="container hero-grid">
                 <div class="hero-copy">
-                    <p class="eyebrow">Melbourne & Patterson Lakes</p>
+                    <p class="eyebrow">Melbourne’s South-East</p>
                     <h1>Computer Problems? We Fix Them Fast.</h1>
                     <p class="lead">Your local IT experts. We repair computers, remove viruses, fix slow internet, and recover lost files. Same-day service for homes and businesses across Melbourne.</p>
                     <div class="hero-cta">
@@ -667,7 +675,7 @@ if (function_exists('get_template_directory_uri')) {
                     <h2>Let’s solve your tech challenge.</h2>
                     <p>Call <a href="tel:+61423680596">0423 680 596</a> or use the form to brief us. We respond within one business hour.</p>
                     <ul class="contact-list">
-                        <li><i class="fas fa-location-dot"></i> Patterson Lakes, VIC 3197</li>
+                        <li><i class="fas fa-location-dot"></i> Cranbourne South, VIC 3977</li>
                         <li><i class="fas fa-phone"></i> <a href="tel:+61423680596">+61 423 680 596</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:support@rapidtechsolutions.au">support@rapidtechsolutions.au</a></li>
                         <li><i class="fas fa-clock"></i> Mon–Fri 9am – 5pm, emergency callouts 24/7</li>
@@ -704,7 +712,7 @@ if (function_exists('get_template_directory_uri')) {
             <div class="container service-area-grid">
                 <div>
                     <p class="eyebrow">Coverage</p>
-                    <h2>Local to Patterson Lakes. Mobile across Melbourne.</h2>
+                    <h2>Local to Cranbourne South. Mobile across Melbourne.</h2>
                     <p>We service Bayside, Frankston, Mornington Peninsula, and the South East corridor. Remote support is available Australia-wide.</p>
                     <ul class="service-list">
                         <li>Patterson Lakes, Carrum, Seaford</li>
@@ -715,8 +723,8 @@ if (function_exists('get_template_directory_uri')) {
                     </ul>
                 </div>
                 <figure>
-                    <iframe title="Service area map showing Patterson Lakes and surrounding Melbourne suburbs" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31516.347265566255!2d145.123!3d-38.0692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad61ab1a0f5e9df%3A0x5045675218ce6e0!2sPatterson%20Lakes%20VIC%203197!5e0!3m2!1sen!2sau!4v1710000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <figcaption>Onsite visits within 30 minutes of Patterson Lakes plus remote national coverage.</figcaption>
+                    <iframe title="Service area map showing Patterson Lakes and surrounding Melbourne suburbs" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31516.347265566255!2d145.123!3d-38.0692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad61ab1a0f5e9df%3A0x5045675218ce6e0!2sCranbourne%20South%20VIC%203977!5e0!3m2!1sen!2sau!4v1710000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <figcaption>Onsite visits within 30 minutes of Cranbourne South plus remote national coverage.</figcaption>
                 </figure>
             </div>
         </section>

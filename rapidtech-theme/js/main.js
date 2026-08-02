@@ -36,21 +36,40 @@
     var animated = document.querySelectorAll('[data-animate]');
 
     if (animated.length) {
+        var reveal = function (el) { el.classList.add('is-visible'); };
+
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
             !('IntersectionObserver' in window)) {
-            // Respect the user's motion preference: show everything immediately.
-            animated.forEach(function (el) { el.classList.add('is-visible'); });
+            // Respect the user's motion preference: show everything at once.
+            animated.forEach(reveal);
         } else {
+            // threshold 0 with no negative rootMargin: the previous 0.1 /
+            // -50px combination could be skipped entirely during fast or
+            // programmatic scrolling, leaving elements stuck at opacity 0.
             var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
+                        reveal(entry.target);
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            }, { threshold: 0, rootMargin: '0px 0px 10% 0px' });
 
             animated.forEach(function (el) { observer.observe(el); });
+
+            // Safety net. An animation is decoration; content being readable
+            // is not. If anything is still hidden shortly after load, show it
+            // regardless of whether the observer ever fired for it.
+            window.addEventListener('load', function () {
+                setTimeout(function () {
+                    animated.forEach(function (el) {
+                        if (!el.classList.contains('is-visible')) {
+                            reveal(el);
+                            observer.unobserve(el);
+                        }
+                    });
+                }, 2500);
+            });
         }
     }
 

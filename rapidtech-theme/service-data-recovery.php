@@ -26,6 +26,14 @@ if (function_exists('get_template_directory_uri')) {
 
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
+    <script>
+    /* Set only when JavaScript is running AND an IntersectionObserver exists.
+       animations.css scopes its opacity:0 rules to this class, so content is
+       never hidden on a browser that cannot reveal it again. */
+    if ('IntersectionObserver' in window) {
+        document.documentElement.className += ' js-anim';
+    }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
