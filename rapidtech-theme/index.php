@@ -40,7 +40,7 @@ if (function_exists('get_template_directory_uri')) {
     <link rel="canonical" href="https://rapidtechsolutions.au/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $base_path; ?>/images/favicon-large.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $base_path; ?>/images/logo.png">
 
     <?php /* Space Grotesk is self-hosted */ ?>
     <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -96,11 +96,11 @@ if (function_exists('get_template_directory_uri')) {
         "email": "support@rapidtechsolutions.au",
         "url": "https://rapidtechsolutions.au/",
         "image": "https://rapidtechsolutions.au/images/og-image.jpg",
-        "priceRange": "$",
+        "priceRange": "<?php echo RT::PRICE_RANGE; ?>",
         "address": { "@type": "PostalAddress", "addressLocality": "Cranbourne South", "addressRegion": "VIC", "postalCode": "3977", "addressCountry": "AU" },
-        "geo": { "@type": "GeoCoordinates", "latitude": -38.12, "longitude": 145.22 },
-        "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "47", "bestRating": "5" },
+        "geo": { "@type": "GeoCoordinates", "latitude": <?php echo RT::LATITUDE; ?>, "longitude": <?php echo RT::LONGITUDE; ?> },
+        "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": <?php echo json_encode(RT::OPEN_DAYS); ?>, "opens": "<?php echo RT::OPEN_TIME; ?>", "closes": "<?php echo RT::CLOSE_TIME; ?>" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "<?php echo RT::RATING_VALUE; ?>", "reviewCount": "<?php echo RT::RATING_COUNT; ?>", "bestRating": "5" },
         "areaServed": ["Cranbourne","Cranbourne South","Berwick","Narre Warren","Dandenong","Frankston","Carrum Downs","Seaford","Patterson Lakes","Chelsea","Mordialloc"],
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -138,7 +138,9 @@ if (function_exists('get_template_directory_uri')) {
       gtag('config', 'G-BDN34WT3J6');
     </script>
 </head>
-<body data-tawk="691a9832dde8a31959180788/1ja7u51sh">
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- Emergency bar -->
 <div class="emg"><div class="wrap">
@@ -146,16 +148,16 @@ if (function_exists('get_template_directory_uri')) {
   <a href="tel:+61423680596" data-track="emergency-bar">Call 0423 680 596</a>
 </div></div>
 
-<!-- Header -->
+<!-- Header — proper mobile nav -->
 <header class="site-header" role="banner">
   <div class="wrap">
     <a class="brand" href="/">
       <img src="<?php echo $base_path; ?>/images/logo.png" alt="Rapid Tech Solutions" width="64" height="64">
       Rapid Tech Solutions
     </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
-      <span class="sr-only">Toggle navigation</span>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
+      <i class="fas fa-times"></i>
     </button>
     <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
       <a href="#issues">Common issues</a>
@@ -164,15 +166,30 @@ if (function_exists('get_template_directory_uri')) {
       <a href="#areas">Areas</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
+      <a href="#book">Book a repair</a>
+      <a class="hbtn mobile-phone" href="tel:+61423680596">📞 0423 680 596</a>
     </nav>
-    <a class="hbtn" href="tel:+61423680596" data-track="header">0423 680 596</a>
+    <a class="hbtn desktop-phone" href="tel:+61423680596" data-track="header">0423 680 596</a>
   </div>
 </header>
+<div class="nav-backdrop" id="navBackdrop"></div>
 
-<!-- WhatsApp + Sticky CTA -->
-<a href="https://wa.me/61423680596" target="_blank" class="whatsapp-icon" aria-label="Chat on WhatsApp">
+<!-- WhatsApp chat popup -->
+<button class="wa-fab" aria-label="Chat on WhatsApp" aria-haspopup="dialog">
   <i class="fab fa-whatsapp" aria-hidden="true"></i>
-</a>
+</button>
+<div class="wa-popup" id="waPopup" role="dialog" aria-modal="true" aria-label="Chat with us on WhatsApp" hidden>
+  <div class="wa-popup-header">
+    <span>💬 Chat with us</span>
+    <button id="waClose" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="wa-popup-body">
+    <p>Type your message and we'll reply on WhatsApp — usually within minutes.</p>
+    <label for="waInput" class="sr-only">Your message</label>
+    <textarea id="waInput" rows="3" placeholder="Hi, I need help with..."></textarea>
+    <button id="waSend" class="wa-send-btn">Send via WhatsApp <i class="fab fa-whatsapp"></i></button>
+  </div>
+</div>
 <a class="sticky-cta" href="tel:+61423680596" data-track="sticky-cta" aria-label="Call now">📞 Call now</a>
 
 <main id="main">
@@ -186,62 +203,125 @@ if (function_exists('get_template_directory_uri')) {
   </video>
   <div class="hero-overlay"></div>
   <div class="wrap">
-    <span class="tag"><span class="dot-inline"></span><b>Cranbourne South</b> &middot; Melbourne's south-east</span>
-    <h1>Your computer,<br>fixed properly.</h1>
-    <p class="lead">Free diagnosis. A fixed price before anything starts. No charge if we can't fix it. Onsite across the south-east — usually same day.</p>
+    <div class="hero-grid">
+      <!-- Left column: main content -->
+      <div class="hero-left">
+        <span class="tag"><span class="dot-inline"></span><b>Cranbourne South</b> &middot; Melbourne's south-east</span>
+        <h1>Your computer,<br><em>fixed properly.</em></h1>
+        <p class="lead">Free diagnosis. A fixed price before anything starts. No charge if we can't fix it. Onsite across the south-east — usually same day.</p>
 
-    <!-- Triage widget -->
-    <div class="triage">
-      <a class="triage-card urgent" href="tel:+61423680596" data-track="triage-emergency">
-        <div class="tr-ico urgent">🚨</div>
-        <div><span class="tr-label">It's an emergency</span><span class="tr-sub">Call now — same-day help</span></div>
-      </a>
-      <a class="triage-card soon" href="#issues">
-        <div class="tr-ico soon">📋</div>
-        <div><span class="tr-label">I need help this week</span><span class="tr-sub">Find your issue, get a quote</span></div>
-      </a>
-      <a class="triage-card browse" href="#services">
-        <div class="tr-ico browse">🔍</div>
-        <div><span class="tr-label">Just looking around</span><span class="tr-sub">See what we do &amp; pricing</span></div>
-      </a>
+        <!-- GLASS GUARANTEE BOXES -->
+        <div class="glass-row">
+          <div class="glass-card accent-red">
+            <div class="gc-icon">🛡️</div>
+            <div class="gc-title">No Fix, No Fee</div>
+            <div class="gc-sub">You pay nothing if we can't resolve it</div>
+          </div>
+          <div class="glass-card accent-cyan">
+            <div class="gc-icon">🔍</div>
+            <div class="gc-title">Free Diagnostics</div>
+            <div class="gc-sub">Full assessment &amp; quote at no cost</div>
+          </div>
+          <div class="glass-card accent-green">
+            <div class="gc-icon">✅</div>
+            <div class="gc-title">30-Day Warranty</div>
+            <div class="gc-sub">Same fault comes back? We fix it free</div>
+          </div>
+        </div>
+
+        <!-- Triage widget -->
+        <div class="triage">
+          <a class="triage-card urgent" href="tel:+61423680596" data-track="triage-emergency">
+            <div class="tr-ico urgent">🚨</div>
+            <div><span class="tr-label">It's an emergency</span><span class="tr-sub">Call now — same-day help</span></div>
+          </a>
+          <a class="triage-card soon" href="#issues">
+            <div class="tr-ico soon">📋</div>
+            <div><span class="tr-label">I need help this week</span><span class="tr-sub">Find your issue, get a quote</span></div>
+          </a>
+          <a class="triage-card browse" href="#services">
+            <div class="tr-ico browse">🔍</div>
+            <div><span class="tr-label">Just looking around</span><span class="tr-sub">See what we do &amp; pricing</span></div>
+          </a>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn b-solid" href="tel:+61423680596" data-track="hero-primary">📞 Call 0423 680 596</a>
+          <a class="btn b-line" href="#issues">Find your issue ↓</a>
+        </div>
+      </div>
+
+      <!-- Right column: compact booking card -->
+      <div class="hero-book">
+        <h3>📅 Book a repair</h3>
+        <p class="hb-sub">Free diagnosis, fixed price, same-day</p>
+        <form method="POST" action="#book" id="hbForm" autocomplete="on">
+          <input type="hidden" name="bk_submit" value="1">
+          <div style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+
+          <div class="hb-field">
+            <label for="hb_name" class="sr-only">Your name</label>
+            <input type="text" name="bk_name" id="hb_name" placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="hb-field">
+            <label for="hb_phone" class="sr-only">Phone number</label>
+            <input type="tel" name="bk_phone" id="hb_phone" placeholder="Phone number" required autocomplete="tel-national">
+          </div>
+          <div class="hb-field">
+            <label for="hb_email" class="sr-only">Email address</label>
+            <input type="email" name="bk_email" id="hb_email" placeholder="Email address" required autocomplete="email">
+          </div>
+          <div class="hb-field">
+            <label for="hb_address" class="sr-only">Your address / suburb</label>
+            <input type="text" name="bk_address" id="hb_address" placeholder="Your address / suburb" required autocomplete="street-address">
+          </div>
+          <div class="hb-field">
+            <label for="hb_service" class="sr-only">What do you need?</label>
+            <select name="bk_service" id="hb_service" required>
+              <option value="">What do you need?</option>
+              <option value="Computer repairs">Computer repairs</option>
+              <option value="Virus & malware removal">Virus &amp; malware removal</option>
+              <option value="Data recovery">Data recovery</option>
+              <option value="Wi-Fi & networks">Wi-Fi &amp; networks</option>
+              <option value="Other / not sure">Other / not sure</option>
+            </select>
+          </div>
+          <div class="hb-field">
+            <label for="hb_desc" class="sr-only">What's happening? (brief description)</label>
+            <textarea name="bk_desc" id="hb_desc" placeholder="What's happening? (brief description)" required autocomplete="off"></textarea>
+          </div>
+          <button type="submit" class="hb-submit">📅 Book my repair</button>
+          <div class="hb-trust">
+            <span>🛡️ No fix, no fee</span>
+            <span>🔍 Free diagnosis</span>
+            <span>✅ 30-day warranty</span>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <div class="cta-row">
-      <a class="btn b-solid" href="tel:+61423680596" data-track="hero-primary">📞 Call 0423 680 596</a>
-      <a class="btn b-line" href="#issues">Find your issue ↓</a>
+    <!-- Pricing grid -->
+    <div class="pricing-wrap">
+      <div class="pricing-grid">
+        <div class="pcard"><h3>💻 Software &amp; setup</h3><p class="what">Slow machines, viruses, updates, new device setup</p><p class="range">$80 – $180</p><p class="note">Fixed quote before we start</p></div>
+        <div class="pcard"><h3>🔧 Hardware repairs</h3><p class="what">Screens, drives, batteries, memory and SSD upgrades</p><p class="range">$120 – $350</p><p class="note">Quoted on parts + labour</p></div>
+        <div class="pcard"><h3>💾 Data recovery</h3><p class="what">Priced on the condition of the drive</p><p class="range">From $150</p><p class="note">Free assessment first</p></div>
+        <div class="pcard"><h3>📡 Wi-Fi &amp; networks</h3><p class="what">Depends on property size and layout</p><p class="range">$90 – $250</p><p class="note">Quoted onsite, no surprises</p></div>
+      </div>
+      <p class="pricefoot"><strong>Diagnosis is always free.</strong> You'll have a fixed price before any work starts. No fix, no fee — guaranteed.</p>
     </div>
-    <div class="guarantees">
-      <span><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg> No fix, no fee</span>
-      <span><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg> Free diagnostics &amp; quote</span>
-      <span><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg> 30-day repair warranty</span>
-    </div>
-
-    <div class="pricing">
-      <div class="pcard"><h3>Software &amp; setup</h3><p class="what">Slow machines, viruses, updates, new device setup</p><p class="range">$80 – $180</p><p class="note">Fixed quote before we start</p></div>
-      <div class="pcard"><h3>Hardware repairs</h3><p class="what">Screens, drives, batteries, memory and SSD upgrades</p><p class="range">$120 – $350</p><p class="note">Quoted on parts + labour</p></div>
-      <div class="pcard"><h3>Data recovery</h3><p class="what">Priced on the condition of the drive</p><p class="range">From $150</p><p class="note">Free assessment first</p></div>
-      <div class="pcard"><h3>Wi-Fi &amp; networks</h3><p class="what">Depends on property size and layout</p><p class="range">$90 – $250</p><p class="note">Quoted onsite, no surprises</p></div>
-    </div>
-    <p class="pricefoot"><strong>Diagnosis is always free.</strong> You'll have a fixed price before any work starts. No fix, no fee — guaranteed.</p>
   </div>
 </section>
 
 <!-- Stats -->
 <div class="stats-bar"><div class="wrap">
-  <div class="stat"><b>500+</b><span>Devices repaired</span></div>
-  <div class="stat"><b>5.0 ★</b><span>From 47 Google reviews</span></div>
-  <div class="stat"><b>97%</b><span>Resolved same day</span></div>
-  <div class="stat"><b>30+</b><span>Suburbs covered, no call-out fee</span></div>
+  <div class="stat"><div class="stat-icon">💻</div><b>500+</b><span>Devices repaired</span></div>
+  <div class="stat"><div class="stat-icon">⭐</div><b>5.0</b><span>From 47 Google reviews</span></div>
+  <div class="stat"><div class="stat-icon">⚡</div><b>97%</b><span>Resolved same day</span></div>
+  <div class="stat"><div class="stat-icon">📍</div><b>30+</b><span>Suburbs, no call-out fee</span></div>
 </div></div>
 
-<!-- Trust strip -->
-<div class="trust-strip"><div class="wrap">
-  <div class="trust-item"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg> No fix, no fee guarantee</div>
-  <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5.0 from 47 Google reviews</div>
-  <div class="trust-item"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> 30-day warranty on all repairs</div>
-</div></div>
-
-<!-- Common issues -->
+<!-- Common issues — FIXED: initial state shows 8 featured only -->
 <section id="issues" class="issues"><div class="wrap">
   <div class="shead">
     <p class="kicker">Common issues</p>
@@ -251,6 +331,7 @@ if (function_exists('get_template_directory_uri')) {
 
   <div class="issues-top">
     <div class="issues-search">
+      <label for="issueSearch" class="sr-only">Search common issues</label>
       <input type="text" id="issueSearch" placeholder="e.g. laptop won't turn on, wifi dropping, virus..." autocomplete="off">
       <svg class="srch-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     </div>
@@ -265,9 +346,9 @@ if (function_exists('get_template_directory_uri')) {
     <button class="cat-btn" data-cat="data">💾 Data</button>
   </div>
 
-  <div class="issue-grid" id="issueGrid" style="margin-top:1.5rem">
+  <div class="issue-grid" id="issueGrid">
 
-    <!-- Hardware -->
+    <!-- Hardware (6) -->
     <div class="issue-card" data-cat="hardware" data-keywords="laptop won't turn on no power dead computer won't start black screen" data-featured="1">
       <div class="ic-top"><div class="ic-ico hw">🔋</div><div><h4>Laptop won't turn on</h4></div></div>
       <p class="ic-desc">No lights, no fan, nothing. Could be power jack, battery, or motherboard. Free diagnosis.</p>
@@ -282,7 +363,7 @@ if (function_exists('get_template_directory_uri')) {
 
     <div class="issue-card" data-cat="hardware" data-keywords="battery not charging draining fast laptop battery replacement won't hold charge">
       <div class="ic-top"><div class="ic-ico hw">🪫</div><div><h4>Battery draining fast</h4></div></div>
-      <p class="ic-desc">Won't hold charge or dies at 30%. We test battery health and replace it — usually while you wait.</p>
+      <p class="ic-desc">Won't hold charge or dies at 30%. We test battery health and replace — usually while you wait.</p>
       <a class="ic-cta" href="tel:+61423680596">Book a check <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
 
@@ -304,7 +385,7 @@ if (function_exists('get_template_directory_uri')) {
       <a class="ic-cta" href="tel:+61423680596">Assess now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
 
-    <!-- Software -->
+    <!-- Software (6) -->
     <div class="issue-card" data-cat="software" data-keywords="computer running slow freezing lagging takes forever to start" data-featured="1">
       <div class="ic-top"><div class="ic-ico sw">🐌</div><div><h4>Computer running slow</h4></div></div>
       <p class="ic-desc">Takes forever to start, apps freeze, spinning wheel. Usually fixable without new hardware.</p>
@@ -341,7 +422,7 @@ if (function_exists('get_template_directory_uri')) {
       <a class="ic-cta" href="tel:+61423680596">Recover account <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
 
-    <!-- Network -->
+    <!-- Network (6) -->
     <div class="issue-card" data-cat="network" data-keywords="wifi keeps dropping disconnecting intermittent unstable wireless" data-featured="1">
       <div class="ic-top"><div class="ic-ico nw">📡</div><div><h4>WiFi keeps dropping out</h4></div></div>
       <p class="ic-desc">Connection cuts in and out. Usually coverage or interference — not your internet plan.</p>
@@ -378,7 +459,7 @@ if (function_exists('get_template_directory_uri')) {
       <a class="ic-cta" href="tel:+61423680596">Set it up <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
 
-    <!-- Data -->
+    <!-- Data (6) -->
     <div class="issue-card" data-cat="data" data-keywords="deleted files accidentally deleted recovery restore recycle bin emptied" data-featured="1">
       <div class="ic-top"><div class="ic-ico dt">📄</div><div><h4>Accidentally deleted files</h4></div></div>
       <p class="ic-desc">Emptied recycle bin or Shift+Deleted. Stop using the PC now — we can often get them back.</p>
@@ -445,32 +526,32 @@ if (function_exists('get_template_directory_uri')) {
 </div></div></section>
 
 <!-- Services -->
-<section id="services" class="section"><div class="wrap">
+<section id="services" class="section alt"><div class="wrap">
   <div class="shead"><p class="kicker">What we do</p><h2>Four things make up most of our work</h2><p>If yours isn't listed here, call anyway — we'll tell you straight whether it's worth repairing.</p></div>
   <div class="svcs">
     <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg></div>
       <h3>Computer repairs</h3><p>Laptops, desktops, Macs and gaming PCs. We carry common parts so most jobs finish in one visit.</p>
-      <ul><li>Won't start, crashing, or crawling</li><li>Cracked screens, failed batteries</li><li>SSD and memory upgrades</li><li>Windows and macOS reinstalls</li></ul></div>
+      <ul><li>Won't start or crashing</li><li>Cracked screens</li><li>SSD &amp; memory upgrades</li><li>Windows &amp; macOS reinstalls</li></ul></div>
     <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></svg></div>
       <h3>Virus &amp; malware removal</h3><p>Full clean-up, then protection configured properly so it doesn't return in a fortnight.</p>
-      <ul><li>Ransomware and spyware</li><li>Browser hijacks and pop-ups</li><li>Scam remote-access recovery</li><li>Ongoing protection set up</li></ul></div>
+      <ul><li>Ransomware &amp; spyware</li><li>Browser hijacks</li><li>Scam recovery</li><li>Ongoing protection</li></ul></div>
     <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></div>
       <h3>Data recovery</h3><p>Failed drives, dead SSDs, deleted files. Free assessment first — we'll give you the honest odds.</p>
-      <ul><li>Hard drive and SSD recovery</li><li>Accidentally deleted files</li><li>Corrupted or unreadable storage</li><li>Backup set up to prevent a repeat</li></ul></div>
+      <ul><li>Hard drive &amp; SSD recovery</li><li>Deleted files</li><li>Corrupted storage</li><li>Backup setup</li></ul></div>
     <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></svg></div>
       <h3>Wi-Fi &amp; networks</h3><p>Our most common callout. Nine times out of ten it's coverage, not your internet plan.</p>
-      <ul><li>Dead zones and dropouts</li><li>Mesh Wi-Fi installed properly</li><li>NBN faults diagnosed</li><li>Small business networks</li></ul></div>
+      <ul><li>Dead zones &amp; dropouts</li><li>Mesh Wi-Fi installs</li><li>NBN faults</li><li>Small business networks</li></ul></div>
   </div>
 </div></section>
 
 <!-- Process -->
-<section id="process" class="section alt"><div class="wrap" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:5rem 0">
+<section id="process" class="section"><div class="wrap">
   <div class="shead"><p class="kicker">How it works</p><h2>You'll know the price before we touch anything</h2></div>
   <div class="process">
-    <div class="pstep"><b>01</b><h3>You call</h3><p>Describe the problem. We'll often diagnose it on the phone — and tell you if it's something you can fix yourself.</p></div>
-    <div class="pstep"><b>02</b><h3>We quote</h3><p>A fixed price before work starts. If repairing isn't economical, we say so rather than quote for it.</p></div>
-    <div class="pstep"><b>03</b><h3>We fix it</h3><p>At your place, or on the bench if it needs longer. Most jobs are done the same day.</p></div>
-    <div class="pstep"><b>04</b><h3>You're covered</h3><p>30-day warranty. If the same fault returns inside that window, we come back at no charge.</p></div>
+    <div class="pstep"><div class="ps-num">1</div><h3>You call</h3><p>Describe the problem. We'll often diagnose it on the phone — and tell you if it's something you can fix yourself.</p></div>
+    <div class="pstep"><div class="ps-num">2</div><h3>We quote</h3><p>A fixed price before work starts. If repairing isn't economical, we say so rather than quote for it.</p></div>
+    <div class="pstep"><div class="ps-num">3</div><h3>We fix it</h3><p>At your place, or on the bench if it needs longer. Most jobs are done the same day.</p></div>
+    <div class="pstep"><div class="ps-num">4</div><h3>You're covered</h3><p>30-day warranty. If the same fault returns inside that window, we come back at no charge.</p></div>
   </div>
 </div></section>
 
@@ -485,18 +566,18 @@ if (function_exists('get_template_directory_uri')) {
   </div>
 </div></section>
 
-<!-- Brands we fix -->
+<!-- Brands we fix — Font Awesome icons -->
 <section class="brands-strip"><div class="wrap">
   <div class="shead"><p class="kicker">Brands we work with</p><h2>We fix them all</h2></div>
   <div class="brands-grid">
-    <span class="brand-item"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg> Dell</span>
-    <span class="brand-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 3"/></svg> HP</span>
-    <span class="brand-item"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h10M7 13h6"/></svg> Lenovo</span>
-    <span class="brand-item"><svg viewBox="0 0 24 24"><path d="M12 2c-2.5 0-4.5 1-6 3 2-1 4-1 6 0 2-1 4-1 6 0-1.5-2-3.5-3-6-3z"/><path d="M18 8c1 2 1 4 0 6 0-1.5-1-2.5-2-3s-2.5-.5-4 0-3 1.5-4 3c-1-2-1-4 0-6 1.5 1 3.5 1.5 5 1.5s3.5-.5 5-1.5z"/></svg> Apple</span>
-    <span class="brand-item"><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg> Asus</span>
-    <span class="brand-item"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/></svg> Acer</span>
-    <span class="brand-item"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="7" y="7" width="4" height="4"/><rect x="13" y="7" width="4" height="4"/><rect x="7" y="13" width="4" height="4"/><rect x="13" y="13" width="4" height="4"/></svg> Microsoft</span>
-    <span class="brand-item"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2"/></svg> Samsung</span>
+    <div class="brand-badge"><i class="fab fa-windows"></i> Dell</div>
+    <div class="brand-badge"><i class="fab fa-hp"></i> HP</div>
+    <div class="brand-badge"><i class="fab fa-lenovo"></i> Lenovo</div>
+    <div class="brand-badge"><i class="fab fa-apple"></i> Apple</div>
+    <div class="brand-badge"><i class="fab fa-asus"></i> Asus</div>
+    <div class="brand-badge"><i class="fab fa-google"></i> Acer</div>
+    <div class="brand-badge"><i class="fab fa-microsoft"></i> Microsoft</div>
+    <div class="brand-badge"><i class="fab fa-samsung"></i> Samsung</div>
   </div>
 </div></section>
 
@@ -523,12 +604,253 @@ if (function_exists('get_template_directory_uri')) {
 <section id="faq" class="section alt"><div class="wrap">
   <div class="shead"><p class="kicker">FAQ</p><h2>Questions we answer every day</h2></div>
   <div class="faq-list">
-    <div class="faq-item"><button class="faq-q">How much does computer repair cost in Cranbourne?</button><div class="faq-a"><p>Diagnosis and quotes are <strong>free — always</strong>. Software fixes typically range <strong>$80–180</strong>. Hardware repairs like screens or batteries typically <strong>$120–350</strong> depending on parts. Data recovery starts from <strong>$150</strong>. You'll always get a fixed price before any work begins, and there's no charge if we can't fix it.</p></div></div>
-    <div class="faq-item"><button class="faq-q">Do you offer same-day computer repairs?</button><div class="faq-a"><p>Yes — 97% of our jobs are resolved the same day. We carry common parts (screens, batteries, SSDs, power supplies) so most repairs finish in one visit.</p></div></div>
-    <div class="faq-item"><button class="faq-q">What suburbs do you cover?</button><div class="faq-a"><p>We're based in Cranbourne South and cover all of Melbourne's south-east: Cranbourne, Berwick, Narre Warren, Dandenong, Frankston, Carrum Downs, Seaford, Patterson Lakes, Chelsea, Mordialloc and surrounding areas. No call-out surcharge anywhere on our list.</p></div></div>
-    <div class="faq-item"><button class="faq-q">Do you offer a warranty on repairs?</button><div class="faq-a"><p>Yes — every repair comes with a 30-day warranty. If the same fault returns within that window, we come back and fix it at no charge.</p></div></div>
-    <div class="faq-item"><button class="faq-q">Can you fix my computer at my house?</button><div class="faq-a"><p>Yes — we're a mobile service. We come to your home or office anywhere in our coverage area. Most issues are fixed onsite. If it needs more involved work, we'll take it to the bench and return it to you.</p></div></div>
-    <div class="faq-item"><button class="faq-q">What if you can't fix the problem?</button><div class="faq-a"><p>You pay nothing. Our "no fix, no fee" guarantee means if we can't resolve the issue, there's no charge — not even for the diagnosis. We'll also tell you honestly if a repair isn't economical.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How much does computer repair cost in Cranbourne?</button><div class="faq-a"><p>Diagnosis and quotes are <strong>free — always</strong>. Software fixes typically range <strong>$80–180</strong>. Hardware repairs like screens or batteries typically <strong>$120–350</strong> depending on parts. Data recovery starts from <strong>$150</strong>. You'll always get a fixed price before any work begins, and there's no charge if we can't fix it.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you offer same-day computer repairs?</button><div class="faq-a"><p>Yes — 97% of our jobs are resolved the same day. We carry common parts (screens, batteries, SSDs, power supplies) so most repairs finish in one visit.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What suburbs do you cover?</button><div class="faq-a"><p>We're based in Cranbourne South and cover all of Melbourne's south-east: Cranbourne, Berwick, Narre Warren, Dandenong, Frankston, Carrum Downs, Seaford, Patterson Lakes, Chelsea, Mordialloc and surrounding areas. No call-out surcharge anywhere on our list.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you offer a warranty on repairs?</button><div class="faq-a"><p>Yes — every repair comes with a 30-day warranty. If the same fault returns within that window, we come back and fix it at no charge.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can you fix my computer at my house?</button><div class="faq-a"><p>Yes — we're a mobile service. We come to your home or office anywhere in our coverage area. Most issues are fixed onsite. If it needs more involved work, we'll take it to the bench and return it to you.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What if you can't fix the problem?</button><div class="faq-a"><p>You pay nothing. Our "no fix, no fee" guarantee means if we can't resolve the issue, there's no charge — not even for the diagnosis. We'll also tell you honestly if a repair isn't economical.</p></div></div>
+  </div>
+</div></section>
+
+<!-- Book a repair -->
+<section id="book" class="section alt"><div class="wrap">
+  <div class="shead"><p class="kicker">Book a repair</p><h2>Ready to get it fixed?</h2><p>Fill this in and we'll confirm your booking within 1 business hour — usually faster.</p></div>
+
+  <?php
+  // Simple inline handler for homepage booking form
+  $bk_submitted = false; $bk_errors = [];
+  $bk = ['service'=>'','name'=>'','email'=>'','phone'=>'','date'=>'','time'=>'','address'=>'','desc'=>''];
+  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['bk_submit'])) {
+      $bk = [
+          'service' => trim($_POST['bk_service'] ?? ''),
+          'name'    => trim($_POST['bk_name'] ?? ''),
+          'email'   => trim($_POST['bk_email'] ?? ''),
+          'phone'   => trim($_POST['bk_phone'] ?? ''),
+          'date'    => trim($_POST['bk_date'] ?? ''),
+          'time'    => trim($_POST['bk_time'] ?? ''),
+          'address' => trim($_POST['bk_address'] ?? ''),
+          'desc'    => trim($_POST['bk_desc'] ?? ''),
+      ];
+      if (strlen($bk['name']) < 2) $bk_errors['name'] = 'Please enter your name.';
+      if (!filter_var($bk['email'], FILTER_VALIDATE_EMAIL)) $bk_errors['email'] = 'Valid email required.';
+      if (strlen($bk['phone']) < 8) $bk_errors['phone'] = 'Valid phone number required.';
+      if (empty($bk['service'])) $bk_errors['service'] = 'Please choose a service.';
+      if (strlen($bk['address']) < 5) $bk_errors['address'] = 'Please enter your address.';
+      if (strlen($bk['desc']) < 10) $bk_errors['desc'] = 'Tell us a bit more (at least 10 characters).';
+      if (empty($bk_errors) && empty($_POST['website'])) {
+
+          // ── Save to log file (reliable, always works) ──────────────
+          $logdir = __DIR__ . '/.bookings';
+          if (!is_dir($logdir)) { @mkdir($logdir, 0750, true); }
+          $logfile = $logdir . '/bookings.jsonl';
+          $entry = json_encode([
+              'time'    => date('Y-m-d H:i:s'),
+              'ip'      => $_SERVER['REMOTE_ADDR'] ?? '',
+              'service' => $bk['service'],
+              'name'    => $bk['name'],
+              'email'   => $bk['email'],
+              'phone'   => $bk['phone'],
+              'date'    => $bk['date'],
+              'time_pref' => $bk['time'],
+              'address' => $bk['address'],
+              'issue'   => $bk['desc'],
+          ]) . "\n";
+          @file_put_contents($logfile, $entry, FILE_APPEND | LOCK_EX);
+
+          // ── Send email ──────────────────────────────────────────
+          $to = 'sales@rapidtechsolutions.au';
+          $subject = 'New Booking: ' . $bk['service'] . ' — ' . $bk['name'];
+          $body = "NEW BOOKING\n──────────\nName: {$bk['name']}\nEmail: {$bk['email']}\nPhone: {$bk['phone']}\nService: {$bk['service']}\nDate: {$bk['date']}\nTime: {$bk['time']}\nAddress: {$bk['address']}\n\nIssue:\n{$bk['desc']}\n──────────\n" . date('Y-m-d H:i:s');
+          $hdrs = ['Content-Type: text/plain; charset=UTF-8'];
+
+          if (function_exists('wp_mail')) {
+              wp_mail($to, $subject, $body, $hdrs);
+              $cust = "Hi {$bk['name']},\n\nThanks for booking! We'll confirm your time within 1 business hour.\nFor urgent help, call 0423 680 596.\n\nService: {$bk['service']}\nDate: {$bk['date']}\nTime: {$bk['time']}\nAddress: {$bk['address']}\n\n— Rapid Tech Solutions\nCranbourne South, VIC";
+              wp_mail($bk['email'], 'Booking Received — Rapid Tech Solutions', $cust, ['Content-Type: text/plain; charset=UTF-8']);
+          } else {
+              @mail($to, $subject, $body, "From: sales@rapidtechsolutions.au\r\nReply-To: {$bk['email']}\r\nContent-Type: text/plain; charset=UTF-8");
+              @mail($bk['email'], 'Booking Received — Rapid Tech Solutions', $cust ?? '', "From: sales@rapidtechsolutions.au\r\nContent-Type: text/plain; charset=UTF-8");
+          }
+          $bk_submitted = true;
+      }
+  }
+  ?>
+
+  <?php if ($bk_submitted): ?>
+  <div style="max-width:600px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);padding:2.5rem 2rem;text-align:center">
+    <div style="font-size:2.5rem;margin-bottom:.8rem">✅</div>
+    <h2 style="margin-bottom:.5rem">Booking received!</h2>
+    <p style="color:var(--muted);margin-bottom:1.2rem">We'll confirm your time within 1 business hour. For urgent help, call now.</p>
+    <a class="btn b-solid" href="tel:+61423680596">📞 Call 0423 680 596</a>
+  </div>
+  <?php else: ?>
+  <form method="POST" action="" novalidate id="bkForm" autocomplete="on" style="max-width:640px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);padding:2rem">
+    <div style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="bk_submit" value="1">
+
+    <div class="field-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem">
+      <div style="display:flex;flex-direction:column">
+        <label for="bk_service" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Service needed <span style="color:var(--primary)">*</span></label>
+        <select name="bk_service" id="bk_service" required style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+          <option value="">Choose…</option>
+          <option value="Computer repairs" <?php if($bk['service']==='Computer repairs')echo'selected';?>>Computer repairs</option>
+          <option value="Virus & malware removal" <?php if($bk['service']==='Virus & malware removal')echo'selected';?>>Virus &amp; malware removal</option>
+          <option value="Data recovery" <?php if($bk['service']==='Data recovery')echo'selected';?>>Data recovery</option>
+          <option value="Wi-Fi & networks" <?php if($bk['service']==='Wi-Fi & networks')echo'selected';?>>Wi-Fi &amp; networks</option>
+          <option value="Other / not sure" <?php if($bk['service']==='Other / not sure')echo'selected';?>>Other / not sure</option>
+        </select>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <label for="bk_phone" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Phone <span style="color:var(--primary)">*</span></label>
+        <input type="tel" name="bk_phone" id="bk_phone" value="<?php echo htmlspecialchars($bk['phone']); ?>" placeholder="04XX XXX XXX" required autocomplete="tel-national" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+      </div>
+    </div>
+
+    <div class="field-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem">
+      <div style="display:flex;flex-direction:column">
+        <label for="bk_name" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Your name <span style="color:var(--primary)">*</span></label>
+        <input type="text" name="bk_name" id="bk_name" value="<?php echo htmlspecialchars($bk['name']); ?>" placeholder="John Smith" required autocomplete="name" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <label for="bk_email" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Email <span style="color:var(--primary)">*</span></label>
+        <input type="email" name="bk_email" id="bk_email" value="<?php echo htmlspecialchars($bk['email']); ?>" placeholder="you@example.com" required autocomplete="email" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+      </div>
+    </div>
+
+    <div class="field-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem">
+      <div style="display:flex;flex-direction:column">
+        <label for="bk_date" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Preferred date</label>
+        <input type="date" name="bk_date" id="bk_date" value="<?php echo htmlspecialchars($bk['date']); ?>" min="<?php echo date('Y-m-d'); ?>" autocomplete="off" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <label for="bk_time" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Preferred time</label>
+        <select name="bk_time" id="bk_time" autocomplete="off" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+          <option value="">Any time</option>
+          <option value="Morning (9am–12pm)" <?php if($bk['time']==='Morning (9am–12pm)')echo'selected';?>>Morning (9am–12pm)</option>
+          <option value="Afternoon (12pm–3pm)" <?php if($bk['time']==='Afternoon (12pm–3pm)')echo'selected';?>>Afternoon (12pm–3pm)</option>
+          <option value="Late afternoon (3pm–5pm)" <?php if($bk['time']==='Late afternoon (3pm–5pm)')echo'selected';?>>Late afternoon (3pm–5pm)</option>
+          <option value="ASAP / emergency" <?php if($bk['time']==='ASAP / emergency')echo'selected';?>>ASAP / emergency</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;margin-bottom:1.2rem">
+      <label for="bk_address" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Your address <span style="color:var(--primary)">*</span></label>
+      <input type="text" name="bk_address" id="bk_address" value="<?php echo htmlspecialchars($bk['address']); ?>" placeholder="Street, suburb — we come to you" required autocomplete="street-address" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+    </div>
+
+    <div style="display:flex;flex-direction:column;margin-bottom:1.5rem">
+      <label for="bk_desc" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">What's happening? <span style="color:var(--primary)">*</span></label>
+      <textarea name="bk_desc" id="bk_desc" placeholder="e.g. Laptop won't turn on, no lights, was working fine yesterday. It's a Dell Inspiron 15." required autocomplete="off" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none;resize:vertical;min-height:90px"><?php echo htmlspecialchars($bk['desc']); ?></textarea>
+    </div>
+
+    <?php if (!empty($bk_errors)): ?>
+    <div style="background:var(--red-dim);border:1px solid rgba(255,92,92,.2);border-radius:var(--r);padding:.7rem 1rem;margin-bottom:1.2rem;color:var(--primary);font-size:.88rem">Please fix the errors below and try again.</div>
+    <?php endif; ?>
+
+    <button type="submit" id="bkSubmit" style="width:100%;padding:.85rem;background:var(--primary);color:#fff;border:none;border-radius:var(--r);font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit;box-shadow:0 4px 20px rgba(255,92,92,.25);transition:.18s">📅 Book my repair</button>
+  </form>
+
+  <script>
+  (function(){
+    // ── Hero booking form validation ──────────────────────────────
+    var hbForm = document.getElementById('hbForm');
+    if (hbForm) {
+      hbForm.addEventListener('submit', function(e) {
+        var valid = true;
+        function hbErr(sel, msg) {
+          var el = hbForm.querySelector(sel);
+          if (el) { el.style.borderColor = 'var(--primary)'; el.style.boxShadow = '0 0 0 3px var(--red-dim)'; }
+          if (valid) { valid = false; if (el) el.focus(); }
+        }
+        // Reset
+        hbForm.querySelectorAll('input,select,textarea').forEach(function(el) {
+          el.style.borderColor = ''; el.style.boxShadow = '';
+        });
+
+        var nm = (hbForm.querySelector('[name=bk_name]')||{}).value;
+        var ph = (hbForm.querySelector('[name=bk_phone]')||{}).value;
+        var em = (hbForm.querySelector('[name=bk_email]')||{}).value;
+        var ad = (hbForm.querySelector('[name=bk_address]')||{}).value;
+        var sv = (hbForm.querySelector('[name=bk_service]')||{}).value;
+        var ds = (hbForm.querySelector('[name=bk_desc]')||{}).value;
+
+        if (!nm || nm.trim().length < 2) hbErr('[name=bk_name]');
+        if (!ph || ph.trim().length < 8) hbErr('[name=bk_phone]');
+        if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) hbErr('[name=bk_email]');
+        if (!ad || ad.trim().length < 5) hbErr('[name=bk_address]');
+        if (!sv) hbErr('[name=bk_service]');
+        if (!ds || ds.trim().length < 10) hbErr('[name=bk_desc]');
+
+        if (!valid) {
+          e.preventDefault();
+          var btn = hbForm.querySelector('.hb-submit');
+          if (btn) { btn.style.animation = 'none'; btn.offsetHeight; btn.style.animation = 'shake .4s ease'; }
+        } else {
+          var btn = hbForm.querySelector('.hb-submit');
+          if (btn) { btn.disabled = true; btn.textContent = 'Submitting…'; btn.style.opacity = '.6'; }
+        }
+      });
+    }
+
+    // ── Full page booking form validation ─────────────────────────
+    var form = document.getElementById('bkForm');
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      var v = true, first = null;
+      function err(id, msg){
+        var el = document.getElementById(id);
+        if(el){ el.style.borderColor = 'var(--primary)'; el.style.boxShadow = '0 0 0 3px var(--red-dim)'; }
+        if(v){ first = first || id; v = false; }
+      }
+      function ok(id){
+        var el = document.getElementById(id);
+        if(el){ el.style.borderColor = ''; el.style.boxShadow = ''; }
+      }
+      // Reset all
+      ['bk_service','bk_name','bk_phone','bk_email','bk_address','bk_desc'].forEach(ok);
+
+      var svc = document.getElementById('bk_service').value;
+      var nm = document.getElementById('bk_name').value.trim();
+      var ph = document.getElementById('bk_phone').value.trim();
+      var em = document.getElementById('bk_email').value.trim();
+      var ad = document.getElementById('bk_address').value.trim();
+      var ds = document.getElementById('bk_desc').value.trim();
+
+      if(!svc) err('bk_service');
+      if(nm.length < 2) err('bk_name');
+      if(ph.length < 8) err('bk_phone');
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) err('bk_email');
+      if(ad.length < 5) err('bk_address');
+      if(ds.length < 10) err('bk_desc');
+
+      if(!v){
+        e.preventDefault();
+        if(first){ var el = document.getElementById(first); if(el) el.focus(); }
+        var b = document.getElementById('bkSubmit');
+        if(b){ b.style.animation = 'none'; b.offsetHeight; b.style.animation = 'shake .4s ease'; }
+      } else {
+        var b = document.getElementById('bkSubmit');
+        if(b){ b.disabled = true; b.textContent = 'Submitting…'; b.style.opacity = '.6'; }
+      }
+    });
+    // Add shake keyframes
+    var s = document.createElement('style');
+    s.textContent = '@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-4px)}}';
+    document.head.appendChild(s);
+  })();
+  </script>
+  <?php endif; ?>
+</div></section>
+
+<!-- CTA Banner -->
+<section class="cta-banner"><div class="wrap">
+  <h2>Prefer to talk?</h2>
+  <p>Call now — we'll tell you what's wrong, what it costs to fix, and whether it's even worth doing.</p>
+  <div class="btn-row">
+    <a class="btn b-solid" href="tel:+61423680596" data-track="cta-banner">📞 Call 0423 680 596</a>
+    <a class="btn b-line" href="https://wa.me/61423680596" target="_blank" rel="noopener">Chat on WhatsApp</a>
   </div>
 </div></section>
 
@@ -546,8 +868,8 @@ if (function_exists('get_template_directory_uri')) {
       <p>Mon–Fri 9am–5pm AEST</p>
     </div>
     <div><h4>Services</h4><a href="#services">Computer repairs</a><a href="#services">Virus removal</a><a href="#services">Data recovery</a><a href="#services">Wi-Fi &amp; networks</a></div>
-    <div><h4>Company</h4><a href="/about/">About</a><a href="/service-areas/">Service areas</a><a href="/faq/">FAQ</a><a href="#issues">Common issues</a></div>
-    <div><h4>Contact</h4><a href="tel:+61423680596">0423 680 596</a><a href="mailto:support@rapidtechsolutions.au">support@rapidtechsolutions.au</a><a href="https://wa.me/61423680596">WhatsApp</a></div>
+    <div><h4>Company</h4><a href="/about/">About</a><a href="/book/">Book a repair</a><a href="/service-areas/">Service areas</a><a href="/faq/">FAQ</a><a href="#issues">Common issues</a></div>
+    <div><h4>Contact</h4><a href="tel:+61423680596">0423 680 596</a><a href="mailto:support@rapidtechsolutions.au">support@rapidtechsolutions.au</a><a href="https://wa.me/61423680596" target="_blank" rel="noopener">WhatsApp</a></div>
   </div>
   <div class="fb"><span>&copy; <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</span><span><a href="/privacy-policy/" style="display:inline">Privacy</a> &middot; <a href="/terms-of-service/" style="display:inline">Terms</a></span></div>
 </div></footer>
@@ -557,7 +879,36 @@ if (function_exists('get_template_directory_uri')) {
 
 <script>
 (function(){
-  /* Conditional video: desktop only, respect data-saver & reduced motion */
+  /* ---- Mobile nav ---- */
+  var menuToggle = document.getElementById('menuToggle');
+  var primaryNav = document.getElementById('primary-nav');
+  var navBackdrop = document.getElementById('navBackdrop');
+
+  function openNav(){
+    menuToggle.classList.add('open');
+    menuToggle.setAttribute('aria-expanded','true');
+    primaryNav.classList.add('open');
+    navBackdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNav(){
+    menuToggle.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded','false');
+    primaryNav.classList.remove('open');
+    navBackdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', function(){
+    if(primaryNav.classList.contains('open')){ closeNav(); }
+    else { openNav(); }
+  });
+  navBackdrop.addEventListener('click', closeNav);
+  primaryNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', closeNav);
+  });
+
+  /* ---- Conditional video: desktop only, respect data-saver & reduced motion ---- */
   var video = document.getElementById('bg-video');
   if(video){
     var wantsMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -576,7 +927,7 @@ if (function_exists('get_template_directory_uri')) {
     }
   }
 
-  /* Call tracking */
+  /* ---- Call tracking ---- */
   document.addEventListener('click', function(e){
     var tel = e.target.closest('a[data-track]');
     if(tel && typeof gtag !== 'undefined'){
@@ -584,7 +935,7 @@ if (function_exists('get_template_directory_uri')) {
     }
   });
 
-  /* Common issues: featured default + expand + search + filter */
+  /* ---- Common issues: featured default + expand + search + filter ---- */
   var catBtns = document.querySelectorAll('#catFilters .cat-btn');
   var searchInput = document.getElementById('issueSearch');
   var cards = document.querySelectorAll('#issueGrid .issue-card');
@@ -616,6 +967,9 @@ if (function_exists('get_template_directory_uri')) {
     if(noResults) noResults.classList.toggle('show', visible === 0);
   }
 
+  // ★ FIX: call update() immediately so only 8 featured cards show on page load
+  update();
+
   if(expandBtn){
     expandBtn.addEventListener('click', function(){
       expanded = !expanded;
@@ -646,24 +1000,37 @@ if (function_exists('get_template_directory_uri')) {
     });
   }
 
-  /* FAQ accordion */
+  /* ---- FAQ accordion ---- */
   document.querySelectorAll('.faq-q').forEach(function(btn){
     btn.addEventListener('click', function(){
       var wasOpen = this.classList.contains('open');
-      document.querySelectorAll('.faq-q.open').forEach(function(b){ b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
-      if(!wasOpen){ this.classList.add('open'); this.nextElementSibling.classList.add('open'); }
+      // Close all others
+      document.querySelectorAll('.faq-q.open').forEach(function(b){
+        b.classList.remove('open');
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.remove('open');
+      });
+      if(!wasOpen){
+        this.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+        this.nextElementSibling.classList.add('open');
+      }
     });
   });
 
-  /* Reviews horizontal scroll */
+  /* ---- Reviews horizontal scroll ---- */
   var scroll = document.getElementById('reviewsScroll');
   var prevBtn = document.getElementById('rPrev');
   var nextBtn = document.getElementById('rNext');
   if(scroll && prevBtn && nextBtn){
-    prevBtn.addEventListener('click', function(){ scroll.scrollBy({left:-360, behavior:'smooth'}); });
-    nextBtn.addEventListener('click', function(){ scroll.scrollBy({left:360, behavior:'smooth'}); });
+    prevBtn.addEventListener('click', function(){ scroll.scrollBy({left:-340, behavior:'smooth'}); });
+    nextBtn.addEventListener('click', function(){ scroll.scrollBy({left:340, behavior:'smooth'}); });
     var auto;
-    function startAuto(){ auto = setInterval(function(){ scroll.scrollBy({left:360, behavior:'smooth'}); }, 5000); }
+    var wantsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function startAuto(){
+      if (wantsReducedMotion) return;
+      auto = setInterval(function(){ scroll.scrollBy({left:340, behavior:'smooth'}); }, 5000);
+    }
     function stopAuto(){ clearInterval(auto); }
     startAuto();
     scroll.addEventListener('pointerenter', stopAuto);
@@ -675,14 +1042,15 @@ if (function_exists('get_template_directory_uri')) {
     });
   }
 
-  /* Smooth scroll offset */
+  /* ---- Smooth scroll offset ---- */
   document.querySelectorAll('a[href^="#"]').forEach(function(link){
     link.addEventListener('click', function(e){
       var target = document.querySelector(this.getAttribute('href'));
       if(target){
         e.preventDefault();
         var top = target.getBoundingClientRect().top + window.scrollY - 90;
-        window.scrollTo({top:top, behavior:'smooth'});
+        var wantsReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({top:top, behavior: wantsReduced ? 'auto' : 'smooth'});
       }
     });
   });

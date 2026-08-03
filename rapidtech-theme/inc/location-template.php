@@ -103,7 +103,7 @@ function render_location_page(string $slug): void
 <meta name="geo.position" content="<?php echo RT::e($loc['lat'] . ';' . $loc['lng']); ?>">
 <meta name="ICBM" content="<?php echo RT::e($loc['lat'] . ', ' . $loc['lng']); ?>">
 </head>
-<body data-tawk="<?php echo RT::TAWK_ID; ?>">
+<body>
 <?php rt_header(); ?>
 
 <div class="container">

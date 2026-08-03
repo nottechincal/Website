@@ -172,3 +172,21 @@ function rt_clean_head(): void {
     remove_action('wp_head', 'wp_shortlink_wp_head');
 }
 add_action('init', 'rt_clean_head');
+
+/**
+ * Route all wp_mail() through the hosting server's own SMTP.
+ *
+ * PHP mail() / sendmail is blocked on this host, but authenticated SMTP
+ * through the hosting provider's mail server works (Roundcube uses it).
+ */
+function rt_smtp_config($phpmailer): void {
+    $phpmailer->isSMTP();
+    $phpmailer->Host       = 'mail.rapidtechsolutions.au';
+    $phpmailer->SMTPAuth   = true;
+    $phpmailer->Username   = 'tahir@rapidtechsolutions.au';
+    $phpmailer->Password   = defined('RT_SMTP_PASSWORD') ? RT_SMTP_PASSWORD : '';
+    $phpmailer->SMTPSecure = 'ssl';
+    $phpmailer->Port       = 465;
+    $phpmailer->setFrom('tahir@rapidtechsolutions.au', 'Rapid Tech Solutions');
+}
+add_action('phpmailer_init', 'rt_smtp_config');

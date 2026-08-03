@@ -3,3 +3,4 @@ wp_data/
 db_data/
 .DS_Store
 deploy/live-backups/
+deploy-ftp.sh

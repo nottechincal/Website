@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
 } else {
@@ -14,15 +14,15 @@ $year = date('Y');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emergency Computer Repair Melbourne | Same-Day</title>
     <meta name="description" content="Urgent computer repairs across Melbourne's south-east. Same-day onsite callouts for crashed systems, dead machines and business outages. Call 0423 680 596.">
-    <link rel="canonical" href="https://rapidtechsolutions.au/virus-removal-dandenong/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/emergency-computer-repair-melbourne/">
     <meta property="og:title" content="Emergency Computer Repair Melbourne | Rapid Tech Solutions">
-    <meta property="og:description" content="Same-day virus & malware removal service in Melbourne. Call 0423 680 596">
-    <meta property="og:url" content="https://rapidtechsolutions.au/virus-removal-dandenong/">
+    <meta property="og:description" content="Emergency computer repairs across Melbourne. Same-day onsite callouts. Call 0423 680 596">
+    <meta property="og:url" content="https://rapidtechsolutions.au/emergency-computer-repair-melbourne/">
     <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <!-- Google Analytics -->

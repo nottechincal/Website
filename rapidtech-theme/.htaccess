@@ -42,11 +42,11 @@ Options -Indexes
 # </FilesMatch>
 
 # Includes, build tooling and metadata are never page content, regardless.
-<FilesMatch "(^\.|composer\.(json|lock)|\.(md|sql|log|bak|dist|ini|sh|yml|yaml|py)$)">
+<FilesMatch "(^\.|composer\.(json|lock)|\.(md|sql|log|bak|dist|ini|sh|yml|yaml|py|jsonl)$)">
     Require all denied
 </FilesMatch>
 
-RedirectMatch 404 ^/wp-content/themes/rapidtech-theme/(inc|tools)/
+RedirectMatch 404 ^/wp-content/themes/rapidtech-theme/(inc|tools|\.bookings)/
 
 # ---------------------------------------------------------------------------
 # Assets served from here still need correct types and long cache lifetimes,

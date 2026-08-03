@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
 Template Name: About
 */
@@ -21,8 +21,8 @@ $current_year = date('Y');
     <link rel="canonical" href="https://rapidtechsolutions.au/about/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <script type="application/ld+json">
@@ -32,7 +32,7 @@ $current_year = date('Y');
         "mainEntity": {
             "@type": "LocalBusiness",
             "name": "Rapid Tech Solutions",
-            "description": "Local IT support and computer repair services in Patterson Lakes and Melbourne",
+            "description": "Local IT support and computer repair services in Cranbourne South and Melbourne's south-east",
             "foundingDate": "2020",
             "areaServed": "Melbourne, Victoria, Australia"
         }

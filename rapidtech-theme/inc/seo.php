@@ -60,7 +60,7 @@ function rt_head(array $a): void
 
 <link rel="icon" type="image/svg+xml" href="<?php echo RT::e(RT::asset('images/favicon.svg')); ?>">
 <link rel="icon" type="image/png" sizes="32x32" href="<?php echo RT::e(RT::asset('images/favicon.png')); ?>">
-<link rel="apple-touch-icon" sizes="180x180" href="<?php echo RT::e(RT::asset('images/favicon-large.svg')); ?>">
+<link rel="apple-touch-icon" sizes="180x180" href="<?php echo RT::e(RT::asset('images/logo.png')); ?>"><!-- TODO: replace logo.png with a dedicated 180×180 apple-touch-icon.png -->
 
 <?php /* Self-hosted: removes two render-blocking third-party round trips. */ ?>
 <link rel="preload" href="<?php echo RT::e(RT::asset('fonts/space-grotesk/space-grotesk-latin.woff2')); ?>" as="font" type="font/woff2" crossorigin>

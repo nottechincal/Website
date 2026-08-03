@@ -18,13 +18,13 @@
         toggle.addEventListener('click', function () {
             var open = toggle.getAttribute('aria-expanded') === 'true';
             toggle.setAttribute('aria-expanded', String(!open));
-            nav.classList.toggle('is-open', !open);
+            nav.classList.toggle('open', !open);
         });
 
         // Close on Escape so keyboard users are not trapped in the menu.
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && nav.classList.contains('is-open')) {
-                nav.classList.remove('is-open');
+            if (e.key === 'Escape' && nav.classList.contains('open')) {
+                nav.classList.remove('open');
                 toggle.setAttribute('aria-expanded', 'false');
                 toggle.focus();
             }
@@ -86,7 +86,8 @@
         if (!target) { return; }
 
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var wantsReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({ behavior: wantsReduced ? 'auto' : 'smooth', block: 'start' });
 
         // Keep the URL shareable and move focus for screen readers.
         history.pushState(null, '', id);
@@ -116,40 +117,70 @@
         }
     }
 
-    /* ------------------------------------------------- deferred chat ------ */
-    /*
-     * Tawk.to is ~250KB of third-party JS. Loading it on first interaction
-     * instead of on load keeps it out of the Largest Contentful Paint window.
-     */
+    /* ---- WhatsApp chat popup ---- */
+    var waBtn  = document.querySelector('.wa-fab');
+    var waPopup = document.getElementById('waPopup');
+    var waClose = document.getElementById('waClose');
+    var waInput = document.getElementById('waInput');
+    var waSend  = document.getElementById('waSend');
 
-    var chatId = document.body.dataset.tawk;
+    if (waBtn && waPopup) {
+        function openWa() {
+            waPopup.removeAttribute('hidden');
+            waBtn.setAttribute('aria-expanded', 'true');
+            if (!waInput.value) waInput.value = getContextMessage();
+            waInput.focus();
+            // Trap focus inside the dialog
+            waPopup.addEventListener('keydown', trapFocus);
+        }
+        function closeWa() {
+            waPopup.setAttribute('hidden', '');
+            waBtn.setAttribute('aria-expanded', 'false');
+            waBtn.focus();
+            waPopup.removeEventListener('keydown', trapFocus);
+        }
+        function trapFocus(e) {
+            if (e.key !== 'Tab') return;
+            var focusable = waPopup.querySelectorAll('button, textarea, [href], input, select');
+            if (!focusable.length) return;
+            var first = focusable[0];
+            var last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+        function getContextMessage() {
+            var h1 = document.querySelector('h1');
+            var page = h1 ? h1.textContent.trim() : document.title;
+            return 'Hi! I need help with: ' + page;
+        }
 
-    if (chatId) {
-        var loaded = false;
-        var load = function () {
-            if (loaded) { return; }
-            loaded = true;
-
-            window.Tawk_API = window.Tawk_API || {};
-            window.Tawk_LoadStart = new Date();
-
-            var s = document.createElement('script');
-            s.async = true;
-            s.src = 'https://embed.tawk.to/' + chatId;
-            s.charset = 'UTF-8';
-            s.setAttribute('crossorigin', '*');
-            document.head.appendChild(s);
-        };
-
-        ['pointerdown', 'keydown', 'touchstart'].forEach(function (evt) {
-            window.addEventListener(evt, load, { once: true, passive: true });
+        waBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (waPopup.hasAttribute('hidden')) { openWa(); }
+            else { closeWa(); }
         });
 
-        // Guarantee it eventually loads even for a completely idle visitor.
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(load, { timeout: 15000 });
-        } else {
-            setTimeout(load, 15000);
-        }
+        waClose.addEventListener('click', closeWa);
+
+        waSend.addEventListener('click', function() {
+            var msg = encodeURIComponent(waInput.value.trim() || 'Hi, I need help with my computer.');
+            window.open('https://wa.me/61423680596?text=' + msg, '_blank', 'noopener');
+            closeWa();
+            waInput.value = '';
+        });
+
+        waInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                waSend.click();
+            }
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !waPopup.hasAttribute('hidden')) {
+                closeWa();
+            }
+        });
     }
 }());

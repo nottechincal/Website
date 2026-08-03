@@ -77,7 +77,7 @@ final class RT
     /* ------------------------------------------------------------ tracking */
 
     const GA_MEASUREMENT_ID = 'G-BDN34WT3J6';
-    const TAWK_ID           = '691a9832dde8a31959180788/1ja7u51sh';
+    // Removed — tawk.to retired in favour of WhatsApp widget
 
     /* --------------------------------------------------------------- media */
 

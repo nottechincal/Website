@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // Define base path - works with or without WordPress
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
@@ -17,8 +17,8 @@ if (function_exists('get_template_directory_uri')) {
     <link rel="canonical" href="https://rapidtechsolutions.au/blog-scam-protection/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <script type="application/ld+json">
@@ -27,7 +27,7 @@ if (function_exists('get_template_directory_uri')) {
         "@type": "Article",
         "headline": "How to Spot and Avoid Tech Support Scams",
         "description": "Learn to identify fake tech support calls, phishing emails, and online scams targeting Melbourne residents. Protect your family and finances.",
-        "image": "https://rapidtechsolutions.au/images/blog/scam-protection.jpg",
+        "image": "https://rapidtechsolutions.au/images/og-image.jpg",
         "author": {
             "@type": "Organization",
             "name": "Rapid Tech Solutions"

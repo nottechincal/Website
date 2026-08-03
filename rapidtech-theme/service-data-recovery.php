@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // Define base path - works with or without WordPress
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
@@ -18,7 +18,7 @@ if (function_exists('get_template_directory_uri')) {
     <meta name="author" content="Rapid Tech Solutions">
     <link rel="canonical" href="https://rapidtechsolutions.au/service-data-recovery/">
 
-    <meta property="og:title" content="Data Recovery Patterson Lakes | Lost Files Retrieved">
+    <meta property="og:title" content="Data Recovery Melbourne | Lost Files Retrieved">
     <meta property="og:description" content="Expert data recovery from failed drives, deleted files, and corrupted storage. Free assessment, no data no fee.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rapidtechsolutions.au/service-data-recovery/">
@@ -34,10 +34,10 @@ if (function_exists('get_template_directory_uri')) {
         document.documentElement.className += ' js-anim';
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
     <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/animations.css" rel="stylesheet">
+    <link href="<?php echo $base_path; ?>/css/animations.css" rel="stylesheet" media="print" onload="this.media='all'">
 
     <script type="application/ld+json">
     {
@@ -108,7 +108,7 @@ if (function_exists('get_template_directory_uri')) {
                         <li>Data Recovery</li>
                     </ol>
                 </nav>
-                <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem;">Data Recovery Services in Patterson Lakes & Melbourne</h1>
+                <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem;">Data Recovery Services in Melbourne's South-East</h1>
                 <p class="lead" style="font-size: 1.3rem; color: var(--muted); max-width: 700px;">Lost precious photos? Important documents disappeared? We recover data from failed hard drives, deleted files, and corrupted storage. Free assessment. No data, no fee.</p>
                 <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call 0423 680 596</a>
@@ -290,18 +290,6 @@ if (function_exists('get_template_directory_uri')) {
         </div>
     </footer>
 
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/691a9832dde8a31959180788/1ja7u51sh';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
+    <!-- WhatsApp widget handled in main.js -->
 </body>
 </html>
