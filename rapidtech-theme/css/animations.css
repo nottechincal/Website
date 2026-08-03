@@ -224,18 +224,20 @@
     color: #29d5ff;
 }
 
-/* Floating CTA Animations */
-.whatsapp-icon {
-    animation: float 3s ease-in-out infinite;
-}
-
+/* Floating CTA Animations
+ *
+ * The WhatsApp button previously ran `float 3s infinite`, which bounced it up
+ * and down forever. Two problems: it never stopped, which is distracting on
+ * every page and a genuine accessibility issue for anyone with vestibular
+ * sensitivity; and it animated `transform`, the same property the :hover
+ * scale in styles.css uses, so the two fought each other and the hover state
+ * visibly snapped.
+ *
+ * The button is fixed-position, brand-coloured and always on screen. It does
+ * not need motion to be noticed.
+ */
 .sticky-cta {
     animation: pulse-glow 2s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
 }
 
 @keyframes pulse-glow {
@@ -385,4 +387,28 @@ html {
     background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
     background-size: 200px 100%;
     animation: skeleton-loading 1.5s infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion.
+
+   This file had no prefers-reduced-motion guard at all, so every infinite
+   animation in it ran regardless of the visitor's OS accessibility setting.
+   Anything decorative and looping is stopped here; one-shot reveals are left
+   visible rather than hidden.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .sticky-cta,
+    .whatsapp-icon {
+        animation: none !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
