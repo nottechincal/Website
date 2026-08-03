@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Direction A — Trade Professional | Rapid Tech Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================================
+   DIRECTION A — "Trade Professional"
+   Light, plain-spoken, built around the two things a person in trouble
+   actually wants: what it costs, and how fast you can get here.
+   Restraint is the point. One accent colour, used sparingly.
+   =========================================================================== */
+:root{
+  --ink:#12161c; --ink-2:#3d4653; --ink-3:#6b7686;
+  --line:#e3e7ec; --bg:#ffffff; --bg-2:#f6f8fa;
+  --accent:#c0392b; --accent-dark:#9c2d22; --ok:#137a4c;
+  --r:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{width:min(1140px,92vw);margin:0 auto}
+a{color:inherit}
+h1,h2,h3{line-height:1.15;letter-spacing:-0.02em;font-weight:700}
+
+/* --- utility bar: the emergency banner, kept but made to look deliberate --- */
+.utility{background:var(--ink);color:#c9d1dc;font-size:.88rem;font-weight:400}
+.utility .wrap{display:flex;justify-content:center;align-items:center;gap:1.5rem;padding:.6rem 0;flex-wrap:wrap;text-align:center}
+.utility strong{font-weight:600}
+.utility a{color:#fff;font-weight:600;text-decoration:none;white-space:nowrap;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:1px}
+.utility .live{width:7px;height:7px;border-radius:50%;background:#3ddc97;display:inline-block;flex:none}
+
+/* --- header --- */
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);z-index:60}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:1rem 0}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.05rem;text-decoration:none;letter-spacing:-.02em}
+.brand .mark{width:26px;height:26px;background:var(--ink);color:#fff;border-radius:5px;display:grid;place-items:center;font-size:.85rem;font-weight:700}
+nav{display:flex;gap:1.6rem;font-size:.94rem;font-weight:500}
+nav a{text-decoration:none;color:var(--ink-2)}
+nav a:hover{color:var(--ink)}
+.callbtn{display:flex;align-items:center;gap:.5rem;font-weight:700;text-decoration:none;font-size:1.05rem;white-space:nowrap}
+@media(max-width:900px){nav{display:none}}
+
+/* --- hero: no gradient, no video, just the offer --- */
+.hero{padding:4.5rem 0 3rem;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:4rem;align-items:start}
+.eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.hero h1{font-size:clamp(2.1rem,4.4vw,3.15rem);margin-bottom:1.1rem}
+.hero .lead{font-size:1.13rem;color:var(--ink-2);max-width:52ch;margin-bottom:1.8rem}
+.cta-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.5rem;border-radius:var(--r);font-weight:600;text-decoration:none;font-size:1rem;border:1.5px solid transparent;transition:.15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink-3)}
+.assurance{display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.92rem;color:var(--ink-2)}
+.assurance span{display:flex;align-items:center;gap:.4rem}
+.tick{color:var(--ok);font-weight:700}
+
+/* the price card is the hero's right column — answers the real question */
+.pricecard{border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.pricecard h2{font-size:1rem;padding:.9rem 1.25rem;background:var(--bg-2);border-bottom:1px solid var(--line);font-weight:600;letter-spacing:0}
+.pricerow{display:flex;justify-content:space-between;align-items:baseline;padding:1rem 1.25rem;border-bottom:1px solid var(--line)}
+.pricerow:last-of-type{border-bottom:0}
+.pricerow .label{font-weight:600;font-size:.97rem}
+.pricerow .sub{display:block;font-weight:400;font-size:.85rem;color:var(--ink-3);margin-top:.15rem}
+.pricerow .amt{font-weight:700;font-size:1.25rem;white-space:nowrap}
+.pricenote{padding:.85rem 1.25rem;background:var(--bg-2);border-top:1px solid var(--line);font-size:.86rem;color:var(--ink-2)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2.5rem}}
+
+/* --- proof strip --- */
+.proof{background:var(--bg-2);border-bottom:1px solid var(--line);padding:1.6rem 0}
+.proof .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+.proof b{display:block;font-size:1.6rem;letter-spacing:-.02em}
+.proof span{font-size:.85rem;color:var(--ink-3)}
+@media(max-width:700px){.proof .wrap{grid-template-columns:repeat(2,1fr);gap:1.25rem}}
+
+/* --- sections --- */
+section{padding:4.5rem 0}
+.sec-head{max-width:60ch;margin-bottom:2.5rem}
+.sec-head h2{font-size:clamp(1.6rem,2.8vw,2.1rem);margin-bottom:.7rem}
+.sec-head p{color:var(--ink-2)}
+
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.svc{background:#fff;padding:1.9rem}
+.svc h3{font-size:1.1rem;margin-bottom:.5rem}
+.svc p{color:var(--ink-2);font-size:.95rem;margin-bottom:.9rem}
+.svc ul{list-style:none;font-size:.9rem;color:var(--ink-2)}
+.svc li{padding-left:1.1rem;position:relative;margin-bottom:.3rem}
+.svc li::before{content:'';position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+@media(max-width:800px){.services{grid-template-columns:1fr}}
+
+/* --- how it works: numbered, factual --- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;counter-reset:s}
+.step{counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border:1.5px solid var(--ink);border-radius:50%;font-weight:700;font-size:.95rem;margin-bottom:.9rem}
+.step h3{font-size:1rem;margin-bottom:.35rem}
+.step p{font-size:.92rem;color:var(--ink-2)}
+@media(max-width:800px){.steps{grid-template-columns:repeat(2,1fr);gap:1.75rem}}
+
+/* --- areas --- */
+.areas{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.arealist{display:flex;flex-wrap:wrap;gap:.5rem}
+.arealist a{background:#fff;border:1px solid var(--line);padding:.45rem 1rem;border-radius:100px;font-size:.92rem;text-decoration:none;color:var(--ink-2)}
+.arealist a:hover{border-color:var(--ink-3);color:var(--ink)}
+
+/* --- reviews --- */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.review{border:1px solid var(--line);border-radius:8px;padding:1.6rem}
+.stars{color:#e8a33d;letter-spacing:2px;font-size:.9rem;margin-bottom:.7rem}
+.review p{font-size:.95rem;color:var(--ink-2);margin-bottom:1rem}
+.review cite{font-style:normal;font-size:.88rem;font-weight:600}
+.review cite span{display:block;font-weight:400;color:var(--ink-3);font-size:.84rem}
+@media(max-width:800px){.reviews{grid-template-columns:1fr}}
+
+/* --- footer --- */
+footer{background:var(--ink);color:#aeb6c2;padding:3.5rem 0 2rem;font-size:.92rem}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+footer h4{color:#fff;font-size:.83rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.9rem}
+footer a{color:#aeb6c2;text-decoration:none;display:block;margin-bottom:.45rem}
+footer a:hover{color:#fff}
+.fbot{border-top:1px solid #2a313b;padding-top:1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.86rem}
+@media(max-width:800px){.fgrid{grid-template-columns:1fr 1fr;gap:2rem}}
+
+/* --- sticky CTA + whatsapp (kept, but calm: no infinite animation) --- */
+.sticky-cta{position:fixed;bottom:20px;right:20px;background:var(--accent);color:#fff;padding:.8rem 1.4rem;border-radius:100px;font-weight:600;text-decoration:none;box-shadow:0 6px 24px rgba(0,0,0,.18);z-index:70;transition:.15s}
+.sticky-cta:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.wa{position:fixed;bottom:20px;left:20px;width:48px;height:48px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 6px 24px rgba(0,0,0,.18);z-index:70;transition:.15s}
+.wa:hover{transform:scale(1.06)}
+.wa svg{width:26px;height:26px;fill:#fff}
+.note{position:fixed;top:0;left:0;right:0;background:#12161c;color:#fff;text-align:center;font-size:.8rem;padding:.35rem;z-index:200;font-family:ui-monospace,monospace}
+body{padding-top:1.7rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="note">PREVIEW — DIRECTION A: "Trade Professional"</div>
+
+<div class="utility"><div class="wrap">
+  <span class="live"></span><span>Same-day service available — most jobs fixed the day you call</span>
+  <a href="tel:+61423680596">Call 0423 680 596</a>
+</div></div>
+
+<header><div class="wrap">
+  <a class="brand" href="#"><span class="mark">R</span> Rapid Tech Solutions</a>
+  <nav>
+    <a href="#services">Services</a><a href="#how">How it works</a>
+    <a href="#areas">Service areas</a><a href="#reviews">Reviews</a><a href="#">FAQ</a>
+  </nav>
+  <a class="callbtn" href="tel:+61423680596">0423 680 596</a>
+</div></header>
+
+<div class="hero"><div class="wrap hero-grid">
+  <div>
+    <p class="eyebrow">Cranbourne South &middot; Melbourne's south-east</p>
+    <h1>Computer not working? We'll tell you what's wrong before you pay anything.</h1>
+    <p class="lead">Free diagnosis, an upfront quote, and no charge if we can't fix it. We come to your home or business across Melbourne's south-east, usually the same day.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="tel:+61423680596">Call 0423 680 596</a>
+      <a class="btn btn-ghost" href="#contact">Book a callout</a>
+    </div>
+    <div class="assurance">
+      <span><i class="tick">&check;</i> No fix, no fee</span>
+      <span><i class="tick">&check;</i> Free diagnostics</span>
+      <span><i class="tick">&check;</i> 30-day warranty on repairs</span>
+    </div>
+  </div>
+
+  <div class="pricecard">
+    <h2>How pricing works</h2>
+    <div class="pricerow"><span class="label">Software &amp; setup<span class="sub">Slow computers, viruses, updates, new device setup</span></span><span class="amt">Fixed quote</span></div>
+    <div class="pricerow"><span class="label">Hardware repairs<span class="sub">Screens, drives, batteries, upgrades</span></span><span class="amt">Quoted on parts</span></div>
+    <div class="pricerow"><span class="label">Data recovery<span class="sub">Priced on how far gone the drive is</span></span><span class="amt">Free assessment</span></div>
+    <div class="pricerow"><span class="label">Wi-Fi &amp; networks<span class="sub">Depends on property size and layout</span></span><span class="amt">Quoted onsite</span></div>
+    <p class="pricenote"><strong>Diagnosis and quote are always free.</strong> You get a fixed price before any work starts, and you pay nothing if we can't fix it.</p>
+  </div>
+</div></div>
+
+<div class="proof"><div class="wrap">
+  <div><b>500+</b><span>Devices repaired</span></div>
+  <div><b>5.0</b><span>From 47 Google reviews</span></div>
+  <div><b>97%</b><span>Fixed same day</span></div>
+  <div><b>30+</b><span>Suburbs covered</span></div>
+</div></div>
+
+<section id="services"><div class="wrap">
+  <div class="sec-head">
+    <h2>What we fix</h2>
+    <p>Four things make up most of our work. If your problem isn't listed, call anyway — we'll tell you honestly whether it's worth repairing.</p>
+  </div>
+  <div class="services">
+    <div class="svc"><h3>Computer repairs</h3><p>Laptops, desktops, Macs and gaming PCs. We carry common parts, so most repairs are done in one visit.</p>
+      <ul><li>Won't start, crashes, or runs slow</li><li>Cracked screens and failed batteries</li><li>SSD and memory upgrades</li><li>Windows and macOS reinstalls</li></ul></div>
+    <div class="svc"><h3>Virus &amp; malware removal</h3><p>Full clean-up, then protection set up properly so it doesn't come back a fortnight later.</p>
+      <ul><li>Ransomware and spyware removal</li><li>Browser hijacks and pop-ups</li><li>Scam and remote-access recovery</li><li>Ongoing protection configured</li></ul></div>
+    <div class="svc"><h3>Data recovery</h3><p>Failed drives, dead SSDs and deleted files. Free assessment first — we'll tell you the odds before you commit.</p>
+      <ul><li>Hard drive and SSD recovery</li><li>Accidentally deleted files</li><li>Corrupted or unreadable storage</li><li>Backup set up so it can't recur</li></ul></div>
+    <div class="svc"><h3>Wi-Fi &amp; networks</h3><p>The most common callout we get. Usually it's coverage, not your internet plan.</p>
+      <ul><li>Dead zones and dropouts</li><li>Mesh Wi-Fi installed properly</li><li>NBN faults diagnosed</li><li>Small business networks</li></ul></div>
+  </div>
+</div></section>
+
+<section id="how" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head"><h2>How a callout works</h2><p>No surprises. You'll know the cost before we touch anything.</p></div>
+  <div class="steps">
+    <div class="step"><h3>You call</h3><p>Describe the problem. We'll often diagnose it on the phone and tell you if it's something you can fix yourself.</p></div>
+    <div class="step"><h3>We quote</h3><p>A fixed price before any work starts. If it's not economical to repair, we say so.</p></div>
+    <div class="step"><h3>We fix it</h3><p>At your place, or we take it to the workshop if it needs bench time. Most jobs are same-day.</p></div>
+    <div class="step"><h3>You're covered</h3><p>30-day warranty on the repair. If it fails again in that window, we come back at no cost.</p></div>
+  </div>
+</div></section>
+
+<section id="areas" class="areas"><div class="wrap">
+  <div class="sec-head"><h2>Where we go</h2><p>Based in Cranbourne South. No call-out surcharge anywhere in this list.</p></div>
+  <div class="arealist">
+    <a href="#">Cranbourne</a><a href="#">Berwick</a><a href="#">Narre Warren</a><a href="#">Dandenong</a>
+    <a href="#">Frankston</a><a href="#">Carrum Downs</a><a href="#">Seaford</a><a href="#">Patterson Lakes</a>
+    <a href="#">Chelsea</a><a href="#">Mordialloc</a>
+  </div>
+</div></section>
+
+<section id="reviews"><div class="wrap">
+  <div class="sec-head"><h2>What customers say</h2><p>Rated 5.0 from 47 Google reviews.</p></div>
+  <div class="reviews">
+    <div class="review"><div class="stars">★★★★★</div><p>"Fantastic service. My laptop was running incredibly slow and they fixed it same day. Honest, reliable, explained what they were doing. Highly recommend."</p><cite>Sarah M.<span>Patterson Lakes</span></cite></div>
+    <div class="review"><div class="stars">★★★★★</div><p>"Saved my business. We had a ransomware attack and they got us up and running within hours. Professional, knowledgeable and affordable."</p><cite>David R.<span>Seaford — business owner</span></cite></div>
+    <div class="review"><div class="stars">★★★★★</div><p>"Finally someone who explains things without the jargon. Sorted our whole home network and now it works everywhere. Great value."</p><cite>The Thompson Family<span>Frankston</span></cite></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <a class="brand" href="#" style="color:#fff;margin-bottom:.9rem"><span class="mark" style="background:#fff;color:var(--ink)">R</span> Rapid Tech Solutions</a>
+      <p style="margin-bottom:.5rem">Cranbourne South, VIC 3977</p>
+      <p style="margin-bottom:.5rem">ABN 64 654 861 096</p>
+      <p>Mon–Fri, 9am–5pm AEST</p>
+    </div>
+    <div><h4>Services</h4><a href="#">Computer repairs</a><a href="#">Virus removal</a><a href="#">Data recovery</a><a href="#">Wi-Fi &amp; networks</a></div>
+    <div><h4>Company</h4><a href="#">About</a><a href="#">Service areas</a><a href="#">Blog</a><a href="#">FAQ</a></div>
+    <div><h4>Contact</h4><a href="tel:+61423680596">0423 680 596</a><a href="mailto:support@rapidtechsolutions.au">support@rapidtechsolutions.au</a><a href="#">WhatsApp</a></div>
+  </div>
+  <div class="fbot"><span>&copy; 2026 Rapid Tech Solutions. All rights reserved.</span><span><a href="#" style="display:inline">Privacy</a> &middot; <a href="#" style="display:inline">Terms</a></span></div>
+</div></footer>
+
+<a class="sticky-cta" href="#contact">Get help today</a>
+<a class="wa" href="https://wa.me/61423680596" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15s-.77.96-.94 1.16-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.48 9 9 0 0 1-1.66-2.07c-.17-.3 0-.46.13-.6.13-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.71.63.72.23 1.38.2 1.9.12.58-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.1.8.83-3-.2-.31A8.2 8.2 0 1 1 12 20.2z"/></svg></a>
+</body>
+</html>

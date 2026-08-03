@@ -1,0 +1,7 @@
+# Preview directory — not part of the live site.
+# Kept out of search results at the header level (belt and braces alongside
+# the per-file <meta name="robots"> tags), since these are unfinished designs.
+<IfModule mod_headers.c>
+    Header always set X-Robots-Tag "noindex, nofollow, noarchive"
+</IfModule>
+Options -Indexes
