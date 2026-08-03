@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You | Rapid Tech Solutions</title>
     <meta name="robots" content="noindex, follow">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/contactthanks/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/contactthanks/">
     <meta name="description" content="Thanks for getting in touch. We will respond within one business hour during opening hours.">
     <style>
         body {

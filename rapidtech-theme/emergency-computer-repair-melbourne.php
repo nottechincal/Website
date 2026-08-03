@@ -14,11 +14,11 @@ $year = date('Y');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emergency Computer Repair Melbourne | Same-Day</title>
     <meta name="description" content="Urgent computer repairs across Melbourne's south-east. Same-day onsite callouts for crashed systems, dead machines and business outages. Call 0423 680 596.">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/virus-removal-dandenong/">
     <meta property="og:title" content="Emergency Computer Repair Melbourne | Rapid Tech Solutions">
     <meta property="og:description" content="Same-day virus & malware removal service in Melbourne. Call 0423 680 596">
-    <meta property="og:url" content="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
-    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:url" content="https://rapidtechsolutions.au/virus-removal-dandenong/">
+    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">

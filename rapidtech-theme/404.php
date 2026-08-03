@@ -18,7 +18,7 @@ http_response_code(404);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found | Rapid Tech Solutions</title>
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/404/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/404/">
     <meta name="description" content="That page could not be found. Browse our computer repair services or call 0423 680 596 for help.">
     <meta name="robots" content="noindex, follow">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">

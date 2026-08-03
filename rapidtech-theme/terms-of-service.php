@@ -18,7 +18,7 @@ $current_year = date('Y');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | Rapid Tech Solutions</title>
     <meta name="description" content="The terms covering Rapid Tech Solutions IT support and computer repair services, including quotes, warranties, liability and payment conditions.">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/terms-of-service/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/terms-of-service/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">

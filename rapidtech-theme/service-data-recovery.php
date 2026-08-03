@@ -16,13 +16,13 @@ if (function_exists('get_template_directory_uri')) {
     <meta name="description" content="Recover deleted files, failed hard drives, dead SSDs and corrupted storage. Free assessment before any work, and no charge if the data cannot be recovered.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Rapid Tech Solutions">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/service-data-recovery/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/service-data-recovery/">
 
     <meta property="og:title" content="Data Recovery Patterson Lakes | Lost Files Retrieved">
     <meta property="og:description" content="Expert data recovery from failed drives, deleted files, and corrupted storage. Free assessment, no data no fee.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.rapidtechsolutions.au/service-data-recovery/">
-    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:url" content="https://rapidtechsolutions.au/service-data-recovery/">
+    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
 
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
@@ -70,8 +70,8 @@ if (function_exists('get_template_directory_uri')) {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rapidtechsolutions.au/"},
-            {"@type": "ListItem", "position": 2, "name": "Data Recovery", "item": "https://www.rapidtechsolutions.au/service-data-recovery/"}
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://rapidtechsolutions.au/"},
+            {"@type": "ListItem", "position": 2, "name": "Data Recovery", "item": "https://rapidtechsolutions.au/service-data-recovery/"}
         ]
     }
     </script>

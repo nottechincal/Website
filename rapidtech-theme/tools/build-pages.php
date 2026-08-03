@@ -35,7 +35,7 @@ Template Name: Redirect: $from
 Consolidated into $to — see inc/locations.php.
 */
 header('HTTP/1.1 301 Moved Permanently');
-header('Location: https://www.rapidtechsolutions.au$to', true, 301);
+header('Location: https://rapidtechsolutions.au$to', true, 301);
 exit;
 
 PHP_TPL);

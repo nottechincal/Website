@@ -18,7 +18,7 @@ $current_year = date('Y');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computer Tips & IT Guides | Rapid Tech Solutions</title>
     <meta name="description" content="Free computer tips, security guides and IT how-tos for Melbourne households and small businesses. Practical advice from working technicians.">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/blog/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/blog/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,11 +31,11 @@ $current_year = date('Y');
         "@type": "Blog",
         "name": "Rapid Tech Solutions IT Help Blog",
         "description": "Free computer tips, IT guides, and tech help for Melbourne residents",
-        "url": "https://www.rapidtechsolutions.au/blog/",
+        "url": "https://rapidtechsolutions.au/blog/",
         "publisher": {
             "@type": "Organization",
             "name": "Rapid Tech Solutions",
-            "logo": "https://www.rapidtechsolutions.au/images/logo.png"
+            "logo": "https://rapidtechsolutions.au/images/logo.png"
         }
     }
     </script>

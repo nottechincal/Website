@@ -20,7 +20,7 @@ final class RT
     /* ---------------------------------------------------------------- site */
 
     /** Canonical origin. No trailing slash. Must match the .htaccess redirect. */
-    const ORIGIN = 'https://www.rapidtechsolutions.au';
+    const ORIGIN = 'https://rapidtechsolutions.au';
 
     const NAME       = 'Rapid Tech Solutions';
     const LEGAL_NAME = 'Rapid Tech Solutions';

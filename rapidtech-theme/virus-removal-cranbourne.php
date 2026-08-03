@@ -14,11 +14,11 @@ $year = date('Y');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virus Removal Cranbourne | Same-Day Cleanup</title>
     <meta name="description" content="Complete virus, spyware and ransomware removal in Cranbourne 3977. Same-day service, full system clean-up and protection set up afterwards. No fix, no fee.">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/virus-removal-dandenong/">
     <meta property="og:title" content="Virus Removal Cranbourne | Rapid Tech Solutions">
     <meta property="og:description" content="Same-day virus & malware removal service in Cranbourne. Call 0423 680 596">
-    <meta property="og:url" content="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
-    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:url" content="https://rapidtechsolutions.au/virus-removal-dandenong/">
+    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">

@@ -16,13 +16,13 @@ if (function_exists('get_template_directory_uri')) {
     <meta name="description" content="Complete virus, spyware and ransomware removal with protection set up afterwards so it does not come back. Same-day service across Melbourne's south-east.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Rapid Tech Solutions">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/service-virus-removal/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/service-virus-removal/">
 
     <meta property="og:title" content="Virus & Malware Removal Patterson Lakes | Computer Protection">
     <meta property="og:description" content="Professional virus removal and malware protection. Secure your computer from threats. Fast, thorough service.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.rapidtechsolutions.au/service-virus-removal/">
-    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:url" content="https://rapidtechsolutions.au/service-virus-removal/">
+    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
 
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
@@ -70,8 +70,8 @@ if (function_exists('get_template_directory_uri')) {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rapidtechsolutions.au/"},
-            {"@type": "ListItem", "position": 2, "name": "Virus Removal", "item": "https://www.rapidtechsolutions.au/service-virus-removal/"}
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://rapidtechsolutions.au/"},
+            {"@type": "ListItem", "position": 2, "name": "Virus Removal", "item": "https://rapidtechsolutions.au/service-virus-removal/"}
         ]
     }
     </script>

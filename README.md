@@ -1,6 +1,6 @@
 # Rapid Tech Solutions — website
 
-WordPress theme and web-root files for [rapidtechsolutions.au](https://www.rapidtechsolutions.au).
+WordPress theme and web-root files for [rapidtechsolutions.au](https://rapidtechsolutions.au).
 
 ```
 .
@@ -104,7 +104,7 @@ the rest of the files already in place when you find out.
 
 ## After deploying
 
-1. Check `https://www.rapidtechsolutions.au/robots.txt` and `/sitemap.xml`
+1. Check `https://rapidtechsolutions.au/robots.txt` and `/sitemap.xml`
    return 200 from the **root**, not the theme folder.
 2. Confirm `http://`, `https://`, apex and `www` all land on one URL.
 3. Re-submit the sitemap in Search Console and use URL Inspection on the

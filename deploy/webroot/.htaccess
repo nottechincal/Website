@@ -56,39 +56,54 @@ RewriteEngine On
 # 1. Force HTTPS.
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !=https
-RewriteRule ^ https://www.rapidtechsolutions.au%{REQUEST_URI} [R=301,L]
+RewriteRule ^ https://rapidtechsolutions.au%{REQUEST_URI} [R=301,L]
 
-# 2. Force the www host (matches every canonical tag and the sitemap).
-RewriteCond %{HTTP_HOST} !^www\.rapidtechsolutions\.au$ [NC]
-RewriteRule ^ https://www.rapidtechsolutions.au%{REQUEST_URI} [R=301,L]
+# 2. Force the apex (non-www) host.
+#
+# WordPress's own siteurl/home option is set to the apex domain — confirmed
+# via the REST API discovery Link header, which WordPress generates from
+# home_url() rather than any static text: it reads
+# <https://rapidtechsolutions.au/index.php?rest_route=/>. The live server was
+# also already 301-ing www -> apex before this rule existed (checked with curl
+# against a plain-WordPress .htaccess with no host logic at all), which means
+# that redirect is coming from WordPress's redirect_canonical() itself.
+#
+# This rule intentionally forces the SAME direction WordPress already
+# enforces. Forcing the opposite direction here would fight that PHP-level
+# redirect and produce an infinite loop (apex -> www via this rule, www ->
+# apex via WordPress, repeating). If the site's canonical host is ever changed
+# in WordPress (Settings > General), this rule must change to match — not the
+# other way around.
+RewriteCond %{HTTP_HOST} ^www\.rapidtechsolutions\.au$ [NC]
+RewriteRule ^ https://rapidtechsolutions.au%{REQUEST_URI} [R=301,L]
 
 # ------------------------------------------- consolidated suburb pages (301)
 # 35 near-duplicate suburb pages and 14 postcode pages were 83% identical to
 # one another. They now live as sections on ten substantial pages. Keep these
 # rules permanently: they carry the existing link equity across.
 
-RedirectMatch 301 ^/computer-repairs-(cranbourne-east|cranbourne-north|cranbourne-west|botanic-ridge|junction-village|devon-meadows|sandhurst|clyde|clyde-north|lynbrook|lyndhurst)/?$ https://www.rapidtechsolutions.au/computer-repairs-cranbourne/
-RedirectMatch 301 ^/computer-repairs-(narre-warren-south|hampton-park)/?$                                   https://www.rapidtechsolutions.au/computer-repairs-narre-warren/
-RedirectMatch 301 ^/computer-repairs-(noble-park|keysborough|springvale)/?$                                 https://www.rapidtechsolutions.au/computer-repairs-dandenong/
-RedirectMatch 301 ^/computer-repairs-(langwarrin|pearcedale)/?$                                             https://www.rapidtechsolutions.au/computer-repairs-frankston/
-RedirectMatch 301 ^/computer-repairs-(skye)/?$                                                              https://www.rapidtechsolutions.au/computer-repairs-carrum-downs/
-RedirectMatch 301 ^/computer-repairs-(carrum|bonbeach)/?$                                                   https://www.rapidtechsolutions.au/computer-repairs-patterson-lakes/
-RedirectMatch 301 ^/computer-repairs-(chelsea-heights|edithvale|aspendale)/?$                               https://www.rapidtechsolutions.au/computer-repairs-chelsea/
-RedirectMatch 301 ^/computer-repairs-(mentone)/?$                                                           https://www.rapidtechsolutions.au/computer-repairs-mordialloc/
+RedirectMatch 301 ^/computer-repairs-(cranbourne-east|cranbourne-north|cranbourne-west|botanic-ridge|junction-village|devon-meadows|sandhurst|clyde|clyde-north|lynbrook|lyndhurst)/?$ https://rapidtechsolutions.au/computer-repairs-cranbourne/
+RedirectMatch 301 ^/computer-repairs-(narre-warren-south|hampton-park)/?$                                   https://rapidtechsolutions.au/computer-repairs-narre-warren/
+RedirectMatch 301 ^/computer-repairs-(noble-park|keysborough|springvale)/?$                                 https://rapidtechsolutions.au/computer-repairs-dandenong/
+RedirectMatch 301 ^/computer-repairs-(langwarrin|pearcedale)/?$                                             https://rapidtechsolutions.au/computer-repairs-frankston/
+RedirectMatch 301 ^/computer-repairs-(skye)/?$                                                              https://rapidtechsolutions.au/computer-repairs-carrum-downs/
+RedirectMatch 301 ^/computer-repairs-(carrum|bonbeach)/?$                                                   https://rapidtechsolutions.au/computer-repairs-patterson-lakes/
+RedirectMatch 301 ^/computer-repairs-(chelsea-heights|edithvale|aspendale)/?$                               https://rapidtechsolutions.au/computer-repairs-chelsea/
+RedirectMatch 301 ^/computer-repairs-(mentone)/?$                                                           https://rapidtechsolutions.au/computer-repairs-mordialloc/
 
-RedirectMatch 301 ^/postcode-(3173|3174|3175)/?$   https://www.rapidtechsolutions.au/computer-repairs-dandenong/
-RedirectMatch 301 ^/postcode-(3192|3193|3194|3195)/?$ https://www.rapidtechsolutions.au/computer-repairs-mordialloc/
-RedirectMatch 301 ^/postcode-3196/?$               https://www.rapidtechsolutions.au/computer-repairs-patterson-lakes/
-RedirectMatch 301 ^/postcode-3198/?$               https://www.rapidtechsolutions.au/computer-repairs-seaford/
-RedirectMatch 301 ^/postcode-(3199|3200)/?$        https://www.rapidtechsolutions.au/computer-repairs-frankston/
-RedirectMatch 301 ^/postcode-3201/?$               https://www.rapidtechsolutions.au/computer-repairs-carrum-downs/
+RedirectMatch 301 ^/postcode-(3173|3174|3175)/?$   https://rapidtechsolutions.au/computer-repairs-dandenong/
+RedirectMatch 301 ^/postcode-(3192|3193|3194|3195)/?$ https://rapidtechsolutions.au/computer-repairs-mordialloc/
+RedirectMatch 301 ^/postcode-3196/?$               https://rapidtechsolutions.au/computer-repairs-patterson-lakes/
+RedirectMatch 301 ^/postcode-3198/?$               https://rapidtechsolutions.au/computer-repairs-seaford/
+RedirectMatch 301 ^/postcode-(3199|3200)/?$        https://rapidtechsolutions.au/computer-repairs-frankston/
+RedirectMatch 301 ^/postcode-3201/?$               https://rapidtechsolutions.au/computer-repairs-carrum-downs/
 
 # Wantirna (3152) and Rowville (3178) are ~30km east with no neighbouring page.
-RedirectMatch 301 ^/postcode-(3152|3178)/?$        https://www.rapidtechsolutions.au/service-areas/
+RedirectMatch 301 ^/postcode-(3152|3178)/?$        https://rapidtechsolutions.au/service-areas/
 
 # Retired duplicates.
-RedirectMatch 301 ^/service-area/?$                https://www.rapidtechsolutions.au/service-areas/
-RedirectMatch 301 ^/page-privacy/?$                https://www.rapidtechsolutions.au/privacy-policy/
+RedirectMatch 301 ^/service-area/?$                https://rapidtechsolutions.au/service-areas/
+RedirectMatch 301 ^/page-privacy/?$                https://rapidtechsolutions.au/privacy-policy/
 
 # ------------------------------------------------- drop the .php extension
 # /about.php and /about/ both returned 200, so every page had a duplicate.

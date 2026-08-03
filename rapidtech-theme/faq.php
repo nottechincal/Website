@@ -17,11 +17,11 @@ $year = date('Y');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computer Repair FAQ | Rapid Tech Solutions</title>
     <meta name="description" content="Straight answers on pricing, callout times, service areas, warranties and data security for computer repairs across Melbourne's south-east.">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/faq/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/faq/">
     <meta property="og:title" content="FAQ - Computer Repair Questions Answered">
     <meta property="og:description" content="Get answers to your computer repair questions from Melbourne's trusted IT experts.">
-    <meta property="og:url" content="https://www.rapidtechsolutions.au/faq/">
-    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:url" content="https://rapidtechsolutions.au/faq/">
+    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">

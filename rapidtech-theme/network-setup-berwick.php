@@ -14,11 +14,11 @@ $year = date('Y');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Network & Wi-Fi Setup Berwick | Same-Day Service</title>
     <meta name="description" content="Wi-Fi and network setup in Berwick 3806. Fix dead zones, install mesh systems, sort out NBN connections and business networks. Same-day onsite service.">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/virus-removal-dandenong/">
     <meta property="og:title" content="Network Setup Berwick | Rapid Tech Solutions">
     <meta property="og:description" content="Same-day virus & malware removal service in Berwick. Call 0423 680 596">
-    <meta property="og:url" content="https://www.rapidtechsolutions.au/virus-removal-dandenong/">
-    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:url" content="https://rapidtechsolutions.au/virus-removal-dandenong/">
+    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">

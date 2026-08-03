@@ -16,13 +16,13 @@ if (function_exists('get_template_directory_uri')) {
     <meta name="description" content="Laptop, desktop and Mac repairs across Melbourne's south-east. Free diagnostics, same-day service and a 30-day warranty. No fix, no fee. Call 0423 680 596.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Rapid Tech Solutions">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/service-computer-repairs/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/service-computer-repairs/">
 
     <meta property="og:title" content="Computer Repairs Patterson Lakes | Same-Day Service">
     <meta property="og:description" content="Fast, reliable computer repairs for laptops, desktops and Macs. Free diagnostics, upfront quotes.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.rapidtechsolutions.au/service-computer-repairs/">
-    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:url" content="https://rapidtechsolutions.au/service-computer-repairs/">
+    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
 
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
@@ -70,8 +70,8 @@ if (function_exists('get_template_directory_uri')) {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rapidtechsolutions.au/"},
-            {"@type": "ListItem", "position": 2, "name": "Computer Repairs", "item": "https://www.rapidtechsolutions.au/service-computer-repairs/"}
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://rapidtechsolutions.au/"},
+            {"@type": "ListItem", "position": 2, "name": "Computer Repairs", "item": "https://rapidtechsolutions.au/service-computer-repairs/"}
         ]
     }
     </script>

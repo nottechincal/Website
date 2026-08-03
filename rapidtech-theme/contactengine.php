@@ -94,7 +94,7 @@ if ($success) {
     $customerMessage .= "Best regards,\n";
     $customerMessage .= "The Rapid Tech Solutions Team\n";
     $customerMessage .= "Patterson Lakes, Melbourne\n";
-    $customerMessage .= "https://www.rapidtechsolutions.au\n";
+    $customerMessage .= "https://rapidtechsolutions.au\n";
 
     $customerHeaders = [
         'From: ' . $emailFrom,

@@ -14,7 +14,7 @@ if (function_exists('get_template_directory_uri')) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Spot and Avoid Tech Support Scams</title>
     <meta name="description" content="Recognise fake tech support calls, phishing emails and remote-access scams targeting Australians, and know exactly what to do if you have been caught.">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/blog-scam-protection/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/blog-scam-protection/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@ if (function_exists('get_template_directory_uri')) {
         "@type": "Article",
         "headline": "How to Spot and Avoid Tech Support Scams",
         "description": "Learn to identify fake tech support calls, phishing emails, and online scams targeting Melbourne residents. Protect your family and finances.",
-        "image": "https://www.rapidtechsolutions.au/images/blog/scam-protection.jpg",
+        "image": "https://rapidtechsolutions.au/images/blog/scam-protection.jpg",
         "author": {
             "@type": "Organization",
             "name": "Rapid Tech Solutions"
@@ -37,14 +37,14 @@ if (function_exists('get_template_directory_uri')) {
             "name": "Rapid Tech Solutions",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.rapidtechsolutions.au/images/logo.png"
+                "url": "https://rapidtechsolutions.au/images/logo.png"
             }
         },
         "datePublished": "2025-11-17",
         "dateModified": "2025-11-17",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://www.rapidtechsolutions.au/blog-scam-protection/"
+            "@id": "https://rapidtechsolutions.au/blog-scam-protection/"
         }
     }
     </script>
@@ -57,13 +57,13 @@ if (function_exists('get_template_directory_uri')) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://www.rapidtechsolutions.au/"
+                "item": "https://rapidtechsolutions.au/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Blog",
-                "item": "https://www.rapidtechsolutions.au/blog/"
+                "item": "https://rapidtechsolutions.au/blog/"
             },
             {
                 "@type": "ListItem",

@@ -16,13 +16,13 @@ if (function_exists('get_template_directory_uri')) {
     <meta name="description" content="Fix slow or patchy Wi-Fi, extend coverage with mesh systems, sort NBN faults and set up business networks across Melbourne's south-east. Same-day service.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Rapid Tech Solutions">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/service-network-wifi/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/service-network-wifi/">
 
     <meta property="og:title" content="Network & WiFi Solutions Patterson Lakes | Faster Internet">
     <meta property="og:description" content="Professional WiFi and network services. Fix dead zones, slow speeds, and connection problems. Expert local technician.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.rapidtechsolutions.au/service-network-wifi/">
-    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:url" content="https://rapidtechsolutions.au/service-network-wifi/">
+    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
 
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
@@ -70,8 +70,8 @@ if (function_exists('get_template_directory_uri')) {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rapidtechsolutions.au/"},
-            {"@type": "ListItem", "position": 2, "name": "Network & WiFi", "item": "https://www.rapidtechsolutions.au/service-network-wifi/"}
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://rapidtechsolutions.au/"},
+            {"@type": "ListItem", "position": 2, "name": "Network & WiFi", "item": "https://rapidtechsolutions.au/service-network-wifi/"}
         ]
     }
     </script>

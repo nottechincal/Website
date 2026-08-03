@@ -27,9 +27,9 @@ if (function_exists('get_template_directory_uri')) {
     <meta property="og:title" content="Computer Repairs &amp; IT Support Melbourne | Same-Day">
     <meta property="og:description" content="Same-day computer repairs, virus removal, data recovery and Wi-Fi fixes across Melbourne's south-east. We come to you. No fix, no fee.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.rapidtechsolutions.au/">
+    <meta property="og:url" content="https://rapidtechsolutions.au/">
     <meta property="og:locale" content="en_AU">
-    <meta property="og:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Rapid Tech Solutions — computer repairs and IT support, Melbourne">
@@ -37,8 +37,8 @@ if (function_exists('get_template_directory_uri')) {
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Computer Repairs &amp; IT Support Melbourne | Same-Day">
     <meta name="twitter:description" content="Same-day computer repairs, virus removal, data recovery and Wi-Fi fixes across Melbourne's south-east. We come to you. No fix, no fee.">
-    <meta name="twitter:image" content="https://www.rapidtechsolutions.au/images/og-image.jpg">
-    <link rel="canonical" href="https://www.rapidtechsolutions.au/">
+    <meta name="twitter:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
+    <link rel="canonical" href="https://rapidtechsolutions.au/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $base_path; ?>/images/favicon-large.svg">
@@ -72,20 +72,20 @@ if (function_exists('get_template_directory_uri')) {
         "@graph": [
             {
                 "@type": "WebSite",
-                "@id": "https://www.rapidtechsolutions.au/#website",
-                "url": "https://www.rapidtechsolutions.au/",
+                "@id": "https://rapidtechsolutions.au/#website",
+                "url": "https://rapidtechsolutions.au/",
                 "name": "Rapid Tech Solutions",
                 "inLanguage": "en-AU",
-                "publisher": { "@id": "https://www.rapidtechsolutions.au/#business" }
+                "publisher": { "@id": "https://rapidtechsolutions.au/#business" }
             },
             {
                 "@type": "Organization",
-                "@id": "https://www.rapidtechsolutions.au/#organization",
+                "@id": "https://rapidtechsolutions.au/#organization",
                 "name": "Rapid Tech Solutions",
-                "url": "https://www.rapidtechsolutions.au/",
+                "url": "https://rapidtechsolutions.au/",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://www.rapidtechsolutions.au/images/logo.png"
+                    "url": "https://rapidtechsolutions.au/images/logo.png"
                 },
                 "contactPoint": {
                     "@type": "ContactPoint",
@@ -106,14 +106,14 @@ if (function_exists('get_template_directory_uri')) {
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "@id": "https://www.rapidtechsolutions.au/#business",
+        "@id": "https://rapidtechsolutions.au/#business",
         "name": "Rapid Tech Solutions",
         "description": "Computer repair, cybersecurity, data recovery, and managed IT support in Cranbourne South.",
         "telephone": "+61423680596",
         "email": "support@rapidtechsolutions.au",
-        "url": "https://www.rapidtechsolutions.au/",
-        "logo": "https://www.rapidtechsolutions.au/images/logo.png",
-        "image": "https://www.rapidtechsolutions.au/images/og-image.jpg",
+        "url": "https://rapidtechsolutions.au/",
+        "logo": "https://rapidtechsolutions.au/images/logo.png",
+        "image": "https://rapidtechsolutions.au/images/og-image.jpg",
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",

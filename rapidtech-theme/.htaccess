@@ -33,7 +33,7 @@ Options -Indexes
 
 # ---------------------------------------------------------------------------
 # HARDENING — enable only after confirming every page resolves at its own
-# permalink (e.g. https://www.rapidtechsolutions.au/computer-repairs-berwick/
+# permalink (e.g. https://rapidtechsolutions.au/computer-repairs-berwick/
 # returns 200 in a private window). Uncommenting this before that check will
 # return 403 for any page still being served from the theme directory.
 # ---------------------------------------------------------------------------

@@ -4,5 +4,5 @@ Template Name: Redirect: computer-repairs-springvale
 Consolidated into /computer-repairs-dandenong/ — see inc/locations.php.
 */
 header('HTTP/1.1 301 Moved Permanently');
-header('Location: https://www.rapidtechsolutions.au/computer-repairs-dandenong/', true, 301);
+header('Location: https://rapidtechsolutions.au/computer-repairs-dandenong/', true, 301);
 exit;

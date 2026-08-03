@@ -4,5 +4,5 @@ Template Name: Redirect: computer-repairs-carrum
 Consolidated into /computer-repairs-patterson-lakes/ — see inc/locations.php.
 */
 header('HTTP/1.1 301 Moved Permanently');
-header('Location: https://www.rapidtechsolutions.au/computer-repairs-patterson-lakes/', true, 301);
+header('Location: https://rapidtechsolutions.au/computer-repairs-patterson-lakes/', true, 301);
 exit;
