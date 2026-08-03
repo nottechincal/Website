@@ -10,10 +10,15 @@ Local prose for the five primaries that had a postcode page is reused verbatim
 from that page (it was the genuinely suburb-specific writing on the site).
 """
 import json
+import pathlib
 import re
 
-harvest = {c['postcode']: c for c in json.load(open(
-    '/tmp/claude-0/-home-user-Website/4882785d-ea6e-55e8-9a33-b29dc4baee7c/scratchpad/locations.json'))}
+# Source prose harvested from the original postcode-*.php templates before they
+# were consolidated. Committed to the repo so this build is reproducible — it
+# previously read from a scratch path that only existed in one session.
+_DATA = pathlib.Path(__file__).parent / 'data' / 'postcode-source.json'
+
+harvest = {c['postcode']: c for c in json.loads(_DATA.read_text(encoding='utf-8'))}
 
 
 def prose(postcode):
@@ -454,7 +459,7 @@ function rt_location_path(string $suburb): ?string
     return $index[strtolower(trim($suburb))] ?? null;
 }""")
 
-open('/home/user/Website/rapidtech-theme/inc/locations.php', 'w').write('\n'.join(out) + '\n')
+open(pathlib.Path(__file__).parents[1] / 'inc' / 'locations.php', 'w').write('\n'.join(out) + '\n')
 
 print(f"inc/locations.php written: {len(PRIMARIES)} primaries, {len(REDIRECTS)} redirects")
 covered = sum(len(d['absorbs']) for d in PRIMARIES.values())
