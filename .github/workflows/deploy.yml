@@ -52,6 +52,12 @@ jobs:
           done < <(find rapidtech-theme -name '*.php' -print0)
           exit $fail
 
+      # The theme routes its own URLs. If a slug loses its rewrite rule the
+      # page silently falls through to the homepage, which is exactly the
+      # failure that made 74 sitemap URLs serve identical content.
+      - name: Verify every sitemap URL has a route
+        run: php rapidtech-theme/tools/test-routes.php
+
       - name: Validate JSON-LD and sitemap
         run: |
           php rapidtech-theme/tools/build-sitemap.php

@@ -1,83 +1,174 @@
 <?php
 /**
- * Theme Functions for Rapid Tech Solutions
+ * Theme functions for Rapid Tech Solutions.
+ *
+ * The important part of this file is the router.
+ *
+ * Previously the theme only registered page *templates*, which WordPress can
+ * only use if a Page exists in the database with that template assigned. None
+ * did. So every URL in sitemap.xml — /computer-repairs-berwick/, /faq/, all 74
+ * of them — 404'd and fell through to the front page, and Google was served
+ * the homepage under 74 different addresses. That is almost certainly why
+ * indexing was failing.
+ *
+ * Rather than requiring 30-odd Pages to be hand-created and kept in sync, the
+ * theme now registers real rewrite rules for the slugs it actually provides
+ * and renders the matching template directly.
  */
 
-/**
- * Register custom page templates
- */
-function rapidtech_custom_templates($templates) {
-    $templates['service-area.php'] = 'Service Area';
-    $templates['blog-malware-protection.php'] = 'Blog: Malware Protection';
-    $templates['blog-hardware-upgrades.php'] = 'Blog: Hardware Upgrades';
-    $templates['blog-home-network.php'] = 'Blog: Home Network';
-    $templates['blog-cloud-services.php'] = 'Blog: Cloud Services';
-    $templates['postcode-3196.php'] = 'Postcode: Bonbeach (3196)';
-    $templates['postcode-3195.php'] = 'Postcode: Aspendale, Braeside, Mordialloc (3195)';
-    $templates['postcode-3194.php'] = 'Postcode: Mentone (3194)';
-    $templates['postcode-3193.php'] = 'Postcode: Beaumaris (3193)';
-    $templates['postcode-3192.php'] = 'Postcode: Cheltenham (3192)';
-    $templates['postcode-3175.php'] = 'Postcode: Dandenong (3175)';
-    $templates['postcode-3173.php'] = 'Postcode: Keysborough (3173)';
-    $templates['postcode-3201.php'] = 'Postcode: Carrum Downs (3201)';
-    $templates['postcode-3198.php'] = 'Postcode: Seaford (3198)';
-    $templates['postcode-3199.php'] = 'Postcode: Frankston (3199)';
-    $templates['postcode-3200.php'] = 'Postcode: Frankston North (3200)';
-    $templates['postcode-3174.php'] = 'Postcode: Noble Park (3174)';
-    $templates['postcode-3178.php'] = 'Postcode: Rowville (3178)';
-    $templates['postcode-3152.php'] = 'Postcode: Wantirna (3152)';
-    
-    return $templates;
-}
-add_filter('theme_page_templates', 'rapidtech_custom_templates');
+require_once __DIR__ . '/inc/config.php';
+require_once __DIR__ . '/inc/locations.php';
 
 /**
- * Load the correct template for the page
+ * Every URL this theme owns: slug => template file.
+ *
+ * Built from the location data so suburb pages and their 301 stubs can never
+ * drift out of sync with the router.
  */
-function rapidtech_load_template($template) {
-    global $post;
-    if ($post && !empty(get_post_meta($post->ID, '_wp_page_template', true))) {
-        $page_template = get_post_meta($post->ID, '_wp_page_template', true);
-        if (file_exists(get_template_directory() . '/' . $page_template)) {
-            return get_template_directory() . '/' . $page_template;
-        }
+function rt_routes(): array {
+    static $routes = null;
+    if ($routes !== null) {
+        return $routes;
     }
-    return $template;
+
+    $routes = [];
+
+    // Standalone templates.
+    foreach ([
+        'about', 'faq', 'blog', 'service-areas', 'privacy-policy', 'terms-of-service',
+        'thank-you', 'contactthanks', 'paymentpage',
+        'service-computer-repairs', 'service-data-recovery',
+        'service-network-wifi', 'service-virus-removal',
+        'blog-cloud-services', 'blog-computer-maintenance', 'blog-hardware-upgrades',
+        'blog-home-network', 'blog-malware-protection', 'blog-password-security',
+        'blog-scam-protection',
+        'data-recovery-frankston', 'data-recovery-patterson-lakes',
+        'emergency-computer-repair-melbourne', 'network-setup-berwick',
+        'virus-removal-cranbourne', 'virus-removal-dandenong',
+    ] as $slug) {
+        $routes[$slug] = $slug . '.php';
+    }
+
+    // Consolidated suburb pages.
+    foreach (array_keys(rt_locations()) as $slug) {
+        $routes['computer-repairs-' . $slug] = 'computer-repairs-' . $slug . '.php';
+    }
+
+    // Retired slugs that 301 to their primary. These must stay routable, or
+    // the redirects never fire and the old URLs simply 404.
+    foreach (array_keys(rt_location_redirects()) as $slug) {
+        $routes[$slug] = $slug . '.php';
+    }
+
+    // Only claim a slug if the template is actually on disk.
+    $routes = array_filter($routes, fn($file) => is_readable(RT::path($file)));
+
+    return $routes;
 }
-add_filter('template_include', 'rapidtech_load_template');
 
 /**
- * Enqueue scripts and styles
+ * Register a rewrite rule per route.
+ *
+ * 'top' priority so these resolve before WordPress's generic page lookup,
+ * which is what was sending these URLs to the front page.
  */
-function rapidtech_enqueue_scripts() {
-    wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), '3.6.0', true);
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css', array(), '6.0.0-beta3');
-    wp_enqueue_style('open-sans', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap', array(), null);
-    wp_enqueue_style('theme-styles', get_template_directory_uri() . '/css/styles.css', array(), '1.0');
-}
-add_action('wp_enqueue_scripts', 'rapidtech_enqueue_scripts');
-
-/**
- * Handle contact form submission
- */
-function rapidtech_handle_contact_form() {
-    if (isset($_POST['contact-form-submit'])) {
-        $name = sanitize_text_field($_POST['Name']);
-        $email = sanitize_email($_POST['Email']);
-        $service = sanitize_text_field($_POST['ServiceRequest']);
-        $message = sanitize_textarea_field($_POST['Message']);
-        
-        // Process form (e.g., send email, store in database)
-        $to = get_option('admin_email');
-        $subject = 'New Contact Form Submission from ' . $name;
-        $body = "Name: $name\nEmail: $email\nService: $service\nMessage: $message";
-        wp_mail($to, $subject, $body);
-        
-        // Redirect after submission
-        wp_redirect(home_url('#contact'));
-        exit;
+function rt_register_routes(): void {
+    foreach (array_keys(rt_routes()) as $slug) {
+        add_rewrite_rule(
+            '^' . preg_quote($slug, '#') . '/?$',
+            'index.php?rt_route=' . $slug,
+            'top'
+        );
     }
 }
-add_action('admin_post_nopriv_rapidtech_handle_contact_form', 'rapidtech_handle_contact_form');
-add_action('admin_post_rapidtech_handle_contact_form', 'rapidtech_handle_contact_form');
-?>
+add_action('init', 'rt_register_routes');
+
+/** Make rt_route a recognised query var. */
+function rt_query_vars($vars) {
+    $vars[] = 'rt_route';
+    return $vars;
+}
+add_filter('query_vars', 'rt_query_vars');
+
+/**
+ * Render the matched template.
+ *
+ * The templates are complete HTML documents, so this bypasses WordPress's
+ * template hierarchy entirely and exits.
+ */
+function rt_render_route(): void {
+    $slug = get_query_var('rt_route');
+    if (!$slug) {
+        return;
+    }
+
+    $routes = rt_routes();
+    if (!isset($routes[$slug])) {
+        return;
+    }
+
+    // A matched route is a real page, so clear the 404 WordPress may have set.
+    status_header(200);
+    global $wp_query;
+    $wp_query->is_404 = false;
+
+    require RT::path($routes[$slug]);
+    exit;
+}
+add_action('template_redirect', 'rt_render_route', 1);
+
+/**
+ * Flush rewrite rules only when the route list changes.
+ *
+ * flush_rewrite_rules() is expensive, so it must never run on every request.
+ * Hashing the slug list means new suburb pages become reachable on the next
+ * page load after deploy, with no manual "re-save permalinks" step.
+ */
+function rt_maybe_flush_rules(): void {
+    $hash = md5(implode('|', array_keys(rt_routes())));
+    if (get_option('rt_routes_hash') !== $hash) {
+        rt_register_routes();
+        flush_rewrite_rules(false);
+        update_option('rt_routes_hash', $hash);
+    }
+}
+add_action('wp_loaded', 'rt_maybe_flush_rules');
+
+/** Flush on activation too, so the site works immediately after switching. */
+function rt_on_activate(): void {
+    delete_option('rt_routes_hash');
+}
+add_action('after_switch_theme', 'rt_on_activate');
+
+/**
+ * Assets.
+ *
+ * Templates emit their own <head>, so this only applies to anything rendered
+ * through the normal WordPress hierarchy. jQuery, the Font Awesome beta and
+ * Open Sans were all being loaded here and used by nothing.
+ */
+function rt_enqueue_scripts(): void {
+    wp_enqueue_style(
+        'rapidtech-styles',
+        RT::asset('css/styles.css'),
+        [],
+        filemtime(RT::path('css/styles.css'))
+    );
+    wp_enqueue_script(
+        'rapidtech-main',
+        RT::asset('js/main.js'),
+        [],
+        filemtime(RT::path('js/main.js')),
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'rt_enqueue_scripts');
+
+/** Trim WordPress head output the theme does not use. */
+function rt_clean_head(): void {
+    remove_action('wp_head', 'wp_generator');
+    remove_action('wp_head', 'wlwmanifest_link');
+    remove_action('wp_head', 'rsd_link');
+    remove_action('wp_head', 'wp_shortlink_wp_head');
+}
+add_action('init', 'rt_clean_head');
