@@ -38,7 +38,7 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rapidtechsolutions.au/">
     <meta property="og:locale" content="en_AU">
-    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:image" content="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Rapid Tech Solutions — computer repairs and IT support, Melbourne">
@@ -46,7 +46,7 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Computer Repairs &amp; IT Support Melbourne | Same-Day">
     <meta name="twitter:description" content="Same-day computer repairs, virus removal, data recovery and Wi-Fi fixes across Melbourne's south-east. We come to you. No fix, no fee.">
-    <meta name="twitter:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
+    <meta name="twitter:image" content="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
     <link rel="canonical" href="https://rapidtechsolutions.au/">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
@@ -88,7 +88,7 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
                 "@id": "https://rapidtechsolutions.au/#organization",
                 "name": "Rapid Tech Solutions",
                 "url": "https://rapidtechsolutions.au/",
-                "logo": { "@type": "ImageObject", "url": "https://rapidtechsolutions.au/images/logo.png" },
+                "logo": { "@type": "ImageObject", "url": "https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/logo.png" },
                 "contactPoint": { "@type": "ContactPoint", "telephone": "+61423680596", "contactType": "customer service", "areaServed": "AU", "availableLanguage": "English" },
                 "sameAs": ["https://www.facebook.com/RapidTechAUS/", "https://www.instagram.com/rapidtechsolutions.au/"]
             }
@@ -105,7 +105,7 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
         "telephone": "+61423680596",
         "email": "support@rapidtechsolutions.au",
         "url": "https://rapidtechsolutions.au/",
-        "image": "https://rapidtechsolutions.au/images/og-image.jpg",
+        "image": "https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg",
         "priceRange": "<?php echo RT::PRICE_RANGE; ?>",
         "address": { "@type": "PostalAddress", "addressLocality": "Cranbourne South", "addressRegion": "VIC", "postalCode": "3977", "addressCountry": "AU" },
         "geo": { "@type": "GeoCoordinates", "latitude": <?php echo RT::LATITUDE; ?>, "longitude": <?php echo RT::LONGITUDE; ?> },

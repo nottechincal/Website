@@ -20,7 +20,7 @@ if (function_exists('get_template_directory_uri')) {
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=20260805" rel="stylesheet">
+    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <script type="application/ld+json">
     {
@@ -28,7 +28,7 @@ if (function_exists('get_template_directory_uri')) {
         "@type": "Article",
         "headline": "How to Spot and Avoid Tech Support Scams",
         "description": "Learn to identify fake tech support calls, phishing emails, and online scams targeting Melbourne residents. Protect your family and finances.",
-        "image": "https://rapidtechsolutions.au/images/og-image.jpg",
+        "image": "https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg",
         "author": {
             "@type": "Organization",
             "name": "Rapid Tech Solutions"
@@ -38,7 +38,7 @@ if (function_exists('get_template_directory_uri')) {
             "name": "Rapid Tech Solutions",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://rapidtechsolutions.au/images/logo.png"
+                "url": "https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/logo.png"
             }
         },
         "datePublished": "2025-11-17",
@@ -245,6 +245,6 @@ if (function_exists('get_template_directory_uri')) {
             <p class="footer-note">© <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</p>
         </div>
     </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=20260805" defer></script>
+<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
 </body>
 </html>

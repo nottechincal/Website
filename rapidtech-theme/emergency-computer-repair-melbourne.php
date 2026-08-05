@@ -24,7 +24,7 @@ $year = date('Y');
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=20260805" rel="stylesheet">
+    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
@@ -44,79 +44,69 @@ $year = date('Y');
         </div>
     </div>
     
+    
     <main id="main">
         <div class="article-header">
             <div class="container">
-                <h1>Emergency Computer Repair Services Melbourne</h1>
-                <p class="article-excerpt">Expert virus removal service in Melbourne. We remove viruses, malware, ransomware, spyware & trojans. Same-day service, no fix no fee guarantee.</p>
+                <h1>Emergency Computer Repair in Melbourne</h1>
+                <p class="article-excerpt">Urgent same-day computer repair across Melbourne. Laptop not turning on, screen smashed, virus attack, data loss? We come to you. Free diagnosis, no fix no fee.</p>
             </div>
         </div>
-        
         <article class="article-content">
             <section>
-                <h2>Professional Virus Removal Service in Melbourne</h2>
-                <p>Infected with a virus, malware, or ransomware? <strong>Rapid Tech Solutions</strong> provides same-day <strong>emergency computer repair in Melbourne</strong> and surrounding suburbs. Our expert technicians completely clean your system, remove all threats, and set up protection to prevent future infections.</p>
-                
+                <h2>Emergency Computer Repair When You Need It Most</h2>
+                <p>Computer died right before a deadline? Laptop screen smashed? <strong>Rapid Tech Solutions</strong> provides <strong>emergency computer repair across Melbourne</strong> with same-day response. We come to your home or office, diagnose on the spot, and fix most issues in a single visit.</p>
                 <div class="stat-box">
-                    <p><strong>Melbourne Virus Removal Services:</strong><br>
-                    ✓ Same-day emergency service<br>
-                    ✓ Complete malware cleanup<br>
-                    ✓ Ransomware decryption & recovery<br>
-                    ✓ Spyware & adware removal<br>
-                    ✓ Security software installation<br>
-                    ✓ No fix, no fee guarantee</p>
+                    <p><strong>Emergency Repair Services:</strong><br>
+                    Same-day emergency response<br>
+                    Laptop and desktop repairs<br>
+                    Screen and hardware replacement<br>
+                    Virus and malware emergency cleanup<br>
+                    Data recovery from failed drives<br>
+                    No fix, no fee guarantee</p>
                 </div>
             </section>
-            
             <section>
-                <h2>Common Virus Infections We Remove in Melbourne</h2>
-                
-                <h3>1. Ransomware Attacks</h3>
-                <p>Files locked and being held for ransom? We specialise in ransomware removal and data recovery without paying criminals. We've helped many Melbourne businesses and residents recover from CryptoLocker, WannaCry, and other ransomware variants.</p>
-                
-                <h3>2. Browser Hijackers & Adware</h3>
-                <p>Constant popups, changed homepage, or unwanted toolbars? We remove stubborn browser hijackers, adware, and potentially unwanted programs (PUPs) that slow down your Melbourne computer and invade your privacy.</p>
-                
-                <h3>3. Trojan & Spyware Infections</h3>
-                <p>Concerned about identity theft or someone spying on your computer? We detect and remove trojans, keyloggers, and spyware that steal passwords and personal information from Melbourne residents.</p>
-                
-                <h3>4. Rootkits & Advanced Malware</h3>
-                <p>For deep-level infections that hide from standard antivirus software, we use advanced forensic tools to detect and eliminate rootkits and sophisticated malware.</p>
+                <h2>Common Computer Emergencies We Fix</h2>
+                <h3>1. Computer Will Not Turn On</h3>
+                <p>No lights, no fan, completely dead? Could be power supply, motherboard, or charging circuit. We diagnose onsite and carry common replacement parts for same-day fixes.</p>
+                <h3>2. Cracked or Smashed Screen</h3>
+                <p>Dropped your laptop? Most screens replaced same day. We carry panels for Dell, HP, Lenovo, Apple, Asus, and Acer. Fixed price quoted before we start.</p>
+                <h3>3. Ransomware or Virus Attack</h3>
+                <p>Files locked, ransom demand on screen, or computer taken over? Disconnect from the internet immediately and call us. We remove the infection and recover your data without paying criminals.</p>
+                <h3>4. Hard Drive Failure with Critical Data</h3>
+                <p>Clicking, grinding, or drive not detected? Stop using the computer now. Every second of runtime can destroy more data. We provide emergency recovery with honest odds given upfront.</p>
+                <h3>5. Liquid Spills</h3>
+                <p>Coffee, water, or wine spilled on your laptop? Turn it off immediately and do not try to turn it back on. We can often save the machine if we get to it quickly enough.</p>
             </section>
-            
             <section>
-                <h2>Our Virus Removal Process for Melbourne Customers</h2>
+                <h2>Our Emergency Repair Process</h2>
                 <ol>
-                    <li><strong>Free Diagnostic:</strong> We assess the extent of the infection and identify all malware present</li>
-                    <li><strong>Safe Mode Cleanup:</strong> Boot into safe mode to prevent malware from running</li>
-                    <li><strong>Deep Scan:</strong> Use professional-grade tools to detect hidden threats</li>
-                    <li><strong>Complete Removal:</strong> Eliminate all traces of viruses, malware, and suspicious files</li>
-                    <li><strong>System Repair:</strong> Fix Windows corruption and restore system stability</li>
-                    <li><strong>Security Setup:</strong> Install and configure antivirus protection</li>
-                    <li><strong>Prevention Training:</strong> Show you how to avoid future infections</li>
+                    <li><strong>You Call:</strong> Describe the emergency. We will often give you immediate steps to prevent further damage</li>
+                    <li><strong>We Arrive:</strong> Same-day dispatch to your location anywhere in Melbourne</li>
+                    <li><strong>Free Diagnosis:</strong> We find the root cause and give you a fixed price</li>
+                    <li><strong>Same-Day Fix:</strong> Most repairs completed onsite in a single visit</li>
+                    <li><strong>You are Covered:</strong> 30-day warranty on all emergency repair work</li>
                 </ol>
             </section>
-            
             <section>
-                <h2>Why Choose Us for Virus Removal in Melbourne?</h2>
+                <h2>Why Call Us for Emergency Computer Repair?</h2>
                 <ul>
-                    <li><strong>Local Experts:</strong> Based nearby, we understand Melbourne's IT security challenges</li>
-                    <li><strong>Fast Response:</strong> Same-day service available for urgent virus emergencies</li>
-                    <li><strong>Transparent Pricing:</strong> Free diagnostic, fixed pricing, no surprises</li>
-                    <li><strong>Data Protection:</strong> We preserve your files while removing infections</li>
-                    <li><strong>Proven Results:</strong> 500+ successful virus removals across Melbourne</li>
-                    <li><strong>Ongoing Support:</strong> 30-day guarantee on all virus removal work</li>
+                    <li><strong>Same-Day Response:</strong> We prioritise emergencies and arrive fast</li>
+                    <li><strong>Free Diagnosis:</strong> No charge to assess the problem</li>
+                    <li><strong>Fixed Pricing:</strong> You know the cost before we touch anything</li>
+                    <li><strong>Mobile Service:</strong> We come to you across Melbourne</li>
+                    <li><strong>No Fix, No Fee:</strong> If we cannot resolve it, you pay nothing</li>
+                    <li><strong>97% Same-Day Resolution:</strong> Most jobs finished in one visit</li>
                 </ul>
             </section>
-            
             <section>
-                <h2>Servicing Melbourne & Nearby Areas</h2>
-                <p>We provide virus removal services throughout Melbourne VIC and surrounding suburbs including all Melbourne suburbs including CBD, South East, Bayside, and Peninsula.</p>
+                <h2>Servicing All of Melbourne</h2>
+                <p>We provide emergency computer repair throughout Melbourne including the CBD, inner suburbs, and the entire south-east from Cranbourne to Frankston, Dandenong to Mordialloc, Berwick to Chelsea.</p>
             </section>
-            
             <section class="cta-section">
-                <h2>Need Virus Removal in Melbourne Today?</h2>
-                <p>Don't let viruses compromise your data or privacy. Call us now for same-day virus removal service in Melbourne.</p>
+                <h2>Computer Emergency? Call Now.</h2>
+                <p>Do not wait. The longer you leave it, the worse it gets. Same-day response, free diagnosis, fixed price.</p>
                 <div class="cta-buttons">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
                     <a href="/book/" class="btn btn-outline"><i class="fas fa-calendar"></i> Book Online</a>
@@ -130,6 +120,6 @@ $year = date('Y');
             <p class="footer-note">© <?php echo $year; ?> Rapid Tech Solutions. Emergency Computer Repair Melbourne. All rights reserved.</p>
         </div>
     </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=20260805" defer></script>
+<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
 </body>
 </html>

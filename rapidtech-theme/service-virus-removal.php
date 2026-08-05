@@ -23,7 +23,7 @@ if (function_exists('get_template_directory_uri')) {
     <meta property="og:description" content="Professional virus removal and malware protection. Secure your computer from threats. Fast, thorough service.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rapidtechsolutions.au/service-virus-removal/">
-    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:image" content="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
 
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
@@ -37,8 +37,8 @@ if (function_exists('get_template_directory_uri')) {
     </script>
     <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=20260805" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/animations.css?v=20260805" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
+    <link href="<?php echo $base_path; ?>/css/animations.css?v=<?php echo filemtime(__DIR__ . '/css/animations.css'); ?>" rel="stylesheet" media="print" onload="this.media='all'">
 
     <script type="application/ld+json">
     {
@@ -294,6 +294,6 @@ if (function_exists('get_template_directory_uri')) {
     </footer>
 
     <!-- WhatsApp widget handled in main.js -->
-<script src="<?php echo $base_path; ?>/js/main.js?v=20260805" defer></script>
+<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
 </body>
 </html>

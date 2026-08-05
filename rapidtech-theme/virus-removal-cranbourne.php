@@ -19,12 +19,12 @@ $year = date('Y');
     <meta property="og:title" content="Virus Removal Cranbourne | Rapid Tech Solutions">
     <meta property="og:description" content="Same-day virus & malware removal service in Cranbourne. Call 0423 680 596">
     <meta property="og:url" content="https://rapidtechsolutions.au/virus-removal-cranbourne/">
-    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
+    <meta property="og:image" content="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
     <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=20260805" rel="stylesheet">
+    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
@@ -130,6 +130,6 @@ $year = date('Y');
             <p class="footer-note">© <?php echo $year; ?> Rapid Tech Solutions. Virus Removal Cranbourne. All rights reserved.</p>
         </div>
     </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=20260805" defer></script>
+<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
 </body>
 </html>

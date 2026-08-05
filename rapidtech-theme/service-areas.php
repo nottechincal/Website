@@ -23,7 +23,7 @@ $year = date('Y');
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=20260805" rel="stylesheet">
+    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <script type="application/ld+json">
     {
@@ -425,6 +425,6 @@ $year = date('Y');
             <p class="footer-note">© <?php echo $year; ?> Rapid Tech Solutions. Computer Repairs Melbourne South-East. All rights reserved.</p>
         </div>
     </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=20260805" defer></script>
+<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
 </body>
 </html>

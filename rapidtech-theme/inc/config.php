@@ -81,10 +81,10 @@ final class RT
 
     /* --------------------------------------------------------------- media */
 
-    const OG_IMAGE   = '/images/og-image.jpg';
+    const OG_IMAGE   = '/wp-content/themes/rapidtech-theme/images/og-image.jpg';
     const OG_W       = 1200;
     const OG_H       = 630;
-    const LOGO       = '/images/logo.png';
+    const LOGO       = '/wp-content/themes/rapidtech-theme/images/logo.png';
 
     /* ------------------------------------------------------------ services */
 

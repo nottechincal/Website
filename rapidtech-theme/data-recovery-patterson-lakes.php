@@ -24,7 +24,7 @@ $year = date('Y');
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=20260805" rel="stylesheet">
+    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
@@ -44,79 +44,68 @@ $year = date('Y');
         </div>
     </div>
     
+    
     <main id="main">
         <div class="article-header">
             <div class="container">
                 <h1>Data Recovery Services in Patterson Lakes 3197</h1>
-                <p class="article-excerpt">Expert virus removal service in Patterson Lakes. We remove viruses, malware, ransomware, spyware & trojans. Same-day service, no fix no fee guarantee.</p>
+                <p class="article-excerpt">Professional data recovery in Patterson Lakes. Failed hard drives, dead SSDs, deleted files and corrupted storage. Free assessment, no recovery no fee guarantee.</p>
             </div>
         </div>
-        
         <article class="article-content">
             <section>
-                <h2>Professional Virus Removal Service in Patterson Lakes</h2>
-                <p>Infected with a virus, malware, or ransomware? <strong>Rapid Tech Solutions</strong> provides same-day <strong>data recovery in Patterson Lakes</strong> and surrounding suburbs. Our expert technicians completely clean your system, remove all threats, and set up protection to prevent future infections.</p>
-                
+                <h2>Professional Data Recovery in Patterson Lakes</h2>
+                <p>Lost important files or has your hard drive failed? <strong>Rapid Tech Solutions</strong> provides same-day <strong>data recovery in Patterson Lakes</strong> and surrounding suburbs. We recover data from hard drives, SSDs, USB drives, SD cards and phones with a free assessment so you know the odds before any work begins.</p>
                 <div class="stat-box">
-                    <p><strong>Patterson Lakes Virus Removal Services:</strong><br>
-                    ✓ Same-day emergency service<br>
-                    ✓ Complete malware cleanup<br>
-                    ✓ Ransomware decryption & recovery<br>
-                    ✓ Spyware & adware removal<br>
-                    ✓ Security software installation<br>
-                    ✓ No fix, no fee guarantee</p>
+                    <p><strong>Patterson Lakes Data Recovery Services:</strong><br>
+                    Same-day emergency service<br>
+                    Hard drive and SSD recovery<br>
+                    Deleted file recovery<br>
+                    Corrupted drive repair<br>
+                    Phone and memory card recovery<br>
+                    No recovery, no fee guarantee</p>
                 </div>
             </section>
-            
             <section>
-                <h2>Common Virus Infections We Remove in Patterson Lakes</h2>
-                
-                <h3>1. Ransomware Attacks</h3>
-                <p>Files locked and being held for ransom? We specialise in ransomware removal and data recovery without paying criminals. We've helped many Patterson Lakes businesses and residents recover from CryptoLocker, WannaCry, and other ransomware variants.</p>
-                
-                <h3>2. Browser Hijackers & Adware</h3>
-                <p>Constant popups, changed homepage, or unwanted toolbars? We remove stubborn browser hijackers, adware, and potentially unwanted programs (PUPs) that slow down your Patterson Lakes computer and invade your privacy.</p>
-                
-                <h3>3. Trojan & Spyware Infections</h3>
-                <p>Concerned about identity theft or someone spying on your computer? We detect and remove trojans, keyloggers, and spyware that steal passwords and personal information from Patterson Lakes residents.</p>
-                
-                <h3>4. Rootkits & Advanced Malware</h3>
-                <p>For deep-level infections that hide from standard antivirus software, we use advanced forensic tools to detect and eliminate rootkits and sophisticated malware.</p>
+                <h2>Common Data Loss Scenarios We Handle in Patterson Lakes</h2>
+                <h3>1. Hard Drive Failure</h3>
+                <p>Clicking, grinding, or beeping noises from your drive? That is a mechanical failure. Stop using the device immediately. Continued use can destroy the data permanently. We perform free assessments on all failed drives.</p>
+                <h3>2. Accidental Deletion</h3>
+                <p>Emptied the Recycle Bin or Shift+Deleted important files? Stop saving anything new to that drive. In many cases we can recover deleted files the same day provided they have not been overwritten.</p>
+                <h3>3. SSD and Flash Drive Recovery</h3>
+                <p>SSDs and USB drives fail differently to traditional hard drives. We use specialised tools to recover data from failed SSDs, NVMe drives, SD cards and USB flash drives.</p>
+                <h3>4. Phone Data Recovery</h3>
+                <p>Photos, messages and contacts lost from iPhone or Android? Whether the phone is dead, water-damaged, or you accidentally deleted everything, we can often recover what was lost.</p>
             </section>
-            
             <section>
-                <h2>Our Virus Removal Process for Patterson Lakes Customers</h2>
+                <h2>Our Data Recovery Process in Patterson Lakes</h2>
                 <ol>
-                    <li><strong>Free Diagnostic:</strong> We assess the extent of the infection and identify all malware present</li>
-                    <li><strong>Safe Mode Cleanup:</strong> Boot into safe mode to prevent malware from running</li>
-                    <li><strong>Deep Scan:</strong> Use professional-grade tools to detect hidden threats</li>
-                    <li><strong>Complete Removal:</strong> Eliminate all traces of viruses, malware, and suspicious files</li>
-                    <li><strong>System Repair:</strong> Fix Windows corruption and restore system stability</li>
-                    <li><strong>Security Setup:</strong> Install and configure antivirus protection</li>
-                    <li><strong>Prevention Training:</strong> Show you how to avoid future infections</li>
+                    <li><strong>Free Assessment:</strong> We diagnose the failure and give you honest odds of recovery</li>
+                    <li><strong>Hardware Repair:</strong> If the drive has a mechanical fault we repair it in our clean environment</li>
+                    <li><strong>Disk Imaging:</strong> Create a sector-by-sector clone to work from safely</li>
+                    <li><strong>Data Extraction:</strong> Recover your files, photos, documents and data</li>
+                    <li><strong>Integrity Check:</strong> Verify recovered files are complete and usable</li>
+                    <li><strong>Secure Return:</strong> Transfer your recovered data to a new drive or cloud backup</li>
                 </ol>
             </section>
-            
             <section>
-                <h2>Why Choose Us for Virus Removal in Patterson Lakes?</h2>
+                <h2>Why Choose Us for Data Recovery in Patterson Lakes?</h2>
                 <ul>
-                    <li><strong>Local Experts:</strong> Based nearby, we understand Patterson Lakes's IT security challenges</li>
-                    <li><strong>Fast Response:</strong> Same-day service available for urgent virus emergencies</li>
-                    <li><strong>Transparent Pricing:</strong> Free diagnostic, fixed pricing, no surprises</li>
-                    <li><strong>Data Protection:</strong> We preserve your files while removing infections</li>
-                    <li><strong>Proven Results:</strong> 500+ successful virus removals across Melbourne</li>
-                    <li><strong>Ongoing Support:</strong> 30-day guarantee on all virus removal work</li>
+                    <li><strong>Honest Assessment:</strong> We tell you the odds before charging anything</li>
+                    <li><strong>Fast Turnaround:</strong> Most recoveries completed same day</li>
+                    <li><strong>No Recovery, No Fee:</strong> You pay nothing if we cannot get your data back</li>
+                    <li><strong>Local Service:</strong> Based nearby, serving Patterson Lakes 3197 and surrounds</li>
+                    <li><strong>Privacy Guaranteed:</strong> Your data stays confidential throughout</li>
+                    <li><strong>Ongoing Support:</strong> We will help you set up proper backups afterwards</li>
                 </ul>
             </section>
-            
             <section>
-                <h2>Servicing Patterson Lakes & Nearby Areas</h2>
-                <p>We provide virus removal services throughout Patterson Lakes 3197 and surrounding suburbs including Carrum, Chelsea Heights, Bonbeach, Aspendale, and Seaford.</p>
+                <h2>Servicing Patterson Lakes and Nearby Areas</h2>
+                <p>We provide data recovery services throughout Patterson Lakes 3197 and surrounding suburbs including Carrum, Bonbeach, Chelsea, Seaford, and Frankston.</p>
             </section>
-            
             <section class="cta-section">
-                <h2>Need Virus Removal in Patterson Lakes Today?</h2>
-                <p>Don't let viruses compromise your data or privacy. Call us now for same-day virus removal service in Patterson Lakes.</p>
+                <h2>Lost Data in Patterson Lakes? Act Now.</h2>
+                <p>The sooner you stop using the device, the better your chances of recovery. Call now for a free assessment and honest advice.</p>
                 <div class="cta-buttons">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
                     <a href="/book/" class="btn btn-outline"><i class="fas fa-calendar"></i> Book Online</a>
@@ -130,6 +119,6 @@ $year = date('Y');
             <p class="footer-note">© <?php echo $year; ?> Rapid Tech Solutions. Data Recovery Patterson Lakes. All rights reserved.</p>
         </div>
     </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=20260805" defer></script>
+<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
 </body>
 </html>
