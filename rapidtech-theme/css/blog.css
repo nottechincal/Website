@@ -1,14 +1,22 @@
-/* Blog Article Styles - Dark Theme */
+/* Blog Article Styles — Dark Theme
+ *
+ * Uses the CSS custom properties defined in styles.css :root, rather than
+ * repeating hex values here. Previously this file hardcoded #29d5ff and
+ * #00ffcc against styles.css's --accent (#26c9f0) and had its own
+ * background override (#05060a vs. --bg #090d14) — two near-identical but
+ * not-quite-matching darks, which is how the blog ended up looking subtly
+ * different from the rest of the site.
+ */
 
 body {
-    background: #05060a;
+    background: var(--bg);
 }
 
 .article-header {
-    background: linear-gradient(135deg, #0f1016 0%, #1a1a2e 100%);
-    color: #e9edf3;
+    background: linear-gradient(135deg, var(--bg) 0%, var(--surface-3) 100%);
+    color: var(--text);
     padding: 4rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid var(--line-2);
 }
 
 .article-meta {
@@ -16,8 +24,8 @@ body {
 }
 
 .article-meta .category {
-    background: rgba(41, 213, 255, 0.2);
-    color: #29d5ff;
+    background: var(--cyan-dim2);
+    color: var(--accent);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -27,19 +35,19 @@ body {
 
 .article-meta .reading-time {
     font-size: 0.9rem;
-    color: #8f9bb3;
+    color: var(--muted);
 }
 
 .article-header h1 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
     margin-bottom: 1rem;
     line-height: 1.3;
-    color: #fff;
+    color: var(--text);
 }
 
 .article-excerpt {
     font-size: 1.15rem;
-    color: #8f9bb3;
+    color: var(--muted);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -49,34 +57,33 @@ body {
     flex-wrap: wrap;
     gap: 1.5rem;
     font-size: 0.9rem;
-    color: #8f9bb3;
+    color: var(--muted);
 }
 
-.article-info i {
+.article-info svg, .article-info i {
     margin-right: 0.3rem;
-    color: #29d5ff;
+    color: var(--accent);
 }
 
 .article-content {
     max-width: 800px;
     margin: 3rem auto;
-    padding: 0 1rem;
-    background: #0b0c12;
-    border-radius: 12px;
     padding: 2.5rem;
+    background: var(--surface);
+    border-radius: 12px;
 }
 
 .table-of-contents {
-    background: rgba(41, 213, 255, 0.05);
+    background: var(--cyan-dim);
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 2.5rem;
-    border-left: 4px solid #29d5ff;
+    border-left: 4px solid var(--accent);
 }
 
 .table-of-contents h3 {
     margin-bottom: 1rem;
-    color: #e9edf3;
+    color: var(--text);
 }
 
 .table-of-contents ul {
@@ -90,7 +97,7 @@ body {
 }
 
 .table-of-contents a {
-    color: #29d5ff;
+    color: var(--accent);
     text-decoration: none;
 }
 
@@ -104,21 +111,21 @@ body {
 
 .article-content h2 {
     font-size: 1.6rem;
-    color: #e9edf3;
+    color: var(--text);
     margin-bottom: 1rem;
     padding-top: 1rem;
 }
 
 .article-content h3 {
     font-size: 1.3rem;
-    color: #29d5ff;
+    color: var(--accent);
     margin-bottom: 0.75rem;
 }
 
 .article-content p {
     margin-bottom: 1rem;
     line-height: 1.8;
-    color: #c5cad3;
+    color: var(--muted);
     font-size: 1.1rem;
 }
 
@@ -130,12 +137,12 @@ body {
 .article-content li {
     margin-bottom: 0.5rem;
     line-height: 1.7;
-    color: #c5cad3;
+    color: var(--muted);
     font-size: 1.05rem;
 }
 
 .article-content strong {
-    color: #e9edf3;
+    color: var(--text);
 }
 
 .stat-box, .pro-tip, .warning-box {
@@ -145,30 +152,30 @@ body {
 }
 
 .stat-box {
-    background: rgba(41, 213, 255, 0.1);
-    border-left: 4px solid #29d5ff;
+    background: var(--cyan-dim);
+    border-left: 4px solid var(--accent);
 }
 
 .stat-box p {
-    color: #c5cad3;
+    color: var(--muted);
 }
 
 .pro-tip {
     background: rgba(0, 255, 204, 0.1);
-    border-left: 4px solid #00ffcc;
+    border-left: 4px solid var(--teal);
 }
 
 .pro-tip p {
-    color: #c5cad3;
+    color: var(--muted);
 }
 
 .warning-box {
     background: rgba(255, 149, 0, 0.1);
-    border-left: 4px solid #ff9500;
+    border-left: 4px solid var(--orange);
 }
 
 .warning-box p {
-    color: #c5cad3;
+    color: var(--muted);
 }
 
 .stat-box p, .pro-tip p, .warning-box p {
@@ -178,11 +185,11 @@ body {
 .pro-tip h4, .warning-box h4 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    color: #e9edf3;
+    color: var(--text);
 }
 
 .cta-section {
-    background: linear-gradient(135deg, #ff5c5c 0%, #e24646 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: #fff;
     padding: 2rem;
     border-radius: 12px;
@@ -223,7 +230,7 @@ body {
 
 .cta-section .btn {
     background: #fff;
-    color: #ff5c5c;
+    color: var(--primary);
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     text-decoration: none;
@@ -237,47 +244,6 @@ body {
     background: transparent;
     color: #fff;
     border: 2px solid #fff;
-}
-
-.related-articles {
-    background: #0b0c12;
-    padding: 3rem 0;
-}
-
-.related-articles h3 {
-    margin-bottom: 2rem;
-    color: #e9edf3;
-}
-
-.related-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.related-card {
-    background: rgba(255,255,255,0.03);
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.07);
-    transition: transform 0.2s, border-color 0.2s;
-}
-
-.related-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(41, 213, 255, 0.3);
-}
-
-.related-card h4 {
-    color: #29d5ff;
-    margin-bottom: 0.5rem;
-}
-
-.related-card p {
-    color: #8f9bb3;
-    font-size: 0.95rem;
-    margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -299,11 +265,11 @@ body {
     }
 }
 
-/* Breadcrumb Navigation */
+/* Breadcrumb navigation */
 .breadcrumbs {
     background: rgba(255,255,255,0.02);
     padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid var(--line);
 }
 
 .breadcrumbs .container {
@@ -314,36 +280,36 @@ body {
 }
 
 .breadcrumbs a {
-    color: #8f9bb3;
+    color: var(--muted);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .breadcrumbs a:hover {
-    color: #29d5ff;
+    color: var(--accent);
 }
 
 .breadcrumbs .separator {
-    color: #4a5568;
+    color: var(--line-2);
     font-size: 0.8rem;
 }
 
 .breadcrumbs .current {
-    color: #e9edf3;
+    color: var(--text);
     font-weight: 500;
 }
 
-/* Related Articles Section */
+/* Related articles */
 .related-articles {
     background: rgba(255,255,255,0.02);
     padding: 2rem;
     border-radius: 12px;
     margin-top: 3rem;
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid var(--line);
 }
 
 .related-articles h3 {
-    color: #fff;
+    color: var(--text);
     margin-bottom: 1.5rem;
     font-size: 1.3rem;
 }
@@ -358,61 +324,52 @@ body {
     background: rgba(255,255,255,0.03);
     padding: 1.25rem;
     border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid var(--line);
+    text-decoration: none;
+    display: block;
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .related-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(41, 213, 255, 0.3);
+    border-color: var(--cyan-dim2);
 }
 
 .related-card h4 {
-    color: #fff;
+    color: var(--text);
     margin-bottom: 0.5rem;
     font-size: 1rem;
 }
 
 .related-card p {
-    color: #8f9bb3;
+    color: var(--muted);
     font-size: 0.9rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
-.related-card a {
-    color: #29d5ff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-.related-card a:hover {
-    text-decoration: underline;
-}
-
-/* Service CTA Box */
+/* Service CTA box */
 .service-cta {
-    background: linear-gradient(135deg, rgba(41, 213, 255, 0.1) 0%, rgba(0, 255, 204, 0.1) 100%);
+    background: linear-gradient(135deg, var(--cyan-dim) 0%, rgba(0, 255, 204, 0.1) 100%);
     padding: 1.5rem;
     border-radius: 10px;
     margin: 2rem 0;
-    border: 1px solid rgba(41, 213, 255, 0.2);
+    border: 1px solid var(--cyan-dim2);
 }
 
 .service-cta h4 {
-    color: #29d5ff;
+    color: var(--accent);
     margin-bottom: 0.75rem;
 }
 
 .service-cta p {
-    color: #e9edf3;
+    color: var(--text);
     margin-bottom: 1rem;
 }
 
 .service-cta .btn {
     display: inline-block;
-    background: #29d5ff;
-    color: #05060a;
+    background: var(--accent);
+    color: var(--bg);
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
     text-decoration: none;
@@ -422,6 +379,6 @@ body {
 }
 
 .service-cta .btn:hover {
-    background: #00ffcc;
+    background: var(--teal);
     transform: translateY(-2px);
 }

@@ -1,43 +1,42 @@
 <?php
+require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/seo.php';
-if (function_exists('get_template_directory_uri')) {
-    $base_path = get_template_directory_uri();
-} else {
-    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
-    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
-}
-$year = date('Y');
+require_once __DIR__ . '/inc/icons.php';
 ?>
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="<?php echo RT::LANG; ?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency Computer Repair Melbourne | Same-Day</title>
-    <meta name="description" content="Urgent computer repairs across Melbourne's south-east. Same-day onsite callouts for crashed systems, dead machines and business outages. Call 0423 680 596.">
-    <link rel="canonical" href="https://rapidtechsolutions.au/emergency-computer-repair-melbourne/">
-    <meta property="og:title" content="Emergency Computer Repair Melbourne | Rapid Tech Solutions">
-    <meta property="og:description" content="Emergency computer repairs across Melbourne. Same-day onsite callouts. Call 0423 680 596">
-    <meta property="og:url" content="https://rapidtechsolutions.au/emergency-computer-repair-melbourne/">
-    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
-    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
-    <!-- Google Analytics -->
+<?php rt_head([
+    'title'       => 'Emergency Computer Repair Melbourne | Same-Day',
+    'description' => 'Urgent computer repairs across Melbourne\'s south-east. Same-day onsite callouts for crashed systems, dead machines and business outages. Call 0423 680 596.',
+    'path'        => '/emergency-computer-repair-melbourne/',
+    'og_type'     => 'website',
+    'css'         => 'css/blog.css',
+    'schema'      => [[
+        '@type'       => 'Service',
+        'serviceType' => 'Emergency Computer Repair',
+        'name'        => 'Emergency Computer Repair Melbourne',
+        'description' => 'Urgent same-day computer repair across Melbourne. Laptop not turning on, screen smashed, virus attack, data loss. Onsite diagnosis and same-day fix with 30-day warranty.',
+        'provider'    => RT::local_business(),
+        'areaServed'  => [
+            '@type' => 'City',
+            'name'  => 'Melbourne',
+        ],
+        'offers'      => ['@type' => 'Offer', 'description' => 'Free diagnosis with no fix no fee guarantee'],
+    ]],
+]); ?>
 </head>
 <body>
 <?php rt_header(); ?>
-    
+
     <div style="background: linear-gradient(90deg, #ff5c5c 0%, #e24646 100%); color: white; padding: 0.75rem 0; text-align: center; font-weight: 500;">
         <div class="container">
-            <span><i class="fas fa-ambulance"></i> Emergency Computer Repair Melbourne - Same Day Service Available</span>
+            <span>🚑 Emergency Computer Repair Melbourne - Same Day Service Available</span>
         </div>
     </div>
-    
-    
+
+    <?php rt_breadcrumbs(['Emergency Computer Repair Melbourne' => '/emergency-computer-repair-melbourne/']); ?>
+
     <main id="main">
         <div class="article-header">
             <div class="container">
@@ -101,18 +100,13 @@ $year = date('Y');
                 <h2>Computer Emergency? Call Now.</h2>
                 <p>Do not wait. The longer you leave it, the worse it gets. Same-day response, free diagnosis, fixed price.</p>
                 <div class="cta-buttons">
-                    <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="/book/" class="btn btn-outline"><i class="fas fa-calendar"></i> Book Online</a>
+                    <a href="tel:<?php echo RT::PHONE_E164; ?>" class="btn"><?php echo rt_icon('phone'); ?> Call: <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
+                    <a href="/book/" class="btn btn-outline"><?php echo rt_icon('calendar'); ?> Book Online</a>
                 </div>
             </section>
         </article>
     </main>
-    
-    <footer class="site-footer">
-        <div class="container">
-            <p class="footer-note">© <?php echo $year; ?> Rapid Tech Solutions. Emergency Computer Repair Melbourne. All rights reserved.</p>
-        </div>
-    </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
+
+<?php rt_footer(); ?>
 </body>
 </html>

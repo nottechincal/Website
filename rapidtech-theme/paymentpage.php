@@ -11,7 +11,9 @@ Template Name: Payment Page
     <meta name="robots" content="noindex, follow">
     <title>Payments Currently Unavailable | Rapid Tech Solutions</title>
     <meta name="description" content="Online payments are temporarily unavailable. Please call 0423 680 596 to arrange payment.">
-    <link rel="canonical" href="https://rapidtechsolutions.au/">
+    <link rel="canonical" href="https://rapidtechsolutions.au/paymentpage/">
+    <meta name="color-scheme" content="light">
+    <link rel="icon" type="image/svg+xml" href="/wp-content/themes/rapidtech-theme/images/favicon.svg">
     <style>
         body {
             font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;

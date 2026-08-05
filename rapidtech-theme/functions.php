@@ -37,7 +37,7 @@ function rt_routes(): array {
     foreach ([
         'about', 'faq', 'blog', 'book', 'contact', 'pricing', 'reviews',
         'service-areas', 'privacy-policy', 'terms-of-service',
-        'thank-you', 'contactthanks', 'paymentpage',
+        'thank-you', 'paymentpage',
         'service-computer-repairs', 'service-data-recovery',
         'service-network-wifi', 'service-virus-removal',
         'blog-cloud-services', 'blog-computer-maintenance', 'blog-hardware-upgrades',

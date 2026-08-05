@@ -1,32 +1,20 @@
 <?php
 /*
 Template Name: Terms of Service
-*/
+*/
+require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/seo.php';
-// Define base path - works with or without WordPress
-if (function_exists('get_template_directory_uri')) {
-    $base_path = get_template_directory_uri();
-} else {
-    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
-    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
-}
-$current_year = date('Y');
+require_once __DIR__ . '/inc/icons.php';
 ?>
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="<?php echo RT::LANG; ?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service | Rapid Tech Solutions</title>
-    <meta name="description" content="The terms covering Rapid Tech Solutions IT support and computer repair services, including quotes, warranties, liability and payment conditions.">
-    <link rel="canonical" href="https://rapidtechsolutions.au/terms-of-service/">
-    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
+<?php rt_head([
+    'title'       => 'Terms of Service | ' . RT::NAME,
+    'description' => 'The terms covering Rapid Tech Solutions IT support and computer repair services, including quotes, warranties, liability and payment conditions.',
+    'path'        => '/terms-of-service/',
+    'css'         => 'css/blog.css',
+]); ?>
 </head>
 <body>
 <?php rt_header(); ?>
@@ -37,7 +25,7 @@ $current_year = date('Y');
                 <h1>Terms of Service</h1>
                 <p class="article-excerpt">Please read these terms carefully before using our services.</p>
                 <div class="article-info">
-                    <span><i class="fas fa-calendar"></i> Last Updated: <?php echo date('F j, Y'); ?></span>
+                    <span><?php echo rt_icon('calendar'); ?> Last Updated: <?php echo date('F j, Y'); ?></span>
                 </div>
             </div>
         </div>
@@ -45,13 +33,13 @@ $current_year = date('Y');
         <article class="article-content">
             <section>
                 <h2>1. Acceptance of Terms</h2>
-                <p>By using the services provided by Rapid Tech Solutions ("we", "our", "us"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
-                <p>These terms apply to all IT support, repair, and consulting services provided by Rapid Tech Solutions in the Melbourne metropolitan area.</p>
+                <p>By using the services provided by <?php echo RT::e(RT::NAME); ?> ("we", "our", "us"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+                <p>These terms apply to all IT support, repair, and consulting services provided by <?php echo RT::e(RT::NAME); ?> in the Melbourne metropolitan area.</p>
             </section>
 
             <section>
                 <h2>2. Our Services</h2>
-                <p>Rapid Tech Solutions provides:</p>
+                <p><?php echo RT::e(RT::NAME); ?> provides:</p>
                 <ul>
                     <li>Computer and laptop repairs</li>
                     <li>Data recovery services</li>
@@ -185,7 +173,7 @@ $current_year = date('Y');
 
             <section>
                 <h2>10. Intellectual Property</h2>
-                <p>All content on our website (text, images, logos) is owned by Rapid Tech Solutions and protected by copyright. You may not reproduce our content without permission.</p>
+                <p>All content on our website (text, images, logos) is owned by <?php echo RT::e(RT::NAME); ?> and protected by copyright. You may not reproduce our content without permission.</p>
             </section>
 
             <section>
@@ -221,8 +209,8 @@ $current_year = date('Y');
                 <h2>14. Contact Information</h2>
                 <p>For questions about these terms:</p>
                 <ul>
-                    <li><strong>Phone:</strong> 0423 680 596</li>
-                    <li><strong>Email:</strong> info@rapidtechsolutions.au</li>
+                    <li><strong>Phone:</strong> <?php echo RT::e(RT::PHONE_DISPLAY); ?></li>
+                    <li><strong>Email:</strong> <?php echo RT::e(RT::EMAIL); ?></li>
                     <li><strong>Address:</strong> <?php echo RT::e(RT::LOCALITY); ?>, <?php echo RT::REGION; ?> <?php echo RT::POSTCODE; ?></li>
                 </ul>
             </section>
@@ -234,16 +222,6 @@ $current_year = date('Y');
         </article>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap;">
-                <a href="/privacy-policy/" style="color: var(--muted);">Privacy Policy</a>
-                <a href="/terms-of-service/" style="color: var(--muted);">Terms of Service</a>
-                <a href="/about/" style="color: var(--muted);">About Us</a>
-            </div>
-            <p class="footer-note">© <?php echo $current_year; ?> Rapid Tech Solutions. All rights reserved.</p>
-        </div>
-    </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
+<?php rt_footer(); ?>
 </body>
 </html>

@@ -23,8 +23,7 @@ $theme = dirname(__DIR__);
 /** Pages that must never appear: redirects, handlers, thin or noindex pages. */
 $excluded = array_merge(
     array_keys(rt_location_redirects()),
-    ['404', 'book', 'bookingengine', 'contactengine', 'contactthanks', 'footer',
-     'functions', 'header', 'paymentpage', 'thank-you', 'index']
+    ['404', 'book', 'functions', 'header', 'paymentpage', 'thank-you', 'index']
 );
 
 $urls = [];

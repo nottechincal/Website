@@ -4,3 +4,16 @@ db_data/
 .DS_Store
 deploy/live-backups/
 deploy-ftp.sh
+
+# Customer booking/contact data — never belongs in version control.
+rapidtech-theme/.bookings/
+
+# Stale page snapshots rendered from the theme for local review. The theme's
+# PHP templates are the source of truth; keep these out of version control.
+about.html
+blog-cloud.html
+blog.html
+cranbourne.html
+dandenong.html
+local-frankston.html
+service-computer.html

@@ -17,12 +17,9 @@ Disallow: /search/
 Disallow: /wp-content/themes/rapidtech-theme/inc/
 Disallow: /wp-content/themes/rapidtech-theme/tools/
 
-# Form handlers and transactional pages — no crawl value, and indexing a
-# thank-you page produces thin results.
-Disallow: /contactengine.php
-Disallow: /bookingengine.php
+# Transactional pages — no crawl value, and indexing a thank-you page
+# produces thin results.
 Disallow: /thank-you/
-Disallow: /contactthanks/
 
 # Allow assets. Blocking CSS or JS stops Google rendering the page as a user
 # sees it, which suppresses mobile-usability and Core Web Vitals assessment.

@@ -1,43 +1,39 @@
 <?php
+require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/seo.php';
-if (function_exists('get_template_directory_uri')) {
-    $base_path = get_template_directory_uri();
-} else {
-    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
-    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
-}
-$year = date('Y');
+require_once __DIR__ . '/inc/icons.php';
 ?>
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="<?php echo RT::LANG; ?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Recovery Patterson Lakes | Same-Day Service</title>
-    <meta name="description" content="Professional data recovery in Patterson Lakes 3197. Failed drives, dead SSDs, deleted files and corrupted storage recovered. Free assessment, no fix no fee.">
-    <link rel="canonical" href="https://rapidtechsolutions.au/data-recovery-patterson-lakes/">
-    <meta property="og:title" content="Data Recovery Patterson Lakes | Rapid Tech Solutions">
-    <meta property="og:description" content="Same-day data recovery service in Patterson Lakes. Call 0423 680 596">
-    <meta property="og:url" content="https://rapidtechsolutions.au/data-recovery-patterson-lakes/">
-    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
-    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
-    <!-- Google Analytics -->
+<?php rt_head([
+    'title'       => 'Data Recovery Patterson Lakes | Same-Day Service',
+    'description' => 'Professional data recovery in Patterson Lakes 3197. Failed drives, dead SSDs, deleted files and corrupted storage recovered. Free assessment, no fix no fee.',
+    'path'        => '/data-recovery-patterson-lakes/',
+    'og_type'     => 'website',
+    'css'         => 'css/blog.css',
+    'schema'      => [[
+        '@type'       => 'Service',
+        'serviceType' => 'Data Recovery',
+        'name'        => 'Data Recovery in Patterson Lakes 3197',
+        'description' => 'Professional data recovery services in Patterson Lakes. Failed drives, dead SSDs, deleted files and corrupted storage recovered. Free assessment, no fix no fee guarantee.',
+        'provider'    => RT::local_business(),
+        'areaServed'  => RT::area_served('Patterson Lakes', '3197'),
+        'offers'      => ['@type' => 'Offer', 'description' => 'Free assessment with no recovery no fee guarantee'],
+    ]],
+]); ?>
 </head>
 <body>
 <?php rt_header(); ?>
-    
+
     <div style="background: linear-gradient(90deg, #ff5c5c 0%, #e24646 100%); color: white; padding: 0.75rem 0; text-align: center; font-weight: 500;">
         <div class="container">
-            <span><i class="fas fa-hdd"></i> Data Recovery Patterson Lakes - Same Day Service Available</span>
+            <span><?php echo rt_icon('hdd'); ?> Data Recovery Patterson Lakes - Same Day Service Available</span>
         </div>
     </div>
-    
-    
+
+    <?php rt_breadcrumbs(['Service Areas' => '/service-areas/', 'Data Recovery Patterson Lakes' => '/data-recovery-patterson-lakes/']); ?>
+
     <main id="main">
         <div class="article-header">
             <div class="container">
@@ -100,18 +96,13 @@ $year = date('Y');
                 <h2>Lost Data in Patterson Lakes? Act Now.</h2>
                 <p>The sooner you stop using the device, the better your chances of recovery. Call now for a free assessment and honest advice.</p>
                 <div class="cta-buttons">
-                    <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="/book/" class="btn btn-outline"><i class="fas fa-calendar"></i> Book Online</a>
+                    <a href="tel:<?php echo RT::PHONE_E164; ?>" class="btn"><?php echo rt_icon('phone'); ?> Call: <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
+                    <a href="/book/" class="btn btn-outline"><?php echo rt_icon('calendar'); ?> Book Online</a>
                 </div>
             </section>
         </article>
     </main>
-    
-    <footer class="site-footer">
-        <div class="container">
-            <p class="footer-note">© <?php echo $year; ?> Rapid Tech Solutions. Data Recovery Patterson Lakes. All rights reserved.</p>
-        </div>
-    </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
+
+<?php rt_footer(); ?>
 </body>
 </html>

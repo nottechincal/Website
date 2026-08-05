@@ -1,108 +1,61 @@
 <?php
+require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/seo.php';
-// Define base path - works with or without WordPress
-if (function_exists('get_template_directory_uri')) {
-    $base_path = get_template_directory_uri();
-} else {
-    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
-    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
-}
+require_once __DIR__ . '/inc/icons.php';
 ?>
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="<?php echo RT::LANG; ?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Services for Small Business: The Benefits</title>
-    <meta name="description" content="How cloud services cut costs, improve security and make remote work practical for small businesses. A plain-English guide from Melbourne IT technicians.">
-    <link rel="canonical" href="https://rapidtechsolutions.au/blog-cloud-services/">
-    <meta property="og:title" content="Benefits of Cloud Services for Small Businesses | Rapid Tech Solutions">
-    <meta property="og:description" content="Expert IT advice and tips from Rapid Tech Solutions, Melbourne's trusted computer repair specialists.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://rapidtechsolutions.au/blog-cloud-services/">
-    <meta property="og:image" content="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Benefits of Cloud Services for Small Businesses | Rapid Tech Solutions">
-    <meta name="twitter:description" content="Expert IT advice from Rapid Tech Solutions">
-    <meta name="twitter:image" content="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
-    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Benefits of Cloud Services for Small Businesses",
-        "description": "How cloud services cut costs, improve security and make remote work practical for small businesses. A plain-English guide from Melbourne IT technicians.",
-        "image": "https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg",
-        "inLanguage": "en-AU",
-        "datePublished": "2026-08-02",
-        "dateModified": "2026-08-02",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://rapidtechsolutions.au/blog-cloud-services/"
-        },
-        "author": {
-            "@type": "Organization",
-            "name": "Rapid Tech Solutions",
-            "url": "https://rapidtechsolutions.au/"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Rapid Tech Solutions",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/logo.png"
-            }
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://rapidtechsolutions.au/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://rapidtechsolutions.au/blog/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Benefits of Cloud Services for Small Businesses",
-                "item": "https://rapidtechsolutions.au/blog-cloud-services/"
-            }
-        ]
-    }
-    </script>
+<?php rt_head([
+    'title' => 'Cloud Services for Small Business: The Benefits',
+    'description' => 'How cloud services cut costs, improve security and make remote work practical for small businesses. A plain-English guide from Melbourne IT technicians.',
+    'path' => '/blog-cloud-services/',
+    'og_type' => 'article',
+    'css' => 'css/blog.css',
+    'article_published' => '2026-08-02',
+    'article_modified' => '2026-08-02',
+    'article_author' => RT::NAME,
+    'article_section' => 'Cloud Services',
+    'schema' => [
+        [
+            '@context' => 'https://schema.org',
+            '@type' => 'Article',
+            'headline' => 'Benefits of Cloud Services for Small Businesses',
+            'description' => 'How cloud services cut costs, improve security and make remote work practical for small businesses. A plain-English guide from Melbourne IT technicians.',
+            'image' => RT::url(RT::OG_IMAGE),
+            'inLanguage' => RT::LANG,
+            'datePublished' => '2026-08-02',
+            'dateModified' => '2026-08-02',
+            'mainEntityOfPage' => [
+                '@type' => 'WebPage',
+                '@id' => RT::url('/blog-cloud-services/'),
+            ],
+            'author' => [
+                '@type' => 'Organization',
+                'name' => RT::NAME,
+                'url' => RT::ORIGIN,
+            ],
+            'publisher' => RT::local_business(),
+        ],
+    ],
+]); ?>
 </head>
 <body>
 <?php rt_header(); ?>
+<?php rt_breadcrumbs(['Blog' => '/blog/', 'Benefits of Cloud Services for Small Businesses' => '/blog-cloud-services/']); ?>
 
     <main id="main">
         <div class="article-header">
             <div class="container">
                 <div class="article-meta">
                     <span class="category">Cloud Services</span>
-                    <span class="reading-time"><i class="fas fa-clock"></i> 4 min read</span>
+                    <span class="reading-time"><?php echo rt_icon('clock'); ?> 4 min read</span>
                 </div>
                 <h1>Benefits of Cloud Services for Small Businesses</h1>
                 <p class="article-excerpt">Save money, work from anywhere, and keep your data safe with cloud technology.</p>
                 <div class="article-info">
-                    <span><i class="fas fa-calendar"></i> <?php echo date('F j, Y'); ?></span>
-                    <span><i class="fas fa-user"></i> Rapid Tech Solutions</span>
+                    <span><?php echo rt_icon('calendar'); ?> <?php echo date('F j, Y'); ?></span>
+                    <span><?php echo rt_icon('user'); ?> Rapid Tech Solutions</span>
                 </div>
             </div>
         </div>
@@ -179,7 +132,7 @@ if (function_exists('get_template_directory_uri')) {
                     <li>Ongoing support</li>
                 </ul>
                 <div class="cta-buttons">
-                    <a href="/book/" class="btn"><i class="fas fa-cloud"></i> Get a Free Consultation</a>
+                    <a href="/book/" class="btn"><?php echo rt_icon('cloud'); ?> Get a Free Consultation</a>
                 </div>
             </section>
         </article>
@@ -201,11 +154,6 @@ if (function_exists('get_template_directory_uri')) {
         </aside>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p class="footer-note">© <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</p>
-        </div>
-    </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
+<?php rt_footer(); ?>
 </body>
 </html>

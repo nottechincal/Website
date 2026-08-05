@@ -45,6 +45,7 @@ function rt_head(array $a): void
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
+<script>if('IntersectionObserver' in window){document.documentElement.className+=' js-anim';}</script>
 <title><?php echo RT::e($title); ?></title>
 <meta name="description" content="<?php echo RT::e($desc); ?>">
 <meta name="robots" content="<?php echo !empty($a['noindex']) ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'; ?>">
@@ -92,16 +93,84 @@ function rt_head(array $a): void
     rt_analytics();
 }
 
-/** Google Analytics. Loaded once, from one place. */
+/**
+ * Google Analytics. Loaded once, from one place.
+ *
+ * Uses Google's Consent Mode v2: analytics_storage defaults to denied until
+ * the cookie banner (see rt_cookie_banner()) records a choice, so GA4 does
+ * not set cookies before the visitor has actually agreed to it. If a choice
+ * was already made on an earlier visit, the inline script below applies it
+ * immediately rather than waiting for the banner's own script to run.
+ */
 function rt_analytics(): void
 {
     ?>
-<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo RT::GA_MEASUREMENT_ID; ?>"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+<?php if (($_COOKIE['rt_consent'] ?? '') === 'granted') : ?>
+gtag('consent', 'update', { 'analytics_storage': 'granted' });
+<?php endif; ?>
 gtag('js', new Date());
 gtag('config', '<?php echo RT::GA_MEASUREMENT_ID; ?>');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo RT::GA_MEASUREMENT_ID; ?>"></script>
+<?php
+}
+
+/**
+ * Cookie consent banner.
+ *
+ * Minimal, dark-themed, no external dependency. Stores the visitor's choice
+ * in both localStorage (fast client-side check) and a first-party cookie
+ * (so rt_analytics() above can read it server-side on the very next page
+ * load, before any JS runs — otherwise a visitor who already said yes would
+ * see analytics start denied-then-granted on every single page).
+ */
+function rt_cookie_banner(): void
+{
+    ?>
+<div id="rt-cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <div class="cookie-banner-inner">
+    <p>We use cookies for basic analytics to understand how visitors use this site. No personal data is sold or shared with advertisers.
+       <a href="/privacy-policy/">Privacy Policy</a></p>
+    <div class="cookie-banner-actions">
+      <button type="button" id="rt-cookie-decline" class="btn btn-outline">Decline</button>
+      <button type="button" id="rt-cookie-accept" class="btn">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'rt_consent';
+  function setCookie(val){
+    document.cookie = KEY + '=' + val + ';path=/;max-age=' + (60*60*24*365) + ';SameSite=Lax';
+  }
+  var stored = localStorage.getItem(KEY);
+  var banner = document.getElementById('rt-cookie-banner');
+  if (!stored) {
+    if (banner) banner.hidden = false;
+  }
+  var acceptBtn = document.getElementById('rt-cookie-accept');
+  var declineBtn = document.getElementById('rt-cookie-decline');
+  if (acceptBtn) acceptBtn.addEventListener('click', function(){
+    localStorage.setItem(KEY, 'granted');
+    setCookie('granted');
+    if (typeof gtag === 'function') gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    if (banner) banner.hidden = true;
+  });
+  if (declineBtn) declineBtn.addEventListener('click', function(){
+    localStorage.setItem(KEY, 'denied');
+    setCookie('denied');
+    if (banner) banner.hidden = true;
+  });
+})();
 </script>
 <?php
 }
@@ -271,6 +340,7 @@ function rt_footer(): void
         <p>&copy; <?php echo $year; ?> <?php echo RT::e(RT::NAME); ?>. All rights reserved.</p>
     </div>
 </footer>
+<?php rt_cookie_banner(); ?>
 <script src="<?php echo RT::e(RT::asset('js/main.js')); ?>?v=<?php echo filemtime(RT::path('js/main.js')); ?>" defer></script>
 <?php
 }

@@ -2,20 +2,23 @@
 require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/seo.php';
 require_once __DIR__ . '/inc/icons.php';
+require_once __DIR__ . '/inc/forms.php';
 
 $submitted = false;
 $errors = [];
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && !empty($_POST['contact_submit'])) {
-    $name    = trim($_POST['name'] ?? '');
-    $email   = trim($_POST['email'] ?? '');
-    $phone   = trim($_POST['phone'] ?? '');
-    $message = trim($_POST['message'] ?? '');
+    $result = rt_validate_booking($_POST, ['name', 'email', 'description']);
+    $name    = $result['clean']['name'];
+    $email   = $result['clean']['email'];
+    $phone   = $result['clean']['phone'];
+    $message = $result['clean']['description'];
+    $errors  = $result['errors'];
     $honeypot = $_POST['website'] ?? '';
 
-    if (strlen($name) < 2)    $errors['name'] = 'Please enter your name.';
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors['email'] = 'Valid email required.';
-    if (strlen($message) < 10) $errors['message'] = 'Tell us a bit more (at least 10 chars).';
+    if (!rt_verify_csrf($_POST['rt_csrf'] ?? null)) {
+        $errors['csrf'] = 'Your session expired — please try again.';
+    }
 
     if (empty($errors) && empty($honeypot)) {
         $to = RT::EMAIL;
@@ -94,6 +97,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && !empty($_POST['contact_subm
                                 <input type="text" name="website" tabindex="-1" autocomplete="off">
                             </div>
                             <input type="hidden" name="contact_submit" value="1">
+                            <?php rt_csrf_field(); ?>
 
                             <div style="margin-bottom:1rem">
                                 <label for="name" style="display:block;font-size:.85rem;font-weight:600;margin-bottom:.35rem">Your name <span style="color:var(--primary)">*</span></label>

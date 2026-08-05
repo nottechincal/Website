@@ -1,106 +1,68 @@
 <?php
+require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/seo.php';
-// Define base path - works with or without WordPress
-if (function_exists('get_template_directory_uri')) {
-    $base_path = get_template_directory_uri();
-} else {
-    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
-    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
-}
+require_once __DIR__ . '/inc/icons.php';
 ?>
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="<?php echo RT::LANG; ?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Spot and Avoid Tech Support Scams</title>
-    <meta name="description" content="Recognise fake tech support calls, phishing emails and remote-access scams targeting Australians, and know exactly what to do if you have been caught.">
-    <link rel="canonical" href="https://rapidtechsolutions.au/blog-scam-protection/">
-    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "How to Spot and Avoid Tech Support Scams",
-        "description": "Learn to identify fake tech support calls, phishing emails, and online scams targeting Melbourne residents. Protect your family and finances.",
-        "image": "https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg",
-        "author": {
-            "@type": "Organization",
-            "name": "Rapid Tech Solutions"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Rapid Tech Solutions",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/logo.png"
-            }
-        },
-        "datePublished": "2025-11-17",
-        "dateModified": "2025-11-17",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://rapidtechsolutions.au/blog-scam-protection/"
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://rapidtechsolutions.au/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://rapidtechsolutions.au/blog/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Scam Protection"
-            }
-        ]
-    }
-    </script>
-    <!-- Google tag (gtag.js) -->
+<?php rt_head([
+    'title' => 'How to Spot and Avoid Tech Support Scams',
+    'description' => 'Recognise fake tech support calls, phishing emails and remote-access scams targeting Australians, and know exactly what to do if you have been caught.',
+    'path' => '/blog-scam-protection/',
+    'og_type' => 'article',
+    'css' => 'css/blog.css',
+    'article_published' => '2025-11-17',
+    'article_modified' => '2025-11-17',
+    'article_author' => RT::NAME,
+    'article_section' => 'Online Safety',
+    'schema' => [
+        [
+            '@context' => 'https://schema.org',
+            '@type' => 'Article',
+            'headline' => 'How to Spot and Avoid Tech Support Scams',
+            'description' => 'Learn to identify fake tech support calls, phishing emails, and online scams targeting Melbourne residents. Protect your family and finances.',
+            'image' => RT::url(RT::OG_IMAGE),
+            'author' => [
+                '@type' => 'Organization',
+                'name' => RT::NAME,
+            ],
+            'publisher' => [
+                '@type' => 'Organization',
+                'name' => RT::NAME,
+                'logo' => [
+                    '@type' => 'ImageObject',
+                    'url' => RT::url(RT::LOGO),
+                ],
+            ],
+            'datePublished' => '2025-11-17',
+            'dateModified' => '2025-11-17',
+            'mainEntityOfPage' => [
+                '@type' => 'WebPage',
+                '@id' => RT::url('/blog-scam-protection/'),
+            ],
+            'provider' => RT::local_business(),
+        ],
+    ],
+]); ?>
 </head>
 <body>
 <?php rt_header(); ?>
 
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <div class="container">
-            <a href="/">Home</a>
-            <span class="separator"><i class="fas fa-chevron-right"></i></span>
-            <a href="/blog/">Blog</a>
-            <span class="separator"><i class="fas fa-chevron-right"></i></span>
-            <span class="current">Scam Protection</span>
-        </div>
-    </nav>
+<?php rt_breadcrumbs(['Blog' => '/blog/', 'Scam Protection' => '/blog-scam-protection/']); ?>
 
     <main id="main">
         <div class="article-header">
             <div class="container">
                 <div class="article-meta">
                     <span class="category">Online Safety</span>
-                    <span class="reading-time"><i class="fas fa-clock"></i> 6 min read</span>
+                    <span class="reading-time"><?php echo rt_icon('clock'); ?> 6 min read</span>
                 </div>
                 <h1>How to Spot and Avoid Tech Support Scams</h1>
                 <p class="article-excerpt">Protect yourself and your family from the most common scams targeting Australians right now.</p>
                 <div class="article-info">
-                    <span><i class="fas fa-calendar"></i> <?php echo date('F j, Y'); ?></span>
-                    <span><i class="fas fa-user"></i> Rapid Tech Solutions</span>
+                    <span><?php echo rt_icon('calendar'); ?> <?php echo date('F j, Y'); ?></span>
+                    <span><?php echo rt_icon('user'); ?> Rapid Tech Solutions</span>
                 </div>
             </div>
         </div>
@@ -132,7 +94,7 @@ if (function_exists('get_template_directory_uri')) {
                 </div>
 
                 <div class="service-cta">
-                    <h4><i class="fas fa-shield-alt"></i> Need Professional Virus Removal?</h4>
+                    <h4><?php echo rt_icon('shield'); ?> Need Professional Virus Removal?</h4>
                     <p>If you suspect your computer has been compromised by a scam, our experts can help. We remove malware, secure your system, and set up protection.</p>
                     <a href="/service-virus-removal/" class="btn">Learn About Virus Removal Services</a>
                 </div>
@@ -205,8 +167,8 @@ if (function_exists('get_template_directory_uri')) {
                     <li>Family safety training</li>
                 </ul>
                 <div class="cta-buttons">
-                    <a href="/book/" class="btn"><i class="fas fa-shield-alt"></i> Get a Free Security Check</a>
-                    <a href="tel:+61423680596" class="btn btn-outline"><i class="fas fa-phone"></i> Call Us: 0423 680 596</a>
+                    <a href="/book/" class="btn"><?php echo rt_icon('shield'); ?> Get a Free Security Check</a>
+                    <a href="tel:<?php echo RT::PHONE_E164; ?>" class="btn btn-outline"><?php echo rt_icon('phone'); ?> Call Us: <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
                 </div>
             </section>
 
@@ -216,28 +178,23 @@ if (function_exists('get_template_directory_uri')) {
                     <div class="related-card">
                         <h4>Protect Against Malware</h4>
                         <p>Essential security practices to keep your devices safe from viruses and malicious software.</p>
-                        <a href="/blog-malware-protection/">Read Article <i class="fas fa-arrow-right"></i></a>
+                        <a href="/blog-malware-protection/">Read Article →</a>
                     </div>
                     <div class="related-card">
                         <h4>Creating Strong Passwords</h4>
                         <p>Learn how to create and manage secure passwords for all your accounts.</p>
-                        <a href="/blog-password-security/">Read Article <i class="fas fa-arrow-right"></i></a>
+                        <a href="/blog-password-security/">Read Article →</a>
                     </div>
                     <div class="related-card">
                         <h4>Monthly Computer Maintenance</h4>
                         <p>Simple steps to keep your computer running smoothly and securely.</p>
-                        <a href="/blog-computer-maintenance/">Read Article <i class="fas fa-arrow-right"></i></a>
+                        <a href="/blog-computer-maintenance/">Read Article →</a>
                     </div>
                 </div>
             </div>
         </article>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p class="footer-note">© <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</p>
-        </div>
-    </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
+<?php rt_footer(); ?>
 </body>
 </html>

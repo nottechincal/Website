@@ -1,225 +1,124 @@
 <?php
-/*
-Template Name: Home
-*/
-// The template references RT:: constants but relied on functions.php having
-// already loaded config.php. That holds under WordPress and nowhere else, so
-// the file fatal-errored the moment it was rendered directly. require_once
-// makes it self-sufficient without loading anything twice.
 require_once __DIR__ . '/inc/config.php';
-// Define base path - works with or without WordPress
-if (function_exists('get_template_directory_uri')) {
-    $base_path = get_template_directory_uri();
-} else {
-    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
-    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
+require_once __DIR__ . '/inc/seo.php';
+require_once __DIR__ . '/inc/icons.php';
+require_once __DIR__ . '/inc/forms.php';
+
+// Booking form handler — shared validation/logging/email in inc/forms.php.
+$bk_submitted = false; $bk_errors = [];
+$bk = ['service'=>'','name'=>'','email'=>'','phone'=>'','date'=>'','time'=>'','address'=>'','desc'=>''];
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['bk_submit'])) {
+    $result = rt_validate_booking($_POST);
+    $bk = $result['clean'];
+    $bk['desc'] = $bk['description']; // template below reads 'desc'
+    $bk_errors = $result['errors'];
+
+    if (!rt_verify_csrf($_POST['rt_csrf'] ?? null)) {
+        $bk_errors['csrf'] = 'Your session expired — please try again.';
+    }
+
+    if (empty($bk_errors) && empty($_POST['website'])) {
+        rt_log_booking($result['clean'], 'homepage');
+        rt_send_booking_email($result['clean']);
+        $bk_submitted = true;
+    }
 }
-// Cache-busting: forces browsers to re-fetch CSS/JS when files change.
-// Uses file modification time so it's automatic — no manual version bumps.
-$theme_dir = function_exists('get_template_directory') ? get_template_directory() : __DIR__;
-$css_v = filemtime($theme_dir . '/css/styles.css');
-$js_v  = filemtime($theme_dir . '/js/main.js');
+
+$home_schema = [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+        [
+            '@type' => 'WebSite',
+            '@id'   => RT::url('/#website'),
+            'url'  => RT::url('/'),
+            'name' => RT::NAME,
+            'inLanguage' => RT::LANG,
+            'publisher' => ['@id' => RT::url('/#business')],
+        ],
+        [
+            '@type' => 'Organization',
+            '@id'   => RT::url('/#organization'),
+            'name' => RT::NAME,
+            'url'  => RT::url('/'),
+            'logo' => ['@type' => 'ImageObject', 'url' => RT::url(RT::LOGO)],
+            'contactPoint' => ['@type' => 'ContactPoint', 'telephone' => RT::PHONE_E164, 'contactType' => 'customer service', 'areaServed' => 'AU', 'availableLanguage' => 'English'],
+            'sameAs' => RT::SOCIAL,
+        ],
+    ],
+];
+
+$home_local = RT::local_business([
+    'description' => 'Same-day computer repairs across Melbourne\'s south-east. Free diagnosis, fixed quotes, no fix no fee.',
+    'aggregateRating' => ['@type' => 'AggregateRating', 'ratingValue' => RT::RATING_VALUE, 'reviewCount' => (int) RT::RATING_COUNT, 'bestRating' => '5'],
+    'areaServed' => ['Cranbourne','Cranbourne South','Berwick','Narre Warren','Dandenong','Frankston','Carrum Downs','Seaford','Patterson Lakes','Chelsea','Mordialloc'],
+    'hasOfferCatalog' => [
+        '@type' => 'OfferCatalog',
+        'name' => 'Computer repair services',
+        'itemListElement' => [
+            ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Computer repairs', 'description' => 'Laptops, desktops, Macs and gaming PCs']],
+            ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Virus & malware removal', 'description' => 'Full clean-up with ongoing protection']],
+            ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Data recovery', 'description' => 'Hard drive, SSD and deleted file recovery']],
+            ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Wi-Fi & networks', 'description' => 'Dead zone fixes, mesh installs, NBN diagnostics']],
+        ],
+    ],
+]);
+
+$home_faq = [
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => [
+        ['@type' => 'Question', 'name' => 'How much does computer repair cost in Cranbourne?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Diagnosis and quotes are free. Software fixes typically $80–180. Hardware repairs like screens or batteries $120–350 depending on parts. Data recovery from $150. Fixed price before any work begins — no charge if we can\'t fix it.']],
+        ['@type' => 'Question', 'name' => 'Do you offer same-day computer repairs?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes. 97% of our jobs are resolved the same day. We carry common parts so most repairs finish in one visit.']],
+        ['@type' => 'Question', 'name' => 'What suburbs do you cover?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'We cover Cranbourne, Berwick, Narre Warren, Dandenong, Frankston, Carrum Downs, Seaford, Patterson Lakes, Chelsea, Mordialloc and surrounds. No call-out surcharge — based in Cranbourne South.']],
+        ['@type' => 'Question', 'name' => 'Do you offer a warranty on repairs?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes — every repair comes with a 30-day warranty. If the same fault returns within that window we come back at no charge.']],
+        ['@type' => 'Question', 'name' => 'My laptop won\'t turn on — what can I try first?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Check the power adapter is firmly connected and try a different wall outlet. Hold the power button for 15 seconds, then try again. If still dead, call for a free diagnosis.']],
+        ['@type' => 'Question', 'name' => 'Can you recover deleted files?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'In many cases yes. Stop using the device immediately — continued use overwrites deleted files. Free assessment with honest odds given before any work. Data recovery from $150.']],
+    ],
+];
 ?>
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="<?php echo RT::LANG; ?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Same-day computer repairs, virus removal, data recovery and Wi-Fi fixes across Melbourne's south-east. We come to you. No fix, no fee. Call 0423 680 596.">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="author" content="Rapid Tech Solutions">
-    <meta name="geo.region" content="AU-VIC">
-    <meta name="geo.placename" content="Cranbourne South">
-    <meta name="geo.position" content="-38.1333;145.2667">
-    <meta name="ICBM" content="-38.1333, 145.2667">
-    <title>Computer Repairs &amp; IT Support Melbourne | Same-Day</title>
-    <meta property="og:title" content="Computer Repairs &amp; IT Support Melbourne | Same-Day">
-    <meta property="og:description" content="Same-day computer repairs, virus removal, data recovery and Wi-Fi fixes across Melbourne's south-east. We come to you. No fix, no fee.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rapidtechsolutions.au/">
-    <meta property="og:locale" content="en_AU">
-    <meta property="og:image" content="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Rapid Tech Solutions — computer repairs and IT support, Melbourne">
-    <meta property="og:site_name" content="Rapid Tech Solutions">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Computer Repairs &amp; IT Support Melbourne | Same-Day">
-    <meta name="twitter:description" content="Same-day computer repairs, virus removal, data recovery and Wi-Fi fixes across Melbourne's south-east. We come to you. No fix, no fee.">
-    <meta name="twitter:image" content="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
-    <link rel="canonical" href="https://rapidtechsolutions.au/">
-    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $base_path; ?>/images/logo.png">
-
-    <?php /* Space Grotesk is self-hosted */ ?>
-    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="<?php echo $base_path; ?>/images/fallback.webp" as="image" type="image/webp" fetchpriority="high">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo $css_v; ?>" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/animations.css?v=<?php echo $css_v; ?>" rel="stylesheet" media="print" onload="this.media='all'">
-    <script>
-    if ('IntersectionObserver' in window) {
-        document.documentElement.className += ' js-anim';
-    }
-    </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <noscript>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-        <link href="<?php echo $base_path; ?>/css/animations.css?v=<?php echo $css_v; ?>" rel="stylesheet">
-    </noscript>
-
-    <!-- Structured data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "WebSite",
-                "@id": "https://rapidtechsolutions.au/#website",
-                "url": "https://rapidtechsolutions.au/",
-                "name": "Rapid Tech Solutions",
-                "inLanguage": "en-AU",
-                "publisher": { "@id": "https://rapidtechsolutions.au/#business" }
-            },
-            {
-                "@type": "Organization",
-                "@id": "https://rapidtechsolutions.au/#organization",
-                "name": "Rapid Tech Solutions",
-                "url": "https://rapidtechsolutions.au/",
-                "logo": { "@type": "ImageObject", "url": "https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/logo.png" },
-                "contactPoint": { "@type": "ContactPoint", "telephone": "+61423680596", "contactType": "customer service", "areaServed": "AU", "availableLanguage": "English" },
-                "sameAs": ["https://www.facebook.com/RapidTechAUS/", "https://www.instagram.com/rapidtechsolutions.au/"]
-            }
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": "https://rapidtechsolutions.au/#business",
-        "name": "Rapid Tech Solutions",
-        "description": "Same-day computer repairs across Melbourne's south-east. Free diagnosis, fixed quotes, no fix no fee.",
-        "telephone": "+61423680596",
-        "email": "support@rapidtechsolutions.au",
-        "url": "https://rapidtechsolutions.au/",
-        "image": "https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg",
-        "priceRange": "<?php echo RT::PRICE_RANGE; ?>",
-        "address": { "@type": "PostalAddress", "addressLocality": "Cranbourne South", "addressRegion": "VIC", "postalCode": "3977", "addressCountry": "AU" },
-        "geo": { "@type": "GeoCoordinates", "latitude": <?php echo RT::LATITUDE; ?>, "longitude": <?php echo RT::LONGITUDE; ?> },
-        "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": <?php echo json_encode(RT::OPEN_DAYS); ?>, "opens": "<?php echo RT::OPEN_TIME; ?>", "closes": "<?php echo RT::CLOSE_TIME; ?>" },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "<?php echo RT::RATING_VALUE; ?>", "reviewCount": "<?php echo RT::RATING_COUNT; ?>", "bestRating": "5" },
-        "areaServed": ["Cranbourne","Cranbourne South","Berwick","Narre Warren","Dandenong","Frankston","Carrum Downs","Seaford","Patterson Lakes","Chelsea","Mordialloc"],
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Computer repair services",
-            "itemListElement": [
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Computer repairs", "description": "Laptops, desktops, Macs and gaming PCs" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Virus & malware removal", "description": "Full clean-up with ongoing protection" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data recovery", "description": "Hard drive, SSD and deleted file recovery" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wi-Fi & networks", "description": "Dead zone fixes, mesh installs, NBN diagnostics" } }
-            ]
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            { "@type": "Question", "name": "How much does computer repair cost in Cranbourne?", "acceptedAnswer": { "@type": "Answer", "text": "Diagnosis and quotes are free. Software fixes typically $80–180. Hardware repairs like screens or batteries $120–350 depending on parts. Data recovery from $150. Fixed price before any work begins — no charge if we can't fix it." } },
-            { "@type": "Question", "name": "Do you offer same-day computer repairs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. 97% of our jobs are resolved the same day. We carry common parts so most repairs finish in one visit." } },
-            { "@type": "Question", "name": "What suburbs do you cover?", "acceptedAnswer": { "@type": "Answer", "text": "We cover Cranbourne, Berwick, Narre Warren, Dandenong, Frankston, Carrum Downs, Seaford, Patterson Lakes, Chelsea, Mordialloc and surrounds. No call-out surcharge — based in Cranbourne South." } },
-            { "@type": "Question", "name": "Do you offer a warranty on repairs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — every repair comes with a 30-day warranty. If the same fault returns within that window we come back at no charge." } },
-            { "@type": "Question", "name": "My laptop won't turn on — what can I try first?", "acceptedAnswer": { "@type": "Answer", "text": "Check the power adapter is firmly connected and try a different wall outlet. Hold the power button for 15 seconds, then try again. If still dead, call for a free diagnosis." } },
-            { "@type": "Question", "name": "Can you recover deleted files?", "acceptedAnswer": { "@type": "Answer", "text": "In many cases yes. Stop using the device immediately — continued use overwrites deleted files. Free assessment with honest odds given before any work. Data recovery from $150." } }
-        ]
-    }
-    </script>
-
-    <!-- Google Analytics -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BDN34WT3J6');
-    </script>
+<?php rt_head([
+    'title'       => 'Computer Repairs & IT Support Melbourne | Same-Day',
+    'description' => 'Same-day computer repairs, virus removal, data recovery and Wi-Fi fixes across Melbourne\'s south-east. We come to you. No fix, no fee. Call ' . RT::PHONE_DISPLAY . '.',
+    'path'        => '/',
+    'css'         => 'css/animations.css',
+    'extra_head'  => '<link rel="preload" href="' . RT::asset('images/fallback.webp') . '" as="image" type="image/webp" fetchpriority="high">',
+    'schema'      => array_merge($home_schema, [$home_local, $home_faq]),
+]); ?>
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to content</a>
-
-<!-- Emergency bar -->
-<div class="emg"><div class="wrap">
-  <span class="dot"></span>Same-day emergency service across Melbourne's south-east
-  <a href="tel:+61423680596" data-track="emergency-bar">Call 0423 680 596</a>
-</div></div>
-
-<!-- Header — proper mobile nav -->
-<header class="site-header" role="banner">
-  <div class="wrap">
-    <a class="brand" href="/">
-      <img src="<?php echo $base_path; ?>/images/logo.png" alt="Rapid Tech Solutions" width="64" height="64">
-      Rapid Tech Solutions
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
-      <span class="menu-toggle-bars" aria-hidden="true"></span>
-    </button>
-    <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
-      <a href="#issues">Common issues</a>
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#areas">Areas</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#faq">FAQ</a>
-      <a href="#book">Book a repair</a>
-      <a class="hbtn mobile-phone" href="tel:+61423680596">📞 0423 680 596</a>
-    </nav>
-    <a class="hbtn desktop-phone" href="tel:+61423680596" data-track="header">0423 680 596</a>
-  </div>
-</header>
-<div class="nav-backdrop" id="navBackdrop"></div>
-
-<!-- WhatsApp chat popup -->
-<button class="wa-fab" aria-label="Chat on WhatsApp" aria-haspopup="dialog">
-  <i class="fab fa-whatsapp" aria-hidden="true"></i>
-</button>
-<div class="wa-popup" id="waPopup" role="dialog" aria-modal="true" aria-label="Chat with us on WhatsApp" hidden>
-  <div class="wa-popup-header">
-    <span>💬 Chat with us</span>
-    <button id="waClose" aria-label="Close chat">&times;</button>
-  </div>
-  <div class="wa-popup-body">
-    <p>Type your message and we'll reply on WhatsApp — usually within minutes.</p>
-    <label for="waInput" class="sr-only">Your message</label>
-    <textarea id="waInput" rows="3" placeholder="Hi, I need help with..."></textarea>
-    <button id="waSend" class="wa-send-btn">Send via WhatsApp <i class="fab fa-whatsapp"></i></button>
-  </div>
-</div>
-<a class="sticky-cta" href="tel:+61423680596" data-track="sticky-cta" aria-label="Call now">📞 Call now</a>
+<?php
+rt_header(true, [
+    'Common issues'  => '#issues',
+    'Services'       => '#services',
+    'Process'        => '#process',
+    'Areas'          => '#areas',
+    'Reviews'        => '#reviews',
+    'FAQ'            => '#faq',
+    'Book a repair'  => '#book',
+]);
+?>
 
 <main id="main">
 
 <!-- Hero -->
 <section class="hero" aria-label="Rapid Tech Solutions hero">
   <video autoplay muted loop playsinline id="bg-video"
-         poster="<?php echo $base_path; ?>/images/fallback.webp"
-         data-src="<?php echo $base_path; ?>/videos/bg1.mp4"
+         poster="<?php echo RT::asset('images/fallback.webp'); ?>"
+         data-src="<?php echo RT::asset('videos/bg1.mp4'); ?>"
          width="1920" height="1080">
   </video>
   <div class="hero-overlay"></div>
   <div class="wrap">
     <div class="hero-grid">
-      <!-- Left column: main content -->
       <div class="hero-left">
-        <span class="tag"><span class="dot-inline"></span><b>Cranbourne South</b> &middot; Melbourne's south-east</span>
+        <span class="tag"><span class="dot-inline"></span><b><?php echo RT::e(RT::LOCALITY); ?></b> &middot; Melbourne's south-east</span>
         <h1>Your computer,<br><em>fixed properly.</em></h1>
         <p class="lead">Free diagnosis. A fixed price before anything starts. No charge if we can't fix it. Onsite across the south-east — usually same day.</p>
 
-        <!-- GLASS GUARANTEE BOXES -->
         <div class="glass-row">
           <div class="glass-card accent-red">
             <div class="gc-icon">🛡️</div>
@@ -238,9 +137,8 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
           </div>
         </div>
 
-        <!-- Triage widget -->
         <div class="triage">
-          <a class="triage-card urgent" href="tel:+61423680596" data-track="triage-emergency">
+          <a class="triage-card urgent" href="tel:<?php echo RT::PHONE_E164; ?>" data-track="triage-emergency">
             <div class="tr-ico urgent">🚨</div>
             <div><span class="tr-label">It's an emergency</span><span class="tr-sub">Call now — same-day help</span></div>
           </a>
@@ -255,35 +153,23 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
         </div>
 
         <div class="cta-row">
-          <a class="btn b-solid" href="tel:+61423680596" data-track="hero-primary">📞 Call 0423 680 596</a>
+          <a class="btn b-solid" href="tel:<?php echo RT::PHONE_E164; ?>" data-track="hero-primary">📞 Call <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
           <a class="btn b-line" href="#issues">Find your issue ↓</a>
         </div>
       </div>
 
-      <!-- Right column: compact booking card -->
       <div class="hero-book">
         <h3>📅 Book a repair</h3>
         <p class="hb-sub">Free diagnosis, fixed price, same-day</p>
         <form method="POST" action="#book" id="hbForm" autocomplete="on">
           <input type="hidden" name="bk_submit" value="1">
+          <?php rt_csrf_field(); ?>
           <div style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
 
-          <div class="hb-field">
-            <label for="hb_name" class="sr-only">Your name</label>
-            <input type="text" name="bk_name" id="hb_name" placeholder="Your name" required autocomplete="name">
-          </div>
-          <div class="hb-field">
-            <label for="hb_phone" class="sr-only">Phone number</label>
-            <input type="tel" name="bk_phone" id="hb_phone" placeholder="Phone number" required autocomplete="tel-national">
-          </div>
-          <div class="hb-field">
-            <label for="hb_email" class="sr-only">Email address</label>
-            <input type="email" name="bk_email" id="hb_email" placeholder="Email address" required autocomplete="email">
-          </div>
-          <div class="hb-field">
-            <label for="hb_address" class="sr-only">Your address / suburb</label>
-            <input type="text" name="bk_address" id="hb_address" placeholder="Your address / suburb" required autocomplete="street-address">
-          </div>
+          <div class="hb-field"><label for="hb_name" class="sr-only">Your name</label><input type="text" name="bk_name" id="hb_name" placeholder="Your name" required autocomplete="name"></div>
+          <div class="hb-field"><label for="hb_phone" class="sr-only">Phone number</label><input type="tel" name="bk_phone" id="hb_phone" placeholder="Phone number" required autocomplete="tel-national"></div>
+          <div class="hb-field"><label for="hb_email" class="sr-only">Email address</label><input type="email" name="bk_email" id="hb_email" placeholder="Email address" required autocomplete="email"></div>
+          <div class="hb-field"><label for="hb_address" class="sr-only">Your address / suburb</label><input type="text" name="bk_address" id="hb_address" placeholder="Your address / suburb" required autocomplete="street-address"></div>
           <div class="hb-field">
             <label for="hb_service" class="sr-only">What do you need?</label>
             <select name="bk_service" id="hb_service" required>
@@ -295,21 +181,13 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
               <option value="Other / not sure">Other / not sure</option>
             </select>
           </div>
-          <div class="hb-field">
-            <label for="hb_desc" class="sr-only">What's happening? (brief description)</label>
-            <textarea name="bk_desc" id="hb_desc" placeholder="What's happening? (brief description)" required autocomplete="off"></textarea>
-          </div>
+          <div class="hb-field"><label for="hb_desc" class="sr-only">What's happening?</label><textarea name="bk_desc" id="hb_desc" placeholder="What's happening? (brief description)" required autocomplete="off"></textarea></div>
           <button type="submit" class="hb-submit">📅 Book my repair</button>
-          <div class="hb-trust">
-            <span>🛡️ No fix, no fee</span>
-            <span>🔍 Free diagnosis</span>
-            <span>✅ 30-day warranty</span>
-          </div>
+          <div class="hb-trust"><span>🛡️ No fix, no fee</span><span>🔍 Free diagnosis</span><span>✅ 30-day warranty</span></div>
         </form>
       </div>
     </div>
 
-    <!-- Pricing grid -->
     <div class="pricing-wrap">
       <div class="pricing-grid">
         <div class="pcard"><h3>💻 Software &amp; setup</h3><p class="what">Slow machines, viruses, updates, new device setup</p><p class="range">$80 – $180</p><p class="note">Fixed quote before we start</p></div>
@@ -325,12 +203,12 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
 <!-- Stats -->
 <div class="stats-bar"><div class="wrap">
   <div class="stat"><div class="stat-icon">💻</div><b>500+</b><span>Devices repaired</span></div>
-  <div class="stat"><div class="stat-icon">⭐</div><b>5.0</b><span>From 47 Google reviews</span></div>
+  <div class="stat"><div class="stat-icon">⭐</div><b><?php echo RT::RATING_VALUE; ?></b><span>From <?php echo RT::RATING_COUNT; ?> Google reviews</span></div>
   <div class="stat"><div class="stat-icon">⚡</div><b>97%</b><span>Resolved same day</span></div>
   <div class="stat"><div class="stat-icon">📍</div><b>30+</b><span>Suburbs, no call-out fee</span></div>
 </div></div>
 
-<!-- Common issues — FIXED: initial state shows 8 featured only -->
+<!-- Common issues -->
 <section id="issues" class="issues"><div class="wrap">
   <div class="shead">
     <p class="kicker">Common issues</p>
@@ -356,166 +234,43 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
   </div>
 
   <div class="issue-grid" id="issueGrid">
+    <?php /* Hardware — 6 cards */ ?>
+    <div class="issue-card" data-cat="hardware" data-keywords="laptop won't turn on no power dead computer won't start black screen" data-featured="1"><div class="ic-top"><div class="ic-ico hw">🔋</div><div><h4>Laptop won't turn on</h4></div></div><p class="ic-desc">No lights, no fan, nothing. Could be power jack, battery, or motherboard. Free diagnosis.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Get it diagnosed <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="hardware" data-keywords="cracked screen broken display laptop screen repair shattered glass" data-featured="1"><div class="ic-top"><div class="ic-ico hw">💔</div><div><h4>Cracked or broken screen</h4></div></div><p class="ic-desc">Laptop or phone screen smashed? Most screens replaced same day. Quoted on parts first.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Get a quote <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="hardware" data-keywords="battery not charging draining fast laptop battery replacement won't hold charge"><div class="ic-top"><div class="ic-ico hw">🪫</div><div><h4>Battery draining fast</h4></div></div><p class="ic-desc">Won't hold charge or dies at 30%. We test battery health and replace — usually while you wait.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Book a check <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="hardware" data-keywords="overheating hot laptop fan loud noisy shutting down thermal"><div class="ic-top"><div class="ic-ico hw">🔥</div><div><h4>Overheating &amp; shutting down</h4></div></div><p class="ic-desc">Fan screaming, too hot to touch, random shutdowns. Usually dust, dried paste, or dead fan.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Cool it down <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="hardware" data-keywords="keyboard not working sticky keys liquid spill keyboard replacement"><div class="ic-top"><div class="ic-ico hw">⌨️</div><div><h4>Keyboard not working</h4></div></div><p class="ic-desc">Keys sticking, not registering, or liquid damage. We clean or replace keyboards for most models.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Fix the keys <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="hardware" data-keywords="hard drive clicking noise grinding beeping won't detect failing" data-featured="1"><div class="ic-top"><div class="ic-ico hw">💿</div><div><h4>Hard drive making noises</h4></div></div><p class="ic-desc">Clicking, grinding, or beeping = failing drive. Stop using it now. Free assessment.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Assess now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <?php /* Software — 6 cards */ ?>
+    <div class="issue-card" data-cat="software" data-keywords="computer running slow freezing lagging takes forever to start" data-featured="1"><div class="ic-top"><div class="ic-ico sw">🐌</div><div><h4>Computer running slow</h4></div></div><p class="ic-desc">Takes forever to start, apps freeze, spinning wheel. Usually fixable without new hardware.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Speed it up <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="software" data-keywords="virus malware spyware ransomware trojan infected pop up scam" data-featured="1"><div class="ic-top"><div class="ic-ico sw">🦠</div><div><h4>Virus or malware infection</h4></div></div><p class="ic-desc">Pop-ups, redirects, ransomware, or scam remote-access. Full clean-up + protection configured.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Remove it now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="software" data-keywords="blue screen BSOD crashing freezing randomly windows error" data-featured="1"><div class="ic-top"><div class="ic-ico sw">🟦</div><div><h4>Blue screen / crashing</h4></div></div><p class="ic-desc">Random crashes, blue screen of death, or freezing. We trace the root cause — not just reformat.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Diagnose it <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="software" data-keywords="windows won't boot startup repair stuck on logo black screen loading"><div class="ic-top"><div class="ic-ico sw">🪟</div><div><h4>Windows won't boot</h4></div></div><p class="ic-desc">Stuck on logo, automatic repair loop, or black screen. We fix it without losing your files.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Get it booting <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="software" data-keywords="browser hijack pop ups redirects ads search engine changed chrome"><div class="ic-top"><div class="ic-ico sw">🚨</div><div><h4>Pop-ups &amp; browser hijacks</h4></div></div><p class="ic-desc">Search redirected, ads everywhere, fake "infected" warnings. Full browser cleanup + protection.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Clean it up <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="software" data-keywords="email hacked compromised scam password changed can't log in"><div class="ic-top"><div class="ic-ico sw">📧</div><div><h4>Email hacked</h4></div></div><p class="ic-desc">Account compromised, password changed, spam sent. We recover and secure it properly.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Recover account <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <?php /* Network — 6 cards */ ?>
+    <div class="issue-card" data-cat="network" data-keywords="wifi keeps dropping disconnecting intermittent unstable wireless" data-featured="1"><div class="ic-top"><div class="ic-ico nw">📡</div><div><h4>WiFi keeps dropping out</h4></div></div><p class="ic-desc">Connection cuts in and out. Usually coverage or interference — not your internet plan.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Stabilise it <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="network" data-keywords="slow internet buffering speed test low nbn slow wifi speed" data-featured="1"><div class="ic-top"><div class="ic-ico nw">🐢</div><div><h4>Slow internet speed</h4></div></div><p class="ic-desc">Buffering, slow downloads. We find whether it's your WiFi, router, or the NBN connection.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Speed it up <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="network" data-keywords="can't connect to wifi won't connect network not showing up password"><div class="ic-top"><div class="ic-ico nw">🔌</div><div><h4>Can't connect to WiFi</h4></div></div><p class="ic-desc">Network not showing, password rejected, or "can't connect." Usually a quick driver or settings fix.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Get connected <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="network" data-keywords="nbn not working no internet nbn box lights red flashing outage"><div class="ic-top"><div class="ic-ico nw">📶</div><div><h4>NBN not working</h4></div></div><p class="ic-desc">NBN box flashing, no connection. We check if it's your equipment or an NBN fault — handle both.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Sort the NBN <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="network" data-keywords="wifi dead zones weak signal poor coverage doesn't reach back room"><div class="ic-top"><div class="ic-ico nw">🏠</div><div><h4>WiFi dead zones at home</h4></div></div><p class="ic-desc">Signal drops in certain rooms. We map the dead zones and install mesh WiFi that covers everywhere.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Cover every room <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="network" data-keywords="router setup new modem configure wifi network set up help"><div class="ic-top"><div class="ic-ico nw">🔀</div><div><h4>Router needs setting up</h4></div></div><p class="ic-desc">New router or modem, not sure how to configure. We set it up properly with security optimised.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Set it up <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <?php /* Data — 6 cards */ ?>
+    <div class="issue-card" data-cat="data" data-keywords="deleted files accidentally deleted recovery restore recycle bin emptied" data-featured="1"><div class="ic-top"><div class="ic-ico dt">📄</div><div><h4>Accidentally deleted files</h4></div></div><p class="ic-desc">Emptied recycle bin or Shift+Deleted. Stop using the PC now — we can often get them back.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Recover files <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="data" data-keywords="external hard drive not detected not showing up USB plugged in no response"><div class="ic-top"><div class="ic-ico dt">💽</div><div><h4>External drive not detected</h4></div></div><p class="ic-desc">Plugged in but nothing shows. Could be enclosure, cable, or drive itself. Free assessment.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Get data back <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="data" data-keywords="USB not reading SD card not detected flash drive won't open corrupted"><div class="ic-top"><div class="ic-ico dt">💳</div><div><h4>USB / SD card won't read</h4></div></div><p class="ic-desc">Memory card or flash drive not recognised, asking to format. Don't format — we can recover it.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Recover it <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="data" data-keywords="backup set up need backup automatic backup cloud backup files safe"><div class="ic-top"><div class="ic-ico dt">☁️</div><div><h4>Need backup set up</h4></div></div><p class="ic-desc">No backups and worried about losing everything. Automatic local + cloud backup configured.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Set up backup <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="data" data-keywords="SSD not detected not showing in BIOS m.2 NVMe drive missing"><div class="ic-top"><div class="ic-ico dt">🧊</div><div><h4>SSD not showing up</h4></div></div><p class="ic-desc">New or existing SSD not detected in BIOS or Windows. Could be seating, driver, or firmware.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Fix it <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="issue-card" data-cat="data" data-keywords="phone photos recovery lost photos iphone android photos deleted pictures"><div class="ic-top"><div class="ic-ico dt">📱</div><div><h4>Phone photos lost</h4></div></div><p class="ic-desc">Photos deleted or phone won't turn on. Recovery from iPhones and Android devices.</p><a class="ic-cta" href="tel:<?php echo RT::PHONE_E164; ?>">Save your photos <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
 
-    <!-- Hardware (6) -->
-    <div class="issue-card" data-cat="hardware" data-keywords="laptop won't turn on no power dead computer won't start black screen" data-featured="1">
-      <div class="ic-top"><div class="ic-ico hw">🔋</div><div><h4>Laptop won't turn on</h4></div></div>
-      <p class="ic-desc">No lights, no fan, nothing. Could be power jack, battery, or motherboard. Free diagnosis.</p>
-      <a class="ic-cta" href="tel:+61423680596">Get it diagnosed <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="hardware" data-keywords="cracked screen broken display laptop screen repair shattered glass" data-featured="1">
-      <div class="ic-top"><div class="ic-ico hw">💔</div><div><h4>Cracked or broken screen</h4></div></div>
-      <p class="ic-desc">Laptop or phone screen smashed? Most screens replaced same day. Quoted on parts first.</p>
-      <a class="ic-cta" href="tel:+61423680596">Get a quote <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="hardware" data-keywords="battery not charging draining fast laptop battery replacement won't hold charge">
-      <div class="ic-top"><div class="ic-ico hw">🪫</div><div><h4>Battery draining fast</h4></div></div>
-      <p class="ic-desc">Won't hold charge or dies at 30%. We test battery health and replace — usually while you wait.</p>
-      <a class="ic-cta" href="tel:+61423680596">Book a check <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="hardware" data-keywords="overheating hot laptop fan loud noisy shutting down thermal">
-      <div class="ic-top"><div class="ic-ico hw">🔥</div><div><h4>Overheating &amp; shutting down</h4></div></div>
-      <p class="ic-desc">Fan screaming, too hot to touch, random shutdowns. Usually dust, dried paste, or dead fan.</p>
-      <a class="ic-cta" href="tel:+61423680596">Cool it down <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="hardware" data-keywords="keyboard not working sticky keys liquid spill keyboard replacement">
-      <div class="ic-top"><div class="ic-ico hw">⌨️</div><div><h4>Keyboard not working</h4></div></div>
-      <p class="ic-desc">Keys sticking, not registering, or liquid damage. We clean or replace keyboards for most models.</p>
-      <a class="ic-cta" href="tel:+61423680596">Fix the keys <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="hardware" data-keywords="hard drive clicking noise grinding beeping won't detect failing" data-featured="1">
-      <div class="ic-top"><div class="ic-ico hw">💿</div><div><h4>Hard drive making noises</h4></div></div>
-      <p class="ic-desc">Clicking, grinding, or beeping = failing drive. Stop using it now. Free assessment.</p>
-      <a class="ic-cta" href="tel:+61423680596">Assess now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <!-- Software (6) -->
-    <div class="issue-card" data-cat="software" data-keywords="computer running slow freezing lagging takes forever to start" data-featured="1">
-      <div class="ic-top"><div class="ic-ico sw">🐌</div><div><h4>Computer running slow</h4></div></div>
-      <p class="ic-desc">Takes forever to start, apps freeze, spinning wheel. Usually fixable without new hardware.</p>
-      <a class="ic-cta" href="tel:+61423680596">Speed it up <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="software" data-keywords="virus malware spyware ransomware trojan infected pop up scam" data-featured="1">
-      <div class="ic-top"><div class="ic-ico sw">🦠</div><div><h4>Virus or malware infection</h4></div></div>
-      <p class="ic-desc">Pop-ups, redirects, ransomware, or scam remote-access. Full clean-up + protection configured.</p>
-      <a class="ic-cta" href="tel:+61423680596">Remove it now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="software" data-keywords="blue screen BSOD crashing freezing randomly windows error" data-featured="1">
-      <div class="ic-top"><div class="ic-ico sw">🟦</div><div><h4>Blue screen / crashing</h4></div></div>
-      <p class="ic-desc">Random crashes, blue screen of death, or freezing. We trace the root cause — not just reformat.</p>
-      <a class="ic-cta" href="tel:+61423680596">Diagnose it <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="software" data-keywords="windows won't boot startup repair stuck on logo black screen loading">
-      <div class="ic-top"><div class="ic-ico sw">🪟</div><div><h4>Windows won't boot</h4></div></div>
-      <p class="ic-desc">Stuck on logo, automatic repair loop, or black screen. We fix it without losing your files.</p>
-      <a class="ic-cta" href="tel:+61423680596">Get it booting <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="software" data-keywords="browser hijack pop ups redirects ads search engine changed chrome">
-      <div class="ic-top"><div class="ic-ico sw">🚨</div><div><h4>Pop-ups &amp; browser hijacks</h4></div></div>
-      <p class="ic-desc">Search redirected, ads everywhere, fake "infected" warnings. Full browser cleanup + protection.</p>
-      <a class="ic-cta" href="tel:+61423680596">Clean it up <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="software" data-keywords="email hacked compromised scam password changed can't log in">
-      <div class="ic-top"><div class="ic-ico sw">📧</div><div><h4>Email hacked</h4></div></div>
-      <p class="ic-desc">Account compromised, password changed, spam sent. We recover and secure it properly.</p>
-      <a class="ic-cta" href="tel:+61423680596">Recover account <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <!-- Network (6) -->
-    <div class="issue-card" data-cat="network" data-keywords="wifi keeps dropping disconnecting intermittent unstable wireless" data-featured="1">
-      <div class="ic-top"><div class="ic-ico nw">📡</div><div><h4>WiFi keeps dropping out</h4></div></div>
-      <p class="ic-desc">Connection cuts in and out. Usually coverage or interference — not your internet plan.</p>
-      <a class="ic-cta" href="tel:+61423680596">Stabilise it <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="network" data-keywords="slow internet buffering speed test low nbn slow wifi speed" data-featured="1">
-      <div class="ic-top"><div class="ic-ico nw">🐢</div><div><h4>Slow internet speed</h4></div></div>
-      <p class="ic-desc">Buffering, slow downloads. We find whether it's your WiFi, router, or the NBN connection.</p>
-      <a class="ic-cta" href="tel:+61423680596">Speed it up <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="network" data-keywords="can't connect to wifi won't connect network not showing up password">
-      <div class="ic-top"><div class="ic-ico nw">🔌</div><div><h4>Can't connect to WiFi</h4></div></div>
-      <p class="ic-desc">Network not showing, password rejected, or "can't connect." Usually a quick driver or settings fix.</p>
-      <a class="ic-cta" href="tel:+61423680596">Get connected <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="network" data-keywords="nbn not working no internet nbn box lights red flashing outage">
-      <div class="ic-top"><div class="ic-ico nw">📶</div><div><h4>NBN not working</h4></div></div>
-      <p class="ic-desc">NBN box flashing, no connection. We check if it's your equipment or an NBN fault — handle both.</p>
-      <a class="ic-cta" href="tel:+61423680596">Sort the NBN <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="network" data-keywords="wifi dead zones weak signal poor coverage doesn't reach back room">
-      <div class="ic-top"><div class="ic-ico nw">🏠</div><div><h4>WiFi dead zones at home</h4></div></div>
-      <p class="ic-desc">Signal drops in certain rooms. We map the dead zones and install mesh WiFi that covers everywhere.</p>
-      <a class="ic-cta" href="tel:+61423680596">Cover every room <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="network" data-keywords="router setup new modem configure wifi network set up help">
-      <div class="ic-top"><div class="ic-ico nw">🔀</div><div><h4>Router needs setting up</h4></div></div>
-      <p class="ic-desc">New router or modem, not sure how to configure. We set it up properly with security optimised.</p>
-      <a class="ic-cta" href="tel:+61423680596">Set it up <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <!-- Data (6) -->
-    <div class="issue-card" data-cat="data" data-keywords="deleted files accidentally deleted recovery restore recycle bin emptied" data-featured="1">
-      <div class="ic-top"><div class="ic-ico dt">📄</div><div><h4>Accidentally deleted files</h4></div></div>
-      <p class="ic-desc">Emptied recycle bin or Shift+Deleted. Stop using the PC now — we can often get them back.</p>
-      <a class="ic-cta" href="tel:+61423680596">Recover files <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="data" data-keywords="external hard drive not detected not showing up USB plugged in no response">
-      <div class="ic-top"><div class="ic-ico dt">💽</div><div><h4>External drive not detected</h4></div></div>
-      <p class="ic-desc">Plugged in but nothing shows. Could be enclosure, cable, or drive itself. Free assessment.</p>
-      <a class="ic-cta" href="tel:+61423680596">Get data back <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="data" data-keywords="USB not reading SD card not detected flash drive won't open corrupted">
-      <div class="ic-top"><div class="ic-ico dt">💳</div><div><h4>USB / SD card won't read</h4></div></div>
-      <p class="ic-desc">Memory card or flash drive not recognised, asking to format. Don't format — we can recover it.</p>
-      <a class="ic-cta" href="tel:+61423680596">Recover it <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="data" data-keywords="backup set up need backup automatic backup cloud backup files safe">
-      <div class="ic-top"><div class="ic-ico dt">☁️</div><div><h4>Need backup set up</h4></div></div>
-      <p class="ic-desc">No backups and worried about losing everything. Automatic local + cloud backup configured.</p>
-      <a class="ic-cta" href="tel:+61423680596">Set up backup <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="data" data-keywords="SSD not detected not showing in BIOS m.2 NVMe drive missing">
-      <div class="ic-top"><div class="ic-ico dt">🧊</div><div><h4>SSD not showing up</h4></div></div>
-      <p class="ic-desc">New or existing SSD not detected in BIOS or Windows. Could be seating, driver, or firmware.</p>
-      <a class="ic-cta" href="tel:+61423680596">Fix it <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="issue-card" data-cat="data" data-keywords="phone photos recovery lost photos iphone android photos deleted pictures">
-      <div class="ic-top"><div class="ic-ico dt">📱</div><div><h4>Phone photos lost</h4></div></div>
-      <p class="ic-desc">Photos deleted or phone won't turn on. Recovery from iPhones and Android devices.</p>
-      <a class="ic-cta" href="tel:+61423680596">Save your photos <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="no-results" id="noResults"><b>No matching issues found</b>Call us anyway — we'll diagnose it free.<br><a href="tel:+61423680596" style="color:var(--primary);font-weight:600">0423 680 596</a></div>
+    <div class="no-results" id="noResults"><b>No matching issues found</b>Call us anyway — we'll diagnose it free.<br><a href="tel:<?php echo RT::PHONE_E164; ?>" style="color:var(--primary);font-weight:600"><?php echo RT::e(RT::PHONE_DISPLAY); ?></a></div>
   </div>
 
   <div class="issues-expand">
-    <button class="expand-btn" id="expandBtn">
-      View all 24 common issues <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-    </button>
+    <button class="expand-btn" id="expandBtn">View all 24 common issues <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
   </div>
 </div>
 
-<!-- Popular service+suburb combos -->
 <div class="pop-combos"><div class="wrap">
   <h3>Popular searches in your area</h3>
   <div class="combo-chips">
@@ -538,18 +293,10 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
 <section id="services" class="section alt"><div class="wrap">
   <div class="shead"><p class="kicker">What we do</p><h2>Four things make up most of our work</h2><p>If yours isn't listed here, call anyway — we'll tell you straight whether it's worth repairing.</p></div>
   <div class="svcs">
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg></div>
-      <h3>Computer repairs</h3><p>Laptops, desktops, Macs and gaming PCs. We carry common parts so most jobs finish in one visit.</p>
-      <ul><li>Won't start or crashing</li><li>Cracked screens</li><li>SSD &amp; memory upgrades</li><li>Windows &amp; macOS reinstalls</li></ul></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></svg></div>
-      <h3>Virus &amp; malware removal</h3><p>Full clean-up, then protection configured properly so it doesn't return in a fortnight.</p>
-      <ul><li>Ransomware &amp; spyware</li><li>Browser hijacks</li><li>Scam recovery</li><li>Ongoing protection</li></ul></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></div>
-      <h3>Data recovery</h3><p>Failed drives, dead SSDs, deleted files. Free assessment first — we'll give you the honest odds.</p>
-      <ul><li>Hard drive &amp; SSD recovery</li><li>Deleted files</li><li>Corrupted storage</li><li>Backup setup</li></ul></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></svg></div>
-      <h3>Wi-Fi &amp; networks</h3><p>Our most common callout. Nine times out of ten it's coverage, not your internet plan.</p>
-      <ul><li>Dead zones &amp; dropouts</li><li>Mesh Wi-Fi installs</li><li>NBN faults</li><li>Small business networks</li></ul></div>
+    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg></div><h3>Computer repairs</h3><p>Laptops, desktops, Macs and gaming PCs. We carry common parts so most jobs finish in one visit.</p><ul><li>Won't start or crashing</li><li>Cracked screens</li><li>SSD &amp; memory upgrades</li><li>Windows &amp; macOS reinstalls</li></ul></div>
+    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></svg></div><h3>Virus &amp; malware removal</h3><p>Full clean-up, then protection configured properly so it doesn't return in a fortnight.</p><ul><li>Ransomware &amp; spyware</li><li>Browser hijacks</li><li>Scam recovery</li><li>Ongoing protection</li></ul></div>
+    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></div><h3>Data recovery</h3><p>Failed drives, dead SSDs, deleted files. Free assessment first — we'll give you the honest odds.</p><ul><li>Hard drive &amp; SSD recovery</li><li>Deleted files</li><li>Corrupted storage</li><li>Backup setup</li></ul></div>
+    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></svg></div><h3>Wi-Fi &amp; networks</h3><p>Our most common callout. Nine times out of ten it's coverage, not your internet plan.</p><ul><li>Dead zones &amp; dropouts</li><li>Mesh Wi-Fi installs</li><li>NBN faults</li><li>Small business networks</li></ul></div>
   </div>
 </div></section>
 
@@ -566,33 +313,33 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
 
 <!-- Coverage -->
 <section id="areas" class="areas section"><div class="wrap">
-  <div class="shead"><p class="kicker">Coverage</p><h2>Where we go</h2><p>Based in Cranbourne South. No call-out surcharge anywhere on this list.</p></div>
+  <div class="shead"><p class="kicker">Coverage</p><h2>Where we go</h2><p>Based in <?php echo RT::e(RT::LOCALITY); ?>. No call-out surcharge anywhere on this list.</p></div>
   <div class="chips">
-    <a href="/computer-repairs-cranbourne/">Cranbourne</a><span>Cranbourne South</span><a href="/computer-repairs-berwick/">Berwick</a><a href="/computer-repairs-narre-warren/">Narre Warren</a>
+    <a href="/computer-repairs-cranbourne/">Cranbourne</a><span><?php echo RT::e(RT::LOCALITY); ?></span><a href="/computer-repairs-berwick/">Berwick</a><a href="/computer-repairs-narre-warren/">Narre Warren</a>
     <a href="/computer-repairs-dandenong/">Dandenong</a><a href="/computer-repairs-frankston/">Frankston</a><a href="/computer-repairs-carrum-downs/">Carrum Downs</a><a href="/computer-repairs-seaford/">Seaford</a>
     <a href="/computer-repairs-patterson-lakes/">Patterson Lakes</a><a href="/computer-repairs-chelsea/">Chelsea</a><a href="/computer-repairs-mordialloc/">Mordialloc</a><a href="/computer-repairs-skye/">Skye</a>
     <a href="/computer-repairs-langwarrin/">Langwarrin</a><a href="/computer-repairs-clyde/">Clyde</a><a href="/computer-repairs-lynbrook/">Lynbrook</a><a href="/computer-repairs-hampton-park/">Hampton Park</a>
   </div>
 </div></section>
 
-<!-- Brands we fix — Font Awesome icons -->
+<!-- Brands -->
 <section class="brands-strip"><div class="wrap">
   <div class="shead"><p class="kicker">Brands we work with</p><h2>We fix them all</h2></div>
   <div class="brands-grid">
-    <div class="brand-badge"><i class="fab fa-windows"></i> Dell</div>
-    <div class="brand-badge"><i class="fab fa-hp"></i> HP</div>
-    <div class="brand-badge"><i class="fab fa-lenovo"></i> Lenovo</div>
-    <div class="brand-badge"><i class="fab fa-apple"></i> Apple</div>
-    <div class="brand-badge"><i class="fab fa-asus"></i> Asus</div>
-    <div class="brand-badge"><i class="fab fa-google"></i> Acer</div>
-    <div class="brand-badge"><i class="fab fa-microsoft"></i> Microsoft</div>
-    <div class="brand-badge"><i class="fab fa-samsung"></i> Samsung</div>
+    <div class="brand-badge">🪟 Dell</div>
+    <div class="brand-badge">💻 HP</div>
+    <div class="brand-badge">🖥️ Lenovo</div>
+    <div class="brand-badge">🍎 Apple</div>
+    <div class="brand-badge">🎮 Asus</div>
+    <div class="brand-badge">🔧 Acer</div>
+    <div class="brand-badge">📋 Microsoft</div>
+    <div class="brand-badge">📱 Samsung</div>
   </div>
 </div></section>
 
 <!-- Reviews -->
 <section id="reviews" class="reviews-strip"><div class="wrap">
-  <div class="shead"><p class="kicker">Reviews</p><h2>Rated 5.0 from 47 Google reviews</h2></div>
+  <div class="shead"><p class="kicker">Reviews</p><h2>Rated <?php echo RT::RATING_VALUE; ?> from <?php echo RT::RATING_COUNT; ?> Google reviews</h2></div>
   <div class="reviews-scroll" id="reviewsScroll">
     <div class="r-card"><div class="r-stars">★★★★★</div><p class="r-text">"Fantastic service. My laptop was running incredibly slow and they fixed it same day. Honest, reliable, explained what they were doing the whole time."</p><cite class="r-name">Sarah M.</cite><p class="r-info">Patterson Lakes · 3 weeks ago</p><span class="r-tag fast">Same-day fix</span></div>
     <div class="r-card"><div class="r-stars">★★★★★</div><p class="r-text">"Saved my business. We had a ransomware attack and they had us back running within hours. Professional, knowledgeable and genuinely cared."</p><cite class="r-name">David R.</cite><p class="r-info">Seaford · business owner · 1 month ago</p><span class="r-tag value">Saved business</span></div>
@@ -613,12 +360,12 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
 <section id="faq" class="section alt"><div class="wrap">
   <div class="shead"><p class="kicker">FAQ</p><h2>Questions we answer every day</h2></div>
   <div class="faq-list">
-    <div class="faq-item"><button class="faq-q" aria-expanded="false">How much does computer repair cost in Cranbourne?</button><div class="faq-a"><p>Diagnosis and quotes are <strong>free — always</strong>. Software fixes typically range <strong>$80–180</strong>. Hardware repairs like screens or batteries typically <strong>$120–350</strong> depending on parts. Data recovery starts from <strong>$150</strong>. You'll always get a fixed price before any work begins, and there's no charge if we can't fix it.</p></div></div>
-    <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you offer same-day computer repairs?</button><div class="faq-a"><p>Yes — 97% of our jobs are resolved the same day. We carry common parts (screens, batteries, SSDs, power supplies) so most repairs finish in one visit.</p></div></div>
-    <div class="faq-item"><button class="faq-q" aria-expanded="false">What suburbs do you cover?</button><div class="faq-a"><p>We're based in Cranbourne South and cover all of Melbourne's south-east: Cranbourne, Berwick, Narre Warren, Dandenong, Frankston, Carrum Downs, Seaford, Patterson Lakes, Chelsea, Mordialloc and surrounding areas. No call-out surcharge anywhere on our list.</p></div></div>
-    <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you offer a warranty on repairs?</button><div class="faq-a"><p>Yes — every repair comes with a 30-day warranty. If the same fault returns within that window, we come back and fix it at no charge.</p></div></div>
-    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can you fix my computer at my house?</button><div class="faq-a"><p>Yes — we're a mobile service. We come to your home or office anywhere in our coverage area. Most issues are fixed onsite. If it needs more involved work, we'll take it to the bench and return it to you.</p></div></div>
-    <div class="faq-item"><button class="faq-q" aria-expanded="false">What if you can't fix the problem?</button><div class="faq-a"><p>You pay nothing. Our "no fix, no fee" guarantee means if we can't resolve the issue, there's no charge — not even for the diagnosis. We'll also tell you honestly if a repair isn't economical.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false" aria-controls="faq-a-1">How much does computer repair cost in Cranbourne?</button><div class="faq-a" id="faq-a-1"><p>Diagnosis and quotes are <strong>free — always</strong>. Software fixes typically range <strong>$80–180</strong>. Hardware repairs like screens or batteries typically <strong>$120–350</strong> depending on parts. Data recovery starts from <strong>$150</strong>. You'll always get a fixed price before any work begins, and there's no charge if we can't fix it.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false" aria-controls="faq-a-2">Do you offer same-day computer repairs?</button><div class="faq-a" id="faq-a-2"><p>Yes — 97% of our jobs are resolved the same day. We carry common parts (screens, batteries, SSDs, power supplies) so most repairs finish in one visit.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false" aria-controls="faq-a-3">What suburbs do you cover?</button><div class="faq-a" id="faq-a-3"><p>We're based in <?php echo RT::e(RT::LOCALITY); ?> and cover all of Melbourne's south-east: Cranbourne, Berwick, Narre Warren, Dandenong, Frankston, Carrum Downs, Seaford, Patterson Lakes, Chelsea, Mordialloc and surrounding areas. No call-out surcharge anywhere on our list.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false" aria-controls="faq-a-4">Do you offer a warranty on repairs?</button><div class="faq-a" id="faq-a-4"><p>Yes — every repair comes with a 30-day warranty. If the same fault returns within that window, we come back and fix it at no charge.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false" aria-controls="faq-a-5">Can you fix my computer at my house?</button><div class="faq-a" id="faq-a-5"><p>Yes — we're a mobile service. We come to your home or office anywhere in our coverage area. Most issues are fixed onsite. If it needs more involved work, we'll take it to the bench and return it to you.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false" aria-controls="faq-a-6">What if you can't fix the problem?</button><div class="faq-a" id="faq-a-6"><p>You pay nothing. Our "no fix, no fee" guarantee means if we can't resolve the issue, there's no charge — not even for the diagnosis. We'll also tell you honestly if a repair isn't economical.</p></div></div>
   </div>
 </div></section>
 
@@ -626,96 +373,18 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
 <section id="book" class="section alt"><div class="wrap">
   <div class="shead"><p class="kicker">Book a repair</p><h2>Ready to get it fixed?</h2><p>Fill this in and we'll confirm your booking within 1 business hour — usually faster.</p></div>
 
-  <?php
-  // Simple inline handler for homepage booking form
-  $bk_submitted = false; $bk_errors = [];
-  $bk = ['service'=>'','name'=>'','email'=>'','phone'=>'','date'=>'','time'=>'','address'=>'','desc'=>''];
-  if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['bk_submit'])) {
-      $bk = [
-          'service' => trim($_POST['bk_service'] ?? ''),
-          'name'    => trim($_POST['bk_name'] ?? ''),
-          'email'   => trim($_POST['bk_email'] ?? ''),
-          'phone'   => trim($_POST['bk_phone'] ?? ''),
-          'date'    => trim($_POST['bk_date'] ?? ''),
-          'time'    => trim($_POST['bk_time'] ?? ''),
-          'address' => trim($_POST['bk_address'] ?? ''),
-          'desc'    => trim($_POST['bk_desc'] ?? ''),
-      ];
-      if (strlen($bk['name']) < 2) $bk_errors['name'] = 'Please enter your name.';
-      if (!filter_var($bk['email'], FILTER_VALIDATE_EMAIL)) $bk_errors['email'] = 'Valid email required.';
-      if (strlen($bk['phone']) < 8) $bk_errors['phone'] = 'Valid phone number required.';
-      if (empty($bk['service'])) $bk_errors['service'] = 'Please choose a service.';
-      if (strlen($bk['address']) < 5) $bk_errors['address'] = 'Please enter your address.';
-      if (strlen($bk['desc']) < 10) $bk_errors['desc'] = 'Tell us a bit more (at least 10 characters).';
-      if (empty($bk_errors) && empty($_POST['website'])) {
-
-          // ── Save to log file (reliable, always works) ──────────────
-          //
-          // This file holds customer names, emails, phone numbers and home
-          // addresses, and it sits inside the theme — i.e. under the web
-          // root. The root .htaccess denies dot-FILES, but Apache's
-          // <FilesMatch> tests the filename only, so "bookings.jsonl" inside
-          // a ".bookings" directory was served happily to anyone who asked
-          // for it by name. Deny rules are written into the directory itself
-          // at creation time so the protection travels with the data rather
-          // than depending on a rule several directories away.
-          $logdir = __DIR__ . '/.bookings';
-          if (!is_dir($logdir)) {
-              @mkdir($logdir, 0750, true);
-              @file_put_contents(
-                  $logdir . '/.htaccess',
-                  "Require all denied\n"           // Apache 2.4
-                  . "<IfModule !mod_authz_core.c>\n"
-                  . "Order deny,allow\nDeny from all\n"  // Apache 2.2
-                  . "</IfModule>\n"
-              );
-              @file_put_contents($logdir . '/index.html', '');
-          }
-          $logfile = $logdir . '/bookings.jsonl';
-          $entry = json_encode([
-              'time'    => date('Y-m-d H:i:s'),
-              'ip'      => $_SERVER['REMOTE_ADDR'] ?? '',
-              'service' => $bk['service'],
-              'name'    => $bk['name'],
-              'email'   => $bk['email'],
-              'phone'   => $bk['phone'],
-              'date'    => $bk['date'],
-              'time_pref' => $bk['time'],
-              'address' => $bk['address'],
-              'issue'   => $bk['desc'],
-          ]) . "\n";
-          @file_put_contents($logfile, $entry, FILE_APPEND | LOCK_EX);
-
-          // ── Send email ──────────────────────────────────────────
-          $to = 'sales@rapidtechsolutions.au';
-          $subject = 'New Booking: ' . $bk['service'] . ' — ' . $bk['name'];
-          $body = "NEW BOOKING\n──────────\nName: {$bk['name']}\nEmail: {$bk['email']}\nPhone: {$bk['phone']}\nService: {$bk['service']}\nDate: {$bk['date']}\nTime: {$bk['time']}\nAddress: {$bk['address']}\n\nIssue:\n{$bk['desc']}\n──────────\n" . date('Y-m-d H:i:s');
-          $hdrs = ['Content-Type: text/plain; charset=UTF-8'];
-
-          if (function_exists('wp_mail')) {
-              wp_mail($to, $subject, $body, $hdrs);
-              $cust = "Hi {$bk['name']},\n\nThanks for booking! We'll confirm your time within 1 business hour.\nFor urgent help, call 0423 680 596.\n\nService: {$bk['service']}\nDate: {$bk['date']}\nTime: {$bk['time']}\nAddress: {$bk['address']}\n\n— Rapid Tech Solutions\nCranbourne South, VIC";
-              wp_mail($bk['email'], 'Booking Received — Rapid Tech Solutions', $cust, ['Content-Type: text/plain; charset=UTF-8']);
-          } else {
-              @mail($to, $subject, $body, "From: sales@rapidtechsolutions.au\r\nReply-To: {$bk['email']}\r\nContent-Type: text/plain; charset=UTF-8");
-              @mail($bk['email'], 'Booking Received — Rapid Tech Solutions', $cust ?? '', "From: sales@rapidtechsolutions.au\r\nContent-Type: text/plain; charset=UTF-8");
-          }
-          $bk_submitted = true;
-      }
-  }
-  ?>
-
   <?php if ($bk_submitted): ?>
   <div style="max-width:600px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);padding:2.5rem 2rem;text-align:center">
     <div style="font-size:2.5rem;margin-bottom:.8rem">✅</div>
     <h2 style="margin-bottom:.5rem">Booking received!</h2>
     <p style="color:var(--muted);margin-bottom:1.2rem">We'll confirm your time within 1 business hour. For urgent help, call now.</p>
-    <a class="btn b-solid" href="tel:+61423680596">📞 Call 0423 680 596</a>
+    <a class="btn b-solid" href="tel:<?php echo RT::PHONE_E164; ?>">📞 Call <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
   </div>
   <?php else: ?>
   <form method="POST" action="" novalidate id="bkForm" autocomplete="on" style="max-width:640px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);padding:2rem">
     <div style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
     <input type="hidden" name="bk_submit" value="1">
+    <?php rt_csrf_field(); ?>
 
     <div class="field-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem">
       <div style="display:flex;flex-direction:column">
@@ -782,35 +451,30 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
 
   <script>
   (function(){
-    // ── Hero booking form validation ──────────────────────────────
     var hbForm = document.getElementById('hbForm');
     if (hbForm) {
       hbForm.addEventListener('submit', function(e) {
         var valid = true;
-        function hbErr(sel, msg) {
+        function hbErr(sel) {
           var el = hbForm.querySelector(sel);
           if (el) { el.style.borderColor = 'var(--primary)'; el.style.boxShadow = '0 0 0 3px var(--red-dim)'; }
           if (valid) { valid = false; if (el) el.focus(); }
         }
-        // Reset
         hbForm.querySelectorAll('input,select,textarea').forEach(function(el) {
           el.style.borderColor = ''; el.style.boxShadow = '';
         });
-
         var nm = (hbForm.querySelector('[name=bk_name]')||{}).value;
         var ph = (hbForm.querySelector('[name=bk_phone]')||{}).value;
         var em = (hbForm.querySelector('[name=bk_email]')||{}).value;
         var ad = (hbForm.querySelector('[name=bk_address]')||{}).value;
         var sv = (hbForm.querySelector('[name=bk_service]')||{}).value;
         var ds = (hbForm.querySelector('[name=bk_desc]')||{}).value;
-
         if (!nm || nm.trim().length < 2) hbErr('[name=bk_name]');
         if (!ph || ph.trim().length < 8) hbErr('[name=bk_phone]');
         if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) hbErr('[name=bk_email]');
         if (!ad || ad.trim().length < 5) hbErr('[name=bk_address]');
         if (!sv) hbErr('[name=bk_service]');
         if (!ds || ds.trim().length < 10) hbErr('[name=bk_desc]');
-
         if (!valid) {
           e.preventDefault();
           var btn = hbForm.querySelector('.hb-submit');
@@ -822,12 +486,11 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
       });
     }
 
-    // ── Full page booking form validation ─────────────────────────
     var form = document.getElementById('bkForm');
     if(!form) return;
     form.addEventListener('submit', function(e){
       var v = true, first = null;
-      function err(id, msg){
+      function err(id){
         var el = document.getElementById(id);
         if(el){ el.style.borderColor = 'var(--primary)'; el.style.boxShadow = '0 0 0 3px var(--red-dim)'; }
         if(v){ first = first || id; v = false; }
@@ -836,23 +499,19 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
         var el = document.getElementById(id);
         if(el){ el.style.borderColor = ''; el.style.boxShadow = ''; }
       }
-      // Reset all
       ['bk_service','bk_name','bk_phone','bk_email','bk_address','bk_desc'].forEach(ok);
-
       var svc = document.getElementById('bk_service').value;
       var nm = document.getElementById('bk_name').value.trim();
       var ph = document.getElementById('bk_phone').value.trim();
       var em = document.getElementById('bk_email').value.trim();
       var ad = document.getElementById('bk_address').value.trim();
       var ds = document.getElementById('bk_desc').value.trim();
-
       if(!svc) err('bk_service');
       if(nm.length < 2) err('bk_name');
       if(ph.length < 8) err('bk_phone');
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) err('bk_email');
       if(ad.length < 5) err('bk_address');
       if(ds.length < 10) err('bk_desc');
-
       if(!v){
         e.preventDefault();
         if(first){ var el = document.getElementById(first); if(el) el.focus(); }
@@ -863,7 +522,6 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
         if(b){ b.disabled = true; b.textContent = 'Submitting…'; b.style.opacity = '.6'; }
       }
     });
-    // Add shake keyframes
     var s = document.createElement('style');
     s.textContent = '@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-4px)}}';
     document.head.appendChild(s);
@@ -877,43 +535,16 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
   <h2>Prefer to talk?</h2>
   <p>Call now — we'll tell you what's wrong, what it costs to fix, and whether it's even worth doing.</p>
   <div class="btn-row">
-    <a class="btn b-solid" href="tel:+61423680596" data-track="cta-banner">📞 Call 0423 680 596</a>
-    <a class="btn b-line" href="https://wa.me/61423680596" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    <a class="btn b-solid" href="tel:<?php echo RT::PHONE_E164; ?>" data-track="cta-banner">📞 Call <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
+    <a class="btn b-line" href="<?php echo RT::WHATSAPP; ?>" target="_blank" rel="noopener">Chat on WhatsApp</a>
   </div>
 </div></section>
 
 </main>
 
-<!-- Footer -->
-<footer class="site-footer"><div class="wrap">
-  <div class="fg">
-    <div>
-      <a class="brand" href="/" style="margin-bottom:1rem;display:inline-flex">
-        <img src="<?php echo $base_path; ?>/images/logo.png" alt="Rapid Tech Solutions" width="64" height="64" style="border-radius:10px">
-        Rapid Tech Solutions
-      </a>
-      <p style="margin-bottom:.4rem">Cranbourne South, VIC 3977</p>
-      <p>Mon–Fri 9am–5pm AEST</p>
-    </div>
-    <div><h4>Services</h4><a href="#services">Computer repairs</a><a href="#services">Virus removal</a><a href="#services">Data recovery</a><a href="#services">Wi-Fi &amp; networks</a></div>
-    <div><h4>Company</h4><a href="/about/">About</a><a href="/book/">Book a repair</a><a href="/service-areas/">Service areas</a><a href="/faq/">FAQ</a><a href="#issues">Common issues</a></div>
-    <div><h4>Contact</h4><a href="tel:+61423680596">0423 680 596</a><a href="mailto:support@rapidtechsolutions.au">support@rapidtechsolutions.au</a><a href="https://wa.me/61423680596" target="_blank" rel="noopener">WhatsApp</a></div>
-  </div>
-  <div class="fb"><span>&copy; <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</span><span><a href="/privacy-policy/" style="display:inline">Privacy</a> &middot; <a href="/terms-of-service/" style="display:inline">Terms</a></span></div>
-</div></footer>
-
-<?php /* Site behaviour — deferred for performance */ ?>
-<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo $js_v; ?>" defer></script>
-
 <script>
 (function(){
-  /* This block is homepage-only behaviour. Anything the whole site shares —
-     the mobile nav, the hero video, smooth scrolling, the WhatsApp dialog —
-     lives in js/main.js and must NOT be duplicated here. Three of those were
-     duplicated below and each ran twice per interaction; the nav pair
-     cancelled itself out entirely and left the menu button doing nothing. */
-
-  /* ---- Call tracking ---- */
+  /* Call tracking */
   document.addEventListener('click', function(e){
     var tel = e.target.closest('a[data-track]');
     if(tel && typeof gtag !== 'undefined'){
@@ -921,7 +552,7 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
     }
   });
 
-  /* ---- Common issues: featured default + expand + search + filter ---- */
+  /* Common issues: featured default + expand + search + filter */
   var catBtns = document.querySelectorAll('#catFilters .cat-btn');
   var searchInput = document.getElementById('issueSearch');
   var cards = document.querySelectorAll('#issueGrid .issue-card');
@@ -953,7 +584,6 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
     if(noResults) noResults.classList.toggle('show', visible === 0);
   }
 
-  // ★ FIX: call update() immediately so only 8 featured cards show on page load
   update();
 
   if(expandBtn){
@@ -986,11 +616,10 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
     });
   }
 
-  /* ---- FAQ accordion ---- */
+  /* FAQ accordion */
   document.querySelectorAll('.faq-q').forEach(function(btn){
     btn.addEventListener('click', function(){
       var wasOpen = this.classList.contains('open');
-      // Close all others
       document.querySelectorAll('.faq-q.open').forEach(function(b){
         b.classList.remove('open');
         b.setAttribute('aria-expanded', 'false');
@@ -1004,7 +633,7 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
     });
   });
 
-  /* ---- Reviews horizontal scroll ---- */
+  /* Reviews horizontal scroll */
   var scroll = document.getElementById('reviewsScroll');
   var prevBtn = document.getElementById('rPrev');
   var nextBtn = document.getElementById('rNext');
@@ -1027,12 +656,9 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
       }
     });
   }
-
-  /* Smooth scrolling is handled once, in js/main.js. The sticky-header
-     offset that used to be hard-coded here is now `scroll-padding-top` on
-     <html> in styles.css, so it applies to keyboard and browser-driven
-     jumps too, not only to clicks this script happened to intercept. */
 })();
 </script>
+
+<?php rt_footer(); ?>
 </body>
 </html>

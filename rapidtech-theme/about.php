@@ -1,45 +1,28 @@
 <?php
 /*
 Template Name: About
-*/
+*/
+require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/seo.php';
-// Define base path - works with or without WordPress
-if (function_exists('get_template_directory_uri')) {
-    $base_path = get_template_directory_uri();
-} else {
-    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
-    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
-}
-$current_year = date('Y');
+require_once __DIR__ . '/inc/icons.php';
 ?>
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="<?php echo RT::LANG; ?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Rapid Tech Solutions | Local IT Support Melbourne</title>
-    <meta name="description" content="Meet the team behind Rapid Tech Solutions. Local, honest computer repairs and IT support based in Cranbourne South, serving Melbourne's south-east.">
-    <link rel="canonical" href="https://rapidtechsolutions.au/about/">
-    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "mainEntity": {
-            "@type": "LocalBusiness",
-            "name": "Rapid Tech Solutions",
-            "description": "Local IT support and computer repair services in Cranbourne South and Melbourne's south-east",
-            "foundingDate": "2020",
-            "areaServed": "Melbourne, Victoria, Australia"
-        }
-    }
-    </script>
-    <!-- Google tag (gtag.js) -->
+<?php rt_head([
+    'title'       => 'About Rapid Tech Solutions | Local IT Support Melbourne',
+    'description' => 'Meet the team behind Rapid Tech Solutions. Local, honest computer repairs and IT support based in Cranbourne South, serving Melbourne\'s south-east.',
+    'path'        => '/about/',
+    'css'         => 'css/blog.css',
+    'schema'      => [[
+        '@type' => 'AboutPage',
+        'mainEntity' => RT::local_business([
+            'description'  => 'Local IT support and computer repair services in Cranbourne South and Melbourne\'s south-east',
+            'foundingDate' => '2020',
+            'areaServed'   => 'Melbourne, Victoria, Australia',
+        ]),
+    ]],
+]); ?>
 </head>
 <body>
 <?php rt_header(); ?>
@@ -48,14 +31,14 @@ $current_year = date('Y');
         <div class="article-header">
             <div class="container">
                 <h1>About Rapid Tech Solutions</h1>
-                <p class="article-excerpt">Your trusted local IT support team in Patterson Lakes and Melbourne.</p>
+                <p class="article-excerpt">Your trusted local IT support team in <?php echo RT::e(RT::LOCALITY); ?> and Melbourne.</p>
             </div>
         </div>
 
         <article class="article-content">
             <section>
                 <h2>Who We Are</h2>
-                <p>Rapid Tech Solutions is a local IT support company serving Patterson Lakes, Frankston, and the greater Melbourne area. We're not a big corporation with call centres and long wait times—we're your neighbours who happen to be really good with computers.</p>
+                <p>Rapid Tech Solutions is a local IT support company serving <?php echo RT::e(RT::LOCALITY); ?>, Frankston, and the greater Melbourne area. We're not a big corporation with call centres and long wait times—we're your neighbours who happen to be really good with computers.</p>
                 <p>We understand that technology problems are frustrating, and we believe everyone deserves access to honest, affordable IT support. That's why we started Rapid Tech Solutions: to provide the kind of service we'd want for our own families.</p>
             </section>
 
@@ -76,7 +59,7 @@ $current_year = date('Y');
                 <p>Free diagnostics. Upfront quotes. No hidden fees. We believe in transparency because that's how we'd want to be treated. If a repair costs more than the device is worth, we'll tell you.</p>
 
                 <h3>Local and Responsive</h3>
-                <p>Based in <?php echo RT::e(RT::LOCALITY); ?>, we're never far away. Same-day service is often available, and we actually answer our phone. Try us: 0423 680 596.</p>
+                <p>Based in <?php echo RT::e(RT::LOCALITY); ?>, we're never far away. Same-day service is often available, and we actually answer our phone. Try us: <?php echo RT::e(RT::PHONE_DISPLAY); ?>.</p>
 
                 <h3>We Care About You, Not Just Your Computer</h3>
                 <p>We take time to understand your needs. A grandmother who just wants to video call her grandkids gets different advice than a small business owner needing network security. One size doesn't fit all.</p>
@@ -91,7 +74,7 @@ $current_year = date('Y');
                     <li><strong>Honesty:</strong> We'll always tell you the truth, even if it's not what you want to hear</li>
                     <li><strong>Respect:</strong> Your time and money matter. We work efficiently and charge fairly</li>
                     <li><strong>Quality:</strong> We do the job right the first time, with a warranty to back it up</li>
-                    <li><strong>Community:</strong> We're part of Patterson Lakes and we support our local community</li>
+                    <li><strong>Community:</strong> We're part of <?php echo RT::e(RT::LOCALITY); ?> and we support our local community</li>
                     <li><strong>Continuous Learning:</strong> Technology evolves fast, and so do we</li>
                 </ul>
             </section>
@@ -114,19 +97,19 @@ $current_year = date('Y');
                 <h2>Our Services</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
                     <div style="background: rgba(41, 213, 255, 0.1); padding: 1rem; border-radius: 8px;">
-                        <h4 style="color: #29d5ff; margin-top: 0;"><i class="fas fa-laptop"></i> Computer Repairs</h4>
+                        <h4 style="color: #29d5ff; margin-top: 0;"><?php echo rt_icon('laptop'); ?> Computer Repairs</h4>
                         <p style="margin: 0; font-size: 0.95rem;">Laptops, desktops, all brands. From simple fixes to complex repairs.</p>
                     </div>
                     <div style="background: rgba(0, 255, 204, 0.1); padding: 1rem; border-radius: 8px;">
-                        <h4 style="color: #00ffcc; margin-top: 0;"><i class="fas fa-database"></i> Data Recovery</h4>
+                        <h4 style="color: #00ffcc; margin-top: 0;"><?php echo rt_icon('database'); ?> Data Recovery</h4>
                         <p style="margin: 0; font-size: 0.95rem;">Lost photos, documents, or files? We can often recover them.</p>
                     </div>
                     <div style="background: rgba(255, 149, 0, 0.1); padding: 1rem; border-radius: 8px;">
-                        <h4 style="color: #ff9500; margin-top: 0;"><i class="fas fa-shield-alt"></i> Security Services</h4>
+                        <h4 style="color: #ff9500; margin-top: 0;"><?php echo rt_icon('shield'); ?> Security Services</h4>
                         <p style="margin: 0; font-size: 0.95rem;">Virus removal, malware protection, security setup.</p>
                     </div>
                     <div style="background: rgba(255, 92, 92, 0.1); padding: 1rem; border-radius: 8px;">
-                        <h4 style="color: #ff5c5c; margin-top: 0;"><i class="fas fa-wifi"></i> Network Setup</h4>
+                        <h4 style="color: #ff5c5c; margin-top: 0;"><?php echo rt_icon('wifi'); ?> Network Setup</h4>
                         <p style="margin: 0; font-size: 0.95rem;">WiFi problems solved. Home and small business networking.</p>
                     </div>
                 </div>
@@ -151,23 +134,13 @@ $current_year = date('Y');
                 <h2>Ready to Experience the Difference?</h2>
                 <p>Whether you have a virus, a slow computer, or just need some tech advice, we're here to help. Contact us today for friendly, professional IT support.</p>
                 <div class="cta-buttons">
-                    <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="/book/" class="btn btn-outline"><i class="fas fa-envelope"></i> Send a Message</a>
+                    <a href="tel:<?php echo RT::PHONE_E164; ?>" class="btn"><?php echo rt_icon('phone'); ?> Call: <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
+                    <a href="/book/" class="btn btn-outline"><?php echo rt_icon('mail'); ?> Send a Message</a>
                 </div>
             </section>
         </article>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap;">
-                <a href="/privacy-policy/" style="color: var(--muted);">Privacy Policy</a>
-                <a href="/terms-of-service/" style="color: var(--muted);">Terms of Service</a>
-                <a href="/about/" style="color: var(--muted);">About Us</a>
-            </div>
-            <p class="footer-note">© <?php echo $current_year; ?> Rapid Tech Solutions. All rights reserved.</p>
-        </div>
-    </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
+<?php rt_footer(); ?>
 </body>
 </html>

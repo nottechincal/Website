@@ -1,116 +1,52 @@
 <?php
+require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/seo.php';
-// Define base path - works with or without WordPress
-if (function_exists('get_template_directory_uri')) {
-    $base_path = get_template_directory_uri();
-} else {
-    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
-    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
-}
+require_once __DIR__ . '/inc/icons.php';
 ?>
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="<?php echo RT::LANG; ?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Repairs Melbourne | No Fix, No Fee</title>
-    <meta name="description" content="Laptop, desktop and Mac repairs across Melbourne's south-east. Free diagnostics, same-day service and a 30-day warranty. No fix, no fee. Call 0423 680 596.">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="author" content="Rapid Tech Solutions">
-    <link rel="canonical" href="https://rapidtechsolutions.au/service-computer-repairs/">
-
-    <meta property="og:title" content="Computer Repairs Melbourne | Same-Day Service">
-    <meta property="og:description" content="Fast, reliable computer repairs for laptops, desktops and Macs. Free diagnostics, upfront quotes.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rapidtechsolutions.au/service-computer-repairs/">
-    <meta property="og:image" content="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
-
-    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <script>
-    /* Set only when JavaScript is running AND an IntersectionObserver exists.
-       animations.css scopes its opacity:0 rules to this class, so content is
-       never hidden on a browser that cannot reveal it again. */
-    if ('IntersectionObserver' in window) {
-        document.documentElement.className += ' js-anim';
-    }
-    </script>
-    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/animations.css?v=<?php echo filemtime(__DIR__ . '/css/animations.css'); ?>" rel="stylesheet" media="print" onload="this.media='all'">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Computer Repair",
-        "provider": {
-            "@type": "LocalBusiness",
-            "name": "Rapid Tech Solutions",
-            "telephone": "+61423680596",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Cranbourne South",
-                "addressRegion": "VIC",
-                "postalCode": "3977",
-                "addressCountry": "AU"
-            }
-        },
-        "areaServed": ["Patterson Lakes", "Melbourne", "Frankston", "Mornington Peninsula"],
-        "description": "Professional computer repair services including laptop repairs, desktop fixes, Mac repairs, hardware upgrades, and software troubleshooting.",
-        "offers": {
-            "@type": "Offer",
-            "description": "Free diagnostics with upfront quote before repairs"
-        }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://rapidtechsolutions.au/"},
-            {"@type": "ListItem", "position": 2, "name": "Computer Repairs", "item": "https://rapidtechsolutions.au/service-computer-repairs/"}
-        ]
-    }
-    </script>
-    <!-- Google tag (gtag.js) -->
+<?php rt_head([
+    'title'       => 'Computer Repairs Melbourne | No Fix, No Fee',
+    'description' => 'Laptop, desktop and Mac repairs across Melbourne\'s south-east. Free diagnostics, same-day service and a 30-day warranty. No fix, no fee. Call ' . RT::PHONE_DISPLAY . '.',
+    'path'        => '/service-computer-repairs/',
+    'css'         => 'css/animations.css',
+    'schema'      => [[
+        '@type'        => 'Service',
+        'serviceType'  => 'Computer Repair',
+        'provider'     => RT::local_business(),
+        'areaServed'   => ['Patterson Lakes', 'Melbourne', 'Frankston', 'Mornington Peninsula'],
+        'description'  => 'Professional computer repair services including laptop repairs, desktop fixes, Mac repairs, hardware upgrades, and software troubleshooting.',
+        'offers'       => ['@type' => 'Offer', 'description' => 'Free diagnostics with upfront quote before repairs'],
+    ]],
+]); ?>
 </head>
 <body>
 <?php rt_header(); ?>
+<?php rt_breadcrumbs(['Computer Repairs' => '/service-computer-repairs/']); ?>
 
     <main id="main">
-        <!-- Hero Section -->
         <section class="service-hero" style="background: linear-gradient(135deg, var(--bg) 0%, #0f1016 100%); padding: 4rem 0;">
             <div class="container">
-                <nav aria-label="Breadcrumb" style="margin-bottom: 1rem;">
-                    <ol style="list-style: none; display: flex; gap: 0.5rem; color: var(--muted); font-size: 0.9rem;">
-                        <li><a href="/" style="color: var(--accent);">Home</a> <span>/</span></li>
-                        <li>Computer Repairs</li>
-                    </ol>
-                </nav>
                 <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem;">Computer Repairs in Melbourne's South-East</h1>
                 <p class="lead" style="font-size: 1.3rem; color: var(--muted); max-width: 700px;">Fast, reliable repairs for laptops, desktops, and all-in-one computers. Free diagnostics. Upfront quotes. Same-day service available.</p>
                 <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call 0423 680 596</a>
+                    <a href="tel:<?php echo RT::PHONE_E164; ?>" class="btn"><?php echo rt_icon('phone'); ?> Call <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
                     <a href="/book/" class="btn btn-outline">Request Free Quote</a>
                 </div>
             </div>
         </section>
 
-        <!-- Main Content -->
         <section class="section">
             <div class="container" style="max-width: 900px;">
                 <h2>Professional Computer Repair Services</h2>
-                <p>When your computer stops working properly, you need a technician you can trust. At Rapid Tech Solutions, we provide expert computer repair services throughout Patterson Lakes, Frankston, and the wider Melbourne area. Our experienced technicians diagnose and fix all types of computer problems quickly and affordably.</p>
+                <p>When your computer stops working properly, you need a technician you can trust. At <?php echo RT::e(RT::NAME); ?>, we provide expert computer repair services throughout Patterson Lakes, Frankston, and the wider Melbourne area. Our experienced technicians diagnose and fix all types of computer problems quickly and affordably.</p>
 
                 <h3 style="margin-top: 2rem; color: var(--accent);">What We Repair</h3>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
                     <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-laptop"></i> Laptops</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;"><?php echo rt_icon('laptop'); ?> Laptops</h4>
                         <ul style="color: var(--muted); padding-left: 1.2rem;">
                             <li>Broken screens and hinges</li>
                             <li>Keyboard replacement</li>
@@ -120,7 +56,7 @@ if (function_exists('get_template_directory_uri')) {
                         </ul>
                     </div>
                     <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-desktop"></i> Desktops</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">🖥️ Desktops</h4>
                         <ul style="color: var(--muted); padding-left: 1.2rem;">
                             <li>Won't turn on</li>
                             <li>Blue screen errors</li>
@@ -130,7 +66,7 @@ if (function_exists('get_template_directory_uri')) {
                         </ul>
                     </div>
                     <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07);">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fab fa-apple"></i> Mac Computers</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">🍎 Mac Computers</h4>
                         <ul style="color: var(--muted); padding-left: 1.2rem;">
                             <li>macOS issues</li>
                             <li>Startup problems</li>
@@ -196,7 +132,7 @@ if (function_exists('get_template_directory_uri')) {
                     </div>
                 </div>
 
-                <h3 style="margin-top: 3rem;">Why Choose Rapid Tech Solutions?</h3>
+                <h3 style="margin-top: 3rem;">Why Choose <?php echo RT::e(RT::NAME); ?>?</h3>
 
                 <ul style="color: var(--muted); line-height: 1.8;">
                     <li><strong style="color: var(--text);">Free Diagnostics</strong> – We assess your computer at no cost</li>
@@ -211,22 +147,16 @@ if (function_exists('get_template_directory_uri')) {
                 <h3 style="margin-top: 3rem;">Service Areas</h3>
                 <p>We provide computer repair services throughout:</p>
                 <ul style="color: var(--muted); columns: 2; column-gap: 2rem;">
-                    <li>Patterson Lakes</li>
-                    <li>Carrum</li>
-                    <li>Seaford</li>
-                    <li>Frankston</li>
-                    <li>Chelsea Heights</li>
-                    <li>Aspendale</li>
-                    <li>Mordialloc</li>
-                    <li>Mentone</li>
-                    <li>Dandenong</li>
+                    <li>Patterson Lakes</li><li>Carrum</li><li>Seaford</li>
+                    <li>Frankston</li><li>Chelsea Heights</li><li>Aspendale</li>
+                    <li>Mordialloc</li><li>Mentone</li><li>Dandenong</li>
                     <li>Mornington Peninsula</li>
                 </ul>
 
                 <div style="background: var(--primary); padding: 2rem; border-radius: var(--radius); margin-top: 3rem; text-align: center;">
                     <h3 style="color: white; margin-bottom: 1rem;">Need Your Computer Fixed?</h3>
                     <p style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">Call now for free diagnostics and same-day service</p>
-                    <a href="tel:+61423680596" class="btn" style="background: white; color: var(--primary);"><i class="fas fa-phone"></i> 0423 680 596</a>
+                    <a href="tel:<?php echo RT::PHONE_E164; ?>" class="btn" style="background: white; color: var(--primary);"><?php echo rt_icon('phone'); ?> <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
                 </div>
             </div>
         </section>
@@ -237,15 +167,15 @@ if (function_exists('get_template_directory_uri')) {
                 <h2 style="text-align: center; margin-bottom: 2rem;">Related Services</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
                     <a href="/service-data-recovery/" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07); text-decoration: none; transition: transform 0.3s ease;">
-                        <h4 style="color: var(--accent);"><i class="fas fa-hard-drive"></i> Data Recovery</h4>
+                        <h4 style="color: var(--accent);"><?php echo rt_icon('hdd'); ?> Data Recovery</h4>
                         <p style="color: var(--muted);">Recover lost or deleted files from damaged drives</p>
                     </a>
                     <a href="/service-virus-removal/" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07); text-decoration: none; transition: transform 0.3s ease;">
-                        <h4 style="color: var(--accent);"><i class="fas fa-virus-slash"></i> Virus Removal</h4>
+                        <h4 style="color: var(--accent);"><?php echo rt_icon('shield'); ?> Virus Removal</h4>
                         <p style="color: var(--muted);">Remove malware and protect your computer</p>
                     </a>
                     <a href="/service-network-wifi/" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07); text-decoration: none; transition: transform 0.3s ease;">
-                        <h4 style="color: var(--accent);"><i class="fas fa-wifi"></i> Network & WiFi</h4>
+                        <h4 style="color: var(--accent);"><?php echo rt_icon('wifi'); ?> Network & WiFi</h4>
                         <p style="color: var(--muted);">Fix internet problems and boost WiFi coverage</p>
                     </a>
                 </div>
@@ -253,13 +183,6 @@ if (function_exists('get_template_directory_uri')) {
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p class="footer-note">© <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved. | <a href="/">Home</a> | <a href="tel:+61423680596">0423 680 596</a></p>
-        </div>
-    </footer>
-
-    <!-- WhatsApp widget handled in main.js -->
-<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
+<?php rt_footer(); ?>
 </body>
 </html>

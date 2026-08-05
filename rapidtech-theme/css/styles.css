@@ -53,6 +53,8 @@
     --cyan-dim2: rgba(38,201,240,.18);
     --red-dim: rgba(224,72,72,.10);
     --red-dim2: rgba(224,72,72,.18);
+    --teal: #00ffcc;
+    --orange: #ff9500;
     /* #667089 measured 4.1:1 on --bg and failed AA for body text. */
     --dim: #8894a8;
     font-size: 16px;
@@ -110,6 +112,46 @@ button {
 .wrap {
     width: min(1280px, 95vw);
     margin: 0 auto;
+}
+
+/* Cookie consent banner */
+.cookie-banner {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 500;
+    background: var(--surface, #12131a);
+    border-top: 1px solid var(--line, rgba(255,255,255,.1));
+    padding: 1rem;
+    box-shadow: 0 -4px 24px rgba(0,0,0,.35);
+}
+.cookie-banner[hidden] { display: none; }
+.cookie-banner-inner {
+    width: min(1100px, 95vw);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.cookie-banner-inner p {
+    margin: 0;
+    color: var(--muted, #9aa0ac);
+    font-size: .9rem;
+    flex: 1 1 320px;
+}
+.cookie-banner-inner p a {
+    color: var(--accent, #29d5ff);
+}
+.cookie-banner-actions {
+    display: flex;
+    gap: .6rem;
+    flex-shrink: 0;
+}
+@media (max-width: 560px) {
+    .cookie-banner-inner { flex-direction: column; align-items: stretch; }
+    .cookie-banner-actions { justify-content: stretch; }
+    .cookie-banner-actions .btn, .cookie-banner-actions .btn-outline { flex: 1; }
 }
 
 .container {

@@ -1,42 +1,37 @@
 <?php
+require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/seo.php';
-if (function_exists('get_template_directory_uri')) {
-    $base_path = get_template_directory_uri();
-} else {
-    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
-    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
-}
-$year = date('Y');
+require_once __DIR__ . '/inc/icons.php';
 ?>
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="<?php echo RT::LANG; ?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virus Removal Cranbourne | Same-Day Cleanup</title>
-    <meta name="description" content="Complete virus, spyware and ransomware removal in Cranbourne 3977. Same-day service, full system clean-up and protection set up afterwards. No fix, no fee.">
-    <link rel="canonical" href="https://rapidtechsolutions.au/virus-removal-cranbourne/">
-    <meta property="og:title" content="Virus Removal Cranbourne | Rapid Tech Solutions">
-    <meta property="og:description" content="Same-day virus & malware removal service in Cranbourne. Call 0423 680 596">
-    <meta property="og:url" content="https://rapidtechsolutions.au/virus-removal-cranbourne/">
-    <meta property="og:image" content="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/og-image.jpg">
-    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
-    <!-- Google Analytics -->
+<?php rt_head([
+    'title'       => 'Virus Removal Cranbourne | Same-Day Cleanup',
+    'description' => 'Complete virus, spyware and ransomware removal in Cranbourne 3977. Same-day service, full system clean-up and protection set up afterwards. No fix, no fee.',
+    'path'        => '/virus-removal-cranbourne/',
+    'og_type'     => 'website',
+    'css'         => 'css/blog.css',
+    'schema'      => [[
+        '@type'        => 'Service',
+        'serviceType'  => 'Virus and Malware Removal',
+        'provider'     => RT::local_business(),
+        'areaServed'   => [RT::area_served('Cranbourne', '3977')],
+        'description'  => 'Professional virus removal, malware cleanup, ransomware recovery, and computer protection services in Cranbourne.',
+        'offers'       => ['@type' => 'Offer', 'description' => 'Same-day virus and malware removal with no fix, no fee guarantee'],
+    ]],
+]); ?>
 </head>
 <body>
 <?php rt_header(); ?>
-    
+<?php rt_breadcrumbs(['Service Areas' => '/service-areas/', 'Virus Removal Cranbourne' => '/virus-removal-cranbourne/']); ?>
+
     <div style="background: linear-gradient(90deg, #ff5c5c 0%, #e24646 100%); color: white; padding: 0.75rem 0; text-align: center; font-weight: 500;">
         <div class="container">
-            <span><i class="fas fa-shield-virus"></i> Virus Removal Cranbourne - Same Day Service Available</span>
+            <span>&#x1f6e1;&#xfe0f; Virus Removal Cranbourne - Same Day Service Available</span>
         </div>
     </div>
-    
+
     <main id="main">
         <div class="article-header">
             <div class="container">
@@ -44,39 +39,39 @@ $year = date('Y');
                 <p class="article-excerpt">Expert virus removal service in Cranbourne. We remove viruses, malware, ransomware, spyware & trojans. Same-day service, no fix no fee guarantee.</p>
             </div>
         </div>
-        
+
         <article class="article-content">
             <section>
                 <h2>Professional Virus Removal Service in Cranbourne</h2>
-                <p>Infected with a virus, malware, or ransomware? <strong>Rapid Tech Solutions</strong> provides same-day <strong>virus removal in Cranbourne</strong> and surrounding suburbs. Our expert technicians completely clean your system, remove all threats, and set up protection to prevent future infections.</p>
-                
+                <p>Infected with a virus, malware, or ransomware? <strong><?php echo RT::e(RT::NAME); ?></strong> provides same-day <strong>virus removal in Cranbourne</strong> and surrounding suburbs. Our expert technicians completely clean your system, remove all threats, and set up protection to prevent future infections.</p>
+
                 <div class="stat-box">
                     <p><strong>Cranbourne Virus Removal Services:</strong><br>
-                    ✓ Same-day emergency service<br>
-                    ✓ Complete malware cleanup<br>
-                    ✓ Ransomware decryption & recovery<br>
-                    ✓ Spyware & adware removal<br>
-                    ✓ Security software installation<br>
-                    ✓ No fix, no fee guarantee</p>
+                    &#x2713; Same-day emergency service<br>
+                    &#x2713; Complete malware cleanup<br>
+                    &#x2713; Ransomware decryption & recovery<br>
+                    &#x2713; Spyware & adware removal<br>
+                    &#x2713; Security software installation<br>
+                    &#x2713; No fix, no fee guarantee</p>
                 </div>
             </section>
-            
+
             <section>
                 <h2>Common Virus Infections We Remove in Cranbourne</h2>
-                
+
                 <h3>1. Ransomware Attacks</h3>
                 <p>Files locked and being held for ransom? We specialise in ransomware removal and data recovery without paying criminals. We've helped many Cranbourne businesses and residents recover from CryptoLocker, WannaCry, and other ransomware variants.</p>
-                
+
                 <h3>2. Browser Hijackers & Adware</h3>
                 <p>Constant popups, changed homepage, or unwanted toolbars? We remove stubborn browser hijackers, adware, and potentially unwanted programs (PUPs) that slow down your Cranbourne computer and invade your privacy.</p>
-                
+
                 <h3>3. Trojan & Spyware Infections</h3>
                 <p>Concerned about identity theft or someone spying on your computer? We detect and remove trojans, keyloggers, and spyware that steal passwords and personal information from Cranbourne residents.</p>
-                
+
                 <h3>4. Rootkits & Advanced Malware</h3>
                 <p>For deep-level infections that hide from standard antivirus software, we use advanced forensic tools to detect and eliminate rootkits and sophisticated malware.</p>
             </section>
-            
+
             <section>
                 <h2>Our Virus Removal Process for Cranbourne Customers</h2>
                 <ol>
@@ -89,7 +84,7 @@ $year = date('Y');
                     <li><strong>Prevention Training:</strong> Show you how to avoid future infections</li>
                 </ol>
             </section>
-            
+
             <section>
                 <h2>Why Choose Us for Virus Removal in Cranbourne?</h2>
                 <ul>
@@ -101,28 +96,23 @@ $year = date('Y');
                     <li><strong>Ongoing Support:</strong> 30-day guarantee on all virus removal work</li>
                 </ul>
             </section>
-            
+
             <section>
                 <h2>Servicing Cranbourne & Nearby Areas</h2>
                 <p>We provide virus removal services throughout Cranbourne 3977 and surrounding suburbs including Cranbourne North, Cranbourne East, Cranbourne West, Devon Meadows, and Clyde.</p>
             </section>
-            
+
             <section class="cta-section">
                 <h2>Need Virus Removal in Cranbourne Today?</h2>
                 <p>Don't let viruses compromise your data or privacy. Call us now for same-day virus removal service in Cranbourne.</p>
                 <div class="cta-buttons">
-                    <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="/book/" class="btn btn-outline"><i class="fas fa-calendar"></i> Book Online</a>
+                    <a href="tel:<?php echo RT::PHONE_E164; ?>" class="btn"><?php echo rt_icon('phone'); ?> Call: <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
+                    <a href="/book/" class="btn btn-outline"><?php echo rt_icon('calendar'); ?> Book Online</a>
                 </div>
             </section>
         </article>
     </main>
-    
-    <footer class="site-footer">
-        <div class="container">
-            <p class="footer-note">© <?php echo $year; ?> Rapid Tech Solutions. Virus Removal Cranbourne. All rights reserved.</p>
-        </div>
-    </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
+
+<?php rt_footer(); ?>
 </body>
 </html>

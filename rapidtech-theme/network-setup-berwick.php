@@ -1,43 +1,38 @@
 <?php
+require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/seo.php';
-if (function_exists('get_template_directory_uri')) {
-    $base_path = get_template_directory_uri();
-} else {
-    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
-    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
-}
-$year = date('Y');
+require_once __DIR__ . '/inc/icons.php';
 ?>
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="<?php echo RT::LANG; ?>">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network & Wi-Fi Setup Berwick | Same-Day Service</title>
-    <meta name="description" content="Wi-Fi and network setup in Berwick 3806. Fix dead zones, install mesh systems, sort out NBN connections and business networks. Same-day onsite service.">
-    <link rel="canonical" href="https://rapidtechsolutions.au/network-setup-berwick/">
-    <meta property="og:title" content="Network Setup Berwick | Rapid Tech Solutions">
-    <meta property="og:description" content="Wi-Fi and network setup in Berwick. Mesh installs, dead zone fixes, NBN diagnostics. Call 0423 680 596">
-    <meta property="og:url" content="https://rapidtechsolutions.au/network-setup-berwick/">
-    <meta property="og:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
-    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
-    <!-- Google Analytics -->
+<?php rt_head([
+    'title'       => 'Network & Wi-Fi Setup Berwick | Same-Day Service',
+    'description' => 'Wi-Fi and network setup in Berwick 3806. Fix dead zones, install mesh systems, sort out NBN connections and business networks. Same-day onsite service.',
+    'path'        => '/network-setup-berwick/',
+    'og_type'     => 'website',
+    'css'         => 'css/blog.css',
+    'schema'      => [[
+        '@type'        => 'Service',
+        'serviceType'  => 'Network and Wi-Fi Setup',
+        'provider'     => RT::local_business(),
+        'areaServed'   => [RT::area_served('Berwick', '3806')],
+        'description'  => 'Professional network and Wi-Fi setup services in Berwick. Wi-Fi diagnostics, mesh system installation, NBN fault resolution, and small business network configuration.',
+        'offers'       => ['@type' => 'Offer', 'description' => 'Same-day network setup and Wi-Fi diagnostics with no fix, no fee guarantee'],
+    ]],
+]); ?>
 </head>
 <body>
 <?php rt_header(); ?>
-    
+<?php rt_breadcrumbs(['Service Areas' => '/service-areas/', 'Network Setup Berwick' => '/network-setup-berwick/']); ?>
+
     <div style="background: linear-gradient(90deg, #ff5c5c 0%, #e24646 100%); color: white; padding: 0.75rem 0; text-align: center; font-weight: 500;">
         <div class="container">
-            <span><i class="fas fa-wifi"></i> Network Setup Berwick - Same Day Service Available</span>
+            <span><?php echo rt_icon('wifi'); ?> Network Setup Berwick - Same Day Service Available</span>
         </div>
     </div>
-    
-    
+
+
     <main id="main">
         <div class="article-header">
             <div class="container">
@@ -48,7 +43,7 @@ $year = date('Y');
         <article class="article-content">
             <section>
                 <h2>Professional Network Setup in Berwick</h2>
-                <p>Wi-Fi dropping out or dead zones in your home? <strong>Rapid Tech Solutions</strong> provides <strong>network and Wi-Fi setup in Berwick</strong> and surrounding suburbs. We diagnose coverage problems, configure mesh systems, and get every room connected properly.</p>
+                <p>Wi-Fi dropping out or dead zones in your home? <strong><?php echo RT::e(RT::NAME); ?></strong> provides <strong>network and Wi-Fi setup in Berwick</strong> and surrounding suburbs. We diagnose coverage problems, configure mesh systems, and get every room connected properly.</p>
                 <div class="stat-box">
                     <p><strong>Berwick Network Services:</strong><br>
                     Same-day Wi-Fi diagnostics<br>
@@ -102,18 +97,13 @@ $year = date('Y');
                 <h2>Wi-Fi Problems in Berwick? Let Us Fix It.</h2>
                 <p>Stop putting up with dead zones and dropouts. Same-day diagnostics, honest advice, fixed pricing.</p>
                 <div class="cta-buttons">
-                    <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="/book/" class="btn btn-outline"><i class="fas fa-calendar"></i> Book Online</a>
+                    <a href="tel:<?php echo RT::PHONE_E164; ?>" class="btn"><?php echo rt_icon('phone'); ?> Call: <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
+                    <a href="/book/" class="btn btn-outline"><?php echo rt_icon('calendar'); ?> Book Online</a>
                 </div>
             </section>
         </article>
     </main>
-    
-    <footer class="site-footer">
-        <div class="container">
-            <p class="footer-note">© <?php echo $year; ?> Rapid Tech Solutions. Network Setup Berwick. All rights reserved.</p>
-        </div>
-    </footer>
-<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>" defer></script>
+
+<?php rt_footer(); ?>
 </body>
 </html>
