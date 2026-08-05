@@ -23,7 +23,14 @@ require_once __DIR__ . '/config.php';
  *   @type string $image        Root-relative share image. Defaults to RT::OG_IMAGE.
  *   @type bool   $noindex      Emit noindex,follow. Default false.
  *   @type array  $schema       Extra JSON-LD nodes to emit (each a PHP array).
- *   @type string $css          Extra stylesheet path relative to the theme.
+ *   @type string|array $css    Extra stylesheet path(s) relative to the theme.
+ *   @type string $inline_css   Raw CSS to emit in a <style> block. Avoid if possible.
+ *   @type string $extra_head   Raw HTML injected before closing </head>.
+ *   @type string $og_title     Custom OG title (defaults to $title).
+ *   @type string $article_published  ISO 8601 publish date (for og_type=article).
+ *   @type string $article_modified   ISO 8601 modified date.
+ *   @type string $article_author     Author name.
+ *   @type string $article_section    Article category.
  * }
  */
 function rt_head(array $a): void
@@ -37,12 +44,18 @@ function rt_head(array $a): void
     ?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <title><?php echo RT::e($title); ?></title>
 <meta name="description" content="<?php echo RT::e($desc); ?>">
 <meta name="robots" content="<?php echo !empty($a['noindex']) ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'; ?>">
-<meta name="author" content="<?php echo RT::e(RT::NAME); ?>">
+<meta name="author" content="<?php echo RT::e($a['article_author'] ?? RT::NAME); ?>">
 <link rel="canonical" href="<?php echo RT::e($canon); ?>">
-
+<?php if ($type === 'article') : ?>
+<meta property="article:published_time" content="<?php echo RT::e($a['article_published'] ?? ''); ?>">
+<meta property="article:modified_time" content="<?php echo RT::e($a['article_modified'] ?? ''); ?>">
+<meta property="article:author" content="<?php echo RT::e($a['article_author'] ?? RT::NAME); ?>">
+<meta property="article:section" content="<?php echo RT::e($a['article_section'] ?? ''); ?>">
+<?php endif; ?>
 <meta property="og:site_name" content="<?php echo RT::e(RT::NAME); ?>">
 <meta property="og:locale" content="<?php echo RT::LOCALE; ?>">
 <meta property="og:type" content="<?php echo RT::e($type); ?>">
@@ -60,14 +73,18 @@ function rt_head(array $a): void
 
 <link rel="icon" type="image/svg+xml" href="<?php echo RT::e(RT::asset('images/favicon.svg')); ?>">
 <link rel="icon" type="image/png" sizes="32x32" href="<?php echo RT::e(RT::asset('images/favicon.png')); ?>">
-<link rel="apple-touch-icon" sizes="180x180" href="<?php echo RT::e(RT::asset('images/logo.png')); ?>"><!-- TODO: replace logo.png with a dedicated 180×180 apple-touch-icon.png -->
+<link rel="apple-touch-icon" sizes="180x180" href="<?php echo RT::e(RT::asset('images/logo.png')); ?>">
 
 <?php /* Self-hosted: removes two render-blocking third-party round trips. */ ?>
 <link rel="preload" href="<?php echo RT::e(RT::asset('fonts/space-grotesk/space-grotesk-latin.woff2')); ?>" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="<?php echo RT::e(RT::asset('css/styles.css')); ?>?v=<?php echo filemtime(RT::path('css/styles.css')); ?>">
-<?php if (!empty($a['css'])) : ?>
-<link rel="stylesheet" href="<?php echo RT::e(RT::asset($a['css'])); ?>">
+<?php foreach ((array) ($a['css'] ?? []) as $css) : ?>
+<link rel="stylesheet" href="<?php echo RT::e(RT::asset($css)); ?>?v=<?php echo filemtime(RT::path($css)); ?>">
+<?php endforeach; ?>
+<?php if (!empty($a['inline_css'])) : ?>
+<style><?php echo $a['inline_css']; ?></style>
 <?php endif; ?>
+<?php if (!empty($a['extra_head'])) { echo $a['extra_head']; } ?>
 <?php
     foreach ((array) ($a['schema'] ?? []) as $node) {
         RT::json_ld($node);
@@ -129,9 +146,27 @@ function rt_breadcrumbs(array $trail): void
     ]);
 }
 
-/** Site header and primary navigation. */
-function rt_header(): void
+/** Site header and primary navigation.
+ *
+ * @param bool  $home       When true, also emits the WhatsApp widget and sticky CTA
+ *                          that are part of the homepage chrome.
+ * @param array $nav_links  Override nav links as [label => href]. Empty = default
+ *                          absolute-URL nav. Hash anchors for homepage.
+ */
+function rt_header(bool $home = false, array $nav_links = []): void
 {
+    if (empty($nav_links)) {
+        $nav_links = [
+            'Computer Repairs' => '/service-computer-repairs/',
+            'Virus Removal'    => '/service-virus-removal/',
+            'Data Recovery'    => '/service-data-recovery/',
+            'Network & Wi-Fi'  => '/service-network-wifi/',
+            'Service Areas'    => '/service-areas/',
+            'Blog'             => '/blog/',
+            'FAQ'              => '/faq/',
+            'Book a Repair'    => '/book/',
+        ];
+    }
     ?>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" role="banner">
@@ -145,13 +180,9 @@ function rt_header(): void
             <span class="menu-toggle-bars" aria-hidden="true"></span>
         </button>
         <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
-            <a href="/service-computer-repairs/">Computer Repairs</a>
-            <a href="/service-virus-removal/">Virus Removal</a>
-            <a href="/service-data-recovery/">Data Recovery</a>
-            <a href="/service-areas/">Service Areas</a>
-            <a href="/blog/">Blog</a>
-            <a href="/faq/">FAQ</a>
-            <a href="/#contact" class="btn btn-outline">Get in Touch</a>
+            <?php foreach ($nav_links as $label => $href) : ?>
+            <a href="<?php echo RT::e($href); ?>"><?php echo RT::e($label); ?></a>
+            <?php endforeach; ?>
         </nav>
     </div>
 </header>
@@ -162,6 +193,34 @@ function rt_header(): void
         <a href="tel:<?php echo RT::PHONE_E164; ?>">Call <?php echo RT::e(RT::PHONE_DISPLAY); ?></a>
     </div>
 </div>
+<?php
+    if ($home) {
+        rt_whatsapp_widget();
+    }
+}
+
+/** WhatsApp floating action button, popup dialog, and sticky CTA.
+ *  Only emitted on the homepage. */
+function rt_whatsapp_widget(): void
+{
+    ?>
+<!-- WhatsApp chat popup -->
+<button class="wa-fab" aria-label="Chat on WhatsApp" aria-haspopup="dialog">
+  <svg class="icon icon-whatsapp-fab" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" width="24" height="24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+</button>
+<div class="wa-popup" id="waPopup" role="dialog" aria-modal="true" aria-label="Chat with us on WhatsApp" hidden>
+  <div class="wa-popup-header">
+    <span>Chat with us</span>
+    <button id="waClose" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="wa-popup-body">
+    <p>Type your message and we'll reply on WhatsApp — usually within minutes during business hours (Mon–Fri 9am–5pm).</p>
+    <label for="waInput" class="sr-only">Your message</label>
+    <textarea id="waInput" rows="3" placeholder="Hi, I need help with..."></textarea>
+    <button id="waSend" class="wa-send-btn">Send via WhatsApp</button>
+  </div>
+</div>
+<a class="sticky-cta" href="tel:<?php echo RT::PHONE_E164; ?>" data-track="sticky-cta" aria-label="Call now">Call now</a>
 <?php
 }
 
@@ -190,6 +249,7 @@ function rt_footer(): void
             <h2>Company</h2>
             <ul>
                 <li><a href="/about/">About</a></li>
+                <li><a href="/book/">Book a Repair</a></li>
                 <li><a href="/service-areas/">Service Areas</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/faq/">FAQ</a></li>
@@ -203,6 +263,7 @@ function rt_footer(): void
                 <li><a href="tel:<?php echo RT::PHONE_E164; ?>"><?php echo RT::e(RT::PHONE_DISPLAY); ?></a></li>
                 <li><a href="mailto:<?php echo RT::EMAIL; ?>"><?php echo RT::EMAIL; ?></a></li>
                 <li><a href="<?php echo RT::WHATSAPP; ?>" rel="noopener">WhatsApp</a></li>
+                <li><a href="<?php echo RT::GOOGLE_REVIEW_URL; ?>" rel="noopener nofollow" target="_blank">Leave a Google Review</a></li>
             </ul>
         </div>
     </div>

@@ -40,13 +40,6 @@ $current_year = date('Y');
     }
     </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BDN34WT3J6');
-    </script>
 </head>
 <body>
 <?php rt_header(); ?>
@@ -83,7 +76,7 @@ $current_year = date('Y');
                 <p>Free diagnostics. Upfront quotes. No hidden fees. We believe in transparency because that's how we'd want to be treated. If a repair costs more than the device is worth, we'll tell you.</p>
 
                 <h3>Local and Responsive</h3>
-                <p>Based in Patterson Lakes, we're never far away. Same-day service is often available, and we actually answer our phone. Try us: 0423 680 596.</p>
+                <p>Based in <?php echo RT::e(RT::LOCALITY); ?>, we're never far away. Same-day service is often available, and we actually answer our phone. Try us: 0423 680 596.</p>
 
                 <h3>We Care About You, Not Just Your Computer</h3>
                 <p>We take time to understand your needs. A grandmother who just wants to video call her grandkids gets different advice than a small business owner needing network security. One size doesn't fit all.</p>
@@ -107,7 +100,7 @@ $current_year = date('Y');
                 <h2>Areas We Serve</h2>
                 <p>We provide on-site and remote IT support across:</p>
                 <ul>
-                    <li>Patterson Lakes (3197) - Our home base</li>
+                    <li><?php echo RT::e(RT::LOCALITY); ?> <?php echo RT::POSTCODE; ?> - Our home base</li>
                     <li>Carrum, Bonbeach, Chelsea</li>
                     <li>Frankston and Seaford</li>
                     <li>Mentone, Mordialloc, Parkdale</li>
@@ -159,7 +152,7 @@ $current_year = date('Y');
                 <p>Whether you have a virus, a slow computer, or just need some tech advice, we're here to help. Contact us today for friendly, professional IT support.</p>
                 <div class="cta-buttons">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="/#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Send a Message</a>
+                    <a href="/book/" class="btn btn-outline"><i class="fas fa-envelope"></i> Send a Message</a>
                 </div>
             </section>
         </article>

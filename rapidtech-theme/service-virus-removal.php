@@ -77,13 +77,6 @@ if (function_exists('get_template_directory_uri')) {
     }
     </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BDN34WT3J6');
-    </script>
 </head>
 <body>
 <?php rt_header(); ?>
@@ -102,7 +95,7 @@ if (function_exists('get_template_directory_uri')) {
                 <p class="lead" style="font-size: 1.3rem; color: var(--muted); max-width: 700px;">Computer infected? Seeing pop-ups everywhere? We remove all types of malware and protect your system from future threats. Fast, thorough, and affordable service.</p>
                 <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call 0423 680 596</a>
-                    <a href="/#contact" class="btn btn-outline">Request Help Now</a>
+                    <a href="/book/" class="btn btn-outline">Request Help Now</a>
                 </div>
             </div>
         </section>

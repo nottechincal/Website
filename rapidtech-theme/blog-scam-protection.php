@@ -75,13 +75,6 @@ if (function_exists('get_template_directory_uri')) {
     }
     </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BDN34WT3J6');
-    </script>
 </head>
 <body>
 <?php rt_header(); ?>
@@ -212,7 +205,7 @@ if (function_exists('get_template_directory_uri')) {
                     <li>Family safety training</li>
                 </ul>
                 <div class="cta-buttons">
-                    <a href="/#contact" class="btn"><i class="fas fa-shield-alt"></i> Get a Free Security Check</a>
+                    <a href="/book/" class="btn"><i class="fas fa-shield-alt"></i> Get a Free Security Check</a>
                     <a href="tel:+61423680596" class="btn btn-outline"><i class="fas fa-phone"></i> Call Us: 0423 680 596</a>
                 </div>
             </section>

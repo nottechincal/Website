@@ -32,13 +32,6 @@ if (function_exists('get_template_directory_uri')) {
     <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BDN34WT3J6');
-    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -186,7 +179,7 @@ if (function_exists('get_template_directory_uri')) {
                     <li>Network security audits</li>
                 </ul>
                 <div class="cta-buttons">
-                    <a href="/#contact" class="btn"><i class="fas fa-phone"></i> Get Help Today</a>
+                    <a href="/book/" class="btn"><i class="fas fa-phone"></i> Get Help Today</a>
                 </div>
             </section>
         </article>

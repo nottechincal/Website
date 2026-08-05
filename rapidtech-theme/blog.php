@@ -267,7 +267,7 @@ $current_year = date('Y');
                 </p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="/#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Send a Message</a>
+                    <a href="/book/" class="btn btn-outline"><i class="fas fa-envelope"></i> Send a Message</a>
                 </div>
             </div>
         </section>

@@ -30,13 +30,6 @@ $year = date('Y');
     <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BDN34WT3J6');
-    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -446,7 +439,7 @@ $year = date('Y');
                             <li>Security and backup solutions</li>
                             <li>Microsoft 365 administration</li>
                         </ul>
-                        <p><a href="/#contact">Contact us for a business IT consultation</a></p>
+                        <p><a href="/book/">Contact us for a business IT consultation</a></p>
                     </details>
 
                     <details>
@@ -455,7 +448,7 @@ $year = date('Y');
                         <ul>
                             <li><strong>Call:</strong> 0423 680 596 (fastest)</li>
                             <li><strong>Book online:</strong> <a href="/book/">Use our booking form</a></li>
-                            <li><strong>Contact form:</strong> <a href="/#contact">Send us a message</a></li>
+                            <li><strong>Contact form:</strong> <a href="/book/">Send us a message</a></li>
                         </ul>
                     </details>
                 </div>
@@ -466,7 +459,7 @@ $year = date('Y');
                 <p>Can't find what you're looking for? We're here to help. Give us a call or send us a message.</p>
                 <div class="cta-buttons">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="/#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Us</a>
+                    <a href="/book/" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Us</a>
                 </div>
             </section>
         </article>

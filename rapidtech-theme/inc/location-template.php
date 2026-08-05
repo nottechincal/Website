@@ -123,7 +123,7 @@ function render_location_page(string $slug): void
                 <a class="btn" href="tel:<?php echo RT::PHONE_E164; ?>">
                     <?php echo rt_icon('phone'); ?> Call <?php echo RT::e(RT::PHONE_DISPLAY); ?>
                 </a>
-                <a class="btn btn-outline" href="/#contact">Request a Quote</a>
+                <a class="btn btn-outline" href="/book/">Request a Quote</a>
             </div>
             <ul class="hero-badges">
                 <li><?php echo rt_icon('clock'); ?> Same-day service available</li>
@@ -245,7 +245,7 @@ function render_location_page(string $slug): void
                 <a class="btn" href="tel:<?php echo RT::PHONE_E164; ?>">
                     <?php echo rt_icon('phone'); ?> <?php echo RT::e(RT::PHONE_DISPLAY); ?>
                 </a>
-                <a class="btn btn-outline" href="/#contact">Request a Quote</a>
+                <a class="btn btn-outline" href="/book/">Request a Quote</a>
             </div>
         </div>
     </section>

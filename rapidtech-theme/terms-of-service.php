@@ -27,13 +27,6 @@ $current_year = date('Y');
     <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo filemtime(__DIR__ . '/css/styles.css'); ?>" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BDN34WT3J6');
-    </script>
 </head>
 <body>
 <?php rt_header(); ?>
@@ -230,7 +223,7 @@ $current_year = date('Y');
                 <ul>
                     <li><strong>Phone:</strong> 0423 680 596</li>
                     <li><strong>Email:</strong> info@rapidtechsolutions.au</li>
-                    <li><strong>Address:</strong> Patterson Lakes, VIC 3197</li>
+                    <li><strong>Address:</strong> <?php echo RT::e(RT::LOCALITY); ?>, <?php echo RT::REGION; ?> <?php echo RT::POSTCODE; ?></li>
                 </ul>
             </section>
 

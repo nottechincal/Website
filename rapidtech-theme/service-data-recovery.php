@@ -77,13 +77,6 @@ if (function_exists('get_template_directory_uri')) {
     }
     </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BDN34WT3J6');
-    </script>
 </head>
 <body>
 <?php rt_header(); ?>
@@ -102,7 +95,7 @@ if (function_exists('get_template_directory_uri')) {
                 <p class="lead" style="font-size: 1.3rem; color: var(--muted); max-width: 700px;">Lost precious photos? Important documents disappeared? We recover data from failed hard drives, deleted files, and corrupted storage. Free assessment. No data, no fee.</p>
                 <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call 0423 680 596</a>
-                    <a href="/#contact" class="btn btn-outline">Request Free Assessment</a>
+                    <a href="/book/" class="btn btn-outline">Request Free Assessment</a>
                 </div>
             </div>
         </section>
@@ -217,7 +210,7 @@ if (function_exists('get_template_directory_uri')) {
                     <li><strong style="color: var(--text);">Free Assessment</strong> – We evaluate your case at no cost or obligation</li>
                     <li><strong style="color: var(--text);">Confidentiality Guaranteed</strong> – Your data is handled with strict privacy protocols</li>
                     <li><strong style="color: var(--text);">Advanced Tools</strong> – Professional-grade recovery software and hardware</li>
-                    <li><strong style="color: var(--text);">Local Expert</strong> – Based in Patterson Lakes, no need to ship your drive interstate</li>
+                    <li><strong style="color: var(--text);">Local Expert</strong> – Based in <?php echo RT::e(RT::LOCALITY); ?>, no need to ship your drive interstate</li>
                     <li><strong style="color: var(--text);">High Success Rate</strong> – Years of experience recovering seemingly impossible cases</li>
                     <li><strong style="color: var(--text);">Clear Communication</strong> – We keep you informed throughout the process</li>
                     <li><strong style="color: var(--text);">Backup Advice</strong> – We help you protect your data going forward</li>

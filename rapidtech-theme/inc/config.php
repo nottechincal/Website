@@ -63,7 +63,7 @@ final class RT
      * belongs on the homepage only — not repeated on every suburb page.
      */
     const RATING_VALUE = '5.0';
-    const RATING_COUNT = '47';
+    const RATING_COUNT = 47;
 
     /* -------------------------------------------------------------- social */
 
@@ -73,6 +73,9 @@ final class RT
     ];
 
     const WHATSAPP = 'https://wa.me/61423680596';
+
+    /** Google Business Profile review link. Displayed in footer and reviews page. */
+    const GOOGLE_REVIEW_URL = 'https://g.page/r/REPLACE_WITH_YOUR_REVIEW_SHORTLINK';
 
     /* ------------------------------------------------------------ tracking */
 

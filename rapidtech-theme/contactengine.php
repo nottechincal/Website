@@ -93,7 +93,7 @@ if ($success) {
     $customerMessage .= "For urgent matters, please call us directly at 0423 680 596.\n\n";
     $customerMessage .= "Best regards,\n";
     $customerMessage .= "The Rapid Tech Solutions Team\n";
-    $customerMessage .= "Patterson Lakes, Melbourne\n";
+    $customerMessage .= "<?php echo RT::e(RT::LOCALITY); ?>, Melbourne\n";
     $customerMessage .= "https://rapidtechsolutions.au\n";
 
     $customerHeaders = [

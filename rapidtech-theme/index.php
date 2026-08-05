@@ -568,7 +568,7 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
 <section id="areas" class="areas section"><div class="wrap">
   <div class="shead"><p class="kicker">Coverage</p><h2>Where we go</h2><p>Based in Cranbourne South. No call-out surcharge anywhere on this list.</p></div>
   <div class="chips">
-    <a href="/computer-repairs-cranbourne/">Cranbourne</a><a href="#">Cranbourne South</a><a href="/computer-repairs-berwick/">Berwick</a><a href="/computer-repairs-narre-warren/">Narre Warren</a>
+    <a href="/computer-repairs-cranbourne/">Cranbourne</a><span>Cranbourne South</span><a href="/computer-repairs-berwick/">Berwick</a><a href="/computer-repairs-narre-warren/">Narre Warren</a>
     <a href="/computer-repairs-dandenong/">Dandenong</a><a href="/computer-repairs-frankston/">Frankston</a><a href="/computer-repairs-carrum-downs/">Carrum Downs</a><a href="/computer-repairs-seaford/">Seaford</a>
     <a href="/computer-repairs-patterson-lakes/">Patterson Lakes</a><a href="/computer-repairs-chelsea/">Chelsea</a><a href="/computer-repairs-mordialloc/">Mordialloc</a><a href="/computer-repairs-skye/">Skye</a>
     <a href="/computer-repairs-langwarrin/">Langwarrin</a><a href="/computer-repairs-clyde/">Clyde</a><a href="/computer-repairs-lynbrook/">Lynbrook</a><a href="/computer-repairs-hampton-park/">Hampton Park</a>

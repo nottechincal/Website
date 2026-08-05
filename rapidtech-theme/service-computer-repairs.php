@@ -77,13 +77,6 @@ if (function_exists('get_template_directory_uri')) {
     }
     </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BDN34WT3J6');
-    </script>
 </head>
 <body>
 <?php rt_header(); ?>
@@ -102,7 +95,7 @@ if (function_exists('get_template_directory_uri')) {
                 <p class="lead" style="font-size: 1.3rem; color: var(--muted); max-width: 700px;">Fast, reliable repairs for laptops, desktops, and all-in-one computers. Free diagnostics. Upfront quotes. Same-day service available.</p>
                 <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call 0423 680 596</a>
-                    <a href="/#contact" class="btn btn-outline">Request Free Quote</a>
+                    <a href="/book/" class="btn btn-outline">Request Free Quote</a>
                 </div>
             </div>
         </section>
@@ -209,7 +202,7 @@ if (function_exists('get_template_directory_uri')) {
                     <li><strong style="color: var(--text);">Free Diagnostics</strong> – We assess your computer at no cost</li>
                     <li><strong style="color: var(--text);">No Fix, No Fee</strong> – If we can't repair it, you don't pay</li>
                     <li><strong style="color: var(--text);">Same-Day Service</strong> – Many repairs completed within hours</li>
-                    <li><strong style="color: var(--text);">Local Technician</strong> – Based in Patterson Lakes, we know the area</li>
+                    <li><strong style="color: var(--text);">Local Technician</strong> – Based in <?php echo RT::e(RT::LOCALITY); ?>, we know the area</li>
                     <li><strong style="color: var(--text);">Clear Communication</strong> – We explain problems in plain English</li>
                     <li><strong style="color: var(--text);">Quality Parts</strong> – We use reliable components with warranty</li>
                     <li><strong style="color: var(--text);">Data Protection</strong> – Your files are safe during repairs</li>

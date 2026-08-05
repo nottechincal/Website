@@ -128,13 +128,6 @@ $year = date('Y');
         }
     </style>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BDN34WT3J6');
-    </script>
 </head>
 <body>
 <?php rt_header(); ?>
@@ -410,7 +403,7 @@ $year = date('Y');
                 <p>We service all of Melbourne's south-east! If your suburb isn't listed, give us a call and we'll let you know if we can help. Most areas within 20km of Cranbourne South are covered.</p>
                 <div class="cta-buttons">
                     <a href="tel:+61423680596" class="btn"><i class="fas fa-phone"></i> Call: 0423 680 596</a>
-                    <a href="/#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Us</a>
+                    <a href="/book/" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Us</a>
                 </div>
             </section>
         </div>
