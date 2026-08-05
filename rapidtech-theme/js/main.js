@@ -9,25 +9,59 @@
 (function () {
     'use strict';
 
-    /* ------------------------------------------------------ mobile nav ---- */
+    /* ------------------------------------------------------ mobile nav ----
+     *
+     * This is the ONLY mobile-nav implementation on the site. The homepage
+     * used to carry a second copy in an inline <script>, and the two fought
+     * each other: the inline handler opened the panel and set
+     * aria-expanded="true", then this handler read that same attribute,
+     * concluded the menu was already open and closed it again. One click,
+     * two handlers, net effect nothing — the menu appeared to be dead while
+     * the backdrop still went up and the page still locked behind it.
+     *
+     * The backdrop and the scroll lock are optional: pages without a
+     * .nav-backdrop element simply skip them.
+     */
 
     var toggle = document.querySelector('.menu-toggle');
     var nav = document.getElementById('primary-nav');
+    var backdrop = document.querySelector('.nav-backdrop');
 
     if (toggle && nav) {
+        var setNav = function (open) {
+            toggle.classList.toggle('open', open);
+            toggle.setAttribute('aria-expanded', String(open));
+            nav.classList.toggle('open', open);
+            if (backdrop) { backdrop.classList.toggle('open', open); }
+            document.body.style.overflow = open ? 'hidden' : '';
+        };
+
         toggle.addEventListener('click', function () {
-            var open = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!open));
-            nav.classList.toggle('open', !open);
+            setNav(!nav.classList.contains('open'));
+        });
+
+        if (backdrop) {
+            backdrop.addEventListener('click', function () { setNav(false); });
+        }
+
+        // Following a link should not leave the panel covering the page it
+        // just scrolled to.
+        nav.addEventListener('click', function (e) {
+            if (e.target.closest('a')) { setNav(false); }
         });
 
         // Close on Escape so keyboard users are not trapped in the menu.
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && nav.classList.contains('open')) {
-                nav.classList.remove('open');
-                toggle.setAttribute('aria-expanded', 'false');
+                setNav(false);
                 toggle.focus();
             }
+        });
+
+        // The panel is only off-canvas below 860px. Resizing past that point
+        // while it is open otherwise leaves body overflow locked on desktop.
+        window.matchMedia('(min-width: 861px)').addEventListener('change', function (e) {
+            if (e.matches && nav.classList.contains('open')) { setNav(false); }
         });
     }
 

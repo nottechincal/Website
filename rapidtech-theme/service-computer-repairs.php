@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+require_once __DIR__ . '/inc/seo.php';
 // Define base path - works with or without WordPress
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
@@ -36,8 +37,8 @@ if (function_exists('get_template_directory_uri')) {
     </script>
     <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/animations.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="<?php echo $base_path; ?>/css/styles.css?v=20260805" rel="stylesheet">
+    <link href="<?php echo $base_path; ?>/css/animations.css?v=20260805" rel="stylesheet" media="print" onload="this.media='all'">
 
     <script type="application/ld+json">
     {
@@ -85,18 +86,7 @@ if (function_exists('get_template_directory_uri')) {
     </script>
 </head>
 <body>
-    <header class="site-header" role="banner">
-        <div class="container header-inner">
-            <a class="brand" href="/">
-                <span class="brand-mark lightning-animated" aria-hidden="true"></span>
-                Rapid Tech Solutions
-            </a>
-            <nav class="primary-nav">
-                <a href="/#services">Services</a>
-                <a href="/#contact" class="btn btn-outline">Get in Touch</a>
-            </nav>
-        </div>
-    </header>
+<?php rt_header(); ?>
 
     <main id="main">
         <!-- Hero Section -->
@@ -277,5 +267,6 @@ if (function_exists('get_template_directory_uri')) {
     </footer>
 
     <!-- WhatsApp widget handled in main.js -->
+<script src="<?php echo $base_path; ?>/js/main.js?v=20260805" defer></script>
 </body>
 </html>

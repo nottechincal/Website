@@ -1,25 +1,3 @@
-<?php
-/*
-Template Name: Home
-*/
-// The template references RT:: constants but relied on functions.php having
-// already loaded config.php. That holds under WordPress and nowhere else, so
-// the file fatal-errored the moment it was rendered directly. require_once
-// makes it self-sufficient without loading anything twice.
-require_once __DIR__ . '/inc/config.php';
-// Define base path - works with or without WordPress
-if (function_exists('get_template_directory_uri')) {
-    $base_path = get_template_directory_uri();
-} else {
-    $script_dir = dirname($_SERVER['SCRIPT_NAME']);
-    $base_path = ($script_dir === '/' || $script_dir === '\\') ? '' : $script_dir;
-}
-// Cache-busting: forces browsers to re-fetch CSS/JS when files change.
-// Uses file modification time so it's automatic — no manual version bumps.
-$theme_dir = function_exists('get_template_directory') ? get_template_directory() : __DIR__;
-$css_v = filemtime($theme_dir . '/css/styles.css');
-$js_v  = filemtime($theme_dir . '/js/main.js');
-?>
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
@@ -48,17 +26,16 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
     <meta name="twitter:description" content="Same-day computer repairs, virus removal, data recovery and Wi-Fi fixes across Melbourne's south-east. We come to you. No fix, no fee.">
     <meta name="twitter:image" content="https://rapidtechsolutions.au/images/og-image.jpg">
     <link rel="canonical" href="https://rapidtechsolutions.au/">
-    <link rel="icon" type="image/svg+xml" href="<?php echo $base_path; ?>/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $base_path; ?>/images/logo.png">
+    <link rel="icon" type="image/svg+xml" href="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/logo.png">
 
-    <?php /* Space Grotesk is self-hosted */ ?>
-    <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="<?php echo $base_path; ?>/images/fallback.webp" as="image" type="image/webp" fetchpriority="high">
+        <link rel="preload" href="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/fallback.webp" as="image" type="image/webp" fetchpriority="high">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <link href="<?php echo $base_path; ?>/css/styles.css?v=<?php echo $css_v; ?>" rel="stylesheet">
-    <link href="<?php echo $base_path; ?>/css/animations.css?v=<?php echo $css_v; ?>" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/css/styles.css?v=20260805" rel="stylesheet">
+    <link href="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/css/animations.css?v=20260805" rel="stylesheet" media="print" onload="this.media='all'">
     <script>
     if ('IntersectionObserver' in window) {
         document.documentElement.className += ' js-anim';
@@ -67,7 +44,7 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
     <noscript>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-        <link href="<?php echo $base_path; ?>/css/animations.css?v=<?php echo $css_v; ?>" rel="stylesheet">
+        <link href="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/css/animations.css?v=20260805" rel="stylesheet">
     </noscript>
 
     <!-- Structured data -->
@@ -106,11 +83,11 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
         "email": "support@rapidtechsolutions.au",
         "url": "https://rapidtechsolutions.au/",
         "image": "https://rapidtechsolutions.au/images/og-image.jpg",
-        "priceRange": "<?php echo RT::PRICE_RANGE; ?>",
+        "priceRange": "$$",
         "address": { "@type": "PostalAddress", "addressLocality": "Cranbourne South", "addressRegion": "VIC", "postalCode": "3977", "addressCountry": "AU" },
-        "geo": { "@type": "GeoCoordinates", "latitude": <?php echo RT::LATITUDE; ?>, "longitude": <?php echo RT::LONGITUDE; ?> },
-        "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": <?php echo json_encode(RT::OPEN_DAYS); ?>, "opens": "<?php echo RT::OPEN_TIME; ?>", "closes": "<?php echo RT::CLOSE_TIME; ?>" },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "<?php echo RT::RATING_VALUE; ?>", "reviewCount": "<?php echo RT::RATING_COUNT; ?>", "bestRating": "5" },
+        "geo": { "@type": "GeoCoordinates", "latitude": -38.1333, "longitude": 145.2667 },
+        "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "47", "bestRating": "5" },
         "areaServed": ["Cranbourne","Cranbourne South","Berwick","Narre Warren","Dandenong","Frankston","Carrum Downs","Seaford","Patterson Lakes","Chelsea","Mordialloc"],
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -162,7 +139,7 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
 <header class="site-header" role="banner">
   <div class="wrap">
     <a class="brand" href="/">
-      <img src="<?php echo $base_path; ?>/images/logo.png" alt="Rapid Tech Solutions" width="64" height="64">
+      <img src="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/logo.png" alt="Rapid Tech Solutions" width="64" height="64">
       Rapid Tech Solutions
     </a>
     <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
@@ -206,8 +183,8 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
 <!-- Hero -->
 <section class="hero" aria-label="Rapid Tech Solutions hero">
   <video autoplay muted loop playsinline id="bg-video"
-         poster="<?php echo $base_path; ?>/images/fallback.webp"
-         data-src="<?php echo $base_path; ?>/videos/bg1.mp4"
+         poster="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/fallback.webp"
+         data-src="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/videos/bg1.mp4"
          width="1920" height="1080">
   </video>
   <div class="hero-overlay"></div>
@@ -626,94 +603,8 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
 <section id="book" class="section alt"><div class="wrap">
   <div class="shead"><p class="kicker">Book a repair</p><h2>Ready to get it fixed?</h2><p>Fill this in and we'll confirm your booking within 1 business hour — usually faster.</p></div>
 
-  <?php
-  // Simple inline handler for homepage booking form
-  $bk_submitted = false; $bk_errors = [];
-  $bk = ['service'=>'','name'=>'','email'=>'','phone'=>'','date'=>'','time'=>'','address'=>'','desc'=>''];
-  if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['bk_submit'])) {
-      $bk = [
-          'service' => trim($_POST['bk_service'] ?? ''),
-          'name'    => trim($_POST['bk_name'] ?? ''),
-          'email'   => trim($_POST['bk_email'] ?? ''),
-          'phone'   => trim($_POST['bk_phone'] ?? ''),
-          'date'    => trim($_POST['bk_date'] ?? ''),
-          'time'    => trim($_POST['bk_time'] ?? ''),
-          'address' => trim($_POST['bk_address'] ?? ''),
-          'desc'    => trim($_POST['bk_desc'] ?? ''),
-      ];
-      if (strlen($bk['name']) < 2) $bk_errors['name'] = 'Please enter your name.';
-      if (!filter_var($bk['email'], FILTER_VALIDATE_EMAIL)) $bk_errors['email'] = 'Valid email required.';
-      if (strlen($bk['phone']) < 8) $bk_errors['phone'] = 'Valid phone number required.';
-      if (empty($bk['service'])) $bk_errors['service'] = 'Please choose a service.';
-      if (strlen($bk['address']) < 5) $bk_errors['address'] = 'Please enter your address.';
-      if (strlen($bk['desc']) < 10) $bk_errors['desc'] = 'Tell us a bit more (at least 10 characters).';
-      if (empty($bk_errors) && empty($_POST['website'])) {
-
-          // ── Save to log file (reliable, always works) ──────────────
-          //
-          // This file holds customer names, emails, phone numbers and home
-          // addresses, and it sits inside the theme — i.e. under the web
-          // root. The root .htaccess denies dot-FILES, but Apache's
-          // <FilesMatch> tests the filename only, so "bookings.jsonl" inside
-          // a ".bookings" directory was served happily to anyone who asked
-          // for it by name. Deny rules are written into the directory itself
-          // at creation time so the protection travels with the data rather
-          // than depending on a rule several directories away.
-          $logdir = __DIR__ . '/.bookings';
-          if (!is_dir($logdir)) {
-              @mkdir($logdir, 0750, true);
-              @file_put_contents(
-                  $logdir . '/.htaccess',
-                  "Require all denied\n"           // Apache 2.4
-                  . "<IfModule !mod_authz_core.c>\n"
-                  . "Order deny,allow\nDeny from all\n"  // Apache 2.2
-                  . "</IfModule>\n"
-              );
-              @file_put_contents($logdir . '/index.html', '');
-          }
-          $logfile = $logdir . '/bookings.jsonl';
-          $entry = json_encode([
-              'time'    => date('Y-m-d H:i:s'),
-              'ip'      => $_SERVER['REMOTE_ADDR'] ?? '',
-              'service' => $bk['service'],
-              'name'    => $bk['name'],
-              'email'   => $bk['email'],
-              'phone'   => $bk['phone'],
-              'date'    => $bk['date'],
-              'time_pref' => $bk['time'],
-              'address' => $bk['address'],
-              'issue'   => $bk['desc'],
-          ]) . "\n";
-          @file_put_contents($logfile, $entry, FILE_APPEND | LOCK_EX);
-
-          // ── Send email ──────────────────────────────────────────
-          $to = 'sales@rapidtechsolutions.au';
-          $subject = 'New Booking: ' . $bk['service'] . ' — ' . $bk['name'];
-          $body = "NEW BOOKING\n──────────\nName: {$bk['name']}\nEmail: {$bk['email']}\nPhone: {$bk['phone']}\nService: {$bk['service']}\nDate: {$bk['date']}\nTime: {$bk['time']}\nAddress: {$bk['address']}\n\nIssue:\n{$bk['desc']}\n──────────\n" . date('Y-m-d H:i:s');
-          $hdrs = ['Content-Type: text/plain; charset=UTF-8'];
-
-          if (function_exists('wp_mail')) {
-              wp_mail($to, $subject, $body, $hdrs);
-              $cust = "Hi {$bk['name']},\n\nThanks for booking! We'll confirm your time within 1 business hour.\nFor urgent help, call 0423 680 596.\n\nService: {$bk['service']}\nDate: {$bk['date']}\nTime: {$bk['time']}\nAddress: {$bk['address']}\n\n— Rapid Tech Solutions\nCranbourne South, VIC";
-              wp_mail($bk['email'], 'Booking Received — Rapid Tech Solutions', $cust, ['Content-Type: text/plain; charset=UTF-8']);
-          } else {
-              @mail($to, $subject, $body, "From: sales@rapidtechsolutions.au\r\nReply-To: {$bk['email']}\r\nContent-Type: text/plain; charset=UTF-8");
-              @mail($bk['email'], 'Booking Received — Rapid Tech Solutions', $cust ?? '', "From: sales@rapidtechsolutions.au\r\nContent-Type: text/plain; charset=UTF-8");
-          }
-          $bk_submitted = true;
-      }
-  }
-  ?>
-
-  <?php if ($bk_submitted): ?>
-  <div style="max-width:600px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);padding:2.5rem 2rem;text-align:center">
-    <div style="font-size:2.5rem;margin-bottom:.8rem">✅</div>
-    <h2 style="margin-bottom:.5rem">Booking received!</h2>
-    <p style="color:var(--muted);margin-bottom:1.2rem">We'll confirm your time within 1 business hour. For urgent help, call now.</p>
-    <a class="btn b-solid" href="tel:+61423680596">📞 Call 0423 680 596</a>
-  </div>
-  <?php else: ?>
-  <form method="POST" action="" novalidate id="bkForm" autocomplete="on" style="max-width:640px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);padding:2rem">
+  
+    <form method="POST" action="" novalidate id="bkForm" autocomplete="on" style="max-width:640px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);padding:2rem">
     <div style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
     <input type="hidden" name="bk_submit" value="1">
 
@@ -722,61 +613,58 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
         <label for="bk_service" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Service needed <span style="color:var(--primary)">*</span></label>
         <select name="bk_service" id="bk_service" required style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
           <option value="">Choose…</option>
-          <option value="Computer repairs" <?php if($bk['service']==='Computer repairs')echo'selected';?>>Computer repairs</option>
-          <option value="Virus & malware removal" <?php if($bk['service']==='Virus & malware removal')echo'selected';?>>Virus &amp; malware removal</option>
-          <option value="Data recovery" <?php if($bk['service']==='Data recovery')echo'selected';?>>Data recovery</option>
-          <option value="Wi-Fi & networks" <?php if($bk['service']==='Wi-Fi & networks')echo'selected';?>>Wi-Fi &amp; networks</option>
-          <option value="Other / not sure" <?php if($bk['service']==='Other / not sure')echo'selected';?>>Other / not sure</option>
+          <option value="Computer repairs" >Computer repairs</option>
+          <option value="Virus & malware removal" >Virus &amp; malware removal</option>
+          <option value="Data recovery" >Data recovery</option>
+          <option value="Wi-Fi & networks" >Wi-Fi &amp; networks</option>
+          <option value="Other / not sure" >Other / not sure</option>
         </select>
       </div>
       <div style="display:flex;flex-direction:column">
         <label for="bk_phone" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Phone <span style="color:var(--primary)">*</span></label>
-        <input type="tel" name="bk_phone" id="bk_phone" value="<?php echo htmlspecialchars($bk['phone']); ?>" placeholder="04XX XXX XXX" required autocomplete="tel-national" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+        <input type="tel" name="bk_phone" id="bk_phone" value="" placeholder="04XX XXX XXX" required autocomplete="tel-national" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
       </div>
     </div>
 
     <div class="field-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem">
       <div style="display:flex;flex-direction:column">
         <label for="bk_name" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Your name <span style="color:var(--primary)">*</span></label>
-        <input type="text" name="bk_name" id="bk_name" value="<?php echo htmlspecialchars($bk['name']); ?>" placeholder="John Smith" required autocomplete="name" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+        <input type="text" name="bk_name" id="bk_name" value="" placeholder="John Smith" required autocomplete="name" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
       </div>
       <div style="display:flex;flex-direction:column">
         <label for="bk_email" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Email <span style="color:var(--primary)">*</span></label>
-        <input type="email" name="bk_email" id="bk_email" value="<?php echo htmlspecialchars($bk['email']); ?>" placeholder="you@example.com" required autocomplete="email" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+        <input type="email" name="bk_email" id="bk_email" value="" placeholder="you@example.com" required autocomplete="email" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
       </div>
     </div>
 
     <div class="field-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem">
       <div style="display:flex;flex-direction:column">
         <label for="bk_date" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Preferred date</label>
-        <input type="date" name="bk_date" id="bk_date" value="<?php echo htmlspecialchars($bk['date']); ?>" min="<?php echo date('Y-m-d'); ?>" autocomplete="off" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+        <input type="date" name="bk_date" id="bk_date" value="" min="2026-08-04" autocomplete="off" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
       </div>
       <div style="display:flex;flex-direction:column">
         <label for="bk_time" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Preferred time</label>
         <select name="bk_time" id="bk_time" autocomplete="off" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
           <option value="">Any time</option>
-          <option value="Morning (9am–12pm)" <?php if($bk['time']==='Morning (9am–12pm)')echo'selected';?>>Morning (9am–12pm)</option>
-          <option value="Afternoon (12pm–3pm)" <?php if($bk['time']==='Afternoon (12pm–3pm)')echo'selected';?>>Afternoon (12pm–3pm)</option>
-          <option value="Late afternoon (3pm–5pm)" <?php if($bk['time']==='Late afternoon (3pm–5pm)')echo'selected';?>>Late afternoon (3pm–5pm)</option>
-          <option value="ASAP / emergency" <?php if($bk['time']==='ASAP / emergency')echo'selected';?>>ASAP / emergency</option>
+          <option value="Morning (9am–12pm)" >Morning (9am–12pm)</option>
+          <option value="Afternoon (12pm–3pm)" >Afternoon (12pm–3pm)</option>
+          <option value="Late afternoon (3pm–5pm)" >Late afternoon (3pm–5pm)</option>
+          <option value="ASAP / emergency" >ASAP / emergency</option>
         </select>
       </div>
     </div>
 
     <div style="display:flex;flex-direction:column;margin-bottom:1.2rem">
       <label for="bk_address" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">Your address <span style="color:var(--primary)">*</span></label>
-      <input type="text" name="bk_address" id="bk_address" value="<?php echo htmlspecialchars($bk['address']); ?>" placeholder="Street, suburb — we come to you" required autocomplete="street-address" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
+      <input type="text" name="bk_address" id="bk_address" value="" placeholder="Street, suburb — we come to you" required autocomplete="street-address" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none">
     </div>
 
     <div style="display:flex;flex-direction:column;margin-bottom:1.5rem">
       <label for="bk_desc" style="font-size:.85rem;font-weight:600;margin-bottom:.35rem">What's happening? <span style="color:var(--primary)">*</span></label>
-      <textarea name="bk_desc" id="bk_desc" placeholder="e.g. Laptop won't turn on, no lights, was working fine yesterday. It's a Dell Inspiron 15." required autocomplete="off" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none;resize:vertical;min-height:90px"><?php echo htmlspecialchars($bk['desc']); ?></textarea>
+      <textarea name="bk_desc" id="bk_desc" placeholder="e.g. Laptop won't turn on, no lights, was working fine yesterday. It's a Dell Inspiron 15." required autocomplete="off" style="width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);padding:.7rem .85rem;font-size:.95rem;color:var(--text);font-family:inherit;outline:none;resize:vertical;min-height:90px"></textarea>
     </div>
 
-    <?php if (!empty($bk_errors)): ?>
-    <div style="background:var(--red-dim);border:1px solid rgba(255,92,92,.2);border-radius:var(--r);padding:.7rem 1rem;margin-bottom:1.2rem;color:var(--primary);font-size:.88rem">Please fix the errors below and try again.</div>
-    <?php endif; ?>
-
+    
     <button type="submit" id="bkSubmit" style="width:100%;padding:.85rem;background:var(--primary);color:#fff;border:none;border-radius:var(--r);font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit;box-shadow:0 4px 20px rgba(255,92,92,.25);transition:.18s">📅 Book my repair</button>
   </form>
 
@@ -869,8 +757,7 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
     document.head.appendChild(s);
   })();
   </script>
-  <?php endif; ?>
-</div></section>
+  </div></section>
 
 <!-- CTA Banner -->
 <section class="cta-banner"><div class="wrap">
@@ -889,7 +776,7 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
   <div class="fg">
     <div>
       <a class="brand" href="/" style="margin-bottom:1rem;display:inline-flex">
-        <img src="<?php echo $base_path; ?>/images/logo.png" alt="Rapid Tech Solutions" width="64" height="64" style="border-radius:10px">
+        <img src="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/images/logo.png" alt="Rapid Tech Solutions" width="64" height="64" style="border-radius:10px">
         Rapid Tech Solutions
       </a>
       <p style="margin-bottom:.4rem">Cranbourne South, VIC 3977</p>
@@ -899,19 +786,33 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
     <div><h4>Company</h4><a href="/about/">About</a><a href="/book/">Book a repair</a><a href="/service-areas/">Service areas</a><a href="/faq/">FAQ</a><a href="#issues">Common issues</a></div>
     <div><h4>Contact</h4><a href="tel:+61423680596">0423 680 596</a><a href="mailto:support@rapidtechsolutions.au">support@rapidtechsolutions.au</a><a href="https://wa.me/61423680596" target="_blank" rel="noopener">WhatsApp</a></div>
   </div>
-  <div class="fb"><span>&copy; <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</span><span><a href="/privacy-policy/" style="display:inline">Privacy</a> &middot; <a href="/terms-of-service/" style="display:inline">Terms</a></span></div>
+  <div class="fb"><span>&copy; 2026 Rapid Tech Solutions. All rights reserved.</span><span><a href="/privacy-policy/" style="display:inline">Privacy</a> &middot; <a href="/terms-of-service/" style="display:inline">Terms</a></span></div>
 </div></footer>
 
-<?php /* Site behaviour — deferred for performance */ ?>
-<script src="<?php echo $base_path; ?>/js/main.js?v=<?php echo $js_v; ?>" defer></script>
+<script src="https://rapidtechsolutions.au/wp-content/themes/rapidtech-theme/js/main.js?v=20260805" defer></script>
 
 <script>
 (function(){
-  /* This block is homepage-only behaviour. Anything the whole site shares —
-     the mobile nav, the hero video, smooth scrolling, the WhatsApp dialog —
-     lives in js/main.js and must NOT be duplicated here. Three of those were
-     duplicated below and each ran twice per interaction; the nav pair
-     cancelled itself out entirely and left the menu button doing nothing. */
+  /* ---- Mobile nav, hero video, smooth scrolling, WhatsApp — all in main.js ---- */
+
+  /* ---- Conditional video: desktop only, respect data-saver & reduced motion ---- */
+  var video = document.getElementById('bg-video');
+  if(video){
+    var wantsMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if(isDesktop && wantsMotion && !saveData){
+      var src = video.dataset.src;
+      if(src){
+        var mp4 = document.createElement('source');
+        mp4.src = src; mp4.type = 'video/mp4';
+        video.appendChild(mp4);
+        video.load();
+      }
+    } else {
+      video.removeAttribute('autoplay'); video.pause();
+    }
+  }
 
   /* ---- Call tracking ---- */
   document.addEventListener('click', function(e){
@@ -1028,10 +929,18 @@ $js_v  = filemtime($theme_dir . '/js/main.js');
     });
   }
 
-  /* Smooth scrolling is handled once, in js/main.js. The sticky-header
-     offset that used to be hard-coded here is now `scroll-padding-top` on
-     <html> in styles.css, so it applies to keyboard and browser-driven
-     jumps too, not only to clicks this script happened to intercept. */
+  /* ---- Smooth scroll offset ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var target = document.querySelector(this.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.scrollY - 90;
+        var wantsReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({top:top, behavior: wantsReduced ? 'auto' : 'smooth'});
+      }
+    });
+  });
 })();
 </script>
 </body>

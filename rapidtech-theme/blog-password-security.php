@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+require_once __DIR__ . '/inc/seo.php';
 // Define base path - works with or without WordPress
 if (function_exists('get_template_directory_uri')) {
     $base_path = get_template_directory_uri();
@@ -28,7 +29,7 @@ if (function_exists('get_template_directory_uri')) {
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_path; ?>/images/favicon.png">
     <link rel="preload" href="<?php echo $base_path; ?>/fonts/space-grotesk/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" referrerpolicy="no-referrer">
-    <link href="<?php echo $base_path; ?>/css/styles.css" rel="stylesheet">
+    <link href="<?php echo $base_path; ?>/css/styles.css?v=20260805" rel="stylesheet">
     <link href="<?php echo $base_path; ?>/css/blog.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDN34WT3J6"></script>
@@ -95,20 +96,9 @@ if (function_exists('get_template_directory_uri')) {
     </script>
 </head>
 <body>
-    <header class="site-header" role="banner">
-        <div class="container header-inner">
-            <a class="brand" href="/">
-                <span class="brand-mark lightning-animated" aria-hidden="true"></span>
-                Rapid Tech Solutions
-            </a>
-            <nav class="primary-nav">
-                <a href="/#services">Services</a>
-                <a href="/#contact" class="btn btn-outline">Contact</a>
-            </nav>
-        </div>
-    </header>
+<?php rt_header(); ?>
 
-    <main>
+    <main id="main">
         <div class="article-header">
             <div class="container">
                 <div class="article-meta">
@@ -269,5 +259,6 @@ if (function_exists('get_template_directory_uri')) {
             <p class="footer-note">© <?php echo date('Y'); ?> Rapid Tech Solutions. All rights reserved.</p>
         </div>
     </footer>
+<script src="<?php echo $base_path; ?>/js/main.js?v=20260805" defer></script>
 </body>
 </html>

@@ -64,7 +64,7 @@ function rt_head(array $a): void
 
 <?php /* Self-hosted: removes two render-blocking third-party round trips. */ ?>
 <link rel="preload" href="<?php echo RT::e(RT::asset('fonts/space-grotesk/space-grotesk-latin.woff2')); ?>" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="<?php echo RT::e(RT::asset('css/styles.css')); ?>">
+<link rel="stylesheet" href="<?php echo RT::e(RT::asset('css/styles.css')); ?>?v=<?php echo filemtime(RT::path('css/styles.css')); ?>">
 <?php if (!empty($a['css'])) : ?>
 <link rel="stylesheet" href="<?php echo RT::e(RT::asset($a['css'])); ?>">
 <?php endif; ?>
@@ -155,6 +155,7 @@ function rt_header(): void
         </nav>
     </div>
 </header>
+<div class="nav-backdrop"></div>
 <div class="emergency-banner">
     <div class="container">
         <span>Same-day emergency service available</span>
@@ -209,6 +210,6 @@ function rt_footer(): void
         <p>&copy; <?php echo $year; ?> <?php echo RT::e(RT::NAME); ?>. All rights reserved.</p>
     </div>
 </footer>
-<script src="<?php echo RT::e(RT::asset('js/main.js')); ?>" defer></script>
+<script src="<?php echo RT::e(RT::asset('js/main.js')); ?>?v=<?php echo filemtime(RT::path('js/main.js')); ?>" defer></script>
 <?php
 }
