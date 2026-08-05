@@ -85,7 +85,7 @@ $home_faq = [
     'path'        => '/',
     'css'         => 'css/animations.css',
     'extra_head'  => '<link rel="preload" href="' . RT::asset('images/fallback.webp') . '" as="image" type="image/webp" fetchpriority="high">',
-    'schema'      => array_merge($home_schema, [$home_local, $home_faq]),
+    'schema'      => [$home_schema, $home_local, $home_faq],
 ]); ?>
 </head>
 <body>
