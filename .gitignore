@@ -4,6 +4,9 @@ db_data/
 .DS_Store
 deploy/live-backups/
 deploy-ftp.sh
+deploy-now.py
+deploy-css.py
+deploy-one.py
 
 # Customer booking/contact data — never belongs in version control.
 rapidtech-theme/.bookings/

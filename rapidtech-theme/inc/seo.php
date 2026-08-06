@@ -326,7 +326,7 @@ function rt_footer(): void
                 <li><a href="/faq/">FAQ</a></li>
                 <li><a href="/privacy-policy/">Privacy Policy</a></li>
                 <li><a href="/terms-of-service/">Terms of Service</a></li>
-                <li><a href="/orderline/">Orderline &mdash; Procurement Software</a></li>
+                <li><a href="/orderline/">Orderline &mdash; AI Phone Ordering</a></li>
             </ul>
         </div>
         <div>
