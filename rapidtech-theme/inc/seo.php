@@ -241,8 +241,9 @@ function rt_header(bool $home = false, array $nav_links = []): void
 <header class="site-header" role="banner">
     <div class="container wrap">
         <a class="brand" href="/">
+            <img src="<?php echo RT::e(RT::asset('images/logo.png')); ?>" alt="<?php echo RT::e(RT::NAME); ?>" width="40" height="40" class="brand-logo" loading="eager">
             <span class="brand-mark lightning-animated" aria-hidden="true"></span>
-            <?php echo RT::e(RT::NAME); ?>
+            <span class="brand-text"><?php echo RT::e(RT::NAME); ?></span>
         </a>
         <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
             <span class="sr-only">Toggle navigation</span>
