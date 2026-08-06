@@ -1,27 +1,5 @@
 /* Animations and Enhanced Styling - Rapid Tech Solutions */
 
-/* Animated Lightning Logo */
-.lightning-animated {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background: linear-gradient(135deg, #00d4ff 0%, #29d5ff 50%, #00ffcc 100%);
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 0L0 14h9l-2 10L20 10h-9l2-10z'/%3E%3C/svg%3E") center/contain no-repeat;
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 0L0 14h9l-2 10L20 10h-9l2-10z'/%3E%3C/svg%3E") center/contain no-repeat;
-    animation: lightning-pulse 2s ease-in-out infinite, lightning-glow 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(41, 213, 255, 0.8));
-}
-
-@keyframes lightning-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-}
-
-@keyframes lightning-glow {
-    0%, 100% { filter: drop-shadow(0 0 8px rgba(41, 213, 255, 0.8)); }
-    50% { filter: drop-shadow(0 0 20px rgba(41, 213, 255, 1)) drop-shadow(0 0 40px rgba(0, 255, 204, 0.6)); }
-}
-
 /* Scroll Animations */
 /* Scoped to .js-anim, which an inline script in <head> sets only when
    JavaScript is running. Unscoped, this rule hid 24 elements at opacity:0 on

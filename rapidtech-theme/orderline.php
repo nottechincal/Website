@@ -1,11 +1,69 @@
 <?php
 /*
 Template Name: Orderline
-Description: Promotional landing page for Orderline — AI phone ordering for takeaway shops.
+Description: Promotional landing page for Orderline — gated preview.
+             Visit /orderline/?key=ORDERLINE_DEMO_KEY to unlock.
 */
 require_once __DIR__ . '/inc/config.php';
 require_once __DIR__ . '/inc/seo.php';
 require_once __DIR__ . '/inc/icons.php';
+
+// ── Gate: keep this page invisible to the public ─────────────────────────
+// Set ORDERLINE_ACCESS_KEY in inc/config.php to your chosen secret.
+$ol_key = defined('RT::ORDERLINE_ACCESS_KEY') ? RT::ORDERLINE_ACCESS_KEY : 'orderline2026';
+rt_ensure_session();
+$unlocked = false;
+
+// Check query param
+if (isset($_GET['key']) && $_GET['key'] === $ol_key) {
+    $_SESSION['ol_unlocked'] = true;
+    // Redirect to clean URL so the key isn't left in the address bar
+    header('Location: /orderline/');
+    exit;
+}
+
+// Check session
+if (!empty($_SESSION['ol_unlocked'])) {
+    $unlocked = true;
+}
+
+// ── Show gate page if not unlocked ────────────────────────────────────────
+if (!$unlocked) {
+    ?><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Orderline — Preview</title>
+    <style>
+        :root { --bg:#090d14; --surface:#11161f; --text:#eef1f5; --accent:#48c78e; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; }
+        .gate { background: var(--surface); border: 1px solid rgba(143,155,179,.2); border-radius: 16px; padding: 3rem 2rem; max-width: 420px; width: 100%; text-align: center; }
+        .gate h1 { font-size: 1.4rem; margin-bottom: .5rem; }
+        .gate p { color: #667089; font-size: .9rem; margin-bottom: 1.5rem; line-height: 1.5; }
+        .gate input { width: 100%; padding: .85rem 1rem; border-radius: 10px; border: 1px solid rgba(143,155,179,.3); background: var(--bg); color: var(--text); font-size: 1rem; margin-bottom: .75rem; text-align: center; }
+        .gate button { width: 100%; padding: .85rem; border-radius: 10px; border: none; background: var(--accent); color: #051018; font-weight: 600; font-size: 1rem; cursor: pointer; }
+        .gate button:hover { opacity: .9; }
+    </style>
+</head>
+<body>
+    <div class="gate">
+        <h1>🔒 Orderline Preview</h1>
+        <p>This page is a private preview. Enter the access key to continue.</p>
+        <form method="get" action="/orderline/">
+            <input type="text" name="key" placeholder="Access key" autofocus autocomplete="off">
+            <button type="submit">Unlock</button>
+        </form>
+    </div>
+</body>
+</html>
+    <?php
+    exit;
+}
+
+// ── Normal page render below (unlocked) ────────────────────────────────────
 
 $orderline_inline_css = <<<'CSS'
 .ol-hero {
@@ -347,6 +405,22 @@ rt_breadcrumbs(['Orderline' => '/orderline/']);
         </div>
     </section>
 
+    <!-- Demo — Test the AI -->
+    <section class="ol-section" id="demo" style="background:rgba(255,255,255,.01)">
+        <div class="container">
+            <h2>Try the ordering AI right now</h2>
+            <p class="section-lead">This is the same AI that answers Kebabalab's phone. Place a test order — talk to it or type. It knows the full kebab shop menu.</p>
+            <div style="max-width:600px;margin:0 auto;text-align:center">
+                <div id="vapiDemo" style="background:var(--surface);border:1px solid rgba(143,155,179,.15);border-radius:var(--radius);padding:2rem;min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem">
+                    <div id="vapiStatus" style="color:var(--muted);font-size:.95rem">Ready to test — click below to start</div>
+                    <button id="vapiStart" class="btn" style="display:inline-block;background:#48c78e;color:#051018;padding:.85rem 2.2rem;border-radius:100px;font-weight:600;font-size:1.05rem;border:none;cursor:pointer">🎙️ Talk to the AI</button>
+                    <button id="vapiChat" class="btn" style="display:inline-block;border:1px solid rgba(143,155,179,.35);color:var(--text);padding:.85rem 2.2rem;border-radius:100px;font-weight:500;font-size:1rem;background:transparent;cursor:pointer">💬 Chat with the AI</button>
+                    <p style="color:var(--dim);font-size:.78rem;margin-top:.5rem">You're talking to a real AI that takes kebab orders. Try ordering a mixed kebab with the lot!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="ol-section">
         <div class="container">
@@ -358,6 +432,42 @@ rt_breadcrumbs(['Orderline' => '/orderline/']);
             </div>
         </div>
     </section>
+
+    <!-- Vapi Web SDK -->
+    <script type="module">
+        import Vapi from 'https://cdn.jsdelivr.net/npm/@vapi-ai/web@2/dist/vapi.min.js';
+
+        const vapi = new Vapi('<?php echo RT::VAPI_PUBLIC_KEY; ?>');
+        const startBtn = document.getElementById('vapiStart');
+        const chatBtn = document.getElementById('vapiChat');
+        const status = document.getElementById('vapiStatus');
+
+        function updateStatus(msg) { status.textContent = msg; }
+
+        vapi.on('call-start', () => updateStatus('🔊 Connected — talk to the AI!'));
+        vapi.on('call-end', () => { updateStatus('Call ended. Click to try again.'); startBtn.disabled = false; chatBtn.disabled = false; });
+        vapi.on('speech-start', () => updateStatus('🎤 AI is listening...'));
+        vapi.on('message', (msg) => {
+            if (msg.type === 'transcript' && msg.role === 'assistant') {
+                updateStatus('🤖 ' + msg.transcript);
+            }
+        });
+        vapi.on('error', (e) => { updateStatus('Error: ' + (e.message || 'Connection failed')); startBtn.disabled = false; chatBtn.disabled = false; });
+
+        startBtn.addEventListener('click', () => {
+            startBtn.disabled = true;
+            chatBtn.disabled = true;
+            updateStatus('Connecting...');
+            vapi.start('<?php echo RT::VAPI_ASSISTANT_ID; ?>');
+        });
+
+        chatBtn.addEventListener('click', () => {
+            startBtn.disabled = true;
+            chatBtn.disabled = true;
+            updateStatus('Connecting to chat...');
+            vapi.start('<?php echo RT::VAPI_ASSISTANT_ID; ?>', { mode: 'chat' });
+        });
+    </script>
 </main>
 
 <?php

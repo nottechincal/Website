@@ -242,7 +242,6 @@ function rt_header(bool $home = false, array $nav_links = []): void
     <div class="container wrap">
         <a class="brand" href="/">
             <img src="<?php echo RT::e(RT::asset('images/logo.png')); ?>" alt="<?php echo RT::e(RT::NAME); ?>" width="40" height="40" class="brand-logo" loading="eager">
-            <span class="brand-mark lightning-animated" aria-hidden="true"></span>
             <span class="brand-text"><?php echo RT::e(RT::NAME); ?></span>
         </a>
         <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
@@ -327,7 +326,6 @@ function rt_footer(): void
                 <li><a href="/faq/">FAQ</a></li>
                 <li><a href="/privacy-policy/">Privacy Policy</a></li>
                 <li><a href="/terms-of-service/">Terms of Service</a></li>
-                <li><a href="/orderline/">Orderline &mdash; AI Phone Ordering</a></li>
             </ul>
         </div>
         <div>

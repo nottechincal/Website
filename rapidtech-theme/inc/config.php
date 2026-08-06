@@ -77,6 +77,15 @@ final class RT
     /** Google Business Profile review link. Displayed in footer and reviews page. */
     const GOOGLE_REVIEW_URL = 'https://search.google.com/local/writereview?placeid=/g/11lmbq18wb';
 
+    /** Access key for private pages (Orderline demo, etc.).
+     *  Visit /orderline/?key=YOUR_KEY to unlock. */
+    const ORDERLINE_ACCESS_KEY = 'orderline2026';
+
+    /** Vapi credentials for the Orderline demo widget.
+     *  Public key from dashboard.vapi.ai → Settings → API Keys → Public Key. */
+    const VAPI_PUBLIC_KEY = '3f357cfe-977a-4673-9993-7bd21df6d61d';
+    const VAPI_ASSISTANT_ID = 'b55c31ea-0df9-483d-ac75-0f5fdb90c967';
+
     /* ------------------------------------------------------------ tracking */
 
     const GA_MEASUREMENT_ID = 'G-BDN34WT3J6';
