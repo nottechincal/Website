@@ -778,3 +778,19 @@ function rt_location_path(string $suburb): ?string
 
     return $index[strtolower(trim($suburb))] ?? null;
 }
+
+/** Total distinct suburbs served: 10 primaries + absorbed localities. */
+function rt_suburb_count(): int
+{
+    static $n = null;
+    if ($n === null) {
+        $absorbed = [];
+        foreach (rt_locations() as $loc) {
+            foreach ($loc['absorbs'] as $a) {
+                $absorbed[] = $a;
+            }
+        }
+        $n = count(rt_locations()) + count(array_unique($absorbed));
+    }
+    return $n;
+}

@@ -14,7 +14,7 @@ $faq_schema = [
 
 $faqs = [
     ['How much does computer repair cost?',
-     'We offer free diagnostics to assess your issue first. Repair costs vary depending on the problem, but we always provide a clear quote before starting work. Typical pricing: Software fixes: $50-$200 (virus removal, slow computer, software issues) Hardware repairs: $150-$400 (screen replacement, hard drive upgrade, component repair) Data recovery: $100-$500 (depending on complexity) Network setup: $150-$350 (home WiFi, mesh systems) No hidden fees. The quote we give is the price you pay.'],
+     RT::pricing_faq_text()],
     ['Do you charge a callout fee?',
      'No callout fee for most Melbourne south-east suburbs when you proceed with the repair. If you decline the repair after our free diagnostic, a $50 service fee applies to cover travel costs.'],
     ['What payment methods do you accept?',
@@ -28,7 +28,7 @@ $faqs = [
     ['Do you offer after-hours and weekend service?',
      'Yes! We offer after-hours and weekend service for emergencies. Additional fees may apply for out-of-hours callouts. Call us to arrange: ' . RT::PHONE_DISPLAY],
     ['What suburbs do you service?',
-     'We service 35+ Melbourne suburbs including: Cranbourne & Cranbourne South Dandenong Patterson Lakes Frankston Berwick Narre Warren Chelsea Heights Seaford Carrum Keysborough Noble Park Springvale View complete list of service areas'],
+     'We service ' . rt_suburb_count() . '+ Melbourne suburbs including: Cranbourne & Cranbourne South Dandenong Patterson Lakes Frankston Berwick Narre Warren Chelsea Heights Seaford Carrum Keysborough Noble Park Springvale View complete list of service areas'],
     ['Do you come to my home or do I bring my computer in?',
      'We offer both options : On-site service: We come to your home or office (most popular) Drop-off service: Bring your computer to us in ' . RT::LOCALITY . ' Remote support: For software issues, we can connect remotely For complex repairs requiring extended work, we may take the computer to our workshop and return it once fixed.'],
     ['Do you offer remote support?',
@@ -152,10 +152,9 @@ CSS;
                         <summary>How much does computer repair cost?</summary>
                         <p>We offer <strong>free diagnostics</strong> to assess your issue first. Repair costs vary depending on the problem, but we always provide a clear quote before starting work. Typical pricing:</p>
                         <ul>
-                            <li><strong>Software fixes:</strong> $50-$200 (virus removal, slow computer, software issues)</li>
-                            <li><strong>Hardware repairs:</strong> $150-$400 (screen replacement, hard drive upgrade, component repair)</li>
-                            <li><strong>Data recovery:</strong> $100-$500 (depending on complexity)</li>
-                            <li><strong>Network setup:</strong> $150-$350 (home WiFi, mesh systems)</li>
+                            <?php foreach (RT::PRICING as $s): ?>
+                            <li><strong><?php echo RT::e($s['name']); ?>:</strong> <?php echo RT::e($s['range']); ?> (<?php echo RT::e($s['what']); ?>)</li>
+                            <?php endforeach; ?>
                         </ul>
                         <p><strong>No hidden fees.</strong> The quote we give is the price you pay.</p>
                     </details>
@@ -209,7 +208,7 @@ CSS;
                 <div class="faq-grid" style="grid-template-columns: 1fr;">
                     <details>
                         <summary>What suburbs do you service?</summary>
-                        <p>We service <strong>35+ Melbourne suburbs</strong> including:</p>
+                        <p>We service <strong><?php echo rt_suburb_count(); ?>+ Melbourne suburbs</strong> including:</p>
                         <ul style="columns: 2;">
                             <li>Cranbourne & Cranbourne South</li>
                             <li>Dandenong</li>

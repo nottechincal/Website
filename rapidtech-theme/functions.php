@@ -35,7 +35,7 @@ function rt_routes(): array {
 
     // Standalone templates.
     foreach ([
-        'about', 'faq', 'blog', 'book', 'contact', 'pricing', 'reviews',
+        'about', 'faq', 'blog', 'book', 'contact', 'orderline', 'pricing', 'reviews',
         'service-areas', 'privacy-policy', 'terms-of-service',
         'thank-you', 'paymentpage',
         'service-computer-repairs', 'service-data-recovery',

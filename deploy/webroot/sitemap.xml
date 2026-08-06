@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://rapidtechsolutions.au/</loc>
-        <lastmod>2026-08-05</lastmod>
+        <lastmod>2026-08-06</lastmod>
     </url>
     <url>
         <loc>https://rapidtechsolutions.au/about/</loc>
@@ -38,7 +38,7 @@
     </url>
     <url>
         <loc>https://rapidtechsolutions.au/blog/</loc>
-        <lastmod>2026-08-05</lastmod>
+        <lastmod>2026-08-06</lastmod>
     </url>
     <url>
         <loc>https://rapidtechsolutions.au/computer-repairs-berwick/</loc>
@@ -81,6 +81,10 @@
         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
+        <loc>https://rapidtechsolutions.au/contact/</loc>
+        <lastmod>2026-08-05</lastmod>
+    </url>
+    <url>
         <loc>https://rapidtechsolutions.au/data-recovery-frankston/</loc>
         <lastmod>2026-08-05</lastmod>
     </url>
@@ -94,10 +98,18 @@
     </url>
     <url>
         <loc>https://rapidtechsolutions.au/faq/</loc>
-        <lastmod>2026-08-05</lastmod>
+        <lastmod>2026-08-06</lastmod>
     </url>
     <url>
         <loc>https://rapidtechsolutions.au/network-setup-berwick/</loc>
+        <lastmod>2026-08-05</lastmod>
+    </url>
+    <url>
+        <loc>https://rapidtechsolutions.au/orderline/</loc>
+        <lastmod>2026-08-06</lastmod>
+    </url>
+    <url>
+        <loc>https://rapidtechsolutions.au/pricing/</loc>
         <lastmod>2026-08-05</lastmod>
     </url>
     <url>
@@ -105,8 +117,12 @@
         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
-        <loc>https://rapidtechsolutions.au/service-areas/</loc>
+        <loc>https://rapidtechsolutions.au/reviews/</loc>
         <lastmod>2026-08-05</lastmod>
+    </url>
+    <url>
+        <loc>https://rapidtechsolutions.au/service-areas/</loc>
+        <lastmod>2026-08-06</lastmod>
     </url>
     <url>
         <loc>https://rapidtechsolutions.au/service-computer-repairs/</loc>

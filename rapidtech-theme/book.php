@@ -9,8 +9,12 @@ require_once __DIR__ . '/inc/forms.php';
 
 // ── Handle form submission ──────────────────────────────────────────────
 $submitted = false;
+if (($_GET['sent'] ?? '') === '1' && ($flash = rt_flash_take('booking'))) {
+    $submitted = true;
+    $form_data = $flash;
+}
 $errors = [];
-$form_data = ['service' => '', 'name' => '', 'email' => '', 'phone' => '',
+$form_data = $form_data ?? ['service' => '', 'name' => '', 'email' => '', 'phone' => '',
               'date' => '', 'time' => '', 'address' => '', 'description' => ''];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -28,10 +32,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors['csrf'] = 'Your session expired — please try again.';
     }
 
+    $rateErr = rt_rate_limit();
+    if ($rateErr) {
+        $errors['rate'] = $rateErr;
+    }
+
     if (empty($errors)) {
         rt_log_booking($form_data, 'book');
         rt_send_booking_email($form_data);
-        $submitted = true;
+        rt_flash_set('booking', $form_data);
+        header('Location: /book/?sent=1');
+        exit;
     }
 }
 ?><!DOCTYPE html>
@@ -168,7 +179,7 @@ CSS,
                 <div class="honey"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
                 <?php rt_csrf_field(); ?>
 
-                <div class="field" id="f-service">
+                <div class="field<?php if (isset($errors['service'])) echo ' has-error'; ?>" id="f-service">
                     <label for="service">What do you need? <span class="req">*</span></label>
                     <select name="service" id="service">
                         <option value="">Choose a service…</option>
@@ -182,19 +193,19 @@ CSS,
                 </div>
 
                 <div class="field-row">
-                    <div class="field" id="f-name">
+                    <div class="field<?php if (isset($errors['name'])) echo ' has-error'; ?>" id="f-name">
                         <label for="name">Your name <span class="req">*</span></label>
                         <input type="text" name="name" id="name" value="<?php echo htmlspecialchars($form_data['name']); ?>" placeholder="John Smith">
                         <span class="err"><?php echo $errors['name'] ?? ''; ?></span>
                     </div>
-                    <div class="field" id="f-phone">
+                    <div class="field<?php if (isset($errors['phone'])) echo ' has-error'; ?>" id="f-phone">
                         <label for="phone">Phone <span class="req">*</span></label>
                         <input type="tel" name="phone" id="phone" value="<?php echo htmlspecialchars($form_data['phone']); ?>" placeholder="04XX XXX XXX">
                         <span class="err"><?php echo $errors['phone'] ?? ''; ?></span>
                     </div>
                 </div>
 
-                <div class="field" id="f-email">
+                <div class="field<?php if (isset($errors['email'])) echo ' has-error'; ?>" id="f-email">
                     <label for="email">Email <span class="req">*</span></label>
                     <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($form_data['email']); ?>" placeholder="you@example.com">
                     <span class="err"><?php echo $errors['email'] ?? ''; ?></span>
@@ -217,13 +228,13 @@ CSS,
                     </div>
                 </div>
 
-                <div class="field" id="f-address">
+                <div class="field<?php if (isset($errors['address'])) echo ' has-error'; ?>" id="f-address">
                     <label for="address">Your address <span class="req">*</span></label>
                     <input type="text" name="address" id="address" value="<?php echo htmlspecialchars($form_data['address']); ?>" placeholder="Street, suburb — we come to you">
                     <span class="err"><?php echo $errors['address'] ?? ''; ?></span>
                 </div>
 
-                <div class="field" id="f-description">
+                <div class="field<?php if (isset($errors['description'])) echo ' has-error'; ?>" id="f-description">
                     <label for="description">What's happening? <span class="req">*</span></label>
                     <textarea name="description" id="description" placeholder="e.g. Laptop won't turn on, no lights, was working fine yesterday. It's a Dell Inspiron 15."><?php echo htmlspecialchars($form_data['description']); ?></textarea>
                     <span class="err"><?php echo $errors['description'] ?? ''; ?></span>

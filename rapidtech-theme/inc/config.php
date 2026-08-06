@@ -75,7 +75,7 @@ final class RT
     const WHATSAPP = 'https://wa.me/61423680596';
 
     /** Google Business Profile review link. Displayed in footer and reviews page. */
-    const GOOGLE_REVIEW_URL = 'https://g.page/r/REPLACE_WITH_YOUR_REVIEW_SHORTLINK';
+    const GOOGLE_REVIEW_URL = 'https://search.google.com/local/writereview?placeid=/g/11lmbq18wb';
 
     /* ------------------------------------------------------------ tracking */
 
@@ -88,6 +88,31 @@ final class RT
     const OG_W       = 1200;
     const OG_H       = 630;
     const LOGO       = '/wp-content/themes/rapidtech-theme/images/logo.png';
+
+    /* ------------------------------------------------------------ pricing */
+
+    /** Single source of truth for pricing. Every page and schema block
+     *  reads from here so Google never sees conflicting answers. */
+    const PRICING = [
+        'software' => ['name' => 'Software & Setup',     'range' => '$80 – $180', 'what' => 'Slow machines, viruses, updates, new device setup'],
+        'hardware' => ['name' => 'Hardware Repairs',     'range' => '$120 – $350', 'what' => 'Screens, drives, batteries, memory and SSD upgrades'],
+        'data'     => ['name' => 'Data Recovery',        'range' => 'From $150',  'what' => 'Priced on the condition of the drive'],
+        'network'  => ['name' => 'Wi-Fi & Networks',     'range' => '$90 – $250',  'what' => 'Depends on property size and layout'],
+    ];
+
+    const RATE_REMOTE = '$80 per hour';
+    const RATE_ONSITE = '$120 per hour with a one-hour minimum';
+
+    /** Pricing FAQ text generated from constants — used in schema and visible FAQ. */
+    public static function pricing_faq_text(): string
+    {
+        $parts = [];
+        foreach (self::PRICING as $s) {
+            $parts[] = "{$s['name']}: {$s['range']} ({$s['what']})";
+        }
+        return 'Diagnosis and quotes are free. ' . implode('. ', $parts)
+             . '. Fixed price before any work begins — no charge if we can\'t fix it.';
+    }
 
     /* ------------------------------------------------------------ services */
 

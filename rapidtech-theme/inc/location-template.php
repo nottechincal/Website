@@ -306,8 +306,8 @@ function rt_location_faqs(array $loc): array
         ],
         [
             'q' => sprintf('What does a callout to %s cost?', $suburb),
-            'a' => 'Remote support starts at $80 per hour and onsite visits are $120 per hour with a '
-                 . 'one-hour minimum. We quote before starting, there are no call-out surcharges within our '
+            'a' => 'Remote support starts at ' . RT::RATE_REMOTE . ' and onsite visits are '
+                 . RT::RATE_ONSITE . '. We quote before starting, there are no call-out surcharges within our '
                  . 'service area, and if we cannot fix it you do not pay.',
         ],
         [

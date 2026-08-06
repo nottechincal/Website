@@ -311,6 +311,33 @@ p {
     color: var(--accent);
 }
 
+/* Animated Lightning Logo — shared chrome, every page loads this via styles.css */
+.lightning-animated {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #00d4ff 0%, #29d5ff 50%, #00ffcc 100%);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 0L0 14h9l-2 10L20 10h-9l2-10z'/%3E%3C/svg%3E") center/contain no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 0L0 14h9l-2 10L20 10h-9l2-10z'/%3E%3C/svg%3E") center/contain no-repeat;
+    animation: lightning-pulse 2s ease-in-out infinite, lightning-glow 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(41, 213, 255, 0.8));
+}
+
+@keyframes lightning-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes lightning-glow {
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(41, 213, 255, 0.8)); }
+    50% { filter: drop-shadow(0 0 20px rgba(41, 213, 255, 1)) drop-shadow(0 0 40px rgba(0, 255, 204, 0.6)); }
+}
+
+/* Reduced-motion: disable logo animation */
+@media (prefers-reduced-motion: reduce) {
+    .lightning-animated { animation: none; }
+}
+
 /* Desktop nav */
 .primary-nav {
     display: flex;
@@ -1869,6 +1896,13 @@ p {
     color: var(--muted);
 }
 
+.footer-brand {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+}
+
 .fg {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
@@ -1876,7 +1910,7 @@ p {
     margin-bottom: 2.5rem;
 }
 
-.site-footer h4 {
+.site-footer h2, .site-footer h4 {
     color: var(--text);
     font-size: .78rem;
     text-transform: uppercase;
@@ -2146,6 +2180,64 @@ html {
 .skip-link:focus {
     top: 0;
 }
+
+/* Inline SVG icons from rt_icon() — without explicit width/height SVGs default
+   to ~300×150 px. Keep stroke-width consistent for single-colour icon sets. */
+.icon {
+    width: 1.15em;
+    height: 1.15em;
+    flex: none;
+    stroke-width: 1.8;
+    vertical-align: -0.125em;
+}
+
+/* Breadcrumb nav — shared across suburb pages, blog, etc. */
+.breadcrumbs {
+    background: rgba(255,255,255,.02);
+    padding: .75rem 0;
+    border-bottom: 1px solid var(--line);
+}
+.breadcrumbs ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem;
+    font-size: .9rem;
+    margin: 0;
+    padding: 0;
+}
+.breadcrumbs li + li::before {
+    content: '\203A'; /* single right-pointing angle quotation mark */
+    color: var(--line-2);
+    margin-right: .5rem;
+}
+.breadcrumbs a { color: var(--muted); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--accent); }
+.breadcrumbs [aria-current="page"] { color: var(--text); font-weight: 500; }
+
+/* Emergency banner — emitted by rt_header() on every page */
+.emergency-banner {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    font-size: .88rem;
+}
+.emergency-banner .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: .55rem 0;
+    flex-wrap: wrap;
+    text-align: center;
+    color: var(--muted);
+}
+.emergency-banner a {
+    color: var(--text);
+    font-weight: 600;
+    border-bottom: 1px solid var(--line-2);
+}
+.emergency-banner a:hover { color: var(--accent); border-color: var(--accent); }
 
 /* Screen-reader-only text */
 .sr-only {

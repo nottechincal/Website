@@ -217,4 +217,73 @@
             }
         });
     }
+
+    /* ---------------------------------------------------------------- a11y ---- */
+
+    // Hide decorative emoji from screen readers. Walk text nodes and wrap
+    // emoji runs in aria-hidden spans so assistive tech skips them.
+    function hideDecorativeEmoji() {
+        var emojiRe = /[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{FE00}-\u{FEFF}\u{200D}\u{20E3}\u{FE0F}\u{00A9}\u{00AE}\u{2122}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{25AA}-\u{25AB}\u{25B6}\u{25C0}\u{25FB}-\u{25FE}\u{2934}-\u{2935}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2B55}\u{3030}\u{303D}\u{3297}\u{3299}]+/gu;
+        var skipSelectors = 'input,textarea,select,script,style,code,pre,[aria-hidden="true"]';
+        var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+            acceptNode: function(node) {
+                if (node.parentElement && (node.parentElement.matches(skipSelectors) || node.parentElement.closest(skipSelectors))) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+                return emojiRe.test(node.textContent) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+            }
+        });
+        var nodes = [];
+        while (walker.nextNode()) { nodes.push(walker.currentNode); }
+        nodes.forEach(function(textNode) {
+            var frag = document.createDocumentFragment();
+            var text = textNode.textContent;
+            var match, lastIdx = 0;
+            emojiRe.lastIndex = 0;
+            while ((match = emojiRe.exec(text)) !== null) {
+                if (match.index > lastIdx) {
+                    frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index)));
+                }
+                var span = document.createElement('span');
+                span.setAttribute('aria-hidden', 'true');
+                span.textContent = match[0];
+                frag.appendChild(span);
+                lastIdx = emojiRe.lastIndex;
+            }
+            if (lastIdx < text.length) {
+                frag.appendChild(document.createTextNode(text.slice(lastIdx)));
+            }
+            if (frag.childNodes.length) {
+                textNode.parentNode.replaceChild(frag, textNode);
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', hideDecorativeEmoji);
+    } else {
+        hideDecorativeEmoji();
+    }
+
+    /* Pause reviews scroller on keyboard focus */
+    (function() {
+        var scroller = document.querySelector('.reviews-scroll');
+        if (!scroller) { return; }
+        var paused = false;
+        var pause = function() { paused = true; };
+        var resume = function() { paused = false; };
+        scroller.addEventListener('mouseenter', pause);
+        scroller.addEventListener('mouseleave', resume);
+        scroller.addEventListener('focusin', pause);
+        scroller.addEventListener('focusout', function(e) {
+            if (!scroller.contains(e.relatedTarget)) { resume(); }
+        });
+        // Override auto-advance to respect pause state
+        var origAdvance = window.advanceReviews;
+        if (typeof origAdvance === 'function') {
+            window.advanceReviews = function() {
+                if (!paused) { origAdvance(); }
+            };
+        }
+    })();
 }());

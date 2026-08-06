@@ -147,101 +147,35 @@ CSS;
 
         <section class="section">
             <div class="container">
+<?php
+$blog_posts = [
+    ['slug' => 'blog-scam-protection',       'category' => 'Online Safety',      'title' => 'How to Spot and Avoid Tech Support Scams',               'excerpt' => 'Australians lost over $3.1 billion to scams in 2022. Learn to identify fake tech support calls, phishing emails, and protect your family from common scams targeting our community.', 'read' => '6 min read', 'date' => '2025-11-17', 'featured' => true],
+    ['slug' => 'blog-password-security',      'category' => 'Online Safety',      'title' => 'Password Security Made Simple',                          'excerpt' => 'Stop using "password123"! Learn how to create strong passwords, use password managers, and set up two-factor authentication to protect your accounts.', 'read' => '5 min read', 'date' => '2026-08-02', 'featured' => false],
+    ['slug' => 'blog-computer-maintenance',   'category' => 'Computer Care',      'title' => 'Simple Computer Maintenance Tips',                       'excerpt' => '15 minutes a month can save you hundreds in repair bills. Here\'s your easy checklist for keeping your computer running fast and avoiding costly repairs.', 'read' => '7 min read', 'date' => '2026-08-02', 'featured' => false],
+    ['slug' => 'blog-malware-protection',     'category' => 'Security',           'title' => 'Malware Protection Playbook',                            'excerpt' => 'Protect your devices from viruses, ransomware, and malware. Learn isolation steps, prevention strategies, and what to do if you get infected.', 'read' => '8 min read', 'date' => '2024-11-01', 'featured' => false],
+    ['slug' => 'blog-home-network',           'category' => 'Networking',         'title' => 'Home Network Tune-Up Checklist',                         'excerpt' => 'Eliminate WiFi dead zones, boost your speeds, and secure every device in your home. Perfect for families with remote workers and students.', 'read' => '6 min read', 'date' => '2026-08-02', 'featured' => false],
+    ['slug' => 'blog-hardware-upgrades',      'category' => 'Hardware',           'title' => 'When to Upgrade Your Hardware',                          'excerpt' => 'Is your computer slow because of old hardware? Learn the signs that indicate it\'s time for an upgrade vs. when a simple cleanup will do.', 'read' => '5 min read', 'date' => '2026-08-02', 'featured' => false],
+    ['slug' => 'blog-cloud-services',         'category' => 'Backup & Recovery',  'title' => 'Cloud vs Local Backups',                                 'excerpt' => 'Don\'t lose your precious photos and documents. Learn about hybrid backup strategies that protect your data from hardware failure and disasters.', 'read' => '6 min read', 'date' => '2026-08-02', 'featured' => false],
+];
+?>
                 <div class="blog-grid">
-                    <!-- Featured Article -->
-                    <article class="blog-card featured-article" style="position: relative;">
+                    <?php foreach ($blog_posts as $p): ?>
+                    <article class="blog-card<?php if ($p['featured']) echo ' featured-article'; ?>" style="<?php if ($p['featured']) echo 'position: relative;'; ?>">
+                        <?php if ($p['featured']): ?>
                         <span class="featured-badge"><?php echo rt_icon('star'); ?> Featured</span>
+                        <?php endif; ?>
                         <div class="blog-card-content">
-                            <span class="blog-card-category">Online Safety</span>
-                            <h3>How to Spot and Avoid Tech Support Scams</h3>
-                            <p>Australians lost over $3.1 billion to scams in 2022. Learn to identify fake tech support calls, phishing emails, and protect your family from common scams targeting our community.</p>
+                            <span class="blog-card-category"><?php echo RT::e($p['category']); ?></span>
+                            <h3><?php echo RT::e($p['title']); ?></h3>
+                            <p><?php echo RT::e($p['excerpt']); ?></p>
                             <div class="blog-card-meta">
-                                <span><?php echo rt_icon('clock'); ?> 6 min read</span>
-                                <span><?php echo rt_icon('calendar'); ?> Nov 2025</span>
+                                <span><?php echo rt_icon('clock'); ?> <?php echo RT::e($p['read']); ?></span>
+                                <span><?php echo rt_icon('calendar'); ?> <time datetime="<?php echo RT::e($p['date']); ?>"><?php echo RT::e(date('M Y', strtotime($p['date']))); ?></time></span>
                             </div>
-                            <a href="/blog-scam-protection/" class="btn">Read Article</a>
+                            <a href="/<?php echo RT::e($p['slug']); ?>/" class="btn<?php if (!$p['featured']) echo ' btn-outline'; ?>">Read Article</a>
                         </div>
                     </article>
-
-                    <!-- Password Security -->
-                    <article class="blog-card">
-                        <div class="blog-card-content">
-                            <span class="blog-card-category">Online Safety</span>
-                            <h3>Password Security Made Simple</h3>
-                            <p>Stop using "password123"! Learn how to create strong passwords, use password managers, and set up two-factor authentication to protect your accounts.</p>
-                            <div class="blog-card-meta">
-                                <span><?php echo rt_icon('clock'); ?> 5 min read</span>
-                                <span><?php echo rt_icon('calendar'); ?> Nov 2025</span>
-                            </div>
-                            <a href="/blog-password-security/" class="btn btn-outline">Read Article</a>
-                        </div>
-                    </article>
-
-                    <!-- Computer Maintenance -->
-                    <article class="blog-card">
-                        <div class="blog-card-content">
-                            <span class="blog-card-category">Computer Care</span>
-                            <h3>Simple Computer Maintenance Tips</h3>
-                            <p>15 minutes a month can save you hundreds in repair bills. Here's your easy checklist for keeping your computer running fast and avoiding costly repairs.</p>
-                            <div class="blog-card-meta">
-                                <span><?php echo rt_icon('clock'); ?> 7 min read</span>
-                                <span><?php echo rt_icon('calendar'); ?> Nov 2025</span>
-                            </div>
-                            <a href="/blog-computer-maintenance/" class="btn btn-outline">Read Article</a>
-                        </div>
-                    </article>
-
-                    <!-- Malware Protection -->
-                    <article class="blog-card">
-                        <div class="blog-card-content">
-                            <span class="blog-card-category">Security</span>
-                            <h3>Malware Protection Playbook</h3>
-                            <p>Protect your devices from viruses, ransomware, and malware. Learn isolation steps, prevention strategies, and what to do if you get infected.</p>
-                            <div class="blog-card-meta">
-                                <span><?php echo rt_icon('clock'); ?> 8 min read</span>
-                            </div>
-                            <a href="/blog-malware-protection/" class="btn btn-outline">Read Article</a>
-                        </div>
-                    </article>
-
-                    <!-- Home Network -->
-                    <article class="blog-card">
-                        <div class="blog-card-content">
-                            <span class="blog-card-category">Networking</span>
-                            <h3>Home Network Tune-Up Checklist</h3>
-                            <p>Eliminate WiFi dead zones, boost your speeds, and secure every device in your home. Perfect for families with remote workers and students.</p>
-                            <div class="blog-card-meta">
-                                <span><?php echo rt_icon('clock'); ?> 6 min read</span>
-                            </div>
-                            <a href="/blog-home-network/" class="btn btn-outline">Read Article</a>
-                        </div>
-                    </article>
-
-                    <!-- Hardware Upgrades -->
-                    <article class="blog-card">
-                        <div class="blog-card-content">
-                            <span class="blog-card-category">Hardware</span>
-                            <h3>When to Upgrade Your Hardware</h3>
-                            <p>Is your computer slow because of old hardware? Learn the signs that indicate it's time for an upgrade vs. when a simple cleanup will do.</p>
-                            <div class="blog-card-meta">
-                                <span><?php echo rt_icon('clock'); ?> 5 min read</span>
-                            </div>
-                            <a href="/blog-hardware-upgrades/" class="btn btn-outline">Read Article</a>
-                        </div>
-                    </article>
-
-                    <!-- Cloud Services -->
-                    <article class="blog-card">
-                        <div class="blog-card-content">
-                            <span class="blog-card-category">Backup & Recovery</span>
-                            <h3>Cloud vs Local Backups</h3>
-                            <p>Don't lose your precious photos and documents. Learn about hybrid backup strategies that protect your data from hardware failure and disasters.</p>
-                            <div class="blog-card-meta">
-                                <span><?php echo rt_icon('clock'); ?> 6 min read</span>
-                            </div>
-                            <a href="/blog-cloud-services/" class="btn btn-outline">Read Article</a>
-                        </div>
-                    </article>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </section>

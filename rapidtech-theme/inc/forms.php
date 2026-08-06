@@ -68,6 +68,49 @@ function rt_verify_csrf(?string $submitted): bool
 }
 
 /**
+ * Flash-message helpers — used by the Post/Redirect/Get pattern to carry
+ * success state across a 303 redirect without session-side persistence
+ * beyond the next GET request.
+ */
+function rt_flash_set(string $key, array $data): void
+{
+    rt_ensure_session();
+    $_SESSION['rt_flash_' . $key] = $data;
+}
+
+function rt_flash_take(string $key): ?array
+{
+    rt_ensure_session();
+    $v = $_SESSION['rt_flash_' . $key] ?? null;
+    unset($_SESSION['rt_flash_' . $key]);
+    return $v;
+}
+
+/**
+ * Simple IP-based rate limiting using the booking JSONL log.
+ * At most one submission per IP per minute.
+ *
+ * @return string|null  Error message if rate-limited, null if clear.
+ */
+function rt_rate_limit(): ?string
+{
+    $log = RT::path('.bookings/bookings.jsonl');
+    if (!is_file($log)) { return null; }
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
+    if (empty($ip)) { return null; }
+    $cutoff = time() - 60;
+    $lines = @file($log, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    if (!$lines) { return null; }
+    foreach (array_slice($lines, -60) as $line) {
+        $e = json_decode($line, true);
+        if ($e && ($e['ip'] ?? '') === $ip && strtotime($e['time'] ?? '') >= $cutoff) {
+            return 'You just sent a request — please wait a minute before trying again.';
+        }
+    }
+    return null;
+}
+
+/**
  * Validate booking/contact form fields common to all three forms.
  *
  * @param array $post   Raw $_POST-shaped array.

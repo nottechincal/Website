@@ -129,7 +129,7 @@ CSS;
             <div class="stats-banner">
                 <h2 style="margin-top: 0; color: var(--text);">Trusted Across Melbourne's South-East</h2>
                 <div class="stats-grid">
-                    <div class="stat-item"><h3>25+</h3><p>Suburbs Serviced</p></div>
+                    <div class="stat-item"><h3><?php echo rt_suburb_count(); ?>+</h3><p>Suburbs Serviced</p></div>
                     <div class="stat-item"><h3><?php echo RT::RATING_VALUE; ?></h3><p>Star Rating</p></div>
                     <div class="stat-item"><h3>Same-Day</h3><p>Service Available</p></div>
                     <div class="stat-item"><h3>No Fix</h3><p>No Fee Guarantee</p></div>

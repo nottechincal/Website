@@ -239,7 +239,7 @@ function rt_header(bool $home = false, array $nav_links = []): void
     ?>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" role="banner">
-    <div class="container header-inner">
+    <div class="container wrap">
         <a class="brand" href="/">
             <span class="brand-mark lightning-animated" aria-hidden="true"></span>
             <?php echo RT::e(RT::NAME); ?>
@@ -299,7 +299,7 @@ function rt_footer(): void
     $year = date('Y');
     ?>
 <footer class="site-footer" role="contentinfo">
-    <div class="container footer-grid">
+    <div class="container fg">
         <div>
             <p class="footer-brand"><?php echo RT::e(RT::NAME); ?></p>
             <p><?php echo RT::e(RT::LOCALITY); ?>, <?php echo RT::REGION; ?> <?php echo RT::POSTCODE; ?></p>
@@ -319,16 +319,20 @@ function rt_footer(): void
             <ul>
                 <li><a href="/about/">About</a></li>
                 <li><a href="/book/">Book a Repair</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
                 <li><a href="/service-areas/">Service Areas</a></li>
+                <li><a href="/reviews/">Reviews</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/faq/">FAQ</a></li>
                 <li><a href="/privacy-policy/">Privacy Policy</a></li>
                 <li><a href="/terms-of-service/">Terms of Service</a></li>
+                <li><a href="/orderline/">Orderline &mdash; Procurement Software</a></li>
             </ul>
         </div>
         <div>
             <h2>Contact</h2>
             <ul>
+                <li><a href="/contact/">Contact Form</a></li>
                 <li><a href="tel:<?php echo RT::PHONE_E164; ?>"><?php echo RT::e(RT::PHONE_DISPLAY); ?></a></li>
                 <li><a href="mailto:<?php echo RT::EMAIL; ?>"><?php echo RT::EMAIL; ?></a></li>
                 <li><a href="<?php echo RT::WHATSAPP; ?>" rel="noopener">WhatsApp</a></li>
@@ -336,7 +340,7 @@ function rt_footer(): void
             </ul>
         </div>
     </div>
-    <div class="container footer-bottom">
+    <div class="container fb">
         <p>&copy; <?php echo $year; ?> <?php echo RT::e(RT::NAME); ?>. All rights reserved.</p>
     </div>
 </footer>

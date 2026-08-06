@@ -41,7 +41,7 @@ $add = function (string $path, ?string $file = null) use (&$urls, $theme) {
 $add('/', 'index.php');
 
 // Core pages.
-foreach (['about', 'service-areas', 'faq', 'blog', 'privacy-policy', 'terms-of-service'] as $slug) {
+foreach (['about', 'contact', 'orderline', 'pricing', 'reviews', 'service-areas', 'faq', 'blog', 'privacy-policy', 'terms-of-service'] as $slug) {
     if (is_file("$theme/$slug.php")) {
         $add("/$slug", "$slug.php");
     }
