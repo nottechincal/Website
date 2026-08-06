@@ -77,23 +77,41 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install lftp
-        run: sudo apt-get install -y lftp
-
-      - name: Deploy theme via FTP
+      - name: Deploy theme via FTP (Python)
+        shell: python
         run: |
-          lftp -e "
-            set ftp:ssl-allow no;
-            set ssl:verify-certificate no;
-            mirror --reverse --delete --verbose \
-              --exclude .git/ \
-              --exclude node_modules/ \
-              --exclude tools/ \
-              --exclude '*.md' \
-              --exclude .DS_Store \
-              ./rapidtech-theme/ ${{ vars.THEME_DIR || '/public_html/wp-content/themes/rapidtech-theme/' }};
-            quit
-          " -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}
+          import ftplib, os, sys, fnmatch
+          server = "${{ secrets.FTP_SERVER }}"
+          user = "${{ secrets.FTP_USERNAME }}"
+          pwd = "${{ secrets.FTP_PASSWORD }}"
+          remote = "${{ vars.THEME_DIR || '/public_html/wp-content/themes/rapidtech-theme/' }}"
+          local = "rapidtech-theme"
+          exclude = [".git", "node_modules", "tools", "*.md", ".DS_Store", ".gitignore"]
+          print(f"Connecting to {server} as {user}...")
+          try:
+              ftp = ftplib.FTP()
+              ftp.connect(server, 21, timeout=30)
+              ftp.login(user, pwd)
+              print(f"Connected. Uploading to {remote}...")
+              for root, dirs, files in os.walk(local):
+                  skip = any(fnmatch.fnmatch(root, f"*/{e}") or fnmatch.fnmatch(root, f"{local}/{e}") for e in exclude if "/" not in e)
+                  dirs[:] = [d for d in dirs if d not in exclude]
+                  if skip: continue
+                  rel = os.path.relpath(root, local).replace("\\", "/")
+                  target = remote.rstrip("/") + "/" + rel if rel != "." else remote.rstrip("/")
+                  try: ftp.cwd(target)
+                  except: ftp.mkd(target); ftp.cwd(target)
+                  for f in files:
+                      if any(fnmatch.fnmatch(f, e) for e in exclude): continue
+                      local_path = os.path.join(root, f)
+                      print(f"  {rel}/{f}" if rel != "." else f"  {f}")
+                      with open(local_path, "rb") as fh:
+                          ftp.storbinary(f"STOR {f}", fh)
+              ftp.quit()
+              print("Theme upload complete.")
+          except Exception as e:
+              print(f"FTP ERROR: {e}", file=sys.stderr)
+              sys.exit(1)
 
   deploy-webroot:
     name: Upload web-root files
@@ -105,15 +123,30 @@ jobs:
       # robots.txt, sitemap.xml, the Google verification file and the canonical
       # .htaccess are only ever read from the document root. They lived inside
       # the theme folder previously, where no crawler could reach them.
-      - name: Install lftp
-        run: sudo apt-get install -y lftp
-
-      - name: Deploy web-root files via FTP
+      - name: Deploy web-root files via FTP (Python)
+        shell: python
         run: |
-          lftp -e "
-            set ftp:ssl-allow no;
-            set ssl:verify-certificate no;
-            mirror --reverse --verbose \
-              ./deploy/webroot/ ${{ vars.WEBROOT_DIR || '/public_html/' }};
-            quit
-          " -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}
+          import ftplib, os, sys
+          server = "${{ secrets.FTP_SERVER }}"
+          user = "${{ secrets.FTP_USERNAME }}"
+          pwd = "${{ secrets.FTP_PASSWORD }}"
+          remote = "${{ vars.WEBROOT_DIR || '/public_html/' }}"
+          local = "deploy/webroot"
+          print(f"Connecting to {server} as {user}...")
+          try:
+              ftp = ftplib.FTP()
+              ftp.connect(server, 21, timeout=30)
+              ftp.login(user, pwd)
+              print(f"Connected. Uploading webroot files to {remote}...")
+              ftp.cwd(remote.rstrip("/"))
+              for f in os.listdir(local):
+                  local_path = os.path.join(local, f)
+                  if os.path.isfile(local_path):
+                      print(f"  {f}")
+                      with open(local_path, "rb") as fh:
+                          ftp.storbinary(f"STOR {f}", fh)
+              ftp.quit()
+              print("Webroot upload complete.")
+          except Exception as e:
+              print(f"FTP ERROR: {e}", file=sys.stderr)
+              sys.exit(1)
