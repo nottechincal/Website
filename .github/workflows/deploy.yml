@@ -83,7 +83,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
+          protocol: ${{ vars.FTP_PROTOCOL || 'ftp' }}
           local-dir: ./rapidtech-theme/
           server-dir: ${{ vars.THEME_DIR || '/public_html/wp-content/themes/rapidtech-theme/' }}
           dry-run: ${{ inputs.dry_run || false }}
